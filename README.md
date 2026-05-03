@@ -34,7 +34,7 @@ All intermediate results, reasoning traces, and design rationales are persisted 
 ## Repository Structure
 
 ```
-BIOCHEM_Tools/
+MolLingo/
 ├── agent.py              # LiteratureAgent + ChemistAgent
 ├── planner.py            # OrchestratorAgent — coordinates the pipeline
 ├── memory.py             # SharedMemory — single source of truth across agents
@@ -76,8 +76,8 @@ BIOCHEM_Tools/
 ### 1. Clone and set up environment
 
 ```bash
-git clone <repo-url>
-cd BIOCHEM_Tools
+git clone https://github.com/thaonguyen217/MolLingo
+cd MolLingo
 conda create -n MolLingo python=3.12
 conda activate MolLingo
 pip install -r requirements.txt
