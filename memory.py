@@ -6,7 +6,7 @@ from typing import Any, Optional
 @dataclass
 class SharedMemory:
     """
-    Central knowledge store shared across all ALMA agents.
+    Central knowledge store shared across all MolLingo agents.
     Persists structured results (hits, leads, candidates) and unstructured
     reasoning traces throughout the drug discovery workflow.
     """

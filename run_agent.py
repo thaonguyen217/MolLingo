@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-ALMA — Autonomous LLM Medicinal Chemist Agent
+MolLingo — Autonomous LLM Medicinal Chemist Agent
 ==============================================
 Runs the full drug discovery pipeline from a free-text research prompt.
 
@@ -95,7 +95,7 @@ def _divider(char="─", width=60):
 
 def print_summary(memory: SharedMemory):
     _divider("═")
-    print("  ALMA  —  Pipeline Summary")
+    print("  MolLingo  —  Pipeline Summary")
     _divider("═")
 
     # Research context
@@ -167,7 +167,7 @@ def print_summary(memory: SharedMemory):
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        description="ALMA: Autonomous LLM Medicinal Chemist Agent",
+        description="MolLingo: Autonomous LLM Medicinal Chemist Agent",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
@@ -224,15 +224,15 @@ def main():
     # Get prompt
     prompt = args.prompt
     if not prompt:
-        print("ALMA — Autonomous LLM Medicinal Chemist Agent")
+        print("MolLingo — Autonomous LLM Medicinal Chemist Agent")
         print("Enter your research prompt (e.g. 'Design a drug for Alzheimer's disease'):")
         prompt = input("> ").strip()
         if not prompt:
             print("No prompt provided. Exiting.")
             sys.exit(1)
 
-    print(f"\n[ALMA] Research prompt: \"{prompt}\"")
-    print("[ALMA] Parsing prompt ...\n")
+    print(f"\n[MolLingo] Research prompt: \"{prompt}\"")
+    print("[MolLingo] Parsing prompt ...\n")
 
     # Parse prompt with GPT
     params = parse_prompt(prompt)
@@ -263,7 +263,7 @@ def main():
         sys.exit(1)
 
     # Echo parsed parameters
-    print("[ALMA] Extracted parameters:")
+    print("[MolLingo] Extracted parameters:")
     for k, v in params.items():
         if v is not None:
             print(f"  {k:<20}: {v}")

@@ -5,7 +5,7 @@ from agent import LiteratureAgent, ChemistAgent
 
 class OrchestratorAgent:
     """
-    Coordinates the full ALMA drug discovery pipeline through a shared memory module:
+    Coordinates the full MolLingo drug discovery pipeline through a shared memory module:
 
       Stage 1 — Target identification   (LiteratureAgent)
       Stage 2 — Hit identification       (ChemistAgent)
@@ -115,7 +115,7 @@ class OrchestratorAgent:
         save_path: Optional[str] = None,
     ) -> dict:
         """
-        Run the full ALMA pipeline end-to-end and return a result summary.
+        Run the full MolLingo pipeline end-to-end and return a result summary.
         All task context (disease, target, gene_mutation, pathway, main_task, etc.)
         must be set on self.memory before calling run().
 
@@ -130,7 +130,7 @@ class OrchestratorAgent:
         save_path               : If set, saves full memory to this JSON path.
         """
         self.memory.log("OrchestratorAgent", "pipeline_start",
-                        f"ALMA starting for '{self.memory.disease}'")
+                        f"MolLingo starting for '{self.memory.disease}'")
 
         # Stage 1 — Target identification
         if not self.memory.uniprot_id:

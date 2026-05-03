@@ -1,6 +1,6 @@
-# ALMA — Autonomous LLM Medicinal Chemist Agent
+# MolLingo — MolLingo: Making Molecules More LLM-Readable for Autonomous Chemist Agents
 
-ALMA is a multi-agent system that emulates the reasoning process of a medicinal chemist to automate early-stage drug discovery. It coordinates a **Literature Agent**, a **Chemist Agent**, and an **Orchestrator** through a shared memory module, grounding molecular reasoning in block-based chemical representations and physics-based docking simulations.
+MolLingo is a multi-agent system that emulates the reasoning process of a medicinal chemist to automate early-stage drug discovery. It coordinates a **Literature Agent**, a **Chemist Agent**, and an **Orchestrator** through a shared memory module, grounding molecular reasoning in block-based chemical representations and physics-based docking simulations.
 
 > Based on the paper: *"Chemistry in Plain Language: Block-Based Representation Enable LLMs as Medicinal Chemist Agents"* (NeurIPS 2026 submission)
 
@@ -78,8 +78,8 @@ BIOCHEM_Tools/
 ```bash
 git clone <repo-url>
 cd BIOCHEM_Tools
-conda create -n alma python=3.12
-conda activate alma
+conda create -n MolLingo python=3.12
+conda activate MolLingo
 pip install -r requirements.txt
 ```
 
@@ -115,8 +115,8 @@ GEMINI_MODEL    = "gemini-pro-latest"
 ### Command-line (recommended)
 
 ```bash
-cd ALMA
-conda activate alma
+cd MolLingo
+conda activate MolLingo
 ```
 
 **Full pipeline from a disease prompt:**
@@ -227,7 +227,7 @@ agent.run_lead_optimization(num_leads=5, variants=30)  # continue from leads
 
 ### Block-Based SMILES (BFE Tokenization)
 
-Instead of raw SMILES strings, ALMA decomposes molecules into chemically meaningful building blocks using BRICS-based Fragment Enumeration (BFE). Each block is represented as a SMILES token with attachment points (`[1*]`, `[2*]`) and paired with its common chemical name:
+Instead of raw SMILES strings, MolLingo decomposes molecules into chemically meaningful building blocks using BRICS-based Fragment Enumeration (BFE). Each block is represented as a SMILES token with attachment points (`[1*]`, `[2*]`) and paired with its common chemical name:
 
 ```
 imatinib → pyridine → 3-aminopyridine → toluene → benzamide → piperazine
@@ -262,10 +262,10 @@ For each hit molecule:
 
 <!-- ## Citation -->
 
-<!-- If you use ALMA in your research, please cite:
+<!-- If you use MolLingo in your research, please cite:
 
 ```bibtex
-@inproceedings{alma2026,
+@inproceedings{MolLingo2026,
   title     = {Chemistry in Plain Language: Block-Based Representation Enable LLMs as Medicinal Chemist Agents},
   author    = {Anonymous},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
