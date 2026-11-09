@@ -1,0 +1,38 @@
+Disease,Target,Uniprot ID,Reference
+Breast cancer,Estrogen Receptor Alpha (ERα),P03372,Targeting the Estrogen Receptor for the Treatment of Breast Cancer: Recent Advances and Challenges
+Breast cancer,HER2 (ERBB2),P04626,Targeting HER2-positive breast cancer: advances and future directions
+Non-small cell lung cancer,KRAS,P01116,Protein Kinase C as a Therapeutic Target in Non‑Small Cell Lung Cancer
+Melanoma,BRAF,P15056,BRAF as therapeutic target in melanoma
+Chronic myeloid leukemia,BCR-ABL1,P00519,Effects of a selective inhibitor of the Abl tyrosine kinase on the growth of Bcr–Abl positive cells
+Colon cancer,Vascular Endothelial Growth Factor (VEGF),['P15692'],['Targeted Therapy Drugs for Colorectal Cancer (American Cancer Society)']
+Prostate cancer,Androgen Receptor,P10275,Protein Degradation Inducers of Androgen Receptor by Conjugation of Antagonists Androgen Receptor and E3 Ligase Ligand
+Acute myeloid leukemia,FLT3,P36888,Midostaurin prolongs survival in FLT3‑mutated AML (RATIFY trial)
+Rheumatoid arthritis,Tumor Necrosis Factor-alpha,P01375,Targeting rheumatoid arthritis: a molecular perspective on biologic therapies and clinical progress
+Psoriasis,Interleukin-17A,['Q16552'],['Psoriasis: rationale for targeting interleukin‑17']
+Multiple sclerosis,Myelin Oligodendrocyte Glycoprotein (MOG),Q16653,Identification of a pathogenic antibody response to native myelin oligodendrocyte glycoprotein in multiple sclerosis
+Multiple sclerosis,Myelin Basic Protein (MBP),P02686,Multiple Sclerosis: An Important Role for Post-Translational Modifications of Myelin Basic Protein in Pathogenesis
+Alzheimer’s disease,Amyloid-beta (via APP),P05067,Amyloid beta‑protein assembly as a therapeutic target of Alzheimer’s disease
+Parkinson’s disease,Alpha-synuclein,['P37840'],['Targeting the alpha‑synuclein protein to treat Parkinson’s disease using novel inhibitors identified using an integrated computational drug development approaches']
+Type 2 diabetes,Protein Target Name,['P18031'],['PTP1B as a Therapeutic Target: A Technical Guide to the Selective Inhibitor TCS 401']
+Hypercholesterolemia,PCSK9,['Q8NBP7'],['Targeting PCSK9 for the treatment of hypercholesterolemia']
+Hypertension,Angiotensin II receptor type 1,['P30556'],['Angiotensin II receptor blockers are drugs indicated for hypertension…']
+Hypertension,Endothelin‑1,['P05305'],['Endothelin‑1 is a potent vasoconstrictor… Endothelin‑1 receptor antagonists…']
+Hypertension,ERAP1,['Q9NZ08'],['Potential Therapeutic Drug Targets for Hypertension Identified Using Proteomics and Mendelian Randomization']
+Hypertension,ACVRL1,['Q04771'],['Potential Therapeutic Drug Targets for Hypertension Identified Using Proteomics and Mendelian Randomization']
+Hypertension,Renin,['P00797'],['Identification of novel proteomic biomarkers for hypertension: a targeted approach for precision medicine']
+Asthma,IL-4 receptor alpha chain,['P24394'],"['Monoclonal antibodies targeting IL4R, such as Dupilumab, have been approved for asthma treatment']"
+Chronic obstructive pulmonary disease,Alpha-1 antitrypsin,['P01009'],['Role of elastases in the pathogenesis of chronic obstructive pulmonary disease: Implications for treatment']
+HIV,CD4,P01730,"Human Immunodeficiency Virus Immune Cell Receptors, Coreceptors, and Cofactors: Implications for Prevention and Treatment"
+Hepatitis C,NS5A,NS5A (HCV) Uniprot ID not provided in source,Phosphorylation of hepatitis C virus NS5A nonstructural protein: A new paradigm for phosphorylation-dependent viral RNA replication?
+Influenza,Hemagglutinin,P03437,Hemagglutinin protein of Asian strains of human influenza virus A H1N1 binds to sialic acid—a major component of human airway receptors
+Malaria,PfATP6,['PfATP6 (P-type calcium transporting ATPase) – Uniprot accession not specified in source'],"['Artemisinins target the SERCA of Plasmodium falciparum (Nature, August 2003)']"
+Tuberculosis,InhA,['P05111'],['The progress of Mycobacterium tuberculosis drug targets']
+Crohn’s disease,NOD2,['Q9HC29'],['Nucleotide‑binding oligomerization domain‑containing protein 2 (NOD2) and its role in Crohn’s disease']
+Ulcerative colitis,Interleukin-23 (IL-23),['P78558'],"['Effectiveness and Safety of Selective IL-23 Receptor Antagonists in Moderate to Severe Ulcerative Colitis: A Systematic Review, Meta-Analysis and Trial Sequential Analysis']"
+Osteoporosis,RANKL,['O14788'],['RANKL as a target for the treatment of osteoporosis']
+Sickle cell disease,Hemoglobin subunit beta,P68871,Silencing of BCL11A by Disrupting Enhancer‑Dependent Epigenetic Insulation
+Sickle cell disease,BCL11A,Q9H165,Silencing of BCL11A by Disrupting Enhancer‑Dependent Epigenetic Insulation
+Epilepsy,NaV1.1 (SCN1A),"['[Please insert the UniProt ID for human SCN1A, e.g., Q99250]']","['SCN1A/NaV1.1 channelopathies: Mechanisms in expression systems, animal models, and human iPSC models']"
+Migraine,CGRP Receptor (CALCRL + RAMP1),"['Q16602', 'O60894']",Targeting enkephalins and pituitary adenylate cyclase‑activating polypeptide (PACAP) in migraine
+Obesity,Fibroblast Growth Factor 21 (FGF-21),['P54652'],['Adipokines as Clinically Relevant Therapeutic Targets in Obesity']
+COVID-19,Spike glycoprotein,P0DTC2,SARS‑CoV‑2 Proteins: Are They Useful as Targets for COVID‑19 Drugs and Vaccines?
