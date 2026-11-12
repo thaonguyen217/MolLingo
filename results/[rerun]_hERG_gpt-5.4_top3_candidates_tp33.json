@@ -1,0 +1,3304 @@
+{
+  "CC1=C(N=CN1)CN2CCC3=C(C2=O)C4=CC=CC=C4N3C": {
+    "candidate_1": {
+      "smiles_before": "CC1=C(N=CN1)CN2CCC3=C(C2=O)C4=CC=CC=C4N3C",
+      "smiles_after": "Cn1ccc(CN2CCc3c(c4ccc(O)cc4n3C)C2=O)n1",
+      "smiles_after_valid": true,
+      "modification": "(block combination not recoverable from saved rationales)",
+      "block_changes": [],
+      "original_candidate_id": "variant_8",
+      "rank": 1,
+      "hERG_before": 0.6884,
+      "hERG_after": 0.6756,
+      "herg_reduction": 0.0128,
+      "improvement_percent": 1.859,
+      "tanimoto_similarity": 0.439,
+      "SA_after": 2.7539,
+      "QED_after": 0.7851,
+      "n_candidates_in_pool": 15
+    },
+    "candidate_2": {
+      "smiles_before": "CC1=C(N=CN1)CN2CCC3=C(C2=O)C4=CC=CC=C4N3C",
+      "smiles_after": "Cn1c2c(c3ccc(O)cc31)C(=O)N(Cc1nccs1)CC2",
+      "smiles_after_valid": true,
+      "modification": "(block combination not recoverable from saved rationales)",
+      "block_changes": [],
+      "original_candidate_id": "variant_7",
+      "rank": 2,
+      "hERG_before": 0.6884,
+      "hERG_after": 0.6784,
+      "herg_reduction": 0.01,
+      "improvement_percent": 1.45,
+      "tanimoto_similarity": 0.448,
+      "SA_after": 2.7473,
+      "QED_after": 0.7908,
+      "n_candidates_in_pool": 15
+    },
+    "candidate_3": {
+      "smiles_before": "CC1=C(N=CN1)CN2CCC3=C(C2=O)C4=CC=CC=C4N3C",
+      "smiles_after": "Cn1ccc(CN2CCc3c(c4ccncc4n3C)C2=O)n1",
+      "smiles_after_valid": true,
+      "modification": "(block combination not recoverable from saved rationales)",
+      "block_changes": [],
+      "original_candidate_id": "variant_13",
+      "rank": 3,
+      "hERG_before": 0.6884,
+      "hERG_after": 0.679,
+      "herg_reduction": 0.0093,
+      "improvement_percent": 1.358,
+      "tanimoto_similarity": 0.446,
+      "SA_after": 2.8091,
+      "QED_after": 0.7198,
+      "n_candidates_in_pool": 15
+    }
+  },
+  "COC1=CC=C(C=C1)CCN2CCC(CC2)NC3=NC4=CC=CC=C4N3CC5=CC=C(C=C5)F": {
+    "candidate_1": {
+      "smiles_before": "COC1=CC=C(C=C1)CCN2CCC(CC2)NC3=NC4=CC=CC=C4N3CC5=CC=C(C=C5)F",
+      "smiles_after": "NCc1ccc(Cn2c(NN3CCN(CCc4cc(O)ccn4)CC3)nc3ccc(O)cc32)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile. | [2*]c1ccc([1*])cc1 -> [2*]c1cc([1*])ncc1: Replacing phenyl with pyridyl lowers lipophilicity and introduces a heteroatom, often beneficial for hERG and solubility. | [2*]CCN1CCC([1*])CC1 -> [2*]CCN1CCN([1*])CC1: Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility. | [2*]Nc1nc2ccccc2n1[1*] -> [2*]Nc1nc2ccc(O)cc2n1[1*]: Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface. | [2*]Cc1ccc(F)cc1 -> [2*]Cc1ccc(CN)cc1: An aminomethyl substituent adds a solubilizing handle and reduces the purely lipophilic character of the aryl group.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]c1ccc([1*])cc1",
+          "substitute_block": "[2*]c1cc([1*])ncc1",
+          "rationale": "Replacing phenyl with pyridyl lowers lipophilicity and introduces a heteroatom, often beneficial for hERG and solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]CCN1CCC([1*])CC1",
+          "substitute_block": "[2*]CCN1CCN([1*])CC1",
+          "rationale": "Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]Nc1nc2ccccc2n1[1*]",
+          "substitute_block": "[2*]Nc1nc2ccc(O)cc2n1[1*]",
+          "rationale": "Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]Cc1ccc(F)cc1",
+          "substitute_block": "[2*]Cc1ccc(CN)cc1",
+          "rationale": "An aminomethyl substituent adds a solubilizing handle and reduces the purely lipophilic character of the aryl group."
+        }
+      ],
+      "original_candidate_id": "variant_816",
+      "rank": 1,
+      "hERG_before": 0.7465,
+      "hERG_after": 0.6918,
+      "herg_reduction": 0.0547,
+      "improvement_percent": 7.323,
+      "tanimoto_similarity": 0.314,
+      "SA_after": 2.9081,
+      "QED_after": 0.3086,
+      "n_candidates_in_pool": 1357
+    },
+    "candidate_2": {
+      "smiles_before": "COC1=CC=C(C=C1)CCN2CCC(CC2)NC3=NC4=CC=CC=C4N3CC5=CC=C(C=C5)F",
+      "smiles_after": "Oc1ccc2nc(NN3CCN(CCc4ccc(F)c(O)c4)CC3)n(Cc3ccncc3)c2c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile. | [2*]c1ccc([1*])cc1 -> [2*]c1cc([1*])ccc1F: Strategic fluorination can tune electronics and reduce oxidative metabolism, helping maintain potency during broader hERG optimization. | [2*]CCN1CCC([1*])CC1 -> [2*]CCN1CCN([1*])CC1: Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility. | [2*]Nc1nc2ccccc2n1[1*] -> [2*]Nc1nc2ccc(O)cc2n1[1*]: Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface. | [2*]Cc1ccc(F)cc1 -> [2*]Cc1ccncc1: Pyridylmethyl is a classic lipophilicity-reducing replacement for fluorobenzyl and may lower hERG while retaining aromatic recognition.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]c1ccc([1*])cc1",
+          "substitute_block": "[2*]c1cc([1*])ccc1F",
+          "rationale": "Strategic fluorination can tune electronics and reduce oxidative metabolism, helping maintain potency during broader hERG optimization."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]CCN1CCC([1*])CC1",
+          "substitute_block": "[2*]CCN1CCN([1*])CC1",
+          "rationale": "Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]Nc1nc2ccccc2n1[1*]",
+          "substitute_block": "[2*]Nc1nc2ccc(O)cc2n1[1*]",
+          "rationale": "Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]Cc1ccc(F)cc1",
+          "substitute_block": "[2*]Cc1ccncc1",
+          "rationale": "Pyridylmethyl is a classic lipophilicity-reducing replacement for fluorobenzyl and may lower hERG while retaining aromatic recognition."
+        }
+      ],
+      "original_candidate_id": "variant_939",
+      "rank": 2,
+      "hERG_before": 0.7465,
+      "hERG_after": 0.6932,
+      "herg_reduction": 0.0532,
+      "improvement_percent": 7.133,
+      "tanimoto_similarity": 0.357,
+      "SA_after": 2.8042,
+      "QED_after": 0.3886,
+      "n_candidates_in_pool": 1357
+    },
+    "candidate_3": {
+      "smiles_before": "COC1=CC=C(C=C1)CCN2CCC(CC2)NC3=NC4=CC=CC=C4N3CC5=CC=C(C=C5)F",
+      "smiles_after": "NCc1ccc(Cn2c(NN3CCN(CCc4ccc(O)cc4)CC3)nc3ccc(O)cc32)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile. | [2*]CCN1CCC([1*])CC1 -> [2*]CCN1CCN([1*])CC1: Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility. | [2*]Nc1nc2ccccc2n1[1*] -> [2*]Nc1nc2ccc(O)cc2n1[1*]: Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface. | [2*]Cc1ccc(F)cc1 -> [2*]Cc1ccc(CN)cc1: An aminomethyl substituent adds a solubilizing handle and reduces the purely lipophilic character of the aryl group.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol formation reduces lipophilicity and removes an O-demethylation soft spot, potentially improving safety and metabolic profile."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]CCN1CCC([1*])CC1",
+          "substitute_block": "[2*]CCN1CCN([1*])CC1",
+          "rationale": "Replacing piperidine with a more polar diamine-containing ring may reduce lipophilicity and hERG channel affinity while improving solubility."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]Nc1nc2ccccc2n1[1*]",
+          "substitute_block": "[2*]Nc1nc2ccc(O)cc2n1[1*]",
+          "rationale": "Adding a phenolic OH increases polarity and may reduce hERG by lowering lipophilicity and aromatic hydrophobic surface."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]Cc1ccc(F)cc1",
+          "substitute_block": "[2*]Cc1ccc(CN)cc1",
+          "rationale": "An aminomethyl substituent adds a solubilizing handle and reduces the purely lipophilic character of the aryl group."
+        }
+      ],
+      "original_candidate_id": "variant_690",
+      "rank": 3,
+      "hERG_before": 0.7465,
+      "hERG_after": 0.695,
+      "herg_reduction": 0.0515,
+      "improvement_percent": 6.893,
+      "tanimoto_similarity": 0.372,
+      "SA_after": 2.6614,
+      "QED_after": 0.3124,
+      "n_candidates_in_pool": 1357
+    }
+  },
+  "CC(C)COCC(CN(CC1=CC=CC=C1)C2=CC=CC=C2)N3CCCC3": {
+    "candidate_1": {
+      "smiles_before": "CC(C)COCC(CN(CC1=CC=CC=C1)C2=CC=CC=C2)N3CCCC3",
+      "smiles_after": "CC(C)COCC(CNC(=O)c1ccccc1)N1CCCC1",
+      "smiles_after_valid": true,
+      "modification": "[2*]N(Cc1ccccc1)c1ccccc1 -> [2*]NC(=O)c1ccccc1: Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(Cc1ccccc1)c1ccccc1",
+          "substitute_block": "[2*]NC(=O)c1ccccc1",
+          "rationale": "Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially."
+        }
+      ],
+      "original_candidate_id": "variant_0",
+      "rank": 1,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.6786,
+      "herg_reduction": 0.0117,
+      "improvement_percent": 1.702,
+      "tanimoto_similarity": 0.491,
+      "SA_after": 2.6039,
+      "QED_after": 0.8023,
+      "n_candidates_in_pool": 9
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)COCC(CN(CC1=CC=CC=C1)C2=CC=CC=C2)N3CCCC3",
+      "smiles_after": "O=C(NCC(COCCO)N1CCCC1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC(C)C -> [1*]CCO: Replacing isobutyl with hydroxyethyl lowers cLogP and increases polarity, often reducing hERG liability. | [2*]N(Cc1ccccc1)c1ccccc1 -> [2*]NC(=O)c1ccccc1: Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC(C)C",
+          "substitute_block": "[1*]CCO",
+          "rationale": "Replacing isobutyl with hydroxyethyl lowers cLogP and increases polarity, often reducing hERG liability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(Cc1ccccc1)c1ccccc1",
+          "substitute_block": "[2*]NC(=O)c1ccccc1",
+          "rationale": "Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially."
+        }
+      ],
+      "original_candidate_id": "variant_3",
+      "rank": 2,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.6799,
+      "herg_reduction": 0.0104,
+      "improvement_percent": 1.501,
+      "tanimoto_similarity": 0.344,
+      "SA_after": 2.5906,
+      "QED_after": 0.6986,
+      "n_candidates_in_pool": 9
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)COCC(CN(CC1=CC=CC=C1)C2=CC=CC=C2)N3CCCC3",
+      "smiles_after": "O=C(NOCC(CN1CCCC1)OCCO)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC(C)C -> [1*]CCO: Replacing isobutyl with hydroxyethyl lowers cLogP and increases polarity, often reducing hERG liability. | [2*]OCC(C[1*])N1CCCC1 -> [2*]OC(CO[1*])CN1CCCC1: Changing linker topology can disrupt the cation-aromatic spacing associated with hERG binding. | [2*]N(Cc1ccccc1)c1ccccc1 -> [2*]NC(=O)c1ccccc1: Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC(C)C",
+          "substitute_block": "[1*]CCO",
+          "rationale": "Replacing isobutyl with hydroxyethyl lowers cLogP and increases polarity, often reducing hERG liability."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OCC(C[1*])N1CCCC1",
+          "substitute_block": "[2*]OC(CO[1*])CN1CCCC1",
+          "rationale": "Changing linker topology can disrupt the cation-aromatic spacing associated with hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(Cc1ccccc1)c1ccccc1",
+          "substitute_block": "[2*]NC(=O)c1ccccc1",
+          "rationale": "Replacing a lipophilic tertiary diaryl amine with an amide lowers basicity and usually reduces hERG risk substantially."
+        }
+      ],
+      "original_candidate_id": "variant_7",
+      "rank": 3,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.685,
+      "herg_reduction": 0.0053,
+      "improvement_percent": 0.766,
+      "tanimoto_similarity": 0.217,
+      "SA_after": 2.8132,
+      "QED_after": 0.6611,
+      "n_candidates_in_pool": 9
+    }
+  },
+  "CC(C)(C)N1CCC(CC1)(C2=CC=CC=C2)C3=CC=CC=C3": {
+    "candidate_1": {
+      "smiles_before": "CC(C)(C)N1CCC(CC1)(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "[2*]C1CN(C(C)(C)C)CC[C@@H]1c1cccc(O)c1",
+      "smiles_after_valid": true,
+      "modification": "[2*]N1CCC([1*])(c2ccccc2)CC1 -> [2*]N1CC[C@H]([1*])C([2*])C1: Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity. | [2*]c1ccccc1 -> [2*]c1cccc(O)c1: A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]N1CCC([1*])(c2ccccc2)CC1",
+          "substitute_block": "[2*]N1CC[C@H]([1*])C([2*])C1",
+          "rationale": "Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1cccc(O)c1",
+          "rationale": "A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered."
+        }
+      ],
+      "original_candidate_id": "variant_12",
+      "rank": 1,
+      "hERG_before": 0.6698,
+      "hERG_after": 0.6239,
+      "herg_reduction": 0.0459,
+      "improvement_percent": 6.851,
+      "tanimoto_similarity": 0.265,
+      "SA_after": 3.787,
+      "QED_after": 0.8026,
+      "n_candidates_in_pool": 102
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)(C)N1CCC(CC1)(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "[2*]C1CN(C(C)C)CC[C@@H]1c1cccc(O)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(C)(C)C -> [1*]C(C)C: Replace tert-butyl with isopropyl to reduce lipophilicity and steric hydrophobic bulk around the basic nitrogen. This often lowers hERG binding by decreasing cationic amphiphilicity while retaining a hydrophobic N-substituent. | [2*]N1CCC([1*])(c2ccccc2)CC1 -> [2*]N1CC[C@H]([1*])C([2*])C1: Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity. | [2*]c1ccccc1 -> [2*]c1cccc(O)c1: A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(C)(C)C",
+          "substitute_block": "[1*]C(C)C",
+          "rationale": "Replace tert-butyl with isopropyl to reduce lipophilicity and steric hydrophobic bulk around the basic nitrogen. This often lowers hERG binding by decreasing cationic amphiphilicity while retaining a hydrophobic N-substituent."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]N1CCC([1*])(c2ccccc2)CC1",
+          "substitute_block": "[2*]N1CC[C@H]([1*])C([2*])C1",
+          "rationale": "Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1cccc(O)c1",
+          "rationale": "A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered."
+        }
+      ],
+      "original_candidate_id": "variant_30",
+      "rank": 2,
+      "hERG_before": 0.6698,
+      "hERG_after": 0.6277,
+      "herg_reduction": 0.0421,
+      "improvement_percent": 6.286,
+      "tanimoto_similarity": 0.148,
+      "SA_after": 3.6397,
+      "QED_after": 0.8247,
+      "n_candidates_in_pool": 102
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)(C)N1CCC(CC1)(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "[2*]C1CN(C(=O)OC)CC[C@@H]1c1cccc(O)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(C)(C)C -> [1*]C(=O)OC: Converting the N-tert-butyl motif to an N-carbamate removes the strongly basic tertiary amine character at nitrogen by making it an amide-like carbamate nitrogen. This is a classic hERG-reduction strategy, though target potency may drop if a cation is required. | [2*]N1CCC([1*])(c2ccccc2)CC1 -> [2*]N1CC[C@H]([1*])C([2*])C1: Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity. | [2*]c1ccccc1 -> [2*]c1cccc(O)c1: A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(C)(C)C",
+          "substitute_block": "[1*]C(=O)OC",
+          "rationale": "Converting the N-tert-butyl motif to an N-carbamate removes the strongly basic tertiary amine character at nitrogen by making it an amide-like carbamate nitrogen. This is a classic hERG-reduction strategy, though target potency may drop if a cation is required."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]N1CCC([1*])(c2ccccc2)CC1",
+          "substitute_block": "[2*]N1CC[C@H]([1*])C([2*])C1",
+          "rationale": "Conformational restriction / desymmetrization of the piperidine environment can reduce promiscuous hydrophobic binding, including hERG. Introducing stereochemical bias and reducing symmetry may improve selectivity and lower off-target activity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1cccc(O)c1",
+          "rationale": "A phenol introduces a hydrogen-bond donor/acceptor and significantly increases polarity relative to phenyl. This can reduce hERG binding and improve solubility, though glucuronidation risk should be considered."
+        }
+      ],
+      "original_candidate_id": "variant_94",
+      "rank": 3,
+      "hERG_before": 0.6698,
+      "hERG_after": 0.6283,
+      "herg_reduction": 0.0415,
+      "improvement_percent": 6.196,
+      "tanimoto_similarity": 0.138,
+      "SA_after": 3.6109,
+      "QED_after": 0.8106,
+      "n_candidates_in_pool": 102
+    }
+  },
+  "COC1=CC(=C(C(=C1)OC)C(=O)CCCN2CCCC2)OC": {
+    "candidate_1": {
+      "smiles_before": "COC1=CC(=C(C(=C1)OC)C(=O)CCCN2CCCC2)OC",
+      "smiles_after": "COc1cc(O)cc(OC)c1C(=O)C(F)CCO",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCCC1 -> [1*]O: Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding. | [1*]C(=O)CCC[2*] -> [1*]C(=O)C(F)CC[2*]: Beta-fluorination can tune electronics, reduce nearby amine basicity, and improve metabolic stability. | [2*]OC -> [2*]O: Demethylating one methoxy to phenol reduces lipophilicity and removes a metabolic soft spot, potentially improving ADMET.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N1CCCC1",
+          "substitute_block": "[1*]O",
+          "rationale": "Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(=O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)C(F)CC[2*]",
+          "rationale": "Beta-fluorination can tune electronics, reduce nearby amine basicity, and improve metabolic stability."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]OC",
+          "substitute_block": "[2*]O",
+          "rationale": "Demethylating one methoxy to phenol reduces lipophilicity and removes a metabolic soft spot, potentially improving ADMET."
+        }
+      ],
+      "original_candidate_id": "variant_94",
+      "rank": 1,
+      "hERG_before": 0.6807,
+      "hERG_after": 0.6348,
+      "herg_reduction": 0.0459,
+      "improvement_percent": 6.743,
+      "tanimoto_similarity": 0.308,
+      "SA_after": 3.0912,
+      "QED_after": 0.7523,
+      "n_candidates_in_pool": 127
+    },
+    "candidate_2": {
+      "smiles_before": "COC1=CC(=C(C(=C1)OC)C(=O)CCCN2CCCC2)OC",
+      "smiles_after": "COc1cc(OC)c(C(=O)CO)c(OC)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCCC1 -> [1*]O: Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding. | [1*]C(=O)CCC[2*] -> [1*]C(=O)C[2*]: Further linker shortening can strongly perturb hERG pharmacophore alignment and reduce off-target channel affinity.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N1CCCC1",
+          "substitute_block": "[1*]O",
+          "rationale": "Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(=O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)C[2*]",
+          "rationale": "Further linker shortening can strongly perturb hERG pharmacophore alignment and reduce off-target channel affinity."
+        }
+      ],
+      "original_candidate_id": "variant_87",
+      "rank": 2,
+      "hERG_before": 0.6807,
+      "hERG_after": 0.6378,
+      "herg_reduction": 0.0429,
+      "improvement_percent": 6.301,
+      "tanimoto_similarity": 0.525,
+      "SA_after": 2.1104,
+      "QED_after": 0.7551,
+      "n_candidates_in_pool": 127
+    },
+    "candidate_3": {
+      "smiles_before": "COC1=CC(=C(C(=C1)OC)C(=O)CCCN2CCCC2)OC",
+      "smiles_after": "COc1cc(OC)c(C(=O)CCO)c(OC)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCCC1 -> [1*]O: Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding. | [1*]C(=O)CCC[2*] -> [1*]C(=O)CC[2*]: Shortening the linker reduces flexibility and disrupts the aryl-carbonyl-amine spacing associated with hERG binding.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N1CCCC1",
+          "substitute_block": "[1*]O",
+          "rationale": "Removing the basic amine is a strong strategy to reduce hERG liability by eliminating the protonated center often required for channel binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(=O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)CC[2*]",
+          "rationale": "Shortening the linker reduces flexibility and disrupts the aryl-carbonyl-amine spacing associated with hERG binding."
+        }
+      ],
+      "original_candidate_id": "variant_84",
+      "rank": 3,
+      "hERG_before": 0.6807,
+      "hERG_after": 0.6379,
+      "herg_reduction": 0.0428,
+      "improvement_percent": 6.293,
+      "tanimoto_similarity": 0.575,
+      "SA_after": 2.0897,
+      "QED_after": 0.7586,
+      "n_candidates_in_pool": 127
+    }
+  },
+  "CC(C)(CC1=CC=C(C=C1)Cl)N": {
+    "candidate_1": {
+      "smiles_before": "CC(C)(CC1=CC=C(C=C1)Cl)N",
+      "smiles_after": "CC(C)(C(N)=O)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccc(Cl)cc1 -> [1*]c1ccc(O)cc1: Replacing chlorine with a hydroxyl group substantially increases polarity and lowers logP. Increased polarity often reduces hERG affinity and may also improve solubility, though permeability and metabolic conjugation should be monitored. | [2*]CC(C)(C)N -> [2*]C(C)(C)C(=O)N: Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccc(Cl)cc1",
+          "substitute_block": "[1*]c1ccc(O)cc1",
+          "rationale": "Replacing chlorine with a hydroxyl group substantially increases polarity and lowers logP. Increased polarity often reduces hERG affinity and may also improve solubility, though permeability and metabolic conjugation should be monitored."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)(C)N",
+          "substitute_block": "[2*]C(C)(C)C(=O)N",
+          "rationale": "Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially."
+        }
+      ],
+      "original_candidate_id": "variant_21",
+      "rank": 1,
+      "hERG_before": 0.6573,
+      "hERG_after": 0.6228,
+      "herg_reduction": 0.0345,
+      "improvement_percent": 5.248,
+      "tanimoto_similarity": 0.194,
+      "SA_after": 2.0731,
+      "QED_after": 0.715,
+      "n_candidates_in_pool": 57
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)(CC1=CC=C(C=C1)Cl)N",
+      "smiles_after": "CC(C)(C(N)=O)c1ccncc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccc(Cl)cc1 -> [1*]c1ccncc1: Replacing phenyl with pyridyl lowers lipophilicity and introduces a ring nitrogen, a classic tactic to reduce hERG and improve solubility while preserving aromatic shape. | [2*]CC(C)(C)N -> [2*]C(C)(C)C(=O)N: Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccc(Cl)cc1",
+          "substitute_block": "[1*]c1ccncc1",
+          "rationale": "Replacing phenyl with pyridyl lowers lipophilicity and introduces a ring nitrogen, a classic tactic to reduce hERG and improve solubility while preserving aromatic shape."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)(C)N",
+          "substitute_block": "[2*]C(C)(C)C(=O)N",
+          "rationale": "Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially."
+        }
+      ],
+      "original_candidate_id": "variant_43",
+      "rank": 2,
+      "hERG_before": 0.6573,
+      "hERG_after": 0.6264,
+      "herg_reduction": 0.0309,
+      "improvement_percent": 4.704,
+      "tanimoto_similarity": 0.189,
+      "SA_after": 2.3111,
+      "QED_after": 0.7039,
+      "n_candidates_in_pool": 57
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)(CC1=CC=C(C=C1)Cl)N",
+      "smiles_after": "CC(C)(C(N)=O)c1ccc(N)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccc(Cl)cc1 -> [1*]c1ccc(N)cc1: A para-amino substituent increases polarity and can reduce overall hydrophobicity. Depending on protonation state, it may improve solubility, though total basicity must be managed because excess cationic character can still contribute to hERG. | [2*]CC(C)(C)N -> [2*]C(C)(C)C(=O)N: Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccc(Cl)cc1",
+          "substitute_block": "[1*]c1ccc(N)cc1",
+          "rationale": "A para-amino substituent increases polarity and can reduce overall hydrophobicity. Depending on protonation state, it may improve solubility, though total basicity must be managed because excess cationic character can still contribute to hERG."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)(C)N",
+          "substitute_block": "[2*]C(C)(C)C(=O)N",
+          "rationale": "Moving to a primary amide analog lowers basicity and increases polarity. This can reduce hERG and improve physicochemical properties, though it changes geometry and may alter target engagement substantially."
+        }
+      ],
+      "original_candidate_id": "variant_36",
+      "rank": 3,
+      "hERG_before": 0.6573,
+      "hERG_after": 0.6294,
+      "herg_reduction": 0.0278,
+      "improvement_percent": 4.237,
+      "tanimoto_similarity": 0.229,
+      "SA_after": 2.1188,
+      "QED_after": 0.664,
+      "n_candidates_in_pool": 57
+    }
+  },
+  "COC1CN(CCC1NC(=O)C2=CC(=C(C=C2OC)N)Cl)CCCOC3=CC=C(C=C3)F": {
+    "candidate_1": {
+      "smiles_before": "COC1CN(CCC1NC(=O)C2=CC(=C(C=C2OC)N)Cl)CCCOC3=CC=C(C=C3)F",
+      "smiles_after": "Nc1cc(O)c(C(=O)NC2CN(COCOc3cc(F)cc(F)c3)CC(O)N2)cc1F",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot. | [1*]c1cc(Cl)c(N)cc1[2*] -> [1*]c1cc(F)c(N)cc1[2*]: Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk. | [2*]C1CCN([1*])CC1OC -> [2*]C1CN([1*])CC(O)N1: Adding a second heteroatom can reduce lipophilicity and alter pKa, often helping reduce hERG liability. | [2*]CCC[1*] -> [2*]COC[1*]: An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring. | [2*]Oc1ccc(F)cc1 -> [2*]Oc1cc(F)cc(F)c1: Difluoro substitution can tune electronics and metabolic stability, potentially reducing off-target interactions.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc(Cl)c(N)cc1[2*]",
+          "substitute_block": "[1*]c1cc(F)c(N)cc1[2*]",
+          "rationale": "Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1CCN([1*])CC1OC",
+          "substitute_block": "[2*]C1CN([1*])CC(O)N1",
+          "rationale": "Adding a second heteroatom can reduce lipophilicity and alter pKa, often helping reduce hERG liability."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCC[1*]",
+          "substitute_block": "[2*]COC[1*]",
+          "rationale": "An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]Oc1ccc(F)cc1",
+          "substitute_block": "[2*]Oc1cc(F)cc(F)c1",
+          "rationale": "Difluoro substitution can tune electronics and metabolic stability, potentially reducing off-target interactions."
+        }
+      ],
+      "original_candidate_id": "variant_1300",
+      "rank": 1,
+      "hERG_before": 0.7349,
+      "hERG_after": 0.6699,
+      "herg_reduction": 0.065,
+      "improvement_percent": 8.843,
+      "tanimoto_similarity": 0.298,
+      "SA_after": 4.0533,
+      "QED_after": 0.2406,
+      "n_candidates_in_pool": 2258
+    },
+    "candidate_2": {
+      "smiles_before": "COC1CN(CCC1NC(=O)C2=CC(=C(C=C2OC)N)Cl)CCCOC3=CC=C(C=C3)F",
+      "smiles_after": "Nc1cc(O)c(C(=O)NC2CN(COCOc3ccncc3)CC(O)N2)cc1F",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot. | [1*]c1cc(Cl)c(N)cc1[2*] -> [1*]c1cc(F)c(N)cc1[2*]: Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk. | [2*]C1CCN([1*])CC1OC -> [2*]C1CN([1*])CC(O)N1: Adding a second heteroatom can reduce lipophilicity and alter pKa, often helping reduce hERG liability. | [2*]CCC[1*] -> [2*]COC[1*]: An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring. | [2*]Oc1ccc(F)cc1 -> [2*]Oc1ccncc1: A pyridyl ring lowers lipophilicity and introduces a heteroatom, often reducing hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc(Cl)c(N)cc1[2*]",
+          "substitute_block": "[1*]c1cc(F)c(N)cc1[2*]",
+          "rationale": "Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1CCN([1*])CC1OC",
+          "substitute_block": "[2*]C1CN([1*])CC(O)N1",
+          "rationale": "Adding a second heteroatom can reduce lipophilicity and alter pKa, often helping reduce hERG liability."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCC[1*]",
+          "substitute_block": "[2*]COC[1*]",
+          "rationale": "An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]Oc1ccc(F)cc1",
+          "substitute_block": "[2*]Oc1ccncc1",
+          "rationale": "A pyridyl ring lowers lipophilicity and introduces a heteroatom, often reducing hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_1298",
+      "rank": 2,
+      "hERG_before": 0.7349,
+      "hERG_after": 0.6707,
+      "herg_reduction": 0.0642,
+      "improvement_percent": 8.731,
+      "tanimoto_similarity": 0.292,
+      "SA_after": 4.0266,
+      "QED_after": 0.2395,
+      "n_candidates_in_pool": 2258
+    },
+    "candidate_3": {
+      "smiles_before": "COC1CN(CCC1NC(=O)C2=CC(=C(C=C2OC)N)Cl)CCCOC3=CC=C(C=C3)F",
+      "smiles_after": "COC1(C(F)F)CN(COCOc2ccncc2)CCC1N(O)C(=O)c1cc(F)c(N)cc1O",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot. | [1*]c1cc(Cl)c(N)cc1[2*] -> [1*]c1cc(F)c(N)cc1[2*]: Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk. | [1*]NC([2*])=O -> [1*]N(C([2*])=O)O: A more polar amide surrogate may reduce lipophilicity and alter conformation in a way that lowers hERG. | [2*]C1CCN([1*])CC1OC -> [2*]C1CCN([1*])CC1(C(F)F)OC: Gem-difluoro substitution near the amine can lower basicity and improve metabolic stability. | [2*]CCC[1*] -> [2*]COC[1*]: An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring. | [2*]Oc1ccc(F)cc1 -> [2*]Oc1ccncc1: A pyridyl ring lowers lipophilicity and introduces a heteroatom, often reducing hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Demethylation of anisole to phenol lowers lipophilicity and removes an O-demethylation soft spot."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc(Cl)c(N)cc1[2*]",
+          "substitute_block": "[1*]c1cc(F)c(N)cc1[2*]",
+          "rationale": "Replacing chlorine with fluorine lowers lipophilicity and polarizability, often reducing hERG risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]NC([2*])=O",
+          "substitute_block": "[1*]N(C([2*])=O)O",
+          "rationale": "A more polar amide surrogate may reduce lipophilicity and alter conformation in a way that lowers hERG."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1CCN([1*])CC1OC",
+          "substitute_block": "[2*]C1CCN([1*])CC1(C(F)F)OC",
+          "rationale": "Gem-difluoro substitution near the amine can lower basicity and improve metabolic stability."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCC[1*]",
+          "substitute_block": "[2*]COC[1*]",
+          "rationale": "An ether linker reduces hydrophobicity and changes the spatial relationship between the amine and distal aryl ring."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]Oc1ccc(F)cc1",
+          "substitute_block": "[2*]Oc1ccncc1",
+          "rationale": "A pyridyl ring lowers lipophilicity and introduces a heteroatom, often reducing hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_1539",
+      "rank": 3,
+      "hERG_before": 0.7349,
+      "hERG_after": 0.6724,
+      "herg_reduction": 0.0624,
+      "improvement_percent": 8.497,
+      "tanimoto_similarity": 0.255,
+      "SA_after": 4.3091,
+      "QED_after": 0.1603,
+      "n_candidates_in_pool": 2258
+    }
+  },
+  "CC(CN(C)C)C(C)(CC1=CC=C(C=C1)Cl)O": {
+    "candidate_1": {
+      "smiles_before": "CC(CN(C)C)C(C)(CC1=CC=C(C=C1)Cl)O",
+      "smiles_after": "CNCOC(C)(O)Cc1cc(F)cc(F)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]NC: Removing one methyl lowers lipophilicity and steric bulk around the basic center, which can reduce hERG binding and improve drug-likeness. | [2*]CC(C)C(C)(O)C[1*] -> [2*]COC(C)(O)C[1*]: Introducing an ether oxygen into the core increases polarity and can disrupt the lipophilic/basic topology associated with hERG binding. | [2*]c1ccc(Cl)cc1 -> [2*]c1cc(F)cc(F)c1: Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]NC",
+          "rationale": "Removing one methyl lowers lipophilicity and steric bulk around the basic center, which can reduce hERG binding and improve drug-likeness."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)C(C)(O)C[1*]",
+          "substitute_block": "[2*]COC(C)(O)C[1*]",
+          "rationale": "Introducing an ether oxygen into the core increases polarity and can disrupt the lipophilic/basic topology associated with hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1cc(F)cc(F)c1",
+          "rationale": "Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution."
+        }
+      ],
+      "original_candidate_id": "variant_44",
+      "rank": 1,
+      "hERG_before": 0.6817,
+      "hERG_after": 0.6512,
+      "herg_reduction": 0.0305,
+      "improvement_percent": 4.474,
+      "tanimoto_similarity": 0.196,
+      "SA_after": 3.3838,
+      "QED_after": 0.7528,
+      "n_candidates_in_pool": 169
+    },
+    "candidate_2": {
+      "smiles_before": "CC(CN(C)C)C(C)(CC1=CC=C(C=C1)Cl)O",
+      "smiles_after": "CC(=O)NCC(C)C(O)Cc1cc(F)cc(F)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]NC(=O)C: An amide is far less basic than a tertiary amine and often markedly lowers hERG liability. | [2*]CC(C)C(C)(O)C[1*] -> [2*]CC(C)C(O)C[1*]: Removing one methyl reduces hydrophobic bulk and may lower logP and hERG affinity. | [2*]c1ccc(Cl)cc1 -> [2*]c1cc(F)cc(F)c1: Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]NC(=O)C",
+          "rationale": "An amide is far less basic than a tertiary amine and often markedly lowers hERG liability."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)C(C)(O)C[1*]",
+          "substitute_block": "[2*]CC(C)C(O)C[1*]",
+          "rationale": "Removing one methyl reduces hydrophobic bulk and may lower logP and hERG affinity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1cc(F)cc(F)c1",
+          "rationale": "Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution."
+        }
+      ],
+      "original_candidate_id": "variant_136",
+      "rank": 2,
+      "hERG_before": 0.6817,
+      "hERG_after": 0.6514,
+      "herg_reduction": 0.0303,
+      "improvement_percent": 4.447,
+      "tanimoto_similarity": 0.164,
+      "SA_after": 3.0619,
+      "QED_after": 0.8422,
+      "n_candidates_in_pool": 169
+    },
+    "candidate_3": {
+      "smiles_before": "CC(CN(C)C)C(C)(CC1=CC=C(C=C1)Cl)O",
+      "smiles_after": "CC(O)(Cc1cc(F)cc(F)c1)OCN",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]N: A primary amine reduces hydrophobic substitution on nitrogen and may lessen hERG liability relative to a tertiary dialkylamine. | [2*]CC(C)C(C)(O)C[1*] -> [2*]COC(C)(O)C[1*]: Introducing an ether oxygen into the core increases polarity and can disrupt the lipophilic/basic topology associated with hERG binding. | [2*]c1ccc(Cl)cc1 -> [2*]c1cc(F)cc(F)c1: Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]N",
+          "rationale": "A primary amine reduces hydrophobic substitution on nitrogen and may lessen hERG liability relative to a tertiary dialkylamine."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CC(C)C(C)(O)C[1*]",
+          "substitute_block": "[2*]COC(C)(O)C[1*]",
+          "rationale": "Introducing an ether oxygen into the core increases polarity and can disrupt the lipophilic/basic topology associated with hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1cc(F)cc(F)c1",
+          "rationale": "Difluorophenyl can retain aryl recognition while avoiding the heavier chloro substituent\u2019s lipophilic contribution."
+        }
+      ],
+      "original_candidate_id": "variant_68",
+      "rank": 3,
+      "hERG_before": 0.6817,
+      "hERG_after": 0.6526,
+      "herg_reduction": 0.0291,
+      "improvement_percent": 4.275,
+      "tanimoto_similarity": 0.204,
+      "SA_after": 3.3292,
+      "QED_after": 0.7437,
+      "n_candidates_in_pool": 169
+    }
+  },
+  "CCOC(=O)NC(C)(C)CC1=CC=C(C=C1)Cl": {
+    "candidate_1": {
+      "smiles_before": "CCOC(=O)NC(C)(C)CC1=CC=C(C=C1)Cl",
+      "smiles_after": "CC(C)(NC(=O)OCO)Oc1nnco1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC -> [1*]CO: Hydroxymethyl on the carbamate ester increases polarity and solubility, often reducing lipophilicity-driven hERG binding. | [2*]NC(C)(C)C[1*] -> [2*]NC(C)(C)O[1*]: An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG. | [2*]c1ccc(Cl)cc1 -> [2*]c1nnco1: A heteroaryl oxadiazole-like ring can reduce lipophilicity and aromatic hydrophobicity while preserving compact size.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC",
+          "substitute_block": "[1*]CO",
+          "rationale": "Hydroxymethyl on the carbamate ester increases polarity and solubility, often reducing lipophilicity-driven hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]NC(C)(C)C[1*]",
+          "substitute_block": "[2*]NC(C)(C)O[1*]",
+          "rationale": "An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1nnco1",
+          "rationale": "A heteroaryl oxadiazole-like ring can reduce lipophilicity and aromatic hydrophobicity while preserving compact size."
+        }
+      ],
+      "original_candidate_id": "variant_285",
+      "rank": 1,
+      "hERG_before": 0.6583,
+      "hERG_after": 0.6239,
+      "herg_reduction": 0.0344,
+      "improvement_percent": 5.232,
+      "tanimoto_similarity": 0.278,
+      "SA_after": 3.778,
+      "QED_after": 0.6756,
+      "n_candidates_in_pool": 364
+    },
+    "candidate_2": {
+      "smiles_before": "CCOC(=O)NC(C)(C)CC1=CC=C(C=C1)Cl",
+      "smiles_after": "CC(=O)NC(C)(C)Oc1nnco1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC -> [1*]C: Changing ethyl to methyl on the carbamate slightly lowers lipophilicity and molecular size, which may modestly reduce hERG risk. | [2*]OC([1*])=O -> [2*]C([1*])=O: An amide-type surrogate changes hydrogen-bonding topology and often lowers lipophilicity relative to hydrophobic carbamate motifs. | [2*]NC(C)(C)C[1*] -> [2*]NC(C)(C)O[1*]: An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG. | [2*]c1ccc(Cl)cc1 -> [2*]c1nnco1: A heteroaryl oxadiazole-like ring can reduce lipophilicity and aromatic hydrophobicity while preserving compact size.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC",
+          "substitute_block": "[1*]C",
+          "rationale": "Changing ethyl to methyl on the carbamate slightly lowers lipophilicity and molecular size, which may modestly reduce hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OC([1*])=O",
+          "substitute_block": "[2*]C([1*])=O",
+          "rationale": "An amide-type surrogate changes hydrogen-bonding topology and often lowers lipophilicity relative to hydrophobic carbamate motifs."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]NC(C)(C)C[1*]",
+          "substitute_block": "[2*]NC(C)(C)O[1*]",
+          "rationale": "An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1nnco1",
+          "rationale": "A heteroaryl oxadiazole-like ring can reduce lipophilicity and aromatic hydrophobicity while preserving compact size."
+        }
+      ],
+      "original_candidate_id": "variant_228",
+      "rank": 2,
+      "hERG_before": 0.6583,
+      "hERG_after": 0.6263,
+      "herg_reduction": 0.032,
+      "improvement_percent": 4.864,
+      "tanimoto_similarity": 0.212,
+      "SA_after": 3.5933,
+      "QED_after": 0.686,
+      "n_candidates_in_pool": 364
+    },
+    "candidate_3": {
+      "smiles_before": "CCOC(=O)NC(C)(C)CC1=CC=C(C=C1)Cl",
+      "smiles_after": "CC(=O)NC(C)(C)Oc1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC -> [1*]C: Changing ethyl to methyl on the carbamate slightly lowers lipophilicity and molecular size, which may modestly reduce hERG risk. | [2*]OC([1*])=O -> [2*]C([1*])=O: An amide-type surrogate changes hydrogen-bonding topology and often lowers lipophilicity relative to hydrophobic carbamate motifs. | [2*]NC(C)(C)C[1*] -> [2*]NC(C)(C)O[1*]: An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG. | [2*]c1ccc(Cl)cc1 -> [2*]c1ccc(O)cc1: A phenol strongly increases polarity and can reduce lipophilicity-driven hERG interactions, though conjugative metabolism should be monitored.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC",
+          "substitute_block": "[1*]C",
+          "rationale": "Changing ethyl to methyl on the carbamate slightly lowers lipophilicity and molecular size, which may modestly reduce hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OC([1*])=O",
+          "substitute_block": "[2*]C([1*])=O",
+          "rationale": "An amide-type surrogate changes hydrogen-bonding topology and often lowers lipophilicity relative to hydrophobic carbamate motifs."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]NC(C)(C)C[1*]",
+          "substitute_block": "[2*]NC(C)(C)O[1*]",
+          "rationale": "An ether linkage increases polarity, removes benzylic oxidation liability, and can reduce hydrophobic interactions with hERG."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol strongly increases polarity and can reduce lipophilicity-driven hERG interactions, though conjugative metabolism should be monitored."
+        }
+      ],
+      "original_candidate_id": "variant_223",
+      "rank": 3,
+      "hERG_before": 0.6583,
+      "hERG_after": 0.6291,
+      "herg_reduction": 0.0292,
+      "improvement_percent": 4.438,
+      "tanimoto_similarity": 0.255,
+      "SA_after": 2.4121,
+      "QED_after": 0.7439,
+      "n_candidates_in_pool": 364
+    }
+  },
+  "CN(CCC1=CC=C(C=C1)NS(=O)(=O)C)CCOC2=CC=C(C=C2)NS(=O)(=O)C": {
+    "candidate_1": {
+      "smiles_before": "CN(CCC1=CC=C(C=C1)NS(=O)(=O)C)CCOC2=CC=C(C=C2)NS(=O)(=O)C",
+      "smiles_after": "CN(C(F)CONS(C)(=O)=O)C(CO)c1ccc(NS(C)(=O)=O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCO[2*] -> [1*]C(CO)[2*]: Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding. | [2*]CCO[1*] -> [2*]C(F)CO[1*]: Fluorination near the amine can lower effective basicity and alter conformation, potentially reducing hERG inhibition.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCO[2*]",
+          "substitute_block": "[1*]C(CO)[2*]",
+          "rationale": "Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCO[1*]",
+          "substitute_block": "[2*]C(F)CO[1*]",
+          "rationale": "Fluorination near the amine can lower effective basicity and alter conformation, potentially reducing hERG inhibition."
+        }
+      ],
+      "original_candidate_id": "variant_27",
+      "rank": 1,
+      "hERG_before": 0.6809,
+      "hERG_after": 0.6206,
+      "herg_reduction": 0.0603,
+      "improvement_percent": 8.85,
+      "tanimoto_similarity": 0.333,
+      "SA_after": 3.8174,
+      "QED_after": 0.3675,
+      "n_candidates_in_pool": 1004
+    },
+    "candidate_2": {
+      "smiles_before": "CN(CCC1=CC=C(C=C1)NS(=O)(=O)C)CCOC2=CC=C(C=C2)NS(=O)(=O)C",
+      "smiles_after": "CS(=O)(=O)NOCC(F)N(CC(F)F)C(CO)c1ccc(NS(C)(=O)=O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCO[2*] -> [1*]C(CO)[2*]: Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding. | [2*]N([1*])C -> [2*]N([1*])CC(F)F: A difluoroethyl group can inductively reduce amine basicity and tune lipophilicity, a common strategy for lowering hERG. | [2*]CCO[1*] -> [2*]C(F)CO[1*]: Fluorination near the amine can lower effective basicity and alter conformation, potentially reducing hERG inhibition.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCO[2*]",
+          "substitute_block": "[1*]C(CO)[2*]",
+          "rationale": "Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]N([1*])C",
+          "substitute_block": "[2*]N([1*])CC(F)F",
+          "rationale": "A difluoroethyl group can inductively reduce amine basicity and tune lipophilicity, a common strategy for lowering hERG."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCO[1*]",
+          "substitute_block": "[2*]C(F)CO[1*]",
+          "rationale": "Fluorination near the amine can lower effective basicity and alter conformation, potentially reducing hERG inhibition."
+        }
+      ],
+      "original_candidate_id": "variant_38",
+      "rank": 2,
+      "hERG_before": 0.6809,
+      "hERG_after": 0.6209,
+      "herg_reduction": 0.06,
+      "improvement_percent": 8.812,
+      "tanimoto_similarity": 0.297,
+      "SA_after": 4.0368,
+      "QED_after": 0.3123,
+      "n_candidates_in_pool": 1004
+    },
+    "candidate_3": {
+      "smiles_before": "CN(CCC1=CC=C(C=C1)NS(=O)(=O)C)CCOC2=CC=C(C=C2)NS(=O)(=O)C",
+      "smiles_after": "CC(=O)Nc1ccc(C(CO)N(CO)CCONS(C)(=O)=O)nc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NS(C)(=O)=O -> [1*]NC(C)=O: Acetamide is a lighter, less lipophilic alternative that may reduce hERG-driving hydrophobicity if the sulfonamide is not essential. | [1*]c1ccc([2*])cc1 -> [1*]c1ncc([2*])cc1: A diazine-like heteroaryl ring further reduces lipophilicity and may improve ADMET and off-target selectivity. | [1*]CCO[2*] -> [1*]C(CO)[2*]: Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding. | [2*]N([1*])C -> [2*]N([1*])CO: Replacing N-methyl with hydroxymethyl adds polarity and often lowers hERG liability while retaining a tertiary amine motif.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NS(C)(=O)=O",
+          "substitute_block": "[1*]NC(C)=O",
+          "rationale": "Acetamide is a lighter, less lipophilic alternative that may reduce hERG-driving hydrophobicity if the sulfonamide is not essential."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1ccc([2*])cc1",
+          "substitute_block": "[1*]c1ncc([2*])cc1",
+          "rationale": "A diazine-like heteroaryl ring further reduces lipophilicity and may improve ADMET and off-target selectivity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCO[2*]",
+          "substitute_block": "[1*]C(CO)[2*]",
+          "rationale": "Branching and added polarity disrupt the linear lipophilic cationic motif associated with hERG binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]N([1*])C",
+          "substitute_block": "[2*]N([1*])CO",
+          "rationale": "Replacing N-methyl with hydroxymethyl adds polarity and often lowers hERG liability while retaining a tertiary amine motif."
+        }
+      ],
+      "original_candidate_id": "variant_676",
+      "rank": 3,
+      "hERG_before": 0.6809,
+      "hERG_after": 0.6209,
+      "herg_reduction": 0.0599,
+      "improvement_percent": 8.804,
+      "tanimoto_similarity": 0.261,
+      "SA_after": 3.5826,
+      "QED_after": 0.2312,
+      "n_candidates_in_pool": 1004
+    }
+  },
+  "C1C2CC3CC(CC1N3CC2=O)OC(=O)C4=CNC5=CC=CC=C54": {
+    "candidate_1": {
+      "smiles_before": "C1C2CC3CC(CC1N3CC2=O)OC(=O)C4=CNC5=CC=CC=C54",
+      "smiles_after": "O=C(Nc1cnncn1)NC1CC2CC3CC(C1)N2CC3O",
+      "smiles_after_valid": true,
+      "modification": "[1*]C1CC2CC3CC(C1)N2CC3=O -> [1*]C1CC2CC3CC(C1)N2CC3O: Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG. | [2*]OC([1*])=O -> [2*]NC(=O)N[1*]: Urea substantially increases polarity and H-bonding capacity, often reducing hERG risk at the expense of permeability. | [2*]c1c[nH]c2ccccc12 -> [2*]c1ncnnc1: A triazine-like heteroaryl strongly reduces hydrophobicity and can improve the overall physicochemical profile.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C1CC2CC3CC(C1)N2CC3=O",
+          "substitute_block": "[1*]C1CC2CC3CC(C1)N2CC3O",
+          "rationale": "Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OC([1*])=O",
+          "substitute_block": "[2*]NC(=O)N[1*]",
+          "rationale": "Urea substantially increases polarity and H-bonding capacity, often reducing hERG risk at the expense of permeability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1c[nH]c2ccccc12",
+          "substitute_block": "[2*]c1ncnnc1",
+          "rationale": "A triazine-like heteroaryl strongly reduces hydrophobicity and can improve the overall physicochemical profile."
+        }
+      ],
+      "original_candidate_id": "variant_88",
+      "rank": 1,
+      "hERG_before": 0.6825,
+      "hERG_after": 0.649,
+      "herg_reduction": 0.0335,
+      "improvement_percent": 4.909,
+      "tanimoto_similarity": 0.16,
+      "SA_after": 5.1199,
+      "QED_after": 0.7093,
+      "n_candidates_in_pool": 168
+    },
+    "candidate_2": {
+      "smiles_before": "C1C2CC3CC(CC1N3CC2=O)OC(=O)C4=CNC5=CC=CC=C54",
+      "smiles_after": "O=C(NC1CC2CC3CC(C1)N2CC3O)c1ccccn1",
+      "smiles_after_valid": true,
+      "modification": "[1*]C1CC2CC3CC(C1)N2CC3=O -> [1*]C1CC2CC3CC(C1)N2CC3O: Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG. | [2*]OC([1*])=O -> [2*]NC([1*])=O: Amide replacement improves metabolic stability and increases polarity, often helping reduce hERG liability. | [2*]c1c[nH]c2ccccc12 -> [2*]c1ccccn1: A monocyclic pyridyl ring reduces aromatic surface area and often lowers hERG risk while improving solubility.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C1CC2CC3CC(C1)N2CC3=O",
+          "substitute_block": "[1*]C1CC2CC3CC(C1)N2CC3O",
+          "rationale": "Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OC([1*])=O",
+          "substitute_block": "[2*]NC([1*])=O",
+          "rationale": "Amide replacement improves metabolic stability and increases polarity, often helping reduce hERG liability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1c[nH]c2ccccc12",
+          "substitute_block": "[2*]c1ccccn1",
+          "rationale": "A monocyclic pyridyl ring reduces aromatic surface area and often lowers hERG risk while improving solubility."
+        }
+      ],
+      "original_candidate_id": "variant_58",
+      "rank": 2,
+      "hERG_before": 0.6825,
+      "hERG_after": 0.6511,
+      "herg_reduction": 0.0314,
+      "improvement_percent": 4.594,
+      "tanimoto_similarity": 0.214,
+      "SA_after": 4.6215,
+      "QED_after": 0.8442,
+      "n_candidates_in_pool": 168
+    },
+    "candidate_3": {
+      "smiles_before": "C1C2CC3CC(CC1N3CC2=O)OC(=O)C4=CNC5=CC=CC=C54",
+      "smiles_after": "O=C(Nc1cnncn1)OC1CC2CC3CC(C1)N2CC3O",
+      "smiles_after_valid": true,
+      "modification": "[1*]C1CC2CC3CC(C1)N2CC3=O -> [1*]C1CC2CC3CC(C1)N2CC3O: Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG. | [2*]OC([1*])=O -> [2*]OC(N[1*])=O: Carbamate is a useful ester bioisostere that increases polarity and may reduce hERG relative to the parent ester. | [2*]c1c[nH]c2ccccc12 -> [2*]c1ncnnc1: A triazine-like heteroaryl strongly reduces hydrophobicity and can improve the overall physicochemical profile.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C1CC2CC3CC(C1)N2CC3=O",
+          "substitute_block": "[1*]C1CC2CC3CC(C1)N2CC3O",
+          "rationale": "Ketone reduction to alcohol increases polarity and may alter conformation and basicity exposure, potentially lowering hERG."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]OC([1*])=O",
+          "substitute_block": "[2*]OC(N[1*])=O",
+          "rationale": "Carbamate is a useful ester bioisostere that increases polarity and may reduce hERG relative to the parent ester."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1c[nH]c2ccccc12",
+          "substitute_block": "[2*]c1ncnnc1",
+          "rationale": "A triazine-like heteroaryl strongly reduces hydrophobicity and can improve the overall physicochemical profile."
+        }
+      ],
+      "original_candidate_id": "variant_79",
+      "rank": 3,
+      "hERG_before": 0.6825,
+      "hERG_after": 0.6522,
+      "herg_reduction": 0.0303,
+      "improvement_percent": 4.445,
+      "tanimoto_similarity": 0.239,
+      "SA_after": 5.2039,
+      "QED_after": 0.8156,
+      "n_candidates_in_pool": 168
+    }
+  },
+  "C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O": {
+    "candidate_1": {
+      "smiles_before": "C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O",
+      "smiles_after": "O=c1[nH]c2ccccc2n1COCN1CC(n2c(=O)[nH]c3cc(O)ccc32)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCC[2*] -> [1*]COC[2*]: An ether-containing linker increases polarity and reduces hydrophobic span, a common tactic for lowering hERG liability. | [1*]C1CCN([2*])CC1 -> [1*]C1CN([2*])C1: Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching. | [2*]n1c(=O)[nH]c2cc(Cl)ccc21 -> [2*]n1c(=O)[nH]c2cc(O)ccc21: Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]COC[2*]",
+          "rationale": "An ether-containing linker increases polarity and reduces hydrophobic span, a common tactic for lowering hERG liability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1CN([2*])C1",
+          "rationale": "Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]n1c(=O)[nH]c2cc(Cl)ccc21",
+          "substitute_block": "[2*]n1c(=O)[nH]c2cc(O)ccc21",
+          "rationale": "Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism."
+        }
+      ],
+      "original_candidate_id": "variant_119",
+      "rank": 1,
+      "hERG_before": 0.7363,
+      "hERG_after": 0.6994,
+      "herg_reduction": 0.0369,
+      "improvement_percent": 5.016,
+      "tanimoto_similarity": 0.478,
+      "SA_after": 2.8902,
+      "QED_after": 0.4809,
+      "n_candidates_in_pool": 800
+    },
+    "candidate_2": {
+      "smiles_before": "C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O",
+      "smiles_after": "O=C(NCn1c(=O)[nH]c2ccncc21)N1CC(n2c(=O)[nH]c3cc(O)ccc32)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]n1c(=O)[nH]c2ccccc21 -> [1*]n1c(=O)[nH]c2ccncc21: Adding a ring nitrogen lowers lipophilicity and aromatic hydrophobicity, often improving solubility and reducing hERG. | [1*]CCC[2*] -> [1*]C(=O)NC[2*]: An amide linker strongly increases polarity and reduces flexibility, often lowering hERG risk, though permeability must be checked. | [1*]C1CCN([2*])CC1 -> [1*]C1CN([2*])C1: Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching. | [2*]n1c(=O)[nH]c2cc(Cl)ccc21 -> [2*]n1c(=O)[nH]c2cc(O)ccc21: Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]n1c(=O)[nH]c2ccccc21",
+          "substitute_block": "[1*]n1c(=O)[nH]c2ccncc21",
+          "rationale": "Adding a ring nitrogen lowers lipophilicity and aromatic hydrophobicity, often improving solubility and reducing hERG."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]C(=O)NC[2*]",
+          "rationale": "An amide linker strongly increases polarity and reduces flexibility, often lowering hERG risk, though permeability must be checked."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1CN([2*])C1",
+          "rationale": "Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]n1c(=O)[nH]c2cc(Cl)ccc21",
+          "substitute_block": "[2*]n1c(=O)[nH]c2cc(O)ccc21",
+          "rationale": "Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism."
+        }
+      ],
+      "original_candidate_id": "variant_781",
+      "rank": 2,
+      "hERG_before": 0.7363,
+      "hERG_after": 0.6999,
+      "herg_reduction": 0.0364,
+      "improvement_percent": 4.94,
+      "tanimoto_similarity": 0.329,
+      "SA_after": 3.0236,
+      "QED_after": 0.3947,
+      "n_candidates_in_pool": 800
+    },
+    "candidate_3": {
+      "smiles_before": "C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O",
+      "smiles_after": "O=C(NCn1c(=O)[nH]c2ccccc21)N1CC(n2c(=O)[nH]c3cc(O)ccc32)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCC[2*] -> [1*]C(=O)NC[2*]: An amide linker strongly increases polarity and reduces flexibility, often lowering hERG risk, though permeability must be checked. | [1*]C1CCN([2*])CC1 -> [1*]C1CN([2*])C1: Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching. | [2*]n1c(=O)[nH]c2cc(Cl)ccc21 -> [2*]n1c(=O)[nH]c2cc(O)ccc21: Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]C(=O)NC[2*]",
+          "rationale": "An amide linker strongly increases polarity and reduces flexibility, often lowering hERG risk, though permeability must be checked."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1CN([2*])C1",
+          "rationale": "Azetidine reduces size and changes the cation\u2013aryl geometry, potentially weakening hERG pharmacophore matching."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]n1c(=O)[nH]c2cc(Cl)ccc21",
+          "substitute_block": "[2*]n1c(=O)[nH]c2cc(O)ccc21",
+          "rationale": "Hydroxyl strongly increases polarity and may reduce hERG affinity while improving solubility, albeit with possible conjugative metabolism."
+        }
+      ],
+      "original_candidate_id": "variant_260",
+      "rank": 3,
+      "hERG_before": 0.7363,
+      "hERG_after": 0.7003,
+      "herg_reduction": 0.036,
+      "improvement_percent": 4.889,
+      "tanimoto_similarity": 0.443,
+      "SA_after": 2.7964,
+      "QED_after": 0.4115,
+      "n_candidates_in_pool": 800
+    }
+  },
+  "C1CN(CC=C1N2C3=CC=CC=C3NC2=O)CCCC(=O)C4=CC=C(C=C4)F": {
+    "candidate_1": {
+      "smiles_before": "C1CN(CC=C1N2C3=CC=CC=C3NC2=O)CCCC(=O)C4=CC=C(C=C4)F",
+      "smiles_after": "O=C(COCN1CC=C(n2c(=O)[nH]c3ccccc32)CC1)c1ccnnc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]CCCC([1*])=O -> [2*]COCC([1*])=O: An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding. | [2*]c1ccc(F)cc1 -> [2*]c1ccnnc1: Pyridazinyl introduces additional heteroatom content, reducing lipophilicity and potentially decreasing nonspecific ion-channel binding.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCCC([1*])=O",
+          "substitute_block": "[2*]COCC([1*])=O",
+          "rationale": "An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1ccnnc1",
+          "rationale": "Pyridazinyl introduces additional heteroatom content, reducing lipophilicity and potentially decreasing nonspecific ion-channel binding."
+        }
+      ],
+      "original_candidate_id": "variant_31",
+      "rank": 1,
+      "hERG_before": 0.7044,
+      "hERG_after": 0.6821,
+      "herg_reduction": 0.0222,
+      "improvement_percent": 3.157,
+      "tanimoto_similarity": 0.528,
+      "SA_after": 3.0984,
+      "QED_after": 0.666,
+      "n_candidates_in_pool": 47
+    },
+    "candidate_2": {
+      "smiles_before": "C1CN(CC=C1N2C3=CC=CC=C3NC2=O)CCCC(=O)C4=CC=C(C=C4)F",
+      "smiles_after": "O=C(COCN1CC=C(n2c(=O)[nH]c3ccccc32)CC1)c1ccncc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]CCCC([1*])=O -> [2*]COCC([1*])=O: An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding. | [2*]c1ccc(F)cc1 -> [2*]c1ccncc1: A 4-pyridyl replacement preserves aromatic size while introducing a ring nitrogen that may reduce hERG affinity and improve polarity.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCCC([1*])=O",
+          "substitute_block": "[2*]COCC([1*])=O",
+          "rationale": "An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "A 4-pyridyl replacement preserves aromatic size while introducing a ring nitrogen that may reduce hERG affinity and improve polarity."
+        }
+      ],
+      "original_candidate_id": "variant_30",
+      "rank": 2,
+      "hERG_before": 0.7044,
+      "hERG_after": 0.6844,
+      "herg_reduction": 0.02,
+      "improvement_percent": 2.839,
+      "tanimoto_similarity": 0.574,
+      "SA_after": 2.8561,
+      "QED_after": 0.678,
+      "n_candidates_in_pool": 47
+    },
+    "candidate_3": {
+      "smiles_before": "C1CN(CC=C1N2C3=CC=CC=C3NC2=O)CCCC(=O)C4=CC=C(C=C4)F",
+      "smiles_after": "O=C(COCN1CC=C(n2c(=O)[nH]c3ccccc32)CC1)c1ccccn1",
+      "smiles_after_valid": true,
+      "modification": "[2*]CCCC([1*])=O -> [2*]COCC([1*])=O: An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding. | [2*]c1ccc(F)cc1 -> [2*]c1ccccn1: A 2-pyridyl ring is a heteroaryl bioisostere that can reduce logP and alter side-chain conformation, potentially lowering cardiotoxicity risk.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCCC([1*])=O",
+          "substitute_block": "[2*]COCC([1*])=O",
+          "rationale": "An ether oxygen lowers lipophilicity and changes conformational behavior, which may reduce hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1ccccn1",
+          "rationale": "A 2-pyridyl ring is a heteroaryl bioisostere that can reduce logP and alter side-chain conformation, potentially lowering cardiotoxicity risk."
+        }
+      ],
+      "original_candidate_id": "variant_29",
+      "rank": 3,
+      "hERG_before": 0.7044,
+      "hERG_after": 0.6863,
+      "herg_reduction": 0.018,
+      "improvement_percent": 2.562,
+      "tanimoto_similarity": 0.521,
+      "SA_after": 2.9009,
+      "QED_after": 0.678,
+      "n_candidates_in_pool": 47
+    }
+  },
+  "CN1CCCCC1CCC2=CC=CC=C2NC(=O)C3=CC=C(C=C3)OC": {
+    "candidate_1": {
+      "smiles_before": "CN1CCCCC1CCC2=CC=CC=C2NC(=O)C3=CC=C(C=C3)OC",
+      "smiles_after": "CN=C(Nc1ccccc1CCC1CCN1C)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG. | [1*]NC([2*])=O -> [1*]NC([2*])=NC: A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions. | [2*]C1CCCCN1C -> [2*]C1CCN1C: An azetidine analog changes the cation\u2013aryl geometry and often improves ligand efficiency while potentially reducing hERG.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]NC([2*])=O",
+          "substitute_block": "[1*]NC([2*])=NC",
+          "rationale": "A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CCN1C",
+          "rationale": "An azetidine analog changes the cation\u2013aryl geometry and often improves ligand efficiency while potentially reducing hERG."
+        }
+      ],
+      "original_candidate_id": "variant_121",
+      "rank": 1,
+      "hERG_before": 0.6934,
+      "hERG_after": 0.6707,
+      "herg_reduction": 0.0226,
+      "improvement_percent": 3.266,
+      "tanimoto_similarity": 0.516,
+      "SA_after": 2.9356,
+      "QED_after": 0.6537,
+      "n_candidates_in_pool": 203
+    },
+    "candidate_2": {
+      "smiles_before": "CN1CCCCC1CCC2=CC=CC=C2NC(=O)C3=CC=C(C=C3)OC",
+      "smiles_after": "CN=C(Nc1ccccc1COCN1CCN(C)CC1)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG. | [1*]NC([2*])=O -> [1*]NC([2*])=NC: A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions. | [1*]CCc1ccccc1[2*] -> [1*]COCc1ccccc1[2*]: Ether insertion reduces hydrophobicity and can disrupt the lipophilic cation\u2013aryl motif associated with hERG binding. | [2*]C1CCCCN1C -> [2*]N1CCN(CC1)C: N-methylpiperazine increases polarity and aqueous solubility and may reduce nonspecific hydrophobic interactions associated with hERG.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]NC([2*])=O",
+          "substitute_block": "[1*]NC([2*])=NC",
+          "rationale": "A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[1*]CCc1ccccc1[2*]",
+          "substitute_block": "[1*]COCc1ccccc1[2*]",
+          "rationale": "Ether insertion reduces hydrophobicity and can disrupt the lipophilic cation\u2013aryl motif associated with hERG binding."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]N1CCN(CC1)C",
+          "rationale": "N-methylpiperazine increases polarity and aqueous solubility and may reduce nonspecific hydrophobic interactions associated with hERG."
+        }
+      ],
+      "original_candidate_id": "variant_147",
+      "rank": 2,
+      "hERG_before": 0.6934,
+      "hERG_after": 0.6713,
+      "herg_reduction": 0.0221,
+      "improvement_percent": 3.192,
+      "tanimoto_similarity": 0.306,
+      "SA_after": 2.523,
+      "QED_after": 0.6063,
+      "n_candidates_in_pool": 203
+    },
+    "candidate_3": {
+      "smiles_before": "CN1CCCCC1CCC2=CC=CC=C2NC(=O)C3=CC=C(C=C3)OC",
+      "smiles_after": "CN=C(Nc1ccccc1C1CC1C1CCN1C)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]OC -> [1*]O: Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG. | [1*]NC([2*])=O -> [1*]NC([2*])=NC: A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions. | [1*]CCc1ccccc1[2*] -> [1*]C1CC1c1ccccc1[2*]: Cyclopropyl constraint reduces flexibility and may prevent adoption of a hERG-favored conformation. | [2*]C1CCCCN1C -> [2*]C1CCN1C: An azetidine analog changes the cation\u2013aryl geometry and often improves ligand efficiency while potentially reducing hERG.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]OC",
+          "substitute_block": "[1*]O",
+          "rationale": "Phenol is less lipophilic than anisole and removes a metabolic O-demethylation liability, potentially reducing hERG."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]NC([2*])=O",
+          "substitute_block": "[1*]NC([2*])=NC",
+          "rationale": "A urea-like isostere increases polarity and changes geometry, which may reduce lipophilicity-driven hERG interactions."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[1*]CCc1ccccc1[2*]",
+          "substitute_block": "[1*]C1CC1c1ccccc1[2*]",
+          "rationale": "Cyclopropyl constraint reduces flexibility and may prevent adoption of a hERG-favored conformation."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CCN1C",
+          "rationale": "An azetidine analog changes the cation\u2013aryl geometry and often improves ligand efficiency while potentially reducing hERG."
+        }
+      ],
+      "original_candidate_id": "variant_161",
+      "rank": 3,
+      "hERG_before": 0.6934,
+      "hERG_after": 0.6716,
+      "herg_reduction": 0.0218,
+      "improvement_percent": 3.139,
+      "tanimoto_similarity": 0.267,
+      "SA_after": 3.6019,
+      "QED_after": 0.6617,
+      "n_candidates_in_pool": 203
+    }
+  },
+  "C1CN(CCC12CNC(=O)O2)CCC3=CC=CC=C3": {
+    "candidate_1": {
+      "smiles_before": "C1CN(CCC12CNC(=O)O2)CCC3=CC=CC=C3",
+      "smiles_after": "COC(CN1CCC2(CC1)CNC(=O)O2)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]CCc1ccccc1 -> [2*]CC(OC)c1ccccc1: Methoxy substitution in the linker increases polarity and may reduce hydrophobic channel interactions.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCc1ccccc1",
+          "substitute_block": "[2*]CC(OC)c1ccccc1",
+          "rationale": "Methoxy substitution in the linker increases polarity and may reduce hydrophobic channel interactions."
+        }
+      ],
+      "original_candidate_id": "variant_8",
+      "rank": 1,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6508,
+      "herg_reduction": 0.0238,
+      "improvement_percent": 3.522,
+      "tanimoto_similarity": 0.56,
+      "SA_after": 3.5368,
+      "QED_after": 0.9206,
+      "n_candidates_in_pool": 12
+    },
+    "candidate_2": {
+      "smiles_before": "C1CN(CCC12CNC(=O)O2)CCC3=CC=CC=C3",
+      "smiles_after": "COC(CN1CCC2(CC1)CN(C)C(=O)O2)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCC2(CC1)CNC(=O)O2 -> [1*]N1CCC2(CC1)CN(C)C(=O)O2: N-Methylation removes an H-bond donor and can tune permeability and off-target binding. | [2*]CCc1ccccc1 -> [2*]CC(OC)c1ccccc1: Methoxy substitution in the linker increases polarity and may reduce hydrophobic channel interactions.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N1CCC2(CC1)CNC(=O)O2",
+          "substitute_block": "[1*]N1CCC2(CC1)CN(C)C(=O)O2",
+          "rationale": "N-Methylation removes an H-bond donor and can tune permeability and off-target binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCc1ccccc1",
+          "substitute_block": "[2*]CC(OC)c1ccccc1",
+          "rationale": "Methoxy substitution in the linker increases polarity and may reduce hydrophobic channel interactions."
+        }
+      ],
+      "original_candidate_id": "variant_11",
+      "rank": 2,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6548,
+      "herg_reduction": 0.0197,
+      "improvement_percent": 2.926,
+      "tanimoto_similarity": 0.362,
+      "SA_after": 3.4661,
+      "QED_after": 0.8557,
+      "n_candidates_in_pool": 12
+    },
+    "candidate_3": {
+      "smiles_before": "C1CN(CCC12CNC(=O)O2)CCC3=CC=CC=C3",
+      "smiles_after": "O=C1NCC2(CCN(CCc3ccco3)CC2)O1",
+      "smiles_after_valid": true,
+      "modification": "[2*]CCc1ccccc1 -> [2*]CCc1ccco1: Furan lowers lipophilicity and aromatic bulk, potentially reducing hERG, though metabolic stability should be monitored.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]CCc1ccccc1",
+          "substitute_block": "[2*]CCc1ccco1",
+          "rationale": "Furan lowers lipophilicity and aromatic bulk, potentially reducing hERG, though metabolic stability should be monitored."
+        }
+      ],
+      "original_candidate_id": "variant_4",
+      "rank": 3,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6658,
+      "herg_reduction": 0.0087,
+      "improvement_percent": 1.294,
+      "tanimoto_similarity": 0.667,
+      "SA_after": 3.1856,
+      "QED_after": 0.8806,
+      "n_candidates_in_pool": 12
+    }
+  },
+  "CC(C1CCC(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)NC": {
+    "candidate_1": {
+      "smiles_before": "CC(C1CCC(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)NC",
+      "smiles_after": "COC(=O)NC(C)(O)C1CCC(N)C(OC2C(N)CC(N)C(OC3OCC(C)(F)C(N(C)C(C)=O)C3O)C2O)O1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC -> [1*]NC(=O)OC: Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity. | [2*]C([1*])C -> [2*]C([1*])(O)C: Convert the simple ethyl linker into a beta-hydroxylated linker. Added polarity can reduce membrane affinity and hERG interaction while potentially improving aqueous solubility. | [2*]OC1OCC(C)(O)C([1*])C1O -> [2*]OC1OCC(C)(F)C([1*])C1O: Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape. | [2*]NC -> [2*]N(C)C(=O)C: Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC",
+          "substitute_block": "[1*]NC(=O)OC",
+          "rationale": "Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C([1*])C",
+          "substitute_block": "[2*]C([1*])(O)C",
+          "rationale": "Convert the simple ethyl linker into a beta-hydroxylated linker. Added polarity can reduce membrane affinity and hERG interaction while potentially improving aqueous solubility."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]OC1OCC(C)(O)C([1*])C1O",
+          "substitute_block": "[2*]OC1OCC(C)(F)C([1*])C1O",
+          "rationale": "Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]NC",
+          "substitute_block": "[2*]N(C)C(=O)C",
+          "rationale": "Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions."
+        }
+      ],
+      "original_candidate_id": "variant_260",
+      "rank": 1,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.6226,
+      "herg_reduction": 0.0677,
+      "improvement_percent": 9.8,
+      "tanimoto_similarity": 0.386,
+      "SA_after": 5.6982,
+      "QED_after": 0.1526,
+      "n_candidates_in_pool": 512
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C1CCC(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)NC",
+      "smiles_after": "COC(=O)NC(C)(F)C1CCC(N)C(OC2C(N)CC(N)C(OC3OCC(C)(F)C(N(C)C(C)=O)C3O)C2O)O1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC -> [1*]NC(=O)OC: Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity. | [2*]C([1*])C -> [2*]C([1*])(F)C: Introduce fluorine on the ethane linker stereocenter. This can lower neighboring amine basicity, alter conformation, and reduce metabolic oxidation without greatly increasing lipophilicity. | [2*]OC1OCC(C)(O)C([1*])C1O -> [2*]OC1OCC(C)(F)C([1*])C1O: Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape. | [2*]NC -> [2*]N(C)C(=O)C: Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC",
+          "substitute_block": "[1*]NC(=O)OC",
+          "rationale": "Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C([1*])C",
+          "substitute_block": "[2*]C([1*])(F)C",
+          "rationale": "Introduce fluorine on the ethane linker stereocenter. This can lower neighboring amine basicity, alter conformation, and reduce metabolic oxidation without greatly increasing lipophilicity."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]OC1OCC(C)(O)C([1*])C1O",
+          "substitute_block": "[2*]OC1OCC(C)(F)C([1*])C1O",
+          "rationale": "Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]NC",
+          "substitute_block": "[2*]N(C)C(=O)C",
+          "rationale": "Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions."
+        }
+      ],
+      "original_candidate_id": "variant_4",
+      "rank": 2,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.6231,
+      "herg_reduction": 0.0672,
+      "improvement_percent": 9.739,
+      "tanimoto_similarity": 0.386,
+      "SA_after": 5.6997,
+      "QED_after": 0.1859,
+      "n_candidates_in_pool": 512
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C1CCC(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)NC",
+      "smiles_after": "COC(=O)NC(C)(O)C1CCC(N)C(OC2C(N)CC(O)C(OC3OCC(C)(F)C(N(C)C(C)=O)C3O)C2O)O1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC -> [1*]NC(=O)OC: Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity. | [2*]C([1*])C -> [2*]C([1*])(O)C: Convert the simple ethyl linker into a beta-hydroxylated linker. Added polarity can reduce membrane affinity and hERG interaction while potentially improving aqueous solubility. | [2*]OC1C(N)CC(N)C([1*])C1O -> [2*]OC1C(N)CC(O)C([1*])C1O: Replace one amino group on the central ring with hydroxyl to reduce total basicity and cationic burden. This may lower hERG and improve overall physicochemical balance. | [2*]OC1OCC(C)(O)C([1*])C1O -> [2*]OC1OCC(C)(F)C([1*])C1O: Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape. | [2*]NC -> [2*]N(C)C(=O)C: Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC",
+          "substitute_block": "[1*]NC(=O)OC",
+          "rationale": "Replace the terminal methylamine with a carbamate-like NHCOOMe motif. This attenuates basicity and can reduce hERG liability by removing a strongly protonated center while preserving hydrogen-bonding capacity."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C([1*])C",
+          "substitute_block": "[2*]C([1*])(O)C",
+          "rationale": "Convert the simple ethyl linker into a beta-hydroxylated linker. Added polarity can reduce membrane affinity and hERG interaction while potentially improving aqueous solubility."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]OC1C(N)CC(N)C([1*])C1O",
+          "substitute_block": "[2*]OC1C(N)CC(O)C([1*])C1O",
+          "rationale": "Replace one amino group on the central ring with hydroxyl to reduce total basicity and cationic burden. This may lower hERG and improve overall physicochemical balance."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]OC1OCC(C)(O)C([1*])C1O",
+          "substitute_block": "[2*]OC1OCC(C)(F)C([1*])C1O",
+          "rationale": "Replace the tertiary alcohol-bearing methyl substituent hydroxyl with fluorine. This may reduce metabolic conjugation and tune polarity while maintaining steric shape."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]NC",
+          "substitute_block": "[2*]N(C)C(=O)C",
+          "rationale": "Cap the distal methylamino group as an N-methylacetamide to reduce total cationic charge density. Lowering the number of protonated nitrogens is a classic way to reduce hERG and off-target ion-channel interactions."
+        }
+      ],
+      "original_candidate_id": "variant_292",
+      "rank": 3,
+      "hERG_before": 0.6903,
+      "hERG_after": 0.6258,
+      "herg_reduction": 0.0645,
+      "improvement_percent": 9.339,
+      "tanimoto_similarity": 0.356,
+      "SA_after": 5.6991,
+      "QED_after": 0.153,
+      "n_candidates_in_pool": 512
+    }
+  },
+  "CC1CN(CCN1)C2=C(C(=C3C(=C2)N(C=C(C3=O)C(=O)O)C4CC4)C)F": {
+    "candidate_1": {
+      "smiles_before": "CC1CN(CCN1)C2=C(C(=C3C(=C2)N(C=C(C3=O)C(=O)O)C4CC4)C)F",
+      "smiles_after": "Cc1c(N)c(N2CCC(N)C2)cc2c1c(=O)c(C(=O)O)cn2C1CC1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1 -> [1*]c1cc2c(c(C)c1N)c(=O)c([2*])cn2C1CC1: Replacing 6-fluoro with 6-amino reduces lipophilicity and introduces a tunable hydrogen-bonding handle. | [2*]N1CCNC(C)C1 -> [2*]N1CCC(N)C1: 3-Aminopiperidine changes the diamine topology and may reduce excessive cationic density while retaining target engagement.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1",
+          "substitute_block": "[1*]c1cc2c(c(C)c1N)c(=O)c([2*])cn2C1CC1",
+          "rationale": "Replacing 6-fluoro with 6-amino reduces lipophilicity and introduces a tunable hydrogen-bonding handle."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CCNC(C)C1",
+          "substitute_block": "[2*]N1CCC(N)C1",
+          "rationale": "3-Aminopiperidine changes the diamine topology and may reduce excessive cationic density while retaining target engagement."
+        }
+      ],
+      "original_candidate_id": "variant_44",
+      "rank": 1,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6539,
+      "herg_reduction": 0.0207,
+      "improvement_percent": 3.071,
+      "tanimoto_similarity": 0.585,
+      "SA_after": 3.2507,
+      "QED_after": 0.7277,
+      "n_candidates_in_pool": 87
+    },
+    "candidate_2": {
+      "smiles_before": "CC1CN(CCN1)C2=C(C(=C3C(=C2)N(C=C(C3=O)C(=O)O)C4CC4)C)F",
+      "smiles_after": "CC(=O)N1CCN(c2cc3c(c(C)c2N)c(=O)c(C(=O)O)cn3C2CC2)CC1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1 -> [1*]c1cc2c(c(C)c1N)c(=O)c([2*])cn2C1CC1: Replacing 6-fluoro with 6-amino reduces lipophilicity and introduces a tunable hydrogen-bonding handle. | [2*]N1CCNC(C)C1 -> [2*]N1CCN(C(=O)C)CC1: N-Acetylation reduces basicity and can attenuate hERG binding by decreasing the fraction of fully protonated species.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1",
+          "substitute_block": "[1*]c1cc2c(c(C)c1N)c(=O)c([2*])cn2C1CC1",
+          "rationale": "Replacing 6-fluoro with 6-amino reduces lipophilicity and introduces a tunable hydrogen-bonding handle."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CCNC(C)C1",
+          "substitute_block": "[2*]N1CCN(C(=O)C)CC1",
+          "rationale": "N-Acetylation reduces basicity and can attenuate hERG binding by decreasing the fraction of fully protonated species."
+        }
+      ],
+      "original_candidate_id": "variant_48",
+      "rank": 2,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6546,
+      "herg_reduction": 0.02,
+      "improvement_percent": 2.968,
+      "tanimoto_similarity": 0.537,
+      "SA_after": 2.6724,
+      "QED_after": 0.7782,
+      "n_candidates_in_pool": 87
+    },
+    "candidate_3": {
+      "smiles_before": "CC1CN(CCN1)C2=C(C(=C3C(=C2)N(C=C(C3=O)C(=O)O)C4CC4)C)F",
+      "smiles_after": "O=C(O)c1cn(C2CC2)c2cc(N3CCOCC3)c(F)cc2c1=O",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1 -> [1*]c1cc2c(c([H])c1F)c(=O)c([2*])cn2C1CC1: Deleting the 5-methyl directly reduces hydrophobic surface area and lipophilicity, a straightforward hERG-lowering strategy. | [2*]N1CCNC(C)C1 -> [2*]N1CCOCC1: Morpholine substantially lowers pKa and often reduces off-target ion-channel binding, including hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1cc2c(c(C)c1F)c(=O)c([2*])cn2C1CC1",
+          "substitute_block": "[1*]c1cc2c(c([H])c1F)c(=O)c([2*])cn2C1CC1",
+          "rationale": "Deleting the 5-methyl directly reduces hydrophobic surface area and lipophilicity, a straightforward hERG-lowering strategy."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CCNC(C)C1",
+          "substitute_block": "[2*]N1CCOCC1",
+          "rationale": "Morpholine substantially lowers pKa and often reduces off-target ion-channel binding, including hERG."
+        }
+      ],
+      "original_candidate_id": "variant_22",
+      "rank": 3,
+      "hERG_before": 0.6746,
+      "hERG_after": 0.6549,
+      "herg_reduction": 0.0198,
+      "improvement_percent": 2.934,
+      "tanimoto_similarity": 0.456,
+      "SA_after": 2.3683,
+      "QED_after": 0.9308,
+      "n_candidates_in_pool": 87
+    }
+  },
+  "CCCCN(CCCC)CCC(C1=C2C=CC(=CC2=C3C=C(C=C(C3=C1)Cl)Cl)C(F)(F)F)O": {
+    "candidate_1": {
+      "smiles_before": "CCCCN(CCCC)CCC(C1=C2C=CC(=CC2=C3C=C(C=C(C3=C1)Cl)Cl)C(F)(F)F)O",
+      "smiles_after": "CN(CCO)CC(=O)Cc1cc2c(Cl)cc(Cl)cc2c2cc(C(F)(F)F)ccc12",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCC([2*])O -> [1*]CC(=O)C[2*]: Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk. | [2*]N([1*])CCCC -> [2*]N([1*])C: Replacing one n-butyl with methyl lowers lipophilicity and steric bulk around the basic nitrogen, which may reduce hERG binding and improve drug-likeness. | [2*]CCCC -> [2*]CCO: Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCC([2*])O",
+          "substitute_block": "[1*]CC(=O)C[2*]",
+          "rationale": "Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]N([1*])CCCC",
+          "substitute_block": "[2*]N([1*])C",
+          "rationale": "Replacing one n-butyl with methyl lowers lipophilicity and steric bulk around the basic nitrogen, which may reduce hERG binding and improve drug-likeness."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCCC",
+          "substitute_block": "[2*]CCO",
+          "rationale": "Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk."
+        }
+      ],
+      "original_candidate_id": "variant_12",
+      "rank": 1,
+      "hERG_before": 0.703,
+      "hERG_after": 0.6776,
+      "herg_reduction": 0.0254,
+      "improvement_percent": 3.614,
+      "tanimoto_similarity": 0.441,
+      "SA_after": 2.6757,
+      "QED_after": 0.5213,
+      "n_candidates_in_pool": 50
+    },
+    "candidate_2": {
+      "smiles_before": "CCCCN(CCCC)CCC(C1=C2C=CC(=CC2=C3C=C(C=C(C3=C1)Cl)Cl)C(F)(F)F)O",
+      "smiles_after": "CCCCN(CCO)CC(=O)Cc1cc2c(Cl)cc(Cl)cc2c2cc(C#N)ccc12",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(F)(F)F -> [1*]C#N: Cyano is a common CF3 bioisostere that can reduce lipophilicity and aromatic hydrophobicity, often helping hERG and overall ADMET. | [1*]CCC([2*])O -> [1*]CC(=O)C[2*]: Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk. | [2*]CCCC -> [2*]CCO: Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(F)(F)F",
+          "substitute_block": "[1*]C#N",
+          "rationale": "Cyano is a common CF3 bioisostere that can reduce lipophilicity and aromatic hydrophobicity, often helping hERG and overall ADMET."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCC([2*])O",
+          "substitute_block": "[1*]CC(=O)C[2*]",
+          "rationale": "Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCCC",
+          "substitute_block": "[2*]CCO",
+          "rationale": "Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk."
+        }
+      ],
+      "original_candidate_id": "variant_43",
+      "rank": 2,
+      "hERG_before": 0.703,
+      "hERG_after": 0.6787,
+      "herg_reduction": 0.0243,
+      "improvement_percent": 3.462,
+      "tanimoto_similarity": 0.373,
+      "SA_after": 2.7285,
+      "QED_after": 0.4514,
+      "n_candidates_in_pool": 50
+    },
+    "candidate_3": {
+      "smiles_before": "CCCCN(CCCC)CCC(C1=C2C=CC(=CC2=C3C=C(C=C(C3=C1)Cl)Cl)C(F)(F)F)O",
+      "smiles_after": "CN(CCO)CC(=O)Cc1cc2c(Cl)cc(Cl)cc2c2cc(C#N)ccc12",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(F)(F)F -> [1*]C#N: Cyano is a common CF3 bioisostere that can reduce lipophilicity and aromatic hydrophobicity, often helping hERG and overall ADMET. | [1*]CCC([2*])O -> [1*]CC(=O)C[2*]: Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk. | [2*]N([1*])CCCC -> [2*]N([1*])C: Replacing one n-butyl with methyl lowers lipophilicity and steric bulk around the basic nitrogen, which may reduce hERG binding and improve drug-likeness. | [2*]CCCC -> [2*]CCO: Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(F)(F)F",
+          "substitute_block": "[1*]C#N",
+          "rationale": "Cyano is a common CF3 bioisostere that can reduce lipophilicity and aromatic hydrophobicity, often helping hERG and overall ADMET."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCC([2*])O",
+          "substitute_block": "[1*]CC(=O)C[2*]",
+          "rationale": "Introducing a carbonyl reduces the classic amino-alcohol motif associated with lipophilic cations and may lower cardiotoxicity risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]N([1*])CCCC",
+          "substitute_block": "[2*]N([1*])C",
+          "rationale": "Replacing one n-butyl with methyl lowers lipophilicity and steric bulk around the basic nitrogen, which may reduce hERG binding and improve drug-likeness."
+        },
+        {
+          "block_index": 4,
+          "original_block": "[2*]CCCC",
+          "substitute_block": "[2*]CCO",
+          "rationale": "Replacing one butyl with 2-hydroxyethyl increases polarity and lowers cLogP, often reducing potassium channel inhibition risk."
+        }
+      ],
+      "original_candidate_id": "variant_47",
+      "rank": 3,
+      "hERG_before": 0.703,
+      "hERG_after": 0.6787,
+      "herg_reduction": 0.0243,
+      "improvement_percent": 3.457,
+      "tanimoto_similarity": 0.273,
+      "SA_after": 2.6869,
+      "QED_after": 0.629,
+      "n_candidates_in_pool": 50
+    }
+  },
+  "CC(C)NCCCC1(C2=CC=CC=C2C3=CC=CC=C31)C(=O)N": {},
+  "CCC(C(CC(C)N(C)C)(C1=CC=CC=C1)C2=CC=CC=C2)OC(=O)C": {
+    "candidate_1": {
+      "smiles_before": "CCC(C(CC(C)N(C)C)(C1=CC=CC=C1)C2=CC=CC=C2)OC(=O)C",
+      "smiles_after": "CCC(OC(C)=O)C(CC(C)NC(C)=O)(c1ccccc1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]N(C)C -> [2*]NC(C)=O: Acetamide replacement neutralizes the amine and should strongly reduce hERG risk, though potency/permeability must be checked.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(C)C",
+          "substitute_block": "[2*]NC(C)=O",
+          "rationale": "Acetamide replacement neutralizes the amine and should strongly reduce hERG risk, though potency/permeability must be checked."
+        }
+      ],
+      "original_candidate_id": "variant_1",
+      "rank": 1,
+      "hERG_before": 0.6571,
+      "hERG_after": 0.6499,
+      "herg_reduction": 0.0072,
+      "improvement_percent": 1.099,
+      "tanimoto_similarity": 0.674,
+      "SA_after": 3.2081,
+      "QED_after": 0.7105,
+      "n_candidates_in_pool": 3
+    },
+    "candidate_2": {
+      "smiles_before": "CCC(C(CC(C)N(C)C)(C1=CC=CC=C1)C2=CC=CC=C2)OC(=O)C",
+      "smiles_after": "CCC(OC(C)=O)C(CC(C)N(C)CO)(c1ccccc1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]N(C)C -> [2*]N(C)CO: Hydroxymethyl substitution lowers lipophilicity and can modestly reduce basicity while improving solubility.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(C)C",
+          "substitute_block": "[2*]N(C)CO",
+          "rationale": "Hydroxymethyl substitution lowers lipophilicity and can modestly reduce basicity while improving solubility."
+        }
+      ],
+      "original_candidate_id": "variant_2",
+      "rank": 2,
+      "hERG_before": 0.6571,
+      "hERG_after": 0.6511,
+      "herg_reduction": 0.006,
+      "improvement_percent": 0.915,
+      "tanimoto_similarity": 0.795,
+      "SA_after": 3.4651,
+      "QED_after": 0.5366,
+      "n_candidates_in_pool": 3
+    },
+    "candidate_3": {
+      "smiles_before": "CCC(C(CC(C)N(C)C)(C1=CC=CC=C1)C2=CC=CC=C2)OC(=O)C",
+      "smiles_after": "CCC(OC(C)=O)C(CC(C)NC(=O)OC)(c1ccccc1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[2*]N(C)C -> [2*]NC(=O)OC: A carbamate-like neutral replacement removes the strongly basic tertiary amine character, a common strategy to reduce hERG binding.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[2*]N(C)C",
+          "substitute_block": "[2*]NC(=O)OC",
+          "rationale": "A carbamate-like neutral replacement removes the strongly basic tertiary amine character, a common strategy to reduce hERG binding."
+        }
+      ],
+      "original_candidate_id": "variant_0",
+      "rank": 3,
+      "hERG_before": 0.6571,
+      "hERG_after": 0.6512,
+      "herg_reduction": 0.006,
+      "improvement_percent": 0.91,
+      "tanimoto_similarity": 0.646,
+      "SA_after": 3.2456,
+      "QED_after": 0.6842,
+      "n_candidates_in_pool": 3
+    }
+  },
+  "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)C": {
+    "candidate_1": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)C",
+      "smiles_after": "CN1CC(O)CC1CCN1c2ccccc2Sc2ccc(S(C)=O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[2*]C1CCCCN1C -> [2*]C1CC(O)CN1C: A smaller hydroxylated pyrrolidine changes cation orientation and reduces lipophilicity, both of which may weaken hERG binding.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CC(O)CN1C",
+          "rationale": "A smaller hydroxylated pyrrolidine changes cation orientation and reduces lipophilicity, both of which may weaken hERG binding."
+        }
+      ],
+      "original_candidate_id": "variant_2",
+      "rank": 1,
+      "hERG_before": 0.6858,
+      "hERG_after": 0.676,
+      "herg_reduction": 0.0098,
+      "improvement_percent": 1.424,
+      "tanimoto_similarity": 0.672,
+      "SA_after": 3.8008,
+      "QED_after": 0.8687,
+      "n_candidates_in_pool": 5
+    },
+    "candidate_2": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)C",
+      "smiles_after": "CN1CCC1CCN1c2ccccc2Sc2ccc(S(C)=O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[2*]C1CCCCN1C -> [2*]C1CCN1C: Azetidine reduces hydrophobic surface area and changes geometry around the basic center, which can reduce hERG affinity.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CCN1C",
+          "rationale": "Azetidine reduces hydrophobic surface area and changes geometry around the basic center, which can reduce hERG affinity."
+        }
+      ],
+      "original_candidate_id": "variant_4",
+      "rank": 2,
+      "hERG_before": 0.6858,
+      "hERG_after": 0.6771,
+      "herg_reduction": 0.0086,
+      "improvement_percent": 1.261,
+      "tanimoto_similarity": 0.86,
+      "SA_after": 3.4722,
+      "QED_after": 0.8202,
+      "n_candidates_in_pool": 5
+    },
+    "candidate_3": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)C",
+      "smiles_after": "CN1CCC(O)CC1CCN1c2ccccc2Sc2ccc(S(C)=O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[2*]C1CCCCN1C -> [2*]C1CC(O)CCN1C: Hydroxyl substitution on piperidine increases polarity and lowers logD, often reducing hERG risk while retaining a similar amine-containing ring.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CC(O)CCN1C",
+          "rationale": "Hydroxyl substitution on piperidine increases polarity and lowers logD, often reducing hERG risk while retaining a similar amine-containing ring."
+        }
+      ],
+      "original_candidate_id": "variant_1",
+      "rank": 3,
+      "hERG_before": 0.6858,
+      "hERG_after": 0.6783,
+      "herg_reduction": 0.0075,
+      "improvement_percent": 1.091,
+      "tanimoto_similarity": 0.737,
+      "SA_after": 3.7593,
+      "QED_after": 0.841,
+      "n_candidates_in_pool": 5
+    }
+  },
+  "CC(C)C1C2=C(CCC1(CCN(C)CCCC3=NC4=CC=CC=C4N3)OC(=O)COC)C=C(C=C2)F": {
+    "candidate_1": {
+      "smiles_before": "CC(C)C1C2=C(CCC1(CCN(C)CCCC3=NC4=CC=CC=C4N3)OC(=O)COC)C=C(C=C2)F",
+      "smiles_after": "CC(C)C1c2ccc(F)cc2OCCC1(CCN(C)OC(=O)N(C)C)NC(=O)N(C)CC(O)Cc1nc2ccccc2o1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1nc2ccccc2[nH]1 -> [1*]c1nc2ccccc2o1: Benzoxazole is a benzimidazole bioisostere that removes the NH donor and may reduce promiscuity and off-target ion-channel binding. | [1*]CCC[2*] -> [1*]CC(O)C[2*]: A hydroxylated linker lowers logD and membrane partitioning, which can reduce hERG inhibition and improve solubility. | [1*]CCN([2*])C -> [1*]NC(=O)N([2*])C: A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity. | [2*]C1([1*])CCc2cc(F)ccc2C1C(C)C -> [2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C: Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG. | [2*]OC -> [2*]OC(=O)N(C)C: A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1nc2ccccc2[nH]1",
+          "substitute_block": "[1*]c1nc2ccccc2o1",
+          "rationale": "Benzoxazole is a benzimidazole bioisostere that removes the NH donor and may reduce promiscuity and off-target ion-channel binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]CC(O)C[2*]",
+          "rationale": "A hydroxylated linker lowers logD and membrane partitioning, which can reduce hERG inhibition and improve solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCN([2*])C",
+          "substitute_block": "[1*]NC(=O)N([2*])C",
+          "rationale": "A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1([1*])CCc2cc(F)ccc2C1C(C)C",
+          "substitute_block": "[2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C",
+          "rationale": "Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]OC",
+          "substitute_block": "[2*]OC(=O)N(C)C",
+          "rationale": "A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_298",
+      "rank": 1,
+      "hERG_before": 0.7319,
+      "hERG_after": 0.6573,
+      "herg_reduction": 0.0746,
+      "improvement_percent": 10.196,
+      "tanimoto_similarity": 0.319,
+      "SA_after": 4.5987,
+      "QED_after": 0.3291,
+      "n_candidates_in_pool": 975
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)C1C2=C(CCC1(CCN(C)CCCC3=NC4=CC=CC=C4N3)OC(=O)COC)C=C(C=C2)F",
+      "smiles_after": "CC(C)C1c2ccc(F)cc2OCCC1(CCN(C)OC(=O)N(C)C)NC(=O)N(C)CCc1nc2ccccc2o1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1nc2ccccc2[nH]1 -> [1*]c1nc2ccccc2o1: Benzoxazole is a benzimidazole bioisostere that removes the NH donor and may reduce promiscuity and off-target ion-channel binding. | [1*]CCC[2*] -> [1*]CC[2*]: Shortening the linker can alter the spatial relationship between aromatic and cationic regions, potentially reducing hERG affinity. | [1*]CCN([2*])C -> [1*]NC(=O)N([2*])C: A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity. | [2*]C1([1*])CCc2cc(F)ccc2C1C(C)C -> [2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C: Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG. | [2*]OC -> [2*]OC(=O)N(C)C: A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1nc2ccccc2[nH]1",
+          "substitute_block": "[1*]c1nc2ccccc2o1",
+          "rationale": "Benzoxazole is a benzimidazole bioisostere that removes the NH donor and may reduce promiscuity and off-target ion-channel binding."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]CC[2*]",
+          "rationale": "Shortening the linker can alter the spatial relationship between aromatic and cationic regions, potentially reducing hERG affinity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCN([2*])C",
+          "substitute_block": "[1*]NC(=O)N([2*])C",
+          "rationale": "A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1([1*])CCc2cc(F)ccc2C1C(C)C",
+          "substitute_block": "[2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C",
+          "rationale": "Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]OC",
+          "substitute_block": "[2*]OC(=O)N(C)C",
+          "rationale": "A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_351",
+      "rank": 2,
+      "hERG_before": 0.7319,
+      "hERG_after": 0.6577,
+      "herg_reduction": 0.0742,
+      "improvement_percent": 10.141,
+      "tanimoto_similarity": 0.339,
+      "SA_after": 4.3187,
+      "QED_after": 0.3603,
+      "n_candidates_in_pool": 975
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)C1C2=C(CCC1(CCN(C)CCCC3=NC4=CC=CC=C4N3)OC(=O)COC)C=C(C=C2)F",
+      "smiles_after": "CC(C)C1c2ccc(F)cc2OCCC1(CCN(C)OC(=O)N(C)C)NC(=O)N(C)CCOc1nc2ccccc2s1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1nc2ccccc2[nH]1 -> [1*]c1nc2ccccc2s1: Benzothiazole changes electronics and hydrogen-bonding properties, potentially reducing hERG liability while preserving aromatic recognition. | [1*]CCC[2*] -> [1*]CCO[2*]: Ether insertion into the linker increases polarity and disrupts the hydrophobe-cation spacing associated with hERG binding. | [1*]CCN([2*])C -> [1*]NC(=O)N([2*])C: A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity. | [2*]C1([1*])CCc2cc(F)ccc2C1C(C)C -> [2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C: Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG. | [2*]OC -> [2*]OC(=O)N(C)C: A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1nc2ccccc2[nH]1",
+          "substitute_block": "[1*]c1nc2ccccc2s1",
+          "rationale": "Benzothiazole changes electronics and hydrogen-bonding properties, potentially reducing hERG liability while preserving aromatic recognition."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]CCC[2*]",
+          "substitute_block": "[1*]CCO[2*]",
+          "rationale": "Ether insertion into the linker increases polarity and disrupts the hydrophobe-cation spacing associated with hERG binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CCN([2*])C",
+          "substitute_block": "[1*]NC(=O)N([2*])C",
+          "rationale": "A urea-like linker increases polarity and hydrogen-bonding capacity while reducing lipophilicity and basicity."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]C1([1*])CCc2cc(F)ccc2C1C(C)C",
+          "substitute_block": "[2*]C1([1*])CCOc2cc(F)ccc2C1C(C)C",
+          "rationale": "Oxygen insertion into the bicyclic hydrophobe reduces lipophilicity and aromatic hydrophobic surface, a common strategy to mitigate hERG."
+        },
+        {
+          "block_index": 5,
+          "original_block": "[2*]OC",
+          "substitute_block": "[2*]OC(=O)N(C)C",
+          "rationale": "A carbamate can provide a more balanced polarity/stability profile than a simple ester and may reduce rapid metabolism and hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_452",
+      "rank": 3,
+      "hERG_before": 0.7319,
+      "hERG_after": 0.6577,
+      "herg_reduction": 0.0742,
+      "improvement_percent": 10.137,
+      "tanimoto_similarity": 0.319,
+      "SA_after": 4.3519,
+      "QED_after": 0.3131,
+      "n_candidates_in_pool": 975
+    }
+  },
+  "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CNC": {
+    "candidate_1": {
+      "smiles_before": "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CNC",
+      "smiles_after": "CCC(=O)OC(Cc1ccccc1)(c1ccccc1)C(C)CNC(C)=O",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC -> [1*]NC(=O)C: Replacing the methylamino group with an acetamide strongly reduces cationic character, a common strategy to lower hERG inhibition while improving polarity and off-target selectivity.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC",
+          "substitute_block": "[1*]NC(=O)C",
+          "rationale": "Replacing the methylamino group with an acetamide strongly reduces cationic character, a common strategy to lower hERG inhibition while improving polarity and off-target selectivity."
+        }
+      ],
+      "original_candidate_id": "variant_0",
+      "rank": 1,
+      "hERG_before": 0.6612,
+      "hERG_after": 0.66,
+      "herg_reduction": 0.0012,
+      "improvement_percent": 0.183,
+      "tanimoto_similarity": 0.783,
+      "SA_after": 3.1265,
+      "QED_after": 0.7335,
+      "n_candidates_in_pool": 1
+    }
+  },
+  "CC(CC1=CC=CC=C1)NCCC(C2=CC=CC=C2)C3=CC=CC=C3": {
+    "candidate_1": {
+      "smiles_before": "CC(CC1=CC=CC=C1)NCCC(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "O=C(NCC(c1ccccc1)c1ccncc1)NC(O)Cc1ccncc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccccc1 -> [1*]c1ccncc1: Replacing phenyl with pyridyl lowers lipophilicity and adds a heteroatom, which may reduce hERG binding and improve solubility. | [1*]NCCC([2*])c1ccccc1 -> [1*]NC(=O)NCC([2*])c1ccccc1: Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk. | [1*]CC([2*])C -> [1*]CC([2*])O: Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding. | [2*]c1ccccc1 -> [2*]c1ccncc1: Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccccc1",
+          "substitute_block": "[1*]c1ccncc1",
+          "rationale": "Replacing phenyl with pyridyl lowers lipophilicity and adds a heteroatom, which may reduce hERG binding and improve solubility."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]NCCC([2*])c1ccccc1",
+          "substitute_block": "[1*]NC(=O)NCC([2*])c1ccccc1",
+          "rationale": "Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CC([2*])C",
+          "substitute_block": "[1*]CC([2*])O",
+          "rationale": "Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_106",
+      "rank": 1,
+      "hERG_before": 0.6882,
+      "hERG_after": 0.6596,
+      "herg_reduction": 0.0286,
+      "improvement_percent": 4.154,
+      "tanimoto_similarity": 0.294,
+      "SA_after": 3.1113,
+      "QED_after": 0.5636,
+      "n_candidates_in_pool": 234
+    },
+    "candidate_2": {
+      "smiles_before": "CC(CC1=CC=CC=C1)NCCC(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "O=C(NCC(c1ccccc1)c1ccccn1)NC(O)Cc1ccncc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccccc1 -> [1*]c1ccccn1: A pyridyl analogue can alter electronics and conformation while reducing hydrophobic aromatic surface associated with hERG risk. | [1*]NCCC([2*])c1ccccc1 -> [1*]NC(=O)NCC([2*])c1ccccc1: Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk. | [1*]CC([2*])C -> [1*]CC([2*])O: Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding. | [2*]c1ccccc1 -> [2*]c1ccncc1: Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccccc1",
+          "substitute_block": "[1*]c1ccccn1",
+          "rationale": "A pyridyl analogue can alter electronics and conformation while reducing hydrophobic aromatic surface associated with hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]NCCC([2*])c1ccccc1",
+          "substitute_block": "[1*]NC(=O)NCC([2*])c1ccccc1",
+          "rationale": "Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CC([2*])C",
+          "substitute_block": "[1*]CC([2*])O",
+          "rationale": "Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_163",
+      "rank": 2,
+      "hERG_before": 0.6882,
+      "hERG_after": 0.6596,
+      "herg_reduction": 0.0286,
+      "improvement_percent": 4.153,
+      "tanimoto_similarity": 0.263,
+      "SA_after": 3.1589,
+      "QED_after": 0.5636,
+      "n_candidates_in_pool": 234
+    },
+    "candidate_3": {
+      "smiles_before": "CC(CC1=CC=CC=C1)NCCC(C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "O=C(NCC(c1ccccc1)c1ccccn1)NC(O)Cc1ccncc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1ccccc1 -> [1*]c1ccccn1: A pyridyl analogue can alter electronics and conformation while reducing hydrophobic aromatic surface associated with hERG risk. | [1*]NCCC([2*])c1ccccc1 -> [1*]NC(=O)NCC([2*])c1ccccc1: Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk. | [1*]CC([2*])C -> [1*]CC([2*])O: Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding. | [2*]c1ccccc1 -> [2*]c1ccncc1: Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]c1ccccc1",
+          "substitute_block": "[1*]c1ccccn1",
+          "rationale": "A pyridyl analogue can alter electronics and conformation while reducing hydrophobic aromatic surface associated with hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]NCCC([2*])c1ccccc1",
+          "substitute_block": "[1*]NC(=O)NCC([2*])c1ccccc1",
+          "rationale": "Urea reduces basicity and adds polarity/H-bonding, which may improve selectivity and reduce cardiotoxicity risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]CC([2*])C",
+          "substitute_block": "[1*]CC([2*])O",
+          "rationale": "Adding an alcohol near the hydrophobic core increases polarity and may reduce membrane partitioning and hERG binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "Replacing one phenyl of the diphenyl motif with pyridyl reduces aromatic lipophilicity and often lowers hERG risk."
+        }
+      ],
+      "original_candidate_id": "variant_210",
+      "rank": 3,
+      "hERG_before": 0.6882,
+      "hERG_after": 0.6596,
+      "herg_reduction": 0.0286,
+      "improvement_percent": 4.153,
+      "tanimoto_similarity": 0.263,
+      "SA_after": 3.1589,
+      "QED_after": 0.5636,
+      "n_candidates_in_pool": 234
+    }
+  },
+  "CC(C)(C)C1=CC(=CC(=C1O)C(C)(C)C)SC(C)(C)SC2=CC(=C(C(=C2)C(C)(C)C)O)C(C)(C)C": {
+    "candidate_1": {
+      "smiles_before": "CC(C)(C)C1=CC(=CC(=C1O)C(C)(C)C)SC(C)(C)SC2=CC(=C(C(=C2)C(C)(C)C)O)C(C)(C)C",
+      "smiles_after": "CC(C)(C)c1cc(S(=O)(=O)C(C)(C)Sc2ccc(O)c(F)c2)cc(C(C)(C)C)c1C(N)=O",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(C)(C)C -> [1*]F: Replacing a tert-butyl group with fluorine reduces lipophilicity, steric bulk, and hydrophobic surface area, which may reduce hERG potassium channel inhibition and improve druglikeness. | [1*]Sc1cc([2*])c(O)c(C(C)(C)C)c1 -> [1*]Sc1cc([2*])c(O)cc1: Removing a tert-butyl group directly lowers molecular weight and cLogP, which is often beneficial for hERG and overall developability. | [1*]SC([2*])(C)C -> [1*]S(=O)(=O)C([2*])(C)C: Sulfone is substantially more polar than sulfide and can reduce lipophilic promiscuity and cardiotoxicity risk. | [1*]c1cc([2*])cc(C(C)(C)C)c1O -> [1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N: A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(C)(C)C",
+          "substitute_block": "[1*]F",
+          "rationale": "Replacing a tert-butyl group with fluorine reduces lipophilicity, steric bulk, and hydrophobic surface area, which may reduce hERG potassium channel inhibition and improve druglikeness."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]Sc1cc([2*])c(O)c(C(C)(C)C)c1",
+          "substitute_block": "[1*]Sc1cc([2*])c(O)cc1",
+          "rationale": "Removing a tert-butyl group directly lowers molecular weight and cLogP, which is often beneficial for hERG and overall developability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]SC([2*])(C)C",
+          "substitute_block": "[1*]S(=O)(=O)C([2*])(C)C",
+          "rationale": "Sulfone is substantially more polar than sulfide and can reduce lipophilic promiscuity and cardiotoxicity risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1O",
+          "substitute_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N",
+          "rationale": "A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility."
+        }
+      ],
+      "original_candidate_id": "variant_122",
+      "rank": 1,
+      "hERG_before": 0.6692,
+      "hERG_after": 0.6325,
+      "herg_reduction": 0.0367,
+      "improvement_percent": 5.484,
+      "tanimoto_similarity": 0.275,
+      "SA_after": 3.1646,
+      "QED_after": 0.5476,
+      "n_candidates_in_pool": 358
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)(C)C1=CC(=CC(=C1O)C(C)(C)C)SC(C)(C)SC2=CC(=C(C(=C2)C(C)(C)C)O)C(C)(C)C",
+      "smiles_after": "CC(CO)(Sc1cc(CO)c(O)c(C(C)(C)C)c1)Sc1cc(C(C)(C)C)c(C(N)=O)c(C(C)(C)C)c1",
+      "smiles_after_valid": true,
+      "modification": "[1*]C(C)(C)C -> [1*]CO: Hydroxymethyl introduces polarity and hydrogen-bonding capacity, which can reduce nonspecific membrane and hERG interactions. | [1*]SC([2*])(C)C -> [1*]SC([2*])(C)CO: Adding a hydroxymethyl substituent to the linker increases polarity and may reduce membrane accumulation and hERG activity. | [1*]c1cc([2*])cc(C(C)(C)C)c1O -> [1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N: A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]C(C)(C)C",
+          "substitute_block": "[1*]CO",
+          "rationale": "Hydroxymethyl introduces polarity and hydrogen-bonding capacity, which can reduce nonspecific membrane and hERG interactions."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]SC([2*])(C)C",
+          "substitute_block": "[1*]SC([2*])(C)CO",
+          "rationale": "Adding a hydroxymethyl substituent to the linker increases polarity and may reduce membrane accumulation and hERG activity."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1O",
+          "substitute_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N",
+          "rationale": "A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility."
+        }
+      ],
+      "original_candidate_id": "variant_254",
+      "rank": 2,
+      "hERG_before": 0.6692,
+      "hERG_after": 0.6404,
+      "herg_reduction": 0.0288,
+      "improvement_percent": 4.306,
+      "tanimoto_similarity": 0.419,
+      "SA_after": 3.8955,
+      "QED_after": 0.2402,
+      "n_candidates_in_pool": 358
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)(C)C1=CC(=CC(=C1O)C(C)(C)C)SC(C)(C)SC2=CC(=C(C(=C2)C(C)(C)C)O)C(C)(C)C",
+      "smiles_after": "CC(C)(C)c1cc(SC(C)(C)S(=O)(=O)c2cc(C(C)(C)C)c(C(N)=O)c(C(C)(C)C)c2)cc(C(C)(C)C)c1O",
+      "smiles_after_valid": true,
+      "modification": "[1*]SC([2*])(C)C -> [1*]S(=O)(=O)C([2*])(C)C: Sulfone is substantially more polar than sulfide and can reduce lipophilic promiscuity and cardiotoxicity risk. | [1*]c1cc([2*])cc(C(C)(C)C)c1O -> [1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N: A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility.",
+      "block_changes": [
+        {
+          "block_index": 2,
+          "original_block": "[1*]SC([2*])(C)C",
+          "substitute_block": "[1*]S(=O)(=O)C([2*])(C)C",
+          "rationale": "Sulfone is substantially more polar than sulfide and can reduce lipophilic promiscuity and cardiotoxicity risk."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1O",
+          "substitute_block": "[1*]c1cc([2*])cc(C(C)(C)C)c1C(=O)N",
+          "rationale": "A carboxamide increases polarity and hydrogen-bonding capacity, which may reduce hERG affinity and improve solubility."
+        }
+      ],
+      "original_candidate_id": "variant_14",
+      "rank": 3,
+      "hERG_before": 0.6692,
+      "hERG_after": 0.6406,
+      "herg_reduction": 0.0286,
+      "improvement_percent": 4.279,
+      "tanimoto_similarity": 0.475,
+      "SA_after": 3.3547,
+      "QED_after": 0.3523,
+      "n_candidates_in_pool": 358
+    }
+  },
+  "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CN(C)C": {
+    "candidate_1": {
+      "smiles_before": "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CN(C)C",
+      "smiles_after": "CC(=O)NCC(C)C(Cc1ccccc1)(OC(C)=O)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]NC(=O)C: An amide is much less basic than a tertiary amine and is generally less hERG-prone. | [2*]C(=O)CC -> [2*]C(=O)C: Acetate is a smaller ester that modestly reduces hydrophobicity.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]NC(=O)C",
+          "rationale": "An amide is much less basic than a tertiary amine and is generally less hERG-prone."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C(=O)CC",
+          "substitute_block": "[2*]C(=O)C",
+          "rationale": "Acetate is a smaller ester that modestly reduces hydrophobicity."
+        }
+      ],
+      "original_candidate_id": "variant_15",
+      "rank": 1,
+      "hERG_before": 0.6675,
+      "hERG_after": 0.6337,
+      "herg_reduction": 0.0339,
+      "improvement_percent": 5.073,
+      "tanimoto_similarity": 0.519,
+      "SA_after": 3.0976,
+      "QED_after": 0.7861,
+      "n_candidates_in_pool": 17
+    },
+    "candidate_2": {
+      "smiles_before": "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CN(C)C",
+      "smiles_after": "CC(=O)NCC(C)C(Cc1ccccc1)(OC(=O)CO)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]NC(=O)C: An amide is much less basic than a tertiary amine and is generally less hERG-prone. | [2*]C(=O)CC -> [2*]C(=O)CO: A hydroxyacetate-type ester increases polarity and may improve solubility while lowering hERG.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]NC(=O)C",
+          "rationale": "An amide is much less basic than a tertiary amine and is generally less hERG-prone."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C(=O)CC",
+          "substitute_block": "[2*]C(=O)CO",
+          "rationale": "A hydroxyacetate-type ester increases polarity and may improve solubility while lowering hERG."
+        }
+      ],
+      "original_candidate_id": "variant_16",
+      "rank": 2,
+      "hERG_before": 0.6675,
+      "hERG_after": 0.6411,
+      "herg_reduction": 0.0264,
+      "improvement_percent": 3.952,
+      "tanimoto_similarity": 0.547,
+      "SA_after": 3.2062,
+      "QED_after": 0.7133,
+      "n_candidates_in_pool": 17
+    },
+    "candidate_3": {
+      "smiles_before": "CCC(=O)OC(CC1=CC=CC=C1)(C2=CC=CC=C2)C(C)CN(C)C",
+      "smiles_after": "CC(=O)OC(Cc1ccccc1)(c1ccccc1)C(C)CN(C)CO",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]N(C)CO: Hydroxymethyl substitution increases polarity and may reduce nonspecific ion-channel binding. | [2*]C(=O)CC -> [2*]C(=O)C: Acetate is a smaller ester that modestly reduces hydrophobicity.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]N(C)CO",
+          "rationale": "Hydroxymethyl substitution increases polarity and may reduce nonspecific ion-channel binding."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C(=O)CC",
+          "substitute_block": "[2*]C(=O)C",
+          "rationale": "Acetate is a smaller ester that modestly reduces hydrophobicity."
+        }
+      ],
+      "original_candidate_id": "variant_11",
+      "rank": 3,
+      "hERG_before": 0.6675,
+      "hERG_after": 0.6461,
+      "herg_reduction": 0.0214,
+      "improvement_percent": 3.212,
+      "tanimoto_similarity": 0.62,
+      "SA_after": 3.3059,
+      "QED_after": 0.5916,
+      "n_candidates_in_pool": 17
+    }
+  },
+  "C1CN(CCC1C2=CN(C3=C2C=C(C=C3)Cl)C4=CC=C(C=C4)F)CCN5CCNC5=O": {
+    "candidate_1": {
+      "smiles_before": "C1CN(CCC1C2=CN(C3=C2C=C(C=C3)Cl)C4=CC=C(C=C4)F)CCN5CCNC5=O",
+      "smiles_after": "O=C1OCCN1CCN1COCC(C2=CN(c3cccc(O)c3)c3cc(Cl)ccc3O2)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCN1CCNC1=O -> [1*]CCN1CCOC1=O: Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties. | [1*]C1CCN([2*])CC1 -> [1*]C1COCN([2*])C1: Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, a classic strategy for reducing hERG liability. | [2*]c1cn([1*])c2ccc(Cl)cc12 -> [2*]c1cn([1*])c2cc(Cl)ccc2O1: Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness. | [2*]c1ccc(F)cc1 -> [2*]c1cc(O)ccc1: Hydroxy substitution increases polarity and lowers logD, which can reduce hERG-related cardiotoxicity risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CCN1CCNC1=O",
+          "substitute_block": "[1*]CCN1CCOC1=O",
+          "rationale": "Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1COCN([2*])C1",
+          "rationale": "Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, a classic strategy for reducing hERG liability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1cn([1*])c2ccc(Cl)cc12",
+          "substitute_block": "[2*]c1cn([1*])c2cc(Cl)ccc2O1",
+          "rationale": "Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1cc(O)ccc1",
+          "rationale": "Hydroxy substitution increases polarity and lowers logD, which can reduce hERG-related cardiotoxicity risk."
+        }
+      ],
+      "original_candidate_id": "variant_736",
+      "rank": 1,
+      "hERG_before": 0.7508,
+      "hERG_after": 0.6981,
+      "herg_reduction": 0.0527,
+      "improvement_percent": 7.021,
+      "tanimoto_similarity": 0.277,
+      "SA_after": 3.7371,
+      "QED_after": 0.7319,
+      "n_candidates_in_pool": 1039
+    },
+    "candidate_2": {
+      "smiles_before": "C1CN(CCC1C2=CN(C3=C2C=C(C=C3)Cl)C4=CC=C(C=C4)F)CCN5CCNC5=O",
+      "smiles_after": "O=C1OCCN1CCN1CC(O)CC(C2=CN(c3cccc(O)c3)c3cc(Cl)ccc3O2)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCN1CCNC1=O -> [1*]CCN1CCOC1=O: Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties. | [1*]C1CCN([2*])CC1 -> [1*]C1CN([2*])CC(O)C1: Hydroxylation of the piperidine ring increases polarity and lowers logD, often reducing potassium channel inhibition. | [2*]c1cn([1*])c2ccc(Cl)cc12 -> [2*]c1cn([1*])c2cc(Cl)ccc2O1: Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness. | [2*]c1ccc(F)cc1 -> [2*]c1cc(O)ccc1: Hydroxy substitution increases polarity and lowers logD, which can reduce hERG-related cardiotoxicity risk.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CCN1CCNC1=O",
+          "substitute_block": "[1*]CCN1CCOC1=O",
+          "rationale": "Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1CN([2*])CC(O)C1",
+          "rationale": "Hydroxylation of the piperidine ring increases polarity and lowers logD, often reducing potassium channel inhibition."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1cn([1*])c2ccc(Cl)cc12",
+          "substitute_block": "[2*]c1cn([1*])c2cc(Cl)ccc2O1",
+          "rationale": "Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1cc(O)ccc1",
+          "rationale": "Hydroxy substitution increases polarity and lowers logD, which can reduce hERG-related cardiotoxicity risk."
+        }
+      ],
+      "original_candidate_id": "variant_700",
+      "rank": 2,
+      "hERG_before": 0.7508,
+      "hERG_after": 0.7003,
+      "herg_reduction": 0.0505,
+      "improvement_percent": 6.724,
+      "tanimoto_similarity": 0.277,
+      "SA_after": 3.8857,
+      "QED_after": 0.6893,
+      "n_candidates_in_pool": 1039
+    },
+    "candidate_3": {
+      "smiles_before": "C1CN(CCC1C2=CN(C3=C2C=C(C=C3)Cl)C4=CC=C(C=C4)F)CCN5CCNC5=O",
+      "smiles_after": "O=C1OCCN1CCN1COCC(C2=CN(c3ccncc3)c3cc(Cl)ccc3O2)C1",
+      "smiles_after_valid": true,
+      "modification": "[1*]CCN1CCNC1=O -> [1*]CCN1CCOC1=O: Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties. | [1*]C1CCN([2*])CC1 -> [1*]C1COCN([2*])C1: Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, a classic strategy for reducing hERG liability. | [2*]c1cn([1*])c2ccc(Cl)cc12 -> [2*]c1cn([1*])c2cc(Cl)ccc2O1: Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness. | [2*]c1ccc(F)cc1 -> [2*]c1ccncc1: A pyridyl ring is a classic phenyl replacement that lowers lipophilicity and often improves hERG and selectivity.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CCN1CCNC1=O",
+          "substitute_block": "[1*]CCN1CCOC1=O",
+          "rationale": "Changing imidazolidinone toward an oxazolidinone-like motif reduces basicity and may improve physicochemical properties."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C1CCN([2*])CC1",
+          "substitute_block": "[1*]C1COCN([2*])C1",
+          "rationale": "Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, a classic strategy for reducing hERG liability."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1cn([1*])c2ccc(Cl)cc12",
+          "substitute_block": "[2*]c1cn([1*])c2cc(Cl)ccc2O1",
+          "rationale": "Introducing oxygen into the fused bicyclic system reduces hydrophobic aromatic surface and may improve safety and drug-likeness."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(F)cc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "A pyridyl ring is a classic phenyl replacement that lowers lipophilicity and often improves hERG and selectivity."
+        }
+      ],
+      "original_candidate_id": "variant_734",
+      "rank": 3,
+      "hERG_before": 0.7508,
+      "hERG_after": 0.7024,
+      "herg_reduction": 0.0484,
+      "improvement_percent": 6.451,
+      "tanimoto_similarity": 0.3,
+      "SA_after": 3.7625,
+      "QED_after": 0.7019,
+      "n_candidates_in_pool": 1039
+    }
+  },
+  "CC(C)CC(C1(CCC1)C2=CC=C(C=C2)Cl)N(C)C": {
+    "candidate_1": {
+      "smiles_before": "CC(C)CC(C1(CCC1)C2=CC=C(C=C2)Cl)N(C)C",
+      "smiles_after": "CC(=O)N(C)C(CC(C)O)C1(c2ccc(O)cc2)CCN1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]N(C)C(=O)C: Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk. | [2*]C([1*])CC(C)C -> [2*]C([1*])CC(O)C: Hydroxylation of the alkyl chain lowers logD and may reduce hERG while improving solubility. | [2*]C1([1*])CCC1 -> [2*]C1([1*])CCN1: Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding. | [2*]c1ccc(Cl)cc1 -> [2*]c1ccc(O)cc1: A phenol substantially lowers logD and can reduce hERG risk, though conjugative metabolism should be assessed.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]N(C)C(=O)C",
+          "rationale": "Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C([1*])CC(C)C",
+          "substitute_block": "[2*]C([1*])CC(O)C",
+          "rationale": "Hydroxylation of the alkyl chain lowers logD and may reduce hERG while improving solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C1([1*])CCC1",
+          "substitute_block": "[2*]C1([1*])CCN1",
+          "rationale": "Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol substantially lowers logD and can reduce hERG risk, though conjugative metabolism should be assessed."
+        }
+      ],
+      "original_candidate_id": "variant_372",
+      "rank": 1,
+      "hERG_before": 0.6843,
+      "hERG_after": 0.6272,
+      "herg_reduction": 0.0571,
+      "improvement_percent": 8.344,
+      "tanimoto_similarity": 0.298,
+      "SA_after": 4.0285,
+      "QED_after": 0.7623,
+      "n_candidates_in_pool": 641
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)CC(C1(CCC1)C2=CC=C(C=C2)Cl)N(C)C",
+      "smiles_after": "CC(=O)N(C)C(CC(C)O)C1(c2ccncc2)CCN1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]N(C)C(=O)C: Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk. | [2*]C([1*])CC(C)C -> [2*]C([1*])CC(O)C: Hydroxylation of the alkyl chain lowers logD and may reduce hERG while improving solubility. | [2*]C1([1*])CCC1 -> [2*]C1([1*])CCN1: Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding. | [2*]c1ccc(Cl)cc1 -> [2*]c1ccncc1: A pyridyl ring lowers aromatic lipophilicity and adds a heteroatom, a common strategy to reduce hERG and improve solubility.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]N(C)C(=O)C",
+          "rationale": "Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C([1*])CC(C)C",
+          "substitute_block": "[2*]C([1*])CC(O)C",
+          "rationale": "Hydroxylation of the alkyl chain lowers logD and may reduce hERG while improving solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C1([1*])CCC1",
+          "substitute_block": "[2*]C1([1*])CCN1",
+          "rationale": "Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1ccncc1",
+          "rationale": "A pyridyl ring lowers aromatic lipophilicity and adds a heteroatom, a common strategy to reduce hERG and improve solubility."
+        }
+      ],
+      "original_candidate_id": "variant_374",
+      "rank": 2,
+      "hERG_before": 0.6843,
+      "hERG_after": 0.6278,
+      "herg_reduction": 0.0564,
+      "improvement_percent": 8.249,
+      "tanimoto_similarity": 0.271,
+      "SA_after": 4.1921,
+      "QED_after": 0.8386,
+      "n_candidates_in_pool": 641
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)CC(C1(CCC1)C2=CC=C(C=C2)Cl)N(C)C",
+      "smiles_after": "CC(=O)N(C)C(CC(C)C)C1(c2ccc(O)cc2)CCN1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N(C)C -> [1*]N(C)C(=O)C: Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk. | [2*]C1([1*])CCC1 -> [2*]C1([1*])CCN1: Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding. | [2*]c1ccc(Cl)cc1 -> [2*]c1ccc(O)cc1: A phenol substantially lowers logD and can reduce hERG risk, though conjugative metabolism should be assessed.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]N(C)C",
+          "substitute_block": "[1*]N(C)C(=O)C",
+          "rationale": "Introducing an amide-like substituent strongly lowers basicity, which is often one of the most effective ways to reduce hERG risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C1([1*])CCC1",
+          "substitute_block": "[2*]C1([1*])CCN1",
+          "rationale": "Azetidine-like replacement changes conformation and increases polarity, which may reduce hydrophobic channel binding."
+        },
+        {
+          "block_index": 3,
+          "original_block": "[2*]c1ccc(Cl)cc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol substantially lowers logD and can reduce hERG risk, though conjugative metabolism should be assessed."
+        }
+      ],
+      "original_candidate_id": "variant_345",
+      "rank": 3,
+      "hERG_before": 0.6843,
+      "hERG_after": 0.6302,
+      "herg_reduction": 0.0541,
+      "improvement_percent": 7.9,
+      "tanimoto_similarity": 0.377,
+      "SA_after": 3.7133,
+      "QED_after": 0.8757,
+      "n_candidates_in_pool": 641
+    }
+  },
+  "CC1CN(CC(N1)C)C2=C(C(=C3C(=C2F)N(C=C(C3=O)C(=O)O)C4CC4)N)F": {
+    "candidate_1": {
+      "smiles_before": "CC1CN(CC(N1)C)C2=C(C(=C3C(=C2F)N(C=C(C3=O)C(=O)O)C4CC4)N)F",
+      "smiles_after": "CC1CN(c2c(F)c(N)c3c(=O)c(C(=O)O)cn(C)c3c2F)CC(C)N1C",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F -> [1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F: Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins. | [2*]N1CC(C)NC(C)C1 -> [2*]N1CC(C)N(C)C(C)C1: N-methylation removes an H-bond donor and changes ionization/solvation behavior.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F",
+          "substitute_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F",
+          "rationale": "Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CC(C)NC(C)C1",
+          "substitute_block": "[2*]N1CC(C)N(C)C(C)C1",
+          "rationale": "N-methylation removes an H-bond donor and changes ionization/solvation behavior."
+        }
+      ],
+      "original_candidate_id": "variant_10",
+      "rank": 1,
+      "hERG_before": 0.6622,
+      "hERG_after": 0.6548,
+      "herg_reduction": 0.0074,
+      "improvement_percent": 1.118,
+      "tanimoto_similarity": 0.593,
+      "SA_after": 3.6974,
+      "QED_after": 0.7697,
+      "n_candidates_in_pool": 11
+    },
+    "candidate_2": {
+      "smiles_before": "CC1CN(CC(N1)C)C2=C(C(=C3C(=C2F)N(C=C(C3=O)C(=O)O)C4CC4)N)F",
+      "smiles_after": "CC1CSC(C)CN(c2c(F)c(N)c3c(=O)c(C(=O)O)cn(C)c3c2F)N1",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F -> [1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F: Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins. | [2*]N1CC(C)NC(C)C1 -> [2*]N1CC(C)SCC(C)N1: Sulfur replacement lowers overall basicity and changes ring electronics, which may reduce hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F",
+          "substitute_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F",
+          "rationale": "Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CC(C)NC(C)C1",
+          "substitute_block": "[2*]N1CC(C)SCC(C)N1",
+          "rationale": "Sulfur replacement lowers overall basicity and changes ring electronics, which may reduce hERG."
+        }
+      ],
+      "original_candidate_id": "variant_6",
+      "rank": 2,
+      "hERG_before": 0.6622,
+      "hERG_after": 0.6567,
+      "herg_reduction": 0.0056,
+      "improvement_percent": 0.841,
+      "tanimoto_similarity": 0.5,
+      "SA_after": 4.2368,
+      "QED_after": 0.6648,
+      "n_candidates_in_pool": 11
+    },
+    "candidate_3": {
+      "smiles_before": "CC1CN(CC(N1)C)C2=C(C(=C3C(=C2F)N(C=C(C3=O)C(=O)O)C4CC4)N)F",
+      "smiles_after": "CC1CN(c2c(F)c(N)c3c(=O)c(C(=O)O)cn(C)c3c2F)CC(C)N1CC(N)=O",
+      "smiles_after_valid": true,
+      "modification": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F -> [1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F: Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins. | [2*]N1CC(C)NC(C)C1 -> [2*]N1CC(C)N(CC(=O)N)C(C)C1: A carbamoylmethyl appendage adds polarity and may reduce cationic amphiphilicity associated with hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C3CC3)c2c1F",
+          "substitute_block": "[1*]c1c(F)c(N)c2c(=O)c([2*])cn(C)c2c1F",
+          "rationale": "Replacing cyclopropyl with methyl reduces hydrophobic bulk and may improve safety margins."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]N1CC(C)NC(C)C1",
+          "substitute_block": "[2*]N1CC(C)N(CC(=O)N)C(C)C1",
+          "rationale": "A carbamoylmethyl appendage adds polarity and may reduce cationic amphiphilicity associated with hERG."
+        }
+      ],
+      "original_candidate_id": "variant_4",
+      "rank": 3,
+      "hERG_before": 0.6622,
+      "hERG_after": 0.658,
+      "herg_reduction": 0.0042,
+      "improvement_percent": 0.637,
+      "tanimoto_similarity": 0.538,
+      "SA_after": 3.8187,
+      "QED_after": 0.609,
+      "n_candidates_in_pool": 11
+    }
+  },
+  "CC(C)(C)C1=CC=C(C=C1)C(CCCN2CCC(CC2)C(C3=CC=CC=C3)(C4=CC=CC=C4)O)O": {
+    "candidate_1": {
+      "smiles_before": "CC(C)(C)C1=CC=C(C=C1)C(CCCN2CCC(CC2)C(C3=CC=CC=C3)(C4=CC=CC=C4)O)O",
+      "smiles_after": "CC(C)(C)c1ccc(C(=O)CCCN2CCC(F)(C(O)(c3ccccc3)c3ccccc3)CC2F)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCC([2*])CC1 -> [1*]N1CCC([2*])(F)CC1F: Fluorination near the amine can lower pKa and tune conformation, which may reduce hERG affinity. | [1*]C(O)CCC[2*] -> [1*]C(=O)CCC[2*]: Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]N1CCC([2*])CC1",
+          "substitute_block": "[1*]N1CCC([2*])(F)CC1F",
+          "rationale": "Fluorination near the amine can lower pKa and tune conformation, which may reduce hERG affinity."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C(O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)CCC[2*]",
+          "rationale": "Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG."
+        }
+      ],
+      "original_candidate_id": "variant_15",
+      "rank": 1,
+      "hERG_before": 0.7151,
+      "hERG_after": 0.7015,
+      "herg_reduction": 0.0136,
+      "improvement_percent": 1.903,
+      "tanimoto_similarity": 0.329,
+      "SA_after": 3.6436,
+      "QED_after": 0.2651,
+      "n_candidates_in_pool": 27
+    },
+    "candidate_2": {
+      "smiles_before": "CC(C)(C)C1=CC=C(C=C1)C(CCCN2CCC(CC2)C(C3=CC=CC=C3)(C4=CC=CC=C4)O)O",
+      "smiles_after": "CC(C)(C)c1ccc(C(=O)CCCN2CCOCC(C(O)(c3ccccc3)c3ccccc3)C2)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCC([2*])CC1 -> [1*]N1CCOCC([2*])C1: Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, which can reduce hERG potassium channel inhibition and improve solubility. | [1*]C(O)CCC[2*] -> [1*]C(=O)CCC[2*]: Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]N1CCC([2*])CC1",
+          "substitute_block": "[1*]N1CCOCC([2*])C1",
+          "rationale": "Replacing piperidine with a morpholine-like ring lowers basicity and lipophilicity, which can reduce hERG potassium channel inhibition and improve solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C(O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)CCC[2*]",
+          "rationale": "Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG."
+        }
+      ],
+      "original_candidate_id": "variant_6",
+      "rank": 2,
+      "hERG_before": 0.7151,
+      "hERG_after": 0.7032,
+      "herg_reduction": 0.0119,
+      "improvement_percent": 1.659,
+      "tanimoto_similarity": 0.484,
+      "SA_after": 2.9376,
+      "QED_after": 0.4079,
+      "n_candidates_in_pool": 27
+    },
+    "candidate_3": {
+      "smiles_before": "CC(C)(C)C1=CC=C(C=C1)C(CCCN2CCC(CC2)C(C3=CC=CC=C3)(C4=CC=CC=C4)O)O",
+      "smiles_after": "CC(C)(C)c1ccc(C(=O)CCCN2CCC(=O)C(C(O)(c3ccccc3)c3ccccc3)C2)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]N1CCC([2*])CC1 -> [1*]N1CCC(=O)C([2*])C1: Converting the basic piperidine into a lactam-like ring strongly lowers basicity and is a classic strategy to reduce hERG risk. | [1*]C(O)CCC[2*] -> [1*]C(=O)CCC[2*]: Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[1*]N1CCC([2*])CC1",
+          "substitute_block": "[1*]N1CCC(=O)C([2*])C1",
+          "rationale": "Converting the basic piperidine into a lactam-like ring strongly lowers basicity and is a classic strategy to reduce hERG risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[1*]C(O)CCC[2*]",
+          "substitute_block": "[1*]C(=O)CCC[2*]",
+          "rationale": "Oxidation of the alcohol to a ketone removes an H-bond donor and can reduce promiscuous lipophilic/basic interactions linked to hERG."
+        }
+      ],
+      "original_candidate_id": "variant_19",
+      "rank": 3,
+      "hERG_before": 0.7151,
+      "hERG_after": 0.705,
+      "herg_reduction": 0.01,
+      "improvement_percent": 1.405,
+      "tanimoto_similarity": 0.446,
+      "SA_after": 3.0367,
+      "QED_after": 0.4131,
+      "n_candidates_in_pool": 27
+    }
+  },
+  "CC(CC(C1=CC=CC=C1)C2=CC=CC=C2)NC(C)(C)C": {
+    "candidate_1": {
+      "smiles_before": "CC(CC(C1=CC=CC=C1)C2=CC=CC=C2)NC(C)(C)C",
+      "smiles_after": "CC(C)(C)NC(=O)NC(CO)CC(c1ccccc1)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC(C)(C)C -> [1*]NC(=O)NC(C)(C)C: Urea formation reduces basicity and increases polarity, both of which can substantially reduce hERG inhibition. | [1*]C(CC([2*])C)c1ccccc1 -> [1*]C(CC([2*])CO)c1ccccc1: Hydroxylation of the linker increases polarity and may reduce nonspecific ion-channel binding while improving solubility. | [2*]c1ccccc1 -> [2*]c1ccc(O)cc1: A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC(C)(C)C",
+          "substitute_block": "[1*]NC(=O)NC(C)(C)C",
+          "rationale": "Urea formation reduces basicity and increases polarity, both of which can substantially reduce hERG inhibition."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(CC([2*])C)c1ccccc1",
+          "substitute_block": "[1*]C(CC([2*])CO)c1ccccc1",
+          "rationale": "Hydroxylation of the linker increases polarity and may reduce nonspecific ion-channel binding while improving solubility."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability."
+        }
+      ],
+      "original_candidate_id": "variant_40",
+      "rank": 1,
+      "hERG_before": 0.6708,
+      "hERG_after": 0.6474,
+      "herg_reduction": 0.0234,
+      "improvement_percent": 3.489,
+      "tanimoto_similarity": 0.391,
+      "SA_after": 2.9907,
+      "QED_after": 0.6404,
+      "n_candidates_in_pool": 66
+    },
+    "candidate_2": {
+      "smiles_before": "CC(CC(C1=CC=CC=C1)C2=CC=CC=C2)NC(C)(C)C",
+      "smiles_after": "CC(C)NC(C)C(OCc1ccc(O)cc1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC(C)(C)C -> [1*]NC(C)C: Replacing tert-butylamine with isopropylamine lowers lipophilicity and steric bulk near the protonatable nitrogen, which may reduce hERG binding and improve drug-likeness. | [1*]C(CC([2*])C)c1ccccc1 -> [1*]COC(C([2*])C)c1ccccc1: Ether insertion disrupts the hydrophobic linker and lowers cLogP, a common tactic to reduce hERG risk. | [2*]c1ccccc1 -> [2*]c1ccc(O)cc1: A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC(C)(C)C",
+          "substitute_block": "[1*]NC(C)C",
+          "rationale": "Replacing tert-butylamine with isopropylamine lowers lipophilicity and steric bulk near the protonatable nitrogen, which may reduce hERG binding and improve drug-likeness."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(CC([2*])C)c1ccccc1",
+          "substitute_block": "[1*]COC(C([2*])C)c1ccccc1",
+          "rationale": "Ether insertion disrupts the hydrophobic linker and lowers cLogP, a common tactic to reduce hERG risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability."
+        }
+      ],
+      "original_candidate_id": "variant_23",
+      "rank": 2,
+      "hERG_before": 0.6708,
+      "hERG_after": 0.6542,
+      "herg_reduction": 0.0166,
+      "improvement_percent": 2.479,
+      "tanimoto_similarity": 0.283,
+      "SA_after": 2.9067,
+      "QED_after": 0.8106,
+      "n_candidates_in_pool": 66
+    },
+    "candidate_3": {
+      "smiles_before": "CC(CC(C1=CC=CC=C1)C2=CC=CC=C2)NC(C)(C)C",
+      "smiles_after": "CC(NC(=O)NC(C)(C)C)C(OCc1ccc(O)cc1)c1ccccc1",
+      "smiles_after_valid": true,
+      "modification": "[1*]NC(C)(C)C -> [1*]NC(=O)NC(C)(C)C: Urea formation reduces basicity and increases polarity, both of which can substantially reduce hERG inhibition. | [1*]C(CC([2*])C)c1ccccc1 -> [1*]COC(C([2*])C)c1ccccc1: Ether insertion disrupts the hydrophobic linker and lowers cLogP, a common tactic to reduce hERG risk. | [2*]c1ccccc1 -> [2*]c1ccc(O)cc1: A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]NC(C)(C)C",
+          "substitute_block": "[1*]NC(=O)NC(C)(C)C",
+          "rationale": "Urea formation reduces basicity and increases polarity, both of which can substantially reduce hERG inhibition."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[1*]C(CC([2*])C)c1ccccc1",
+          "substitute_block": "[1*]COC(C([2*])C)c1ccccc1",
+          "rationale": "Ether insertion disrupts the hydrophobic linker and lowers cLogP, a common tactic to reduce hERG risk."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]c1ccccc1",
+          "substitute_block": "[2*]c1ccc(O)cc1",
+          "rationale": "A phenol can significantly increase polarity and reduce lipophilicity, often lowering hERG liability."
+        }
+      ],
+      "original_candidate_id": "variant_46",
+      "rank": 3,
+      "hERG_before": 0.6708,
+      "hERG_after": 0.6546,
+      "herg_reduction": 0.0162,
+      "improvement_percent": 2.417,
+      "tanimoto_similarity": 0.314,
+      "SA_after": 2.9531,
+      "QED_after": 0.7285,
+      "n_candidates_in_pool": 66
+    }
+  },
+  "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC": {
+    "candidate_1": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC",
+      "smiles_after": "CN1CCCCC1CCN1c2ccccc2Sc2ccc(O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[1*]SC -> [1*]O: A phenolic OH increases polarity and may reduce hERG affinity by lowering logD, though conjugative metabolism may increase.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]SC",
+          "substitute_block": "[1*]O",
+          "rationale": "A phenolic OH increases polarity and may reduce hERG affinity by lowering logD, though conjugative metabolism may increase."
+        }
+      ],
+      "original_candidate_id": "variant_8",
+      "rank": 1,
+      "hERG_before": 0.6991,
+      "hERG_after": 0.6848,
+      "herg_reduction": 0.0143,
+      "improvement_percent": 2.044,
+      "tanimoto_similarity": 0.736,
+      "SA_after": 2.8587,
+      "QED_after": 0.8622,
+      "n_candidates_in_pool": 12
+    },
+    "candidate_2": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC",
+      "smiles_after": "CN1CCCCC1CCN1c2ccccc2Sc2ccc(S(C)=O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[1*]SC -> [1*]S(=O)C: Sulfoxide formation lowers lipophilicity and increases polarity, which can reduce hERG binding and improve solubility.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]SC",
+          "substitute_block": "[1*]S(=O)C",
+          "rationale": "Sulfoxide formation lowers lipophilicity and increases polarity, which can reduce hERG binding and improve solubility."
+        }
+      ],
+      "original_candidate_id": "variant_0",
+      "rank": 2,
+      "hERG_before": 0.6991,
+      "hERG_after": 0.6858,
+      "herg_reduction": 0.0134,
+      "improvement_percent": 1.911,
+      "tanimoto_similarity": 0.696,
+      "SA_after": 3.3924,
+      "QED_after": 0.7455,
+      "n_candidates_in_pool": 12
+    },
+    "candidate_3": {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC",
+      "smiles_after": "CN1CCC(F)(F)CC1CCN1c2ccccc2Sc2ccc(O)cc21",
+      "smiles_after_valid": true,
+      "modification": "[1*]SC -> [1*]O: A phenolic OH increases polarity and may reduce hERG affinity by lowering logD, though conjugative metabolism may increase. | [2*]C1CCCCN1C -> [2*]C1CC(F)(F)CCN1C: Gem-difluoro substitution can lower amine basicity inductively while preserving much of the original ring geometry.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]SC",
+          "substitute_block": "[1*]O",
+          "rationale": "A phenolic OH increases polarity and may reduce hERG affinity by lowering logD, though conjugative metabolism may increase."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]C1CCCCN1C",
+          "substitute_block": "[2*]C1CC(F)(F)CCN1C",
+          "rationale": "Gem-difluoro substitution can lower amine basicity inductively while preserving much of the original ring geometry."
+        }
+      ],
+      "original_candidate_id": "variant_10",
+      "rank": 3,
+      "hERG_before": 0.6991,
+      "hERG_after": 0.688,
+      "herg_reduction": 0.0112,
+      "improvement_percent": 1.599,
+      "tanimoto_similarity": 0.5,
+      "SA_after": 3.2469,
+      "QED_after": 0.8048,
+      "n_candidates_in_pool": 12
+    }
+  },
+  "CCC12CCCN3C1C4=C(CC3)C5=CC=CC=C5N4C(C2)(C(=O)OC)O": {
+    "candidate_1": {
+      "smiles_before": "CCC12CCCN3C1C4=C(CC3)C5=CC=CC=C5N4C(C2)(C(=O)OC)O",
+      "smiles_after": "COC(=O)C1(O)CC2(CF)CCCN3CCc4c(n1c1ccc(CN)cc41)C32",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC -> [1*]CF: Downsizing ethyl to fluoromethyl reduces hydrophobic bulk and may lower hERG-promoting lipophilicity while retaining a small substituent at that position. This can also reduce oxidative metabolism. | [2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32 -> [2*]C12CCCN3CCc4c(n(c5ccc(CN)cc45)C(O)(C([1*])=O)C1)C32: Adding an aminomethyl substituent can significantly increase polarity and lower overall logD, potentially reducing hERG affinity. This may improve aqueous solubility, though basicity must be monitored to avoid introducing a second strongly protonated center.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC",
+          "substitute_block": "[1*]CF",
+          "rationale": "Downsizing ethyl to fluoromethyl reduces hydrophobic bulk and may lower hERG-promoting lipophilicity while retaining a small substituent at that position. This can also reduce oxidative metabolism."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32",
+          "substitute_block": "[2*]C12CCCN3CCc4c(n(c5ccc(CN)cc45)C(O)(C([1*])=O)C1)C32",
+          "rationale": "Adding an aminomethyl substituent can significantly increase polarity and lower overall logD, potentially reducing hERG affinity. This may improve aqueous solubility, though basicity must be monitored to avoid introducing a second strongly protonated center."
+        }
+      ],
+      "original_candidate_id": "variant_6",
+      "rank": 1,
+      "hERG_before": 0.6559,
+      "hERG_after": 0.6519,
+      "herg_reduction": 0.0039,
+      "improvement_percent": 0.598,
+      "tanimoto_similarity": 0.671,
+      "SA_after": 4.2285,
+      "QED_after": 0.7874,
+      "n_candidates_in_pool": 15
+    },
+    "candidate_2": {
+      "smiles_before": "CCC12CCCN3C1C4=C(CC3)C5=CC=CC=C5N4C(C2)(C(=O)OC)O",
+      "smiles_after": "CCC12CCCN3CCc4c(n(c5ccc(CN)cc45)C(O)(C(=O)OC)C1)C32",
+      "smiles_after_valid": true,
+      "modification": "[2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32 -> [2*]C12CCCN3CCc4c(n(c5ccc(CN)cc45)C(O)(C([1*])=O)C1)C32: Adding an aminomethyl substituent can significantly increase polarity and lower overall logD, potentially reducing hERG affinity. This may improve aqueous solubility, though basicity must be monitored to avoid introducing a second strongly protonated center.",
+      "block_changes": [
+        {
+          "block_index": 1,
+          "original_block": "[2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32",
+          "substitute_block": "[2*]C12CCCN3CCc4c(n(c5ccc(CN)cc45)C(O)(C([1*])=O)C1)C32",
+          "rationale": "Adding an aminomethyl substituent can significantly increase polarity and lower overall logD, potentially reducing hERG affinity. This may improve aqueous solubility, though basicity must be monitored to avoid introducing a second strongly protonated center."
+        }
+      ],
+      "original_candidate_id": "variant_2",
+      "rank": 2,
+      "hERG_before": 0.6559,
+      "hERG_after": 0.6521,
+      "herg_reduction": 0.0037,
+      "improvement_percent": 0.569,
+      "tanimoto_similarity": 0.769,
+      "SA_after": 4.0727,
+      "QED_after": 0.7959,
+      "n_candidates_in_pool": 15
+    },
+    "candidate_3": {
+      "smiles_before": "CCC12CCCN3C1C4=C(CC3)C5=CC=CC=C5N4C(C2)(C(=O)OC)O",
+      "smiles_after": "CC(C)OC(=O)C1(O)CC2(C(C)N)CC(O)CN3CCc4c(n1c1ccccc41)C32",
+      "smiles_after_valid": true,
+      "modification": "[1*]CC -> [1*]C(N)C: An aminoethyl-like replacement can increase polarity and potentially create a salt-forming handle, improving solubility. However, because extra basicity can worsen hERG in some cases, this idea should be paired with pKa-lowering changes elsewhere. | [2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32 -> [2*]C12CC(O)CN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32: Introducing a hydroxyl into the aliphatic ring increases polarity and lowers logD, often reducing hERG affinity. It may also reduce CNS penetration and improve safety margins if excessive brain exposure is undesirable. | [2*]OC -> [2*]OC(C)C: An isopropyl ester may slow esterase-mediated hydrolysis and alter distribution. This can be useful if the methyl ester is too labile, though lipophilicity may increase and should be monitored.",
+      "block_changes": [
+        {
+          "block_index": 0,
+          "original_block": "[1*]CC",
+          "substitute_block": "[1*]C(N)C",
+          "rationale": "An aminoethyl-like replacement can increase polarity and potentially create a salt-forming handle, improving solubility. However, because extra basicity can worsen hERG in some cases, this idea should be paired with pKa-lowering changes elsewhere."
+        },
+        {
+          "block_index": 1,
+          "original_block": "[2*]C12CCCN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32",
+          "substitute_block": "[2*]C12CC(O)CN3CCc4c(n(c5ccccc45)C(O)(C([1*])=O)C1)C32",
+          "rationale": "Introducing a hydroxyl into the aliphatic ring increases polarity and lowers logD, often reducing hERG affinity. It may also reduce CNS penetration and improve safety margins if excessive brain exposure is undesirable."
+        },
+        {
+          "block_index": 2,
+          "original_block": "[2*]OC",
+          "substitute_block": "[2*]OC(C)C",
+          "rationale": "An isopropyl ester may slow esterase-mediated hydrolysis and alter distribution. This can be useful if the methyl ester is too labile, though lipophilicity may increase and should be monitored."
+        }
+      ],
+      "original_candidate_id": "variant_14",
+      "rank": 3,
+      "hERG_before": 0.6559,
+      "hERG_after": 0.6528,
+      "herg_reduction": 0.0031,
+      "improvement_percent": 0.466,
+      "tanimoto_similarity": 0.494,
+      "SA_after": 4.6475,
+      "QED_after": 0.6616,
+      "n_candidates_in_pool": 15
+    }
+  }
+}
