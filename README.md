@@ -1,4 +1,4 @@
-# MolLingo — MolLingo: Making Molecules More LLM-Readable for Autonomous Chemist Agents
+# MolLingo: Making Molecules More LLM-Readable for Autonomous Chemist Agents
 
 MolLingo is a multi-agent system that emulates the reasoning process of a medicinal chemist to automate early-stage drug discovery. It coordinates a **Literature Agent**, a **Chemist Agent**, and an **Orchestrator** through a shared memory module, grounding molecular reasoning in block-based chemical representations and physics-based docking simulations.
 
