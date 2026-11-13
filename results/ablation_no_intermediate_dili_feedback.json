@@ -1,0 +1,1908 @@
+{
+  "molecules": [
+    {
+      "smiles_before": "C1=C(OC(=C1)[N+](=O)[O-])C=CC(=NN=C(N)N)C=CC2=CC=C(O2)[N+](=O)[O-]",
+      "smiles_after": "CNC(N)=NN=C(C=Cc1ccc(C#N)o1)C=Cc1ccc(C#N)o1",
+      "dili_before": 0.9667586088180542,
+      "dili_after": 0.8557719588279724,
+      "dili_improvement": 0.11098664999008179,
+      "dili_improvement_pct": 11.480285665702272,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=C(OC(=C1)[N+](=O)[O-])C=CC(=NN=C(N)N)C=CC2=CC=C(O2)[N+](=O)[O-]",
+          "smiles_after": "N#Cc1ccc(C=CC(C=Cc2ccc([N+](=O)[O-])o2)=NN=C(N)N)o1",
+          "rationale": "Replace one nitro group with a nitrile to reduce nitro-associated bioactivation and redox liability while keeping a small, strongly electron-withdrawing substituent and preserving the overall aromatic scaffold."
+        },
+        {
+          "round": 2,
+          "smiles_before": "N#Cc1ccc(C=CC(C=Cc2ccc([N+](=O)[O-])o2)=NN=C(N)N)o1",
+          "smiles_after": "N#Cc1ccc(C=CC(C=Cc2ccc(C#N)o2)=NN=C(N)N)o1",
+          "rationale": "Replace the remaining nitro group with nitrile. This directly removes the second nitro toxicophore while keeping a small linear electron-withdrawing substituent and preserving the overall diaryl-heteroaryl conjugated scaffold."
+        },
+        {
+          "round": 3,
+          "smiles_before": "N#Cc1ccc(C=CC(C=Cc2ccc(C#N)o2)=NN=C(N)N)o1",
+          "smiles_after": "CNC(N)=NN=C(C=Cc1ccc(C#N)o1)C=Cc1ccc(C#N)o1",
+          "rationale": "Single N-methylation of the terminal amidino NH is a conservative way to reduce hydrogen-bond donor count and potentially temper excessive basicity and hepatic accumulation while preserving the amidine-like pharmacophore and overall scaffold."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC(=C(C(=C1)C(=O)C2=CC=C(C=C2)Br)N)CC(=O)O",
+      "smiles_after": "O=C(O)Cc1cccc(C(=O)c2ccc(F)cc2)c1O",
+      "dili_before": 0.9394161105155945,
+      "dili_after": 0.924584686756134,
+      "dili_improvement": 0.01483142375946045,
+      "dili_improvement_pct": 1.5787917189668257,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC(=C(C(=C1)C(=O)C2=CC=C(C=C2)Br)N)CC(=O)O",
+          "smiles_after": "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(F)cc1",
+          "rationale": "Replace bromophenyl with fluorophenyl to reduce lipophilicity and the risk of bioactivation associated with aryl bromides while preserving the aryl ketone topology and similar steric demand."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(F)cc1",
+          "smiles_after": "CNc1c(CC(=O)O)cccc1C(=O)c1ccc(F)cc1",
+          "rationale": "N-Methylate the aniline to reduce the classic liability of a free primary aniline toward N-oxidation and downstream reactive metabolite formation, while preserving the same attachment geometry, aromatic core, and likely H-bond donor character."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNc1c(CC(=O)O)cccc1C(=O)c1ccc(F)cc1",
+          "smiles_after": "O=C(O)Cc1cccc(C(=O)c2ccc(F)cc2)c1O",
+          "rationale": "Replace the N-methylaniline with phenol to remove the aryl amine liability entirely while preserving a similar ring substitution pattern and retaining a hydrogen-bonding substituent of comparable size."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC(=C(C(=C1C(=O)C2=CC(=C(C(=C2)O)O)O)O)O)O",
+      "smiles_after": "COc1cc(C(=O)c2cc(O)c(O)cc2O)c(O)cc1O",
+      "dili_before": 0.9417688250541687,
+      "dili_after": 0.7889004945755005,
+      "dili_improvement": 0.1528683304786682,
+      "dili_improvement_pct": 16.232044044341297,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC(=C(C(=C1C(=O)C2=CC(=C(C(=C2)O)O)O)O)O)O",
+          "smiles_after": "O=C(c1cc(O)c(O)c(O)c1)c1cc(O)c(O)cc1O",
+          "rationale": "Replace the pyrogallol ring with a resorcinol/phenol-like trihydroxyphenyl isomer to reduce the contiguous pyrogallol motif, which is often associated with facile oxidation to reactive quinone-type species, while preserving an aromatic polyphenol scaffold and similar H-bonding capacity."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(c1cc(O)c(O)c(O)c1)c1cc(O)c(O)cc1O",
+          "smiles_after": "O=C(c1cc(O)c(O)cc1O)c1cc(O)c(O)cc1O",
+          "rationale": "Convert the remaining pyrogallol ring to the same noncontiguous trihydroxyphenyl isomer already used on the other ring. This directly removes the last contiguous trihydroxy motif, which should lower propensity for oxidation to quinone-type species while preserving overall diaryl ketone topology and similar hydrogen-bonding character."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(c1cc(O)c(O)cc1O)c1cc(O)c(O)cc1O",
+          "smiles_after": "COc1cc(C(=O)c2cc(O)c(O)cc2O)c(O)cc1O",
+          "rationale": "Monomethylate one phenol on one aryl ring to reduce total phenol count and suppress polyphenol redox cycling/quinone-type bioactivation risk, while preserving the diaryl ketone scaffold, aromatic planarity, and two phenolic donors likely relevant to pharmacology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC(=CC=C1C2=NC(=CS2)CC(=O)O)Cl",
+      "smiles_after": "NC(=O)Cc1cc(-c2ccc(F)cc2)on1",
+      "dili_before": 0.9231109023094177,
+      "dili_after": 0.8906627297401428,
+      "dili_improvement": 0.0324481725692749,
+      "dili_improvement_pct": 3.5150893016317766,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC(=CC=C1C2=NC(=CS2)CC(=O)O)Cl",
+          "smiles_after": "O=C(O)Cc1csc(-c2ccc(F)cc2)n1",
+          "rationale": "Replace chlorine with fluorine on the aryl ring to reduce lipophilicity and the likelihood of oxidative bioactivation associated with heavier halogens, while preserving a closely related aryl electronics/shape profile and likely target recognition."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(O)Cc1csc(-c2ccc(F)cc2)n1",
+          "smiles_after": "O=C(O)Cc1cc(-c2ccc(F)cc2)on1",
+          "rationale": "Replace the thiazole with an isoxazole isostere to remove sulfur, which can sometimes contribute to metabolic activation risk, while preserving a compact five-membered heteroaryl linker and similar attachment topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(O)Cc1cc(-c2ccc(F)cc2)on1",
+          "smiles_after": "NC(=O)Cc1cc(-c2ccc(F)cc2)on1",
+          "rationale": "Replace the carboxylic acid side chain with a primary amide to remove the free acid, a common source of acyl glucuronidation and related idiosyncratic liability, while preserving the short two-atom linker and carbonyl-based recognition elements."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC(=CC=C1S(=O)(=O)NC=NCCSCC2=CSC(=N2)N=C(N)N)Br",
+      "smiles_after": "NC(N)=Nc1nc(CSCCNCCNS(=O)(=O)c2ccccc2)cs1",
+      "dili_before": 0.9352293610572815,
+      "dili_after": 0.5901462435722351,
+      "dili_improvement": 0.3450831174850464,
+      "dili_improvement_pct": 36.898233936424774,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC(=CC=C1S(=O)(=O)NC=NCCSCC2=CSC(=N2)N=C(N)N)Br",
+          "smiles_after": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(F)cc2)cs1",
+          "rationale": "Replace bromophenyl with fluorophenyl to reduce halogen size and lipophilicity while preserving the aryl sulfone motif and overall topology. This is a conservative way to lower the likelihood of bioaccumulation and nonspecific hepatic burden without strongly perturbing scaffold recognition."
+        },
+        {
+          "round": 2,
+          "smiles_before": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(F)cc2)cs1",
+          "smiles_after": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccccc2)cs1",
+          "rationale": "Remove the para-fluoro substituent while retaining the phenyl sulfone block. This is a very conservative dehalogenation that can modestly reduce lipophilicity and metabolic persistence associated with aryl fluorides without changing the core sulfone-aryl topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccccc2)cs1",
+          "smiles_after": "NC(N)=Nc1nc(CSCCNCCNS(=O)(=O)c2ccccc2)cs1",
+          "rationale": "Reduce the imine-containing linker to a saturated diamine-like spacer, removing a potentially reactive C=N functionality while preserving overall linker length, polarity, and attachment geometry. This is a conservative DILI-mitigation tactic aimed at lowering chemical reactivity and imine-related metabolic liability."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C(=C1)C(=O)OCC(CO)O)NC2=C3C=CC(=CC3=NC=C2)Cl",
+      "smiles_after": "O=C(OCC(O)C(O)F)c1ccc(F)cc1Nc1ccnc2cc(F)ccc12",
+      "dili_before": 0.77899169921875,
+      "dili_after": 0.887499988079071,
+      "dili_improvement": -0.10850828886032104,
+      "dili_improvement_pct": -13.92932543044347,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C(=C1)C(=O)OCC(CO)O)NC2=C3C=CC(=CC3=NC=C2)Cl",
+          "smiles_after": "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(F)ccc12",
+          "rationale": "Replace the aryl chloride with fluorine to reduce lipophilicity and the likelihood of bioactivation associated with a heavier halogen while preserving the fused aza-aromatic hinge-binding motif and overall shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(F)ccc12",
+          "smiles_after": "O=C(OCC(O)C(O)F)c1ccccc1Nc1ccnc2cc(F)ccc12",
+          "rationale": "Introduce a single fluorine into the glycerol side chain to reduce susceptibility of the terminal alcohol-bearing carbon to oxidative metabolism while preserving the ester-linked triol-like polarity profile and overall size."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(OCC(O)C(O)F)c1ccccc1Nc1ccnc2cc(F)ccc12",
+          "smiles_after": "O=C(OCC(O)C(O)F)c1ccc(F)cc1Nc1ccnc2cc(F)ccc12",
+          "rationale": "Add a fluorine to the central phenyl spacer to block an aromatic oxidation site with minimal steric and conformational change, while preserving the same aryl linker and attachment geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C(=C1)CC(=O)O)OC2=C(C=C(C=C2)Cl)Cl",
+      "smiles_after": "O=C(O)C(F)c1ccccc1Oc1ccc(F)cc1F",
+      "dili_before": 0.8878600001335144,
+      "dili_after": 0.891314685344696,
+      "dili_improvement": -0.0034546852111816406,
+      "dili_improvement_pct": -0.38910247231119016,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C(=C1)CC(=O)O)OC2=C(C=C(C=C2)Cl)Cl",
+          "smiles_after": "O=C(O)Cc1ccccc1Oc1ccc(F)cc1Cl",
+          "rationale": "Replace one chlorine with fluorine on the aryloxy ring to reduce lipophilicity and halogen load while preserving the aryl ether motif and overall shape; this is a conservative way to potentially lessen bioaccumulation and reactive metabolite risk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(O)Cc1ccccc1Oc1ccc(F)cc1Cl",
+          "smiles_after": "O=C(O)Cc1ccccc1Oc1ccc(F)cc1F",
+          "rationale": "Replace the remaining chlorine on the distal aryloxy ring with fluorine to further reduce halogen size, molecular weight, and lipophilicity while preserving the diaryl ether topology and broadly similar electronics."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(O)Cc1ccccc1Oc1ccc(F)cc1F",
+          "smiles_after": "O=C(O)C(F)c1ccccc1Oc1ccc(F)cc1F",
+          "rationale": "Alpha-fluoro substitution on the phenylacetic acid side chain is a very conservative edit that preserves the acidic pharmacophore and linker length while reducing benzylic C-H oxidation liability, a common medicinal chemistry tactic when no assay feedback is available."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)C(COC(=O)N)COC(=O)N",
+      "smiles_after": "CNC(=O)OCC(COC(=O)NC)c1ccncc1",
+      "dili_before": 0.551494300365448,
+      "dili_after": 0.3559483587741852,
+      "dili_improvement": 0.19554594159126282,
+      "dili_improvement_pct": 35.457472808274574,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)C(COC(=O)N)COC(=O)N",
+          "smiles_after": "CNC(=O)OCC(COC(N)=O)c1ccccc1",
+          "rationale": "N-methyl carbamate retains the carbamate motif and similar H-bonding pattern while modestly reducing NH acidity/reactivity and potentially lowering risk of acyl transfer or hydrolytic instability relative to the parent primary carbamate."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CNC(=O)OCC(COC(N)=O)c1ccccc1",
+          "smiles_after": "CNC(=O)OCC(COC(N)=O)c1ccncc1",
+          "rationale": "Replacing phenyl with a pyridyl ring is a classic conservative tactic to reduce lipophilicity and lower the propensity for aromatic oxidation or reactive arene metabolites while preserving a similar flat heteroaryl recognition element and benzylic topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNC(=O)OCC(COC(N)=O)c1ccncc1",
+          "smiles_after": "CNC(=O)OCC(COC(=O)NC)c1ccncc1",
+          "rationale": "N-Methylation of the terminal carbamate is a conservative way to remove the primary carbamoyl NH, often reducing hydrolytic lability and limiting pathways associated with NH2-containing carbamates while preserving the same O-carbamate connectivity and overall scaffold."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)C2=NC3=CC=CC=C3C(=C2)C(=O)O",
+      "smiles_after": "NC(=O)c1cc(-c2cnccn2)nc2ccccc12",
+      "dili_before": 0.9242755174636841,
+      "dili_after": 0.9447938203811646,
+      "dili_improvement": -0.02051830291748047,
+      "dili_improvement_pct": -2.219933616091552,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)C2=NC3=CC=CC=C3C(=C2)C(=O)O",
+          "smiles_after": "NC(=O)c1cc(-c2ccccc2)nc2ccccc12",
+          "rationale": "Convert the carboxylic acid to a primary carboxamide to reduce acidity and potential acyl glucuronidation liability while retaining a closely related hydrogen-bonding motif and overall topology."
+        },
+        {
+          "round": 2,
+          "smiles_before": "NC(=O)c1cc(-c2ccccc2)nc2ccccc12",
+          "smiles_after": "NC(=O)c1cc(-c2ccncc2)nc2ccccc12",
+          "rationale": "Replace the pendant phenyl with a pyridyl ring to lower aromatic electron density and lipophilicity while preserving a closely related six-membered aromatic appendage; this can reduce susceptibility to oxidative arene metabolism and potential reactive intermediate formation."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(=O)c1cc(-c2ccncc2)nc2ccccc12",
+          "smiles_after": "NC(=O)c1cc(-c2cnccn2)nc2ccccc12",
+          "rationale": "Replace the pendant pyridyl with a diazine-like six-membered heteroaryl to further lower aromatic electron density and lipophilicity while preserving a closely related flat heteroaryl appendage; this is a conservative way to reduce susceptibility to oxidative arene metabolism and potential reactive intermediate formation."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)C2C(=O)C3=CC=CC=C3C2=O",
+      "smiles_after": "O=C1c2ccncc2C(=O)C1c1ccnc(F)c1",
+      "dili_before": 0.8949819207191467,
+      "dili_after": 0.9589513540267944,
+      "dili_improvement": -0.0639694333076477,
+      "dili_improvement_pct": -7.147567099036617,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)C2C(=O)C3=CC=CC=C3C2=O",
+          "smiles_after": "O=C1c2ccccc2C(=O)C1c1ccncc1",
+          "rationale": "Replace the pendant phenyl with a pyridyl ring to reduce overall lipophilicity and aromatic hydrocarbon character while preserving a similar flat aryl vector and size; aza-aryl substitution is a common conservative tactic to lower metabolic activation risk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccncc1",
+          "smiles_after": "O=C1c2ccccc2C(=O)C1c1ccnc(F)c1",
+          "rationale": "Fluorinate the current pyridyl ring while keeping the same single attachment and aza-aryl topology. This is a very conservative edit that may reduce aromatic oxidation at one position without materially changing size or binding vector."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccnc(F)c1",
+          "smiles_after": "O=C1c2ccncc2C(=O)C1c1ccnc(F)c1",
+          "rationale": "Introduce a single ring nitrogen into the fused benzenoid portion of the indanedione core while preserving the bicyclic 1,3-dicarbonyl scaffold and attachment geometry. This is a conservative aza-aryl edit that can reduce hydrocarbon aromatic character and potentially lessen oxidative aromatic metabolism without changing overall shape much."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)CC(=O)NC(=O)N",
+      "smiles_after": "CNC(=O)NC(=O)Cc1ccnc(F)c1",
+      "dili_before": 0.5438945889472961,
+      "dili_after": 0.5698383450508118,
+      "dili_improvement": -0.025943756103515625,
+      "dili_improvement_pct": -4.769997096998073,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)CC(=O)NC(=O)N",
+          "smiles_after": "NC(=O)NC(=O)Cc1ccncc1",
+          "rationale": "Replace phenyl with a pyridyl ring to lower aromatic lipophilicity and introduce a ring nitrogen, a common tactic to reduce oxidative aromatic metabolism while broadly preserving a flat aryl recognition element."
+        },
+        {
+          "round": 2,
+          "smiles_before": "NC(=O)NC(=O)Cc1ccncc1",
+          "smiles_after": "NC(=O)NC(=O)Cc1ccnc(F)c1",
+          "rationale": "Add a single fluorine to the pyridyl ring to block one aromatic oxidation site while preserving the heteroaryl scaffold, ring size, and attachment pattern. This is a very conservative way to tune metabolic stability without changing the linker or urea motif."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(=O)NC(=O)Cc1ccnc(F)c1",
+          "smiles_after": "CNC(=O)NC(=O)Cc1ccnc(F)c1",
+          "rationale": "N-Methylation of the terminal carboxamide is a very conservative way to remove one hydrogen-bond donor from the NH-rich urea/carboxamide motif, which may lessen risks tied to highly polar, multiply NH-containing functionality while preserving the carbonyl terminus and overall scaffold."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)CN2C3=CC=CC=C3C(=N2)OCC(=O)O",
+      "smiles_after": "NC(=O)COc1nn(Cc2ccc(F)cc2)c2cc(F)ccc12",
+      "dili_before": 0.8694987297058105,
+      "dili_after": 0.922507107257843,
+      "dili_improvement": -0.05300837755203247,
+      "dili_improvement_pct": -6.096429556598378,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)CN2C3=CC=CC=C3C(=N2)OCC(=O)O",
+          "smiles_after": "NC(=O)COc1nn(Cc2ccccc2)c2ccccc12",
+          "rationale": "Convert the terminal carboxylic acid to the corresponding primary amide while preserving the O-CH2-CO linker. This is a conservative polarity-retaining change that can reduce acyl glucuronidation liability often associated with carboxylic acids, a common medicinal chemistry tactic to lower idiosyncratic DILI risk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "NC(=O)COc1nn(Cc2ccccc2)c2ccccc12",
+          "smiles_after": "NC(=O)COc1nn(Cc2ccc(F)cc2)c2ccccc12",
+          "rationale": "Add a single fluorine to the pendant benzyl phenyl ring to modestly reduce aromatic oxidation liability while preserving the benzylic linker, ring size, and overall hydrophobic recognition. This is a very conservative metabolism-blocking change and avoids revisiting the exact direct-aryl fluorophenyl variants proposed previously."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(=O)COc1nn(Cc2ccc(F)cc2)c2ccccc12",
+          "smiles_after": "NC(=O)COc1nn(Cc2ccc(F)cc2)c2cc(F)ccc12",
+          "rationale": "Add a single fluorine to the fused benzene portion of the bicyclic core to block a likely aromatic oxidation soft spot with minimal steric and topological change. This is a highly conservative metabolism-mitigating edit that preserves both attachment vectors and the current amide and 4-fluorobenzyl features."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C(C=C1)CNC(=O)CCNNC(=O)C2=CC=NC=C2",
+      "smiles_after": "NN(CC(=O)c1ccccc1)C(=O)NCc1ccccc1",
+      "dili_before": 0.7940397262573242,
+      "dili_after": 0.7684629559516907,
+      "dili_improvement": 0.025576770305633545,
+      "dili_improvement_pct": 3.2210945447513906,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C(C=C1)CNC(=O)CCNNC(=O)C2=CC=NC=C2",
+          "smiles_after": "O=C(CCNNC(=O)c1ccccc1)NCc1ccccc1",
+          "rationale": "Replace the pyridyl ring with phenyl to remove a basic aromatic nitrogen that can increase off-target binding and alter clearance, while preserving a closely related aryl amide motif and overall shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(CCNNC(=O)c1ccccc1)NCc1ccccc1",
+          "smiles_after": "NN(CCC(=O)NCc1ccccc1)C(=O)c1ccccc1",
+          "rationale": "Convert the acyl hydrazide from -NHNH-COAr to -CON(N)CH2CH2-COAr, retaining the same atom count and two-point connectivity while making the nitrogen adjacent to the left carbonyl less nucleophilic and less hydrazine-like. This is a conservative constitutional isomerization aimed at reducing intrinsic reactivity associated with the current hydrazide motif."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NN(CCC(=O)NCc1ccccc1)C(=O)c1ccccc1",
+          "smiles_after": "NN(CC(=O)c1ccccc1)C(=O)NCc1ccccc1",
+          "rationale": "Shorten the aliphatic spacer by one methylene while retaining the same two carbonyls and N-amino imide-like connectivity. This is a conservative way to reduce flexible lipophilic surface and remove one potential aliphatic oxidation site without changing the overall scaffold class."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C2C(=C1)C(C(=O)N2)(C3=CC=C(C=C3)O)C4=CC=C(C=C4)O",
+      "smiles_after": "CCOc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+      "dili_before": 0.9035905003547668,
+      "dili_after": 0.6834257245063782,
+      "dili_improvement": 0.22016477584838867,
+      "dili_improvement_pct": 24.365547862881225,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C2C(=C1)C(C(=O)N2)(C3=CC=C(C=C3)O)C4=CC=C(C=C4)O",
+          "smiles_after": "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(F)cc1",
+          "rationale": "Replace one phenol with fluorine to remove one potentially oxidation-prone phenolic handle while keeping a similar aryl size and electronics profile, preserving the triaryllactam scaffold."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(F)cc1",
+          "smiles_after": "COc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "rationale": "Methylate the remaining phenol to an anisole to remove the last phenolic oxidation/conjugation hotspot while preserving aryl topology, para substitution, and broadly similar electronics in a conservative way."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "smiles_after": "CCOc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "rationale": "Extend the anisole methyl to an ethyl ether to keep the same attachment pattern and H-bond acceptor while modestly reducing the likelihood of rapid O-demethylation to a phenol, a conservative way to avoid regenerating a potentially more reactive phenolic metabolite."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C2C(=C1)C=CC(=O)O2",
+      "smiles_after": "O=C1CCc2ccc(F)c(F)c2O1",
+      "dili_before": 0.9005733132362366,
+      "dili_after": 0.8390530347824097,
+      "dili_improvement": 0.061520278453826904,
+      "dili_improvement_pct": 6.831234897773284,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C2C(=C1)C=CC(=O)O2",
+          "smiles_after": "O=C1CCc2ccccc2O1",
+          "rationale": "Replace the alpha,beta-unsaturated lactone of coumarin with the corresponding saturated chroman-2-one. This conservatively preserves the bicyclic lactone scaffold and similar shape while removing the Michael acceptor character often associated with reactive metabolite and protein adduct risk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C1CCc2ccccc2O1",
+          "smiles_after": "O=C1CCc2ccc(F)cc2O1",
+          "rationale": "Add a single aryl fluorine to the dihydrocoumarin core. This is a very conservative edit that preserves the saturated benzolactone scaffold while potentially reducing aromatic oxidation at a common metabolic soft spot without introducing obvious new reactive functionality."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C1CCc2ccc(F)cc2O1",
+          "smiles_after": "O=C1CCc2ccc(F)c(F)c2O1",
+          "rationale": "Add a second aryl fluorine to the current fluorodihydrocoumarin. Difluorination is a conservative way to further suppress aromatic oxidation on the fused benzene ring while preserving the saturated benzolactone scaffold and overall shape."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CC=C2C(=C1)NC(=N2)C3=CSC=N3",
+      "smiles_after": "Fc1cc2nc(-c3ncco3)[nH]c2cn1",
+      "dili_before": 0.9525696039199829,
+      "dili_after": 0.9708221554756165,
+      "dili_improvement": -0.018252551555633545,
+      "dili_improvement_pct": -1.9161383567690222,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CC=C2C(=C1)NC(=N2)C3=CSC=N3",
+          "smiles_after": "c1cc2nc(-c3cscn3)[nH]c2cn1",
+          "rationale": "Introduce a ring nitrogen into the benzimidazole-fused benzene portion to give an aza-benzimidazole, a classic conservative tactic to lower lipophilicity and tune electronics while preserving the core fused scaffold and likely pharmacophore."
+        },
+        {
+          "round": 2,
+          "smiles_before": "c1cc2nc(-c3cscn3)[nH]c2cn1",
+          "smiles_after": "Fc1cc2nc(-c3cscn3)[nH]c2cn1",
+          "rationale": "Adding a single fluorine to the aza-benzimidazole core is a minimal change that can block aromatic oxidation at one position while preserving the fused bicyclic scaffold, NH donor, and overall topology of the carried-forward core."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Fc1cc2nc(-c3cscn3)[nH]c2cn1",
+          "smiles_after": "Fc1cc2nc(-c3ncco3)[nH]c2cn1",
+          "rationale": "Replace the sulfur-containing five-membered heteroaryl with the closely related oxazole isostere to remove sulfur, a common source of oxidative/reactive metabolite concern, while preserving ring size, aromaticity, and a similar heteroatom pattern."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1=CSC(=C1)C(=O)C2=C(C(=C(C=C2)OCC(=O)O)Cl)Cl",
+      "smiles_after": "O=C(O)COc1ccc(C(=O)c2ccoc2)cc1Cl",
+      "dili_before": 0.938429594039917,
+      "dili_after": 0.932995080947876,
+      "dili_improvement": 0.005434513092041016,
+      "dili_improvement_pct": 0.5791071729361781,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1=CSC(=C1)C(=O)C2=C(C(=C(C=C2)OCC(=O)O)Cl)Cl",
+          "smiles_after": "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1F",
+          "rationale": "Replace one chlorine on the benzoyl ring with fluorine to reduce overall lipophilicity and halogen load while preserving the aryl ketone core and substitution pattern. This may lessen bioaccumulation and oxidative stress risk yet maintain similar steric and electronic character."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1F",
+          "smiles_after": "O=C(O)COc1ccc(C(=O)c2ccoc2)c(Cl)c1F",
+          "rationale": "Replace the thiophene ketone block with the closely related furan ketone isostere. This removes sulfur, a common bioactivation concern in thiophenes, while preserving a compact five-membered heteroaryl aryl-ketone motif and similar overall shape."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(O)COc1ccc(C(=O)c2ccoc2)c(Cl)c1F",
+          "smiles_after": "O=C(O)COc1ccc(C(=O)c2ccoc2)cc1Cl",
+          "rationale": "Remove the aryl fluorine while retaining one chlorine on the central phenoxy ring. This is a conservative dehalogenation that lowers halogen burden and lipophilicity with minimal change to topology, while preserving the same attachment pattern and likely binding orientation."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1C2C(C2N)CN1C3=C(C=C4C(=O)C(=CN(C4=N3)C5=C(C=C(C=C5)F)F)C(=O)O)F",
+      "smiles_after": "NC(=O)c1cn(-c2ccncc2F)c2nc(N3CC4C(O)C4C3)c(F)cc2c1=O",
+      "dili_before": 0.9615026712417603,
+      "dili_after": 0.9698250889778137,
+      "dili_improvement": -0.008322417736053467,
+      "dili_improvement_pct": -0.8655636624810663,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1C2C(C2N)CN1C3=C(C=C4C(=O)C(=CN(C4=N3)C5=C(C=C(C=C5)F)F)C(=O)O)F",
+          "smiles_after": "NC(=O)c1cn(-c2ccc(F)cc2F)c2nc(N3CC4C(N)C4C3)c(F)cc2c1=O",
+          "rationale": "Convert the carboxylic acid to a primary amide on the fused heteroaryl core. This is a conservative polarity-preserving bioisostere that can reduce acyl glucuronidation risk, a known structural concern for some carboxylic acids in DILI contexts."
+        },
+        {
+          "round": 2,
+          "smiles_before": "NC(=O)c1cn(-c2ccc(F)cc2F)c2nc(N3CC4C(N)C4C3)c(F)cc2c1=O",
+          "smiles_after": "NC(=O)c1cn(-c2ccncc2F)c2nc(N3CC4C(N)C4C3)c(F)cc2c1=O",
+          "rationale": "Replace the distal difluorophenyl with a fluoropyridyl ring. This is a classic conservative aza-aryl swap that can lower lipophilicity and aromatic electron density, potentially reducing oxidative bioactivation while preserving a similar flat hydrophobic appendage and attachment vector."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(=O)c1cn(-c2ccncc2F)c2nc(N3CC4C(N)C4C3)c(F)cc2c1=O",
+          "smiles_after": "NC(=O)c1cn(-c2ccncc2F)c2nc(N3CC4C(O)C4C3)c(F)cc2c1=O",
+          "rationale": "Replace the exocyclic primary amine on the bicyclic fragment with a hydroxyl while preserving the compact bridged scaffold and attachment vector. This is a conservative way to reduce basicity and cationic amphiphilicity, which can help lower lysosomal trapping and liver burden."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1CCC2=NC3=CC=CC=C3C(=C2C1)N",
+      "smiles_after": "Oc1c2c(nc3ccc(F)cc13)CCOC2",
+      "dili_before": 0.6505681872367859,
+      "dili_after": 0.8488366603851318,
+      "dili_improvement": -0.19826847314834595,
+      "dili_improvement_pct": -30.476201732283997,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1CCC2=NC3=CC=CC=C3C(=C2C1)N",
+          "smiles_after": "Oc1c2c(nc3ccccc13)CCCC2",
+          "rationale": "Replace the exocyclic aniline NH2 with OH to remove the aromatic amine liability associated with oxidative bioactivation while keeping a closely related fused heteroaromatic scaffold and similar size/planarity."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Oc1c2c(nc3ccccc13)CCCC2",
+          "smiles_after": "Oc1c2c(nc3ccc(F)cc13)CCCC2",
+          "rationale": "Add a single fluorine on the benzenoid ring to modestly reduce aromatic oxidation liability and tune electronics while preserving the fused scaffold, phenol, and overall shape with minimal steric change."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Oc1c2c(nc3ccc(F)cc13)CCCC2",
+          "smiles_after": "Oc1c2c(nc3ccc(F)cc13)CCOC2",
+          "rationale": "Replace one methylene in the saturated ring with oxygen to lower lipophilicity and hydrocarbon burden while preserving the fused bicyclic topology and the current phenolic aza-aromatic pharmacophore."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1CN(CCN1CC2=CC3=C(C=C2)OCO3)C(=O)COC4=CC=C(C=C4)Cl",
+      "smiles_after": "O=C(COc1ccc(F)cc1)N1CCOC(Cc2ccc3c(c2)OCCO3)C1",
+      "dili_before": 0.7132189869880676,
+      "dili_after": 0.7975904941558838,
+      "dili_improvement": -0.08437150716781616,
+      "dili_improvement_pct": -11.829677659608874,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1CN(CCN1CC2=CC3=C(C=C2)OCO3)C(=O)COC4=CC=C(C=C4)Cl",
+          "smiles_after": "O=C(COc1ccc(F)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1",
+          "rationale": "Replace the para-chloro phenoxy group with the para-fluoro analogue to reduce lipophilicity and the potential for halogen-associated bioaccumulation while preserving aryl size, electronics, and the phenoxy motif."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C(COc1ccc(F)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1",
+          "smiles_after": "O=C(COc1ccc(F)cc1)N1CCN(Cc2ccc3c(c2)OCCO3)CC1",
+          "rationale": "Replace the methylenedioxy-fused aryl with the corresponding ethylenedioxy analogue to preserve the fused diether aromatic motif and benzylic attachment while reducing the specific methylenedioxy liability often associated with CYP inhibition and bioactivation."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(COc1ccc(F)cc1)N1CCN(Cc2ccc3c(c2)OCCO3)CC1",
+          "smiles_after": "O=C(COc1ccc(F)cc1)N1CCOC(Cc2ccc3c(c2)OCCO3)C1",
+          "rationale": "Replace piperazine with a morpholine-like tertiary amino ether ring while preserving both attachment points and similar size. This is a classic conservative tactic to lower overall basicity and cationic amphiphilicity, which may reduce lysosomal accumulation and DILI risk relative to a diamine."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C1COC(=O)N1N=CC2=CC=C(O2)[N+](=O)[O-]",
+      "smiles_after": "CN1CCN(N=Cc2ccc(C#N)o2)C1=O",
+      "dili_before": 0.9164549112319946,
+      "dili_after": 0.6914743185043335,
+      "dili_improvement": 0.22498059272766113,
+      "dili_improvement_pct": 24.549008354946636,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C1COC(=O)N1N=CC2=CC=C(O2)[N+](=O)[O-]",
+          "smiles_after": "N#Cc1ccc(C=NN2CCOC2=O)o1",
+          "rationale": "Replace the aromatic nitro group with a nitrile to remove a classic nitro-associated bioactivation and redox-liability motif while preserving a small, strongly electron-withdrawing substituent on the heteroaryl ring and maintaining the overall scaffold."
+        },
+        {
+          "round": 2,
+          "smiles_before": "N#Cc1ccc(C=NN2CCOC2=O)o1",
+          "smiles_after": "N#Cc1ccc(C=NN2CCNC2=O)o1",
+          "rationale": "Replace the ring oxygen in the cyclic carbamate with NH to move from an oxazolidinone to an imidazolidinone. This preserves the overall size and hydrazone-linked scaffold while reducing the likelihood of oxidative O-dealkylation or ring-opening pathways associated with the ether oxygen."
+        },
+        {
+          "round": 3,
+          "smiles_before": "N#Cc1ccc(C=NN2CCNC2=O)o1",
+          "smiles_after": "CN1CCN(N=Cc2ccc(C#N)o2)C1=O",
+          "rationale": "N-Methylate the imidazolidinone nitrogen to remove one NH donor that could participate in bioactivation or conjugation, while preserving the same compact heterocycle, hydrazone linkage, and overall scaffold topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "C=CCOC1=C(C=C(C=C1)CC(=O)O)Cl",
+      "smiles_after": "COc1ccc(CC(N)=O)cc1Cl",
+      "dili_before": 0.696312427520752,
+      "dili_after": 0.46223339438438416,
+      "dili_improvement": 0.2340790331363678,
+      "dili_improvement_pct": 33.616954672174316,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "C=CCOC1=C(C=C(C=C1)CC(=O)O)Cl",
+          "smiles_after": "COCOc1ccc(CC(=O)O)cc1Cl",
+          "rationale": "Replace the allyl ether with a methoxymethyl group to remove the terminal alkene, a common structural alert for oxidative epoxidation and reactive metabolite formation, while preserving a small ether-linked lipophilic substituent."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COCOc1ccc(CC(=O)O)cc1Cl",
+          "smiles_after": "COc1ccc(CC(=O)O)cc1Cl",
+          "rationale": "Simplify the methoxymethyl ether to a methoxy substituent, removing the acetal-like O-CH2-O motif that can be metabolically labile and potentially release formaldehyde-like fragments, while preserving an ether-linked small polar appendage on the aryl ring."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COc1ccc(CC(=O)O)cc1Cl",
+          "smiles_after": "COc1ccc(CC(N)=O)cc1Cl",
+          "rationale": "Convert the terminal carboxylic acid to the corresponding primary amide to avoid acid-driven acyl glucuronidation liability while preserving the two-carbon linker, terminal carbonyl, and a similar hydrogen-bonding pattern."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(=O)N1C2=CC=CC=C2C(C1=O)(C3=CC=C(C=C3)OC(=O)C)C4=CC=C(C=C4)OC(=O)C",
+      "smiles_after": "CC(=O)N1C(=O)C(c2ccc(OC(=O)N(C)C)cc2)(c2ccc(OC(=O)N3CCOCC3)cc2)c2ccccc21",
+      "dili_before": 0.8816325664520264,
+      "dili_after": 0.8961975574493408,
+      "dili_improvement": -0.014564990997314453,
+      "dili_improvement_pct": -1.6520477522658528,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(=O)N1C2=CC=CC=C2C(C1=O)(C3=CC=C(C=C3)OC(=O)C)C4=CC=C(C=C4)OC(=O)C",
+          "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(OC(=O)N(C)C)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1",
+          "rationale": "Replace one acetate with a dimethyl carbamate, a classic ester-to-carbamate switch that can preserve topology while reducing simple esterase cleavage and limiting free phenol formation."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(=O)N(C)C)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1",
+          "smiles_after": "CC(=O)N1C(=O)C(c2ccc(OC(=O)N(C)C)cc2)(c2ccc(OC(=O)N(C)C)cc2)c2ccccc21",
+          "rationale": "Replace the N-acetyl group with an N,N-dimethyl carbamoyl group to remove the methyl ketone motif, which can be a metabolic soft spot, while preserving a small carbonyl-bearing N-substituent and similar steric demand."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(=O)N1C(=O)C(c2ccc(OC(=O)N(C)C)cc2)(c2ccc(OC(=O)N(C)C)cc2)c2ccccc21",
+          "smiles_after": "CC(=O)N1C(=O)C(c2ccc(OC(=O)N(C)C)cc2)(c2ccc(OC(=O)N3CCOCC3)cc2)c2ccccc21",
+          "rationale": "Replace one dimethylamino carbamate terminus with morpholine to reduce lipophilicity and remove one N-methyl oxidative dealkylation pathway while preserving a tertiary amine-containing carbamate and similar overall size."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(=O)N1CCN(CC1)C2=CC=C(C=C2)OCC3COC(O3)(CN4C=CN=C4)C5=C(C=C(C=C5)Cl)Cl",
+      "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(Cl)cc4)O3)cc2)CC1",
+      "dili_before": 0.84367436170578,
+      "dili_after": 0.8661036491394043,
+      "dili_improvement": -0.022429287433624268,
+      "dili_improvement_pct": -2.6585242424903957,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(=O)N1CCN(CC1)C2=CC=C(C=C2)OCC3COC(O3)(CN4C=CN=C4)C5=C(C=C(C=C5)Cl)Cl",
+          "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
+          "rationale": "Replace the imidazole-like azaheterocycle with a 1,2,4-triazole isostere to reduce potential CYP coordination and reactive metabolite liability while preserving a small basic heteroaromatic substituent and similar vector from the methylene linker."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
+          "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(F)cc4Cl)O3)cc2)CC1",
+          "rationale": "Replace one aryl chlorine with fluorine to conservatively reduce halogen load and lipophilicity while preserving the same aryl size, topology, and attachment geometry. This may lessen metabolic persistence and liabilities sometimes associated with dichloroaryl motifs."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(F)cc4Cl)O3)cc2)CC1",
+          "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4cncn4)(c4ccc(Cl)cc4)O3)cc2)CC1",
+          "rationale": "Remove the remaining fluorine to give a monochlorophenyl analogue. This is a very conservative dehalogenation that should lower lipophilicity and halogen burden while preserving the same aryl size, topology, and likely binding mode better than more polar replacements."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(=O)OC1=CC=C(C=C1)C(=C2CCCCC2)C3=CC=C(C=C3)OC(=O)C",
+      "smiles_after": "COOc1ccc(C(=C2CCCCC2)c2ccc(OC)cc2)cc1",
+      "dili_before": 0.5872063636779785,
+      "dili_after": 0.4504990577697754,
+      "dili_improvement": 0.13670730590820312,
+      "dili_improvement_pct": 23.28096464281045,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(=O)OC1=CC=C(C=C1)C(=C2CCCCC2)C3=CC=C(C=C3)OC(=O)C",
+          "smiles_after": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(F)(F)F)cc2)cc1",
+          "rationale": "Replace the aryl acetate with an aryl trifluoromethyl ether to remove the ester, which can be hydrolyzed to a phenol and then undergo further oxidative bioactivation. This is a conservative lipophilic isostere that preserves an oxygen linker and similar steric profile while reducing hydrolytic and acyl-transfer liability."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(F)(F)F)cc2)cc1",
+          "smiles_after": "COOc1ccc(C(=C2CCCCC2)c2ccc(OC(F)(F)F)cc2)cc1",
+          "rationale": "Replace the remaining aryl trifluoroacetate-like acetate with methoxy to remove the last ester liability while preserving an aryl-oxygen substituent and closely related steric/electronic character. This is a conservative deacylation strategy that should reduce hydrolysis to a phenol and avoid acyl-related metabolic reactivity."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COOc1ccc(C(=C2CCCCC2)c2ccc(OC(F)(F)F)cc2)cc1",
+          "smiles_after": "COOc1ccc(C(=C2CCCCC2)c2ccc(OC)cc2)cc1",
+          "rationale": "Replace the remaining trifluoromethoxy group with methoxy to reduce fluorine-driven lipophilicity and persistence while preserving the diaryl alkene scaffold and an aryl-oxygen substituent on both rings. This is a conservative simplification that may lower metabolic burden without introducing obvious new reactive functionality."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(=O)OC1=CC=C(C=C1)C2(C3=CC=CC=C3NC2=O)C4=CC=C(C=C4)OC(=O)C",
+      "smiles_after": "CN(C)C(=O)Oc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+      "dili_before": 0.8195727467536926,
+      "dili_after": 0.7702211737632751,
+      "dili_improvement": 0.04935157299041748,
+      "dili_improvement_pct": 6.021622020241381,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(=O)OC1=CC=C(C=C1)C2(C3=CC=CC=C3NC2=O)C4=CC=C(C=C4)OC(=O)C",
+          "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(OC(F)(F)F)cc3)C(=O)Nc3ccccc32)cc1",
+          "rationale": "Replace the aryl acetate with an aryl trifluoromethyl ether to remove the hydrolyzable ester and the acetic acid/alcohol cleavage liability while preserving a similar oxygen-linked aryl substituent and comparable steric size."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(F)(F)F)cc3)C(=O)Nc3ccccc32)cc1",
+          "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "rationale": "Replace the aryl OCF3 group with fluorine to reduce lipophilicity and remove the metabolically persistent fluorinated ether while keeping a very small, conservative para substituent that should least perturb the scaffold."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "smiles_after": "CN(C)C(=O)Oc1ccc(C2(c3ccc(F)cc3)C(=O)Nc3ccccc32)cc1",
+          "rationale": "Convert the remaining acetate to a dimethyl carbamate, a classic conservative ester-to-carbamate swap that preserves the aryl O-linkage and similar size while reducing simple ester hydrolysis and potential acyl-related reactivity."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(C(=O)NC(C)C(=O)NC1C2C1CN(C2)C3=C(C=C4C(=O)C(=CN(C4=N3)C5=C(C=C(C=C5)F)F)C(=O)O)F)N",
+      "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3ccc4c(=O)c(C(N)=O)cn(-c5ccccc5F)c4n3)CC21",
+      "dili_before": 0.9418635368347168,
+      "dili_after": 0.8705188632011414,
+      "dili_improvement": 0.07134467363357544,
+      "dili_improvement_pct": 7.574841879253617,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(C(=O)NC(C)C(=O)NC1C2C1CN(C2)C3=C(C=C4C(=O)C(=CN(C4=N3)C5=C(C=C(C=C5)F)F)C(=O)O)F)N",
+          "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(N)=O)cn4-c3ccc(F)cc3F)CC21",
+          "rationale": "Convert the carboxylic acid on the fused heteroaryl core to a primary amide to reduce acyl glucuronidation liability often associated with acids, while preserving hydrogen-bonding capacity and overall topology."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(N)=O)cn4-c3ccc(F)cc3F)CC21",
+          "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(N)=O)cn4-c3ccccc3F)CC21",
+          "rationale": "Remove one fluorine from the distal aryl ring to lower halogen load and lipophilicity while preserving a closely related fluorophenyl motif likely to maintain similar binding interactions."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(N)=O)cn4-c3ccccc3F)CC21",
+          "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3ccc4c(=O)c(C(N)=O)cn(-c5ccccc5F)c4n3)CC21",
+          "rationale": "Remove the remaining fluorine from the fused heteroaryl core to further reduce halogen load and lipophilicity while preserving the same bicyclic aza-quinolone-like scaffold, carbonyl, carboxamide, and attachment geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(C)NNC(=O)C1=CC=NC=C1",
+      "smiles_after": "CC(C)(CO)NNC(=O)c1ccnc(F)c1",
+      "dili_before": 0.5175129175186157,
+      "dili_after": 0.6169948577880859,
+      "dili_improvement": -0.09948194026947021,
+      "dili_improvement_pct": -19.22308350223774,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(C)NNC(=O)C1=CC=NC=C1",
+          "smiles_after": "CC(C)(C)NNC(=O)c1ccncc1",
+          "rationale": "Replace the isopropyl group with tert-butyl to reduce benzylic-like C-H oxidation liability on the alkyl substituent while preserving a similar hydrazide motif and overall lipophilic bulk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(C)(C)NNC(=O)c1ccncc1",
+          "smiles_after": "CC(C)(C)NNC(=O)c1ccnc(F)c1",
+          "rationale": "Add a single fluorine to the pyridine ring as a conservative metabolic blocking change. This can reduce aromatic oxidation liability while preserving the same six-membered aza-aryl scaffold, attachment vector, and likely binding mode."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(C)(C)NNC(=O)c1ccnc(F)c1",
+          "smiles_after": "CC(C)(CO)NNC(=O)c1ccnc(F)c1",
+          "rationale": "Replace one tert-butyl methyl with hydroxymethyl to lower lipophilicity and introduce a benign polar handle while preserving the hydrazide core and similar branched steric profile. This may reduce nonspecific hepatic accumulation and simple alkyl oxidation liability."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(C1=CC(=C(C=C1)N2CC=CC2)Cl)C(=O)O",
+      "smiles_after": "CC(C(=O)O)c1ccc(N2CCCC2)cc1",
+      "dili_before": 0.6256102919578552,
+      "dili_after": 0.39114588499069214,
+      "dili_improvement": 0.23446440696716309,
+      "dili_improvement_pct": 37.477709363348836,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(C1=CC(=C(C=C1)N2CC=CC2)Cl)C(=O)O",
+          "smiles_after": "CC(C(=O)O)c1ccc(N2CCCC2)c(Cl)c1",
+          "rationale": "Replace the unsaturated 3-pyrroline with pyrrolidine to remove the alkene, reducing potential metabolic epoxidation or reactive oxidation while preserving a similar tertiary aniline-linked five-membered amine and likely basicity-driven pharmacology."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(C(=O)O)c1ccc(N2CCCC2)c(Cl)c1",
+          "smiles_after": "CC(C(=O)O)c1ccc(N2CCCC2)c(F)c1",
+          "rationale": "Replace aryl chlorine with fluorine as a very conservative halogen edit that can modestly lower lipophilicity and reduce metabolic persistence while preserving the same substitution pattern, size, and likely binding topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(C(=O)O)c1ccc(N2CCCC2)c(F)c1",
+          "smiles_after": "CC(C(=O)O)c1ccc(N2CCCC2)cc1",
+          "rationale": "Remove the aryl fluorine entirely as the most conservative remaining aryl edit: this lowers lipophilicity and avoids any halogen-associated persistence while preserving the same phenyl linker, substitution pattern, and overall topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(C1=CC2=C(C=C1)OC(=N2)C3=CC=C(C=C3)Cl)C(=O)O",
+      "smiles_after": "CC(C(N)=O)c1ccc2oc(-c3ccccc3)nc2c1",
+      "dili_before": 0.9053928852081299,
+      "dili_after": 0.8254445791244507,
+      "dili_improvement": 0.0799483060836792,
+      "dili_improvement_pct": 8.830233525117755,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(C1=CC2=C(C=C1)OC(=N2)C3=CC=C(C=C3)Cl)C(=O)O",
+          "smiles_after": "CC(C(=O)O)c1ccc2oc(-c3ccc(F)cc3)nc2c1",
+          "rationale": "Replace chlorine with fluorine on the terminal phenyl to reduce lipophilicity and the likelihood of bioactivation associated with a heavier halogenated aryl ring, while preserving aryl size and electronics reasonably well."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(C(=O)O)c1ccc2oc(-c3ccc(F)cc3)nc2c1",
+          "smiles_after": "CC(C(N)=O)c1ccc2oc(-c3ccc(F)cc3)nc2c1",
+          "rationale": "Convert the carboxylic acid to the corresponding primary amide to remove the acid functionality and its potential acyl-glucuronidation liability, while keeping a closely related small carbonyl-bearing side chain and similar geometry."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(C(N)=O)c1ccc2oc(-c3ccc(F)cc3)nc2c1",
+          "smiles_after": "CC(C(N)=O)c1ccc2oc(-c3ccccc3)nc2c1",
+          "rationale": "Remove the para-fluoro substituent to give an unsubstituted phenyl, reducing halogen content and slightly lowering lipophilicity while preserving the same aryl size, planarity, and attachment geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC(C1=CC2=CC=CC=C2S1)N(C(=O)N)O",
+      "smiles_after": "CC(NC(N)=O)c1cc2cc(F)ccc2o1",
+      "dili_before": 0.7212933301925659,
+      "dili_after": 0.6085095405578613,
+      "dili_improvement": 0.11278378963470459,
+      "dili_improvement_pct": 15.636327817504474,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC(C1=CC2=CC=CC=C2S1)N(C(=O)N)O",
+          "smiles_after": "CC(NC(N)=O)c1cc2ccccc2s1",
+          "rationale": "Remove the N-hydroxyl group to eliminate a classic structural alert for bioactivation to nitroso/reactive intermediates while keeping the same carbon skeleton and urea-like pharmacophore."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(NC(N)=O)c1cc2ccccc2s1",
+          "smiles_after": "CC(NC(N)=O)c1cc2ccccc2o1",
+          "rationale": "Replace benzothiophene with the closely related benzofuran to remove sulfur, a common site for oxidative bioactivation, while preserving fused bicyclic shape, aromaticity, and attachment geometry."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(NC(N)=O)c1cc2ccccc2o1",
+          "smiles_after": "CC(NC(N)=O)c1cc2cc(F)ccc2o1",
+          "rationale": "Add a fluorine to the benzofuran arene to block a likely aromatic oxidation site while preserving the same fused heteroaryl scaffold, attachment vector, and overall shape."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C(=NO1)C2=CC=CC=C2Cl)C(=O)NC3C4N(C3=O)C(C(S4)(C)C)C(=O)O",
+      "smiles_after": "Cc1onc(-c2ccccc2)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(N)=O",
+      "dili_before": 0.9597533345222473,
+      "dili_after": 0.9247171878814697,
+      "dili_improvement": 0.03503614664077759,
+      "dili_improvement_pct": 3.6505365889890995,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C(=NO1)C2=CC=CC=C2Cl)C(=O)NC3C4N(C3=O)C(C(S4)(C)C)C(=O)O",
+          "smiles_after": "Cc1onc(-c2ccccc2F)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+          "rationale": "Replace chloro with fluoro to reduce lipophilicity and the risk of bioactivation associated with aryl chloride motifs while preserving aryl size, electronics, and likely binding mode."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1onc(-c2ccccc2F)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+          "smiles_after": "Cc1onc(-c2ccccc2)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+          "rationale": "Remove the aryl fluorine to lower lipophilicity and reduce the chance of aromatic oxidative bioactivation while preserving the same phenyl appendage and overall topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1onc(-c2ccccc2)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+          "smiles_after": "Cc1onc(-c2ccccc2)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(N)=O",
+          "rationale": "Convert the terminal carboxylic acid to a primary amide to avoid acyl glucuronidation liability while preserving a closely related carbonyl-containing terminus and overall scaffold geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C(=O)N(N1C)C2=CC=CC=C2)N(C)CS(=O)(=O)O",
+      "smiles_after": "Cc1c(N(C)CS(N)(=O)=O)c(=O)n(-c2ccncc2)n1C",
+      "dili_before": 0.7841705679893494,
+      "dili_after": 0.8033470511436462,
+      "dili_improvement": -0.019176483154296875,
+      "dili_improvement_pct": -2.445447959551235,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C(=O)N(N1C)C2=CC=CC=C2)N(C)CS(=O)(=O)O",
+          "smiles_after": "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccncc2)n1C",
+          "rationale": "Replace phenyl with pyridyl to lower lipophilicity and reduce the likelihood of aromatic oxidation to reactive metabolites while preserving a similar flat heteroaryl size and vector."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccncc2)n1C",
+          "smiles_after": "Cc1c(N(C)C(F)S(=O)(=O)O)c(=O)n(-c2ccncc2)n1C",
+          "rationale": "Alpha-fluorinate the methylene linker of the sulfamic acid side chain to reduce oxidative metabolism at this soft spot while preserving the tertiary amino-sulfonic acid motif, polarity, and attachment geometry."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1c(N(C)C(F)S(=O)(=O)O)c(=O)n(-c2ccncc2)n1C",
+          "smiles_after": "Cc1c(N(C)CS(N)(=O)=O)c(=O)n(-c2ccncc2)n1C",
+          "rationale": "Replace the sulfonic acid with a sulfamoyl group to remove the strongly acidic S(VI)-OH while keeping a closely related sulfur(VI) motif, similar size, and comparable polarity; this is a conservative way to reduce concern about the current fluoromethyl sulfonic acid side chain while preserving the tertiary amino linkage."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)C)C",
+      "smiles_after": "Cc1c(C)c2c(c(C)c1F)CCC(C)(COc1ccc(CC3NC(=O)NC3=O)c(F)c1)O2",
+      "dili_before": 0.9226883053779602,
+      "dili_after": 0.9180428385734558,
+      "dili_improvement": 0.0046454668045043945,
+      "dili_improvement_pct": 0.5034708663183365,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)C)C",
+          "smiles_after": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)c(F)c1)O2",
+          "rationale": "Add a single fluorine to the anisole ring to reduce aromatic oxidation at the unsubstituted positions while preserving the aryl ether linker and overall shape with only a minimal electronic change."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)c(F)c1)O2",
+          "smiles_after": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3NC(=O)NC3=O)c(F)c1)O2",
+          "rationale": "Replace the thiazolidinedione sulfur with NH to remove a sulfur-centered bioactivation liability while preserving a compact cyclic imide, similar size, and closely related hydrogen-bonding pattern."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3NC(=O)NC3=O)c(F)c1)O2",
+          "smiles_after": "Cc1c(C)c2c(c(C)c1F)CCC(C)(COc1ccc(CC3NC(=O)NC3=O)c(F)c1)O2",
+          "rationale": "Replacing the chromanol phenol with fluorine is a conservative way to remove a potential phenol-to-quinone/quinone-methide liability and reduce phase II conjugation while preserving the fused ring system, steric profile, and overall topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C2=C(N1CC(=O)O)C=C(C=C2)OC)C(=O)C3=CC=C(C=C3)Cl",
+      "smiles_after": "Cc1c(C(=O)c2ccccc2)c2ccc(F)cc2n1CC(=O)O",
+      "dili_before": 0.9339300394058228,
+      "dili_after": 0.9320501685142517,
+      "dili_improvement": 0.001879870891571045,
+      "dili_improvement_pct": 0.20128605058758373,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C2=C(N1CC(=O)O)C=C(C=C2)OC)C(=O)C3=CC=C(C=C3)Cl",
+          "smiles_after": "COc1ccc2c(C(=O)c3ccc(F)cc3)c(C)n(CC(=O)O)c2c1",
+          "rationale": "Replace the para-chloro phenyl ketone with the para-fluoro analog to reduce lipophilicity and the heavy-halogen burden while preserving aryl size, electronics, and likely binding mode."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COc1ccc2c(C(=O)c3ccc(F)cc3)c(C)n(CC(=O)O)c2c1",
+          "smiles_after": "COc1ccc2c(C(=O)c3ccccc3)c(C)n(CC(=O)O)c2c1",
+          "rationale": "Remove the para-fluoro substituent from the benzoyl ring to lower halogen content and slightly reduce lipophilicity while preserving the aryl ketone motif, planarity, and likely binding geometry."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COc1ccc2c(C(=O)c3ccccc3)c(C)n(CC(=O)O)c2c1",
+          "smiles_after": "Cc1c(C(=O)c2ccccc2)c2ccc(F)cc2n1CC(=O)O",
+          "rationale": "Replace the fused-ring methoxy with fluorine to remove a clear O-demethylation soft spot while keeping a very small substituent that should best preserve sterics, aryl shape, and likely binding geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C2=CC=CC=C2C(=C1)O)O",
+      "smiles_after": "CCOc1c(C)cc(OC)c2ccccc12",
+      "dili_before": 0.796011209487915,
+      "dili_after": 0.3364051878452301,
+      "dili_improvement": 0.45960602164268494,
+      "dili_improvement_pct": 57.73863686396525,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C2=CC=CC=C2C(=C1)O)O",
+          "smiles_after": "COc1c(C)cc(O)c2ccccc12",
+          "rationale": "Methylate one phenol to reduce redox cycling propensity and quinone-forming liability while preserving the naphthalene-like scaffold and one hydrogen-bond donor/acceptor pattern."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COc1c(C)cc(O)c2ccccc12",
+          "smiles_after": "CCOc1c(C)cc(O)c2ccccc12",
+          "rationale": "Extend the anisole methyl to an ethyl ether to modestly reduce O-demethylation liability while preserving the aryl-oxygen linkage, overall topology, and similar lipophilic character."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCOc1c(C)cc(O)c2ccccc12",
+          "smiles_after": "CCOc1c(C)cc(OC)c2ccccc12",
+          "rationale": "Methylating the remaining phenol gives a dimethoxy analogue, removing the last redox-active phenolic OH while preserving the fused aromatic scaffold, aryl-oxygen topology, and closely related steric/electronic character."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C(C=CC2=C1OC(=O)C(=C2O)NC(=O)C3=CC(=C(C=C3)O)CC=C(C)C)OC4C(C(C(C(O4)(C)C)OC)OC(=O)N)O",
+      "smiles_after": "CNC(=O)OC1C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)F)c4)c(=O)oc3c2C)OC(C)(C)C1OC",
+      "dili_before": 0.8840572834014893,
+      "dili_after": 0.8466992974281311,
+      "dili_improvement": 0.037357985973358154,
+      "dili_improvement_pct": 4.2257426837342456,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C(C=CC2=C1OC(=O)C(=C2O)NC(=O)C3=CC(=C(C=C3)O)CC=C(C)C)OC4C(C(C(C(O4)(C)C)OC)OC(=O)N)O",
+          "smiles_after": "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)C)c4)c(=O)oc3c2C)OC1(C)C",
+          "rationale": "Replace the prenyl alkene with an isobutyl group to remove a metabolically reactive olefin and potential epoxidation/allylic oxidation liability while preserving similar hydrophobic bulk and shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)C)c4)c(=O)oc3c2C)OC1(C)C",
+          "smiles_after": "CNC(=O)OC1C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)C)c4)c(=O)oc3c2C)OC(C)(C)C1OC",
+          "rationale": "Convert the terminal primary carbamate to an N-methyl carbamate to reduce hydrogen-bond donor character and potentially lessen hydrolytic or reactive metabolite liabilities while preserving the carbamate motif and attachment pattern."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNC(=O)OC1C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)C)c4)c(=O)oc3c2C)OC(C)(C)C1OC",
+          "smiles_after": "CNC(=O)OC1C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC(C)F)c4)c(=O)oc3c2C)OC(C)(C)C1OC",
+          "rationale": "Replace the isobutyl group with a 2-fluoropropyl-like analogue to keep similar branched hydrophobe size while reducing susceptibility to terminal/benzylic-like alkyl oxidation on the aryl side chain."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=C2C(C(=O)C3(C(CC4C(C3C(C(C2(C)C)(CC1OC(=O)C(C(C5=CC=CC=C5)NC(=O)OC(C)(C)C)O)O)OC(=O)C6=CC=CC=C6)(CO4)OC(=O)C)O)C)O",
+      "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OCCO)c4ccccc4)CC(O)(C(OC(=O)c4ccncc4)C21)C3(C)C",
+      "dili_before": 0.9433030486106873,
+      "dili_after": 0.9591645002365112,
+      "dili_improvement": -0.015861451625823975,
+      "dili_improvement_pct": -1.6814799495437855,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=C2C(C(=O)C3(C(CC4C(C3C(C(C2(C)C)(CC1OC(=O)C(C(C5=CC=CC=C5)NC(=O)OC(C)(C)C)O)O)OC(=O)C6=CC=CC=C6)(CO4)OC(=O)C)O)C)O",
+          "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C",
+          "rationale": "Replace the tert-butyl carbamate alkoxy with isopropoxy to reduce lipophilicity and steric bulk while preserving a carbamate motif and similar hydrogen-bonding pattern; this may modestly lower bioactivation propensity associated with highly lipophilic aromatic/tert-butyl substituents."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C",
+          "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccncc4)C21)C3(C)C",
+          "rationale": "Replace the phenyl ring on the side chain with a pyridyl ring to lower lipophilicity and aromatic electron density while preserving a closely related aryl vector; this is a classic conservative change to reduce oxidative aromatic metabolism and hepatic accumulation risk."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccncc4)C21)C3(C)C",
+          "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OCCO)c4ccccc4)CC(O)(C(OC(=O)c4ccncc4)C21)C3(C)C",
+          "rationale": "Replace the isopropyl carbamate alkoxy with 2-hydroxyethoxy to lower lipophilicity and add polarity while preserving the carbamate and overall attachment geometry; this is a conservative way to reduce nonspecific hepatic exposure."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC(=C(C2=C1C=CC=N2)O)Br",
+      "smiles_after": "COc1c(F)cc(C)c2cccnc12",
+      "dili_before": 0.9055395722389221,
+      "dili_after": 0.573323130607605,
+      "dili_improvement": 0.33221644163131714,
+      "dili_improvement_pct": 36.687125755302,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC(=C(C2=C1C=CC=N2)O)Br",
+          "smiles_after": "Cc1cc(Cl)c(O)c2ncccc12",
+          "rationale": "Replace bromine with chlorine to reduce halogen size, polarizability, and potential for reactive halogen-associated bioactivation while preserving the quinoline phenol scaffold and similar lipophilic binding character."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1cc(Cl)c(O)c2ncccc12",
+          "smiles_after": "Cc1cc(F)c(O)c2ncccc12",
+          "rationale": "Replace the remaining aryl chlorine with fluorine as the most conservative halogen edit from the current analog. This keeps the substitution pattern and overall quinolinol scaffold while reducing size, polarizability, and lipophilicity, which may lessen halogen-associated metabolic liability."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1cc(F)c(O)c2ncccc12",
+          "smiles_after": "COc1c(F)cc(C)c2cccnc12",
+          "rationale": "Methylate the phenol to the anisole while keeping the current aza-naphthalene scaffold and aryl fluorine unchanged. This is a conservative way to block phenol-mediated oxidative conjugation or quinone-like bioactivation risk while preserving similar size and topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC(=C(C=C1)NC2=C(C=CC=C2Cl)F)CC(=O)O",
+      "smiles_after": "Cc1ccc(Nc2ccccc2)c(CC(N)=O)c1",
+      "dili_before": 0.9040518999099731,
+      "dili_after": 0.7607483267784119,
+      "dili_improvement": 0.14330357313156128,
+      "dili_improvement_pct": 15.85125512659524,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC(=C(C=C1)NC2=C(C=CC=C2Cl)F)CC(=O)O",
+          "smiles_after": "Cc1ccc(Nc2ccccc2Cl)c(CC(=O)O)c1",
+          "rationale": "Remove the aryl fluorine while preserving the aniline linkage and chlorophenyl motif. This is a conservative dehalogenation that can reduce lipophilicity and attenuate formation of potentially reactive halogenated aromatic metabolites while likely retaining similar binding shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1ccc(Nc2ccccc2Cl)c(CC(=O)O)c1",
+          "smiles_after": "Cc1ccc(Nc2ccccc2)c(CC(=O)O)c1",
+          "rationale": "Remove the ortho chlorine from the aniline ring while preserving the diarylamine motif. This is a very conservative dehalogenation that can lower lipophilicity and reduce the chance of halogen-influenced aromatic bioactivation while keeping the same attachment pattern and overall shape."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1ccc(Nc2ccccc2)c(CC(=O)O)c1",
+          "smiles_after": "Cc1ccc(Nc2ccccc2)c(CC(N)=O)c1",
+          "rationale": "Convert the arylacetic acid to the corresponding primary amide while preserving the two-carbon linker. This is a conservative way to remove free-acid and acyl-glucuronidation liability while keeping similar size and hydrogen-bonding topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC(=NO1)C(=O)NNCC2=CC=CC=C2",
+      "smiles_after": "CN(NC(=O)c1cc(F)no1)c1ccncc1",
+      "dili_before": 0.7607297301292419,
+      "dili_after": 0.9264047741889954,
+      "dili_improvement": -0.16567504405975342,
+      "dili_improvement_pct": -21.77843687423739,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC(=NO1)C(=O)NNCC2=CC=CC=C2",
+          "smiles_after": "Cc1cc(C(=O)NNCc2ccncc2)no1",
+          "rationale": "Replace phenyl with pyridyl to lower lipophilicity and reduce the likelihood of aromatic oxidation while preserving a similar flat heteroaryl recognition element and the same single attachment point."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1cc(C(=O)NNCc2ccncc2)no1",
+          "smiles_after": "Cc1cc(C(=O)NN(C)c2ccncc2)no1",
+          "rationale": "Methylating the distal hydrazide nitrogen is a conservative way to reduce hydrazine-like nucleophilicity and hydrogen-bond donation, which may lessen bioactivation risk while preserving the same carbonyl-linked linker length and both attachment points."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1cc(C(=O)NN(C)c2ccncc2)no1",
+          "smiles_after": "CN(NC(=O)c1cc(F)no1)c1ccncc1",
+          "rationale": "Replace the 5-methylisoxazole with a fluoroisoxazole to remove the methyl oxidation handle while preserving the same compact N/O heteroaryl scaffold, aromaticity, and attachment vector; fluorine is a classic conservative blocker of oxidative metabolism."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC(=O)C2=CC=CC=C2C1=O",
+      "smiles_after": "N#CC1=CC(=O)c2ccccc2C1=N",
+      "dili_before": 0.830910325050354,
+      "dili_after": 0.8703221678733826,
+      "dili_improvement": -0.039411842823028564,
+      "dili_improvement_pct": -4.743212550721423,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC(=O)C2=CC=CC=C2C1=O",
+          "smiles_after": "N#CC1=CC(=O)c2ccccc2C1=O",
+          "rationale": "Replace the benzylic methyl with a nitrile, a compact electron-withdrawing substituent that blocks oxidative metabolism at that position and decreases electron richness of the quinone system without major steric change."
+        },
+        {
+          "round": 2,
+          "smiles_before": "N#CC1=CC(=O)c2ccccc2C1=O",
+          "smiles_after": "N#CC1=CC(=O)c2ccccc2C1=S",
+          "rationale": "Replace one quinone carbonyl with a thiocarbonyl while retaining the nitrile-bearing naphthalene scaffold. This conservative isosteric edit disrupts the exact 1,4-dione motif that can drive redox cycling and electrophilic reactivity."
+        },
+        {
+          "round": 3,
+          "smiles_before": "N#CC1=CC(=O)c2ccccc2C1=S",
+          "smiles_after": "N#CC1=CC(=O)c2ccccc2C1=N",
+          "rationale": "Replace the remaining thiocarbonyl with an imine-like aza isostere to remove the thione, which can be a structural alert for bioactivation and covalent binding, while still preserving the fused bicyclic scaffold, planarity, and nitrile substituent."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC2=C(C=C1CC(=O)C3=C(C=CS3)S(=O)(=O)NC4=C(C(=NO4)C)Cl)OCO2",
+      "smiles_after": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1O)OCCO2",
+      "dili_before": 0.9634222388267517,
+      "dili_after": 0.9560400247573853,
+      "dili_improvement": 0.007382214069366455,
+      "dili_improvement_pct": 0.7662490828898095,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC2=C(C=C1CC(=O)C3=C(C=CS3)S(=O)(=O)NC4=C(C(=NO4)C)Cl)OCO2",
+          "smiles_after": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1F)OCO2",
+          "rationale": "Replace the aryl chloride with fluorine to reduce lipophilicity and the likelihood of bioactivation associated with a more polarizable halogen, while preserving size, electronics, and the heteroaryl sulfonamide pharmacophore."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1F)OCO2",
+          "smiles_after": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1F)OCCO2",
+          "rationale": "Replace the methylenedioxy ring with the closely related ethylenedioxy analogue to preserve the fused diether aromatic scaffold while removing the exact methylenedioxy motif often associated with CYP mechanism-based inhibition and reactive intermediate concerns."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1F)OCCO2",
+          "smiles_after": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1O)OCCO2",
+          "rationale": "Replace the fluorine on the heteroaryl sulfonamide cap with hydroxyl to reduce lipophilicity and provide a conjugation handle, while preserving the same ring system, sulfonamide NH, and overall attachment geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=CC=C(C=C1)C(=O)C2=CC(=C(C(=C2)O)O)[N+](=O)[O-]",
+      "smiles_after": "COc1c(O)cc(C(=O)c2ccccc2)cc1F",
+      "dili_before": 0.9283488988876343,
+      "dili_after": 0.7641128301620483,
+      "dili_improvement": 0.16423606872558594,
+      "dili_improvement_pct": 17.691200896815495,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=CC=C(C=C1)C(=O)C2=CC(=C(C(=C2)O)O)[N+](=O)[O-]",
+          "smiles_after": "Cc1ccc(C(=O)c2cc(O)c(O)c(F)c2)cc1",
+          "rationale": "Replace the nitro group with fluorine to remove a classic structural alert for reductive bioactivation while preserving a small electron-withdrawing substituent and the overall aryl ketone/catechol scaffold."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1ccc(C(=O)c2cc(O)c(O)c(F)c2)cc1",
+          "smiles_after": "O=C(c1ccccc1)c1cc(O)c(O)c(F)c1",
+          "rationale": "Replace p-tolyl with phenyl to remove the benzylic methyl oxidation hotspot while preserving the aryl ketone scaffold, planarity, and closely related steric/electronic character."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C(c1ccccc1)c1cc(O)c(O)c(F)c1",
+          "smiles_after": "COc1c(O)cc(C(=O)c2ccccc2)cc1F",
+          "rationale": "Mask one catechol hydroxyl as a methyl ether to reduce catechol-driven oxidation/quinone formation risk while preserving the aryl ketone scaffold, one phenol donor, the fluorine, and overall substitution topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1=NC(=CN1C2=CC=C(C=C2)[N+](=O)[O-])[N+](=O)[O-]",
+      "smiles_after": "Cc1cn(-c2ccc(C#N)cc2)c(F)n1",
+      "dili_before": 0.9497732520103455,
+      "dili_after": 0.8727442026138306,
+      "dili_improvement": 0.07702904939651489,
+      "dili_improvement_pct": 8.110256762176732,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1=NC(=CN1C2=CC=C(C=C2)[N+](=O)[O-])[N+](=O)[O-]",
+          "smiles_after": "Cc1nc([N+](=O)[O-])cn1-c1ccc(F)cc1",
+          "rationale": "Replace the nitrophenyl block with a para-fluorophenyl group to remove a classic nitro structural alert associated with reductive bioactivation while preserving a similar aryl size, planarity, and lipophilicity pattern."
+        },
+        {
+          "round": 2,
+          "smiles_before": "Cc1nc([N+](=O)[O-])cn1-c1ccc(F)cc1",
+          "smiles_after": "Cc1cn(-c2ccc(F)cc2)c(F)n1",
+          "rationale": "Replace the remaining nitro group on the aza-heteroaryl core with fluorine to remove a classic nitro bioactivation alert while preserving a very small substituent, similar topology, and electron-withdrawing character."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Cc1cn(-c2ccc(F)cc2)c(F)n1",
+          "smiles_after": "Cc1cn(-c2ccc(C#N)cc2)c(F)n1",
+          "rationale": "Replace the para-fluorophenyl block with para-cyanophenyl to keep a planar aryl group and strong electron-withdrawing character while avoiding a halogenated aniline-like motif and reducing susceptibility to aromatic oxidation."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1CC(C(C(O1)OC2C(CC3(CO3)C(=O)C(C(C(C(OC(=O)C(C(C2C)OC4CC(C(C(O4)C)OC(=O)C)OC)C)C)C)OC(=O)C)C)C)OC(=O)C)N(C)C",
+      "smiles_after": "CC(=O)OC1C(O)CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3O)C2C)OC1C",
+      "dili_before": 0.801347017288208,
+      "dili_after": 0.7025455832481384,
+      "dili_improvement": 0.09880143404006958,
+      "dili_improvement_pct": 12.32941932877192,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1CC(C(C(O1)OC2C(CC3(CO3)C(=O)C(C(C(C(OC(=O)C(C(C2C)OC4CC(C(C(O4)C)OC(=O)C)OC)C)C)C)OC(=O)C)C)C)OC(=O)C)N(C)C",
+          "smiles_after": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
+          "rationale": "Remove the acetate from the macrocyclic core fragment to the corresponding alcohol, decreasing ester count and simplifying metabolism while maintaining the same carbon framework and link vectors."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
+          "smiles_after": "CC(=O)OC1C(O)CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC1C",
+          "rationale": "Demethylate the methoxy substituent on the left-hand sugar-like ring to the corresponding alcohol. Removing the O-methyl avoids O-demethylation liability and slightly lowers lipophilicity while preserving the ring, both connection points, and closely related hydrogen-bonding capacity."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(=O)OC1C(O)CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC1C",
+          "smiles_after": "CC(=O)OC1C(O)CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3O)C2C)OC1C",
+          "rationale": "Deacetylate the terminal acetate to the corresponding alcohol. This is the most conservative way to reduce total ester burden and avoid simple ester hydrolysis products while preserving the same oxygen attachment and overall scaffold."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1CCC2=C3N1C=C(C(=O)C3=CC(=C2)F)C(=O)O",
+      "smiles_after": "CC1CCc2cc(F)cc3c(=O)c(C(=O)N(C)C)cn1c23",
+      "dili_before": 0.869051456451416,
+      "dili_after": 0.7286656498908997,
+      "dili_improvement": 0.14038580656051636,
+      "dili_improvement_pct": 16.153911890758632,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1CCC2=C3N1C=C(C(=O)C3=CC(=C2)F)C(=O)O",
+          "smiles_after": "CC1CCc2cc(F)cc3c(=O)c(C(N)=O)cn1c23",
+          "rationale": "Convert the carboxylic acid to a primary amide to reduce acyl glucuronidation liability often associated with acids while retaining a closely related carbonyl-containing H-bonding motif and similar topology."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC1CCc2cc(F)cc3c(=O)c(C(N)=O)cn1c23",
+          "smiles_after": "CNC(=O)c1cn2c3c(cc(F)cc3c1=O)CCC2C",
+          "rationale": "N-Methylation of the primary amide is a very conservative change that can reduce amidase susceptibility and lower the tendency of the amide NH to participate in bioactivation-related hydrogen-bonding networks, while preserving the carbonyl, one-atom linker, and overall topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNC(=O)c1cn2c3c(cc(F)cc3c1=O)CCC2C",
+          "smiles_after": "CC1CCc2cc(F)cc3c(=O)c(C(=O)N(C)C)cn1c23",
+          "rationale": "Convert the secondary N-methylamide to a tertiary dimethylamide. This preserves the acyl side chain topology while removing the remaining amide NH, which can reduce hydrogen-bond-donor-driven off-target interactions and may lessen risks associated with NH-dependent bioactivation pathways."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CC1CN(CCN1)C2=C(C=C3C(=C2)N(C=C(C3=O)C(=O)O)C4=C(C=C(C=C4)F)F)F",
+      "smiles_after": "NC(=O)c1cn(-c2ccc(F)cc2F)c2cc(N3CCOCC3)c(F)cc2c1=O",
+      "dili_before": 0.9643286466598511,
+      "dili_after": 0.9726424217224121,
+      "dili_improvement": -0.008313775062561035,
+      "dili_improvement_pct": -0.8621308815575986,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CC1CN(CCN1)C2=C(C=C3C(=C2)N(C=C(C3=O)C(=O)O)C4=C(C=C(C=C4)F)F)F",
+          "smiles_after": "CC1CN(c2cc3c(cc2F)c(=O)c(C(N)=O)cn3-c2ccc(F)cc2F)CCN1",
+          "rationale": "Convert the carboxylic acid to the primary amide on the fused heteroaryl core. Carboxylic acids are a classic DILI/liability motif due to acyl glucuronidation and reactive acyl species; the amide is a standard conservative bioisosteric attenuation that preserves H-bonding topology while reducing that risk."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CC1CN(c2cc3c(cc2F)c(=O)c(C(N)=O)cn3-c2ccc(F)cc2F)CCN1",
+          "smiles_after": "NC(=O)c1cn(-c2ccc(F)cc2F)c2cc(N3CCNCC3)c(F)cc2c1=O",
+          "rationale": "Demethylate the 2-methylpiperazine to piperazine. This is a very conservative change that removes a potential aliphatic oxidation hotspot and slightly lowers lipophilicity while preserving the diamine motif, ring size, and likely binding mode."
+        },
+        {
+          "round": 3,
+          "smiles_before": "NC(=O)c1cn(-c2ccc(F)cc2F)c2cc(N3CCNCC3)c(F)cc2c1=O",
+          "smiles_after": "NC(=O)c1cn(-c2ccc(F)cc2F)c2cc(N3CCOCC3)c(F)cc2c1=O",
+          "rationale": "Replace piperazine with morpholine to reduce overall basicity and cationic amphiphilic character while preserving a closely related six-membered heterocycle and attachment geometry. Lowering persistent dicationic character is a common conservative tactic when trying to mitigate liver liability risk."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCC1(CCC(=O)NC1=O)C2=CC=C(C=C2)N",
+      "smiles_after": "CCC1(c2ccc(NC(=O)OC)cc2)CCC(=O)NC1=O",
+      "dili_before": 0.5832595229148865,
+      "dili_after": 0.49952223896980286,
+      "dili_improvement": 0.08373728394508362,
+      "dili_improvement_pct": 14.356779556139914,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCC1(CCC(=O)NC1=O)C2=CC=C(C=C2)N",
+          "smiles_after": "CCC1(c2ccc(NC)cc2)CCC(=O)NC1=O",
+          "rationale": "Convert the aniline to an N-methylaniline. This conservatively reduces the free aniline character, which is a common structural alert for bioactivation to reactive hydroxylamine or quinone-imine species, while preserving a closely related aromatic amino pharmacophore and the same attachment point."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCC1(c2ccc(NC)cc2)CCC(=O)NC1=O",
+          "smiles_after": "CCC1(c2ccc(NC(C)=O)cc2)CCC(=O)NC1=O",
+          "rationale": "Replace the N-methylamino group with an acetamide. Acylation is a classic masking strategy for aniline-type liabilities, substantially lowering nitrogen nucleophilicity and oxidative bioactivation potential while retaining a para heteroatom-containing substituent."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCC1(c2ccc(NC(C)=O)cc2)CCC(=O)NC1=O",
+          "smiles_after": "CCC1(c2ccc(NC(=O)OC)cc2)CCC(=O)NC1=O",
+          "rationale": "Replace the acetanilide with a methyl carbamate. This keeps a closely related aniline-masked motif and similar size while further reducing anilide nitrogen nucleophilicity and often softening aromatic amine bioactivation risk relative to a simple acetanilide."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)Br)O)Br",
+      "smiles_after": "CC(C)(C)c1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+      "dili_before": 0.971103310585022,
+      "dili_after": 0.8453323245048523,
+      "dili_improvement": 0.12577098608016968,
+      "dili_improvement_pct": 12.951349738927513,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)Br)O)Br",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+          "rationale": "Replace both bromines with fluorines to reduce halogen-associated lipophilicity and potential bioaccumulation while preserving the aryl ketone and phenol motif likely important for binding."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+          "smiles_after": "CC(C)c1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+          "rationale": "Replace the ethyl group with isopropyl to reduce the likelihood of straightforward terminal oxidation while preserving a small hydrophobic alkyl substituent and overall scaffold topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(C)c1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+          "smiles_after": "CC(C)(C)c1oc2ccccc2c1C(=O)c1cc(F)c(O)c(F)c1",
+          "rationale": "Replace isopropyl with tert-butyl to remove all benzylic C-H bonds on the alkyl appendage, a conservative hydrophobic edit that may reduce side-chain oxidative metabolism while preserving a compact lipophilic substituent on the same attachment point."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)I)O)I",
+      "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(OC)c(Cl)c1",
+      "dili_before": 0.9826914668083191,
+      "dili_after": 0.8253763914108276,
+      "dili_improvement": 0.15731507539749146,
+      "dili_improvement_pct": 16.008592799572654,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)I)O)I",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1cc(Cl)c(O)c(I)c1",
+          "rationale": "Replace one aryl iodide with chlorine to reduce overall halogen load, molecular weight, and lipophilicity while preserving the halophenol aryl ketone motif and likely binding shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(Cl)c(O)c(I)c1",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(O)c(Cl)c1",
+          "rationale": "Remove the remaining iodine from the aryl ketone ring while preserving the chlorophenol aryl ketone motif. This is a conservative dehalogenation expected to lower molecular weight, lipophilicity, and heavy-halogen-related metabolic liabilities that can contribute to DILI risk."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCc1oc2ccccc2c1C(=O)c1ccc(O)c(Cl)c1",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(OC)c(Cl)c1",
+          "rationale": "Mask the phenol as a methyl ether to reduce phenol-driven oxidative bioactivation and quinone-type liability while preserving the same aryl ketone scaffold, substitution pattern, and overall size closely."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC=C(C=C3)O",
+      "smiles_after": "CCc1sc2ccccc2c1C(=O)c1ccccc1",
+      "dili_before": 0.8605598211288452,
+      "dili_after": 0.8197760581970215,
+      "dili_improvement": 0.04078376293182373,
+      "dili_improvement_pct": 4.739213001871892,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC=C(C=C3)O",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(F)cc1",
+          "rationale": "Replace the para-phenol with fluorine to remove a phenolic metabolic soft spot that can undergo oxidation to quinone-like species and phase II burden, while preserving a similar aryl size and electronics for likely target binding."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCc1oc2ccccc2c1C(=O)c1ccc(F)cc1",
+          "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccccc1",
+          "rationale": "Remove the para-fluoro substituent from the benzoyl ring to slightly reduce aryl lipophilicity and avoid potential persistence from halogenation while keeping the same aryl ketone topology and likely binding mode."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCc1oc2ccccc2c1C(=O)c1ccccc1",
+          "smiles_after": "CCc1sc2ccccc2c1C(=O)c1ccccc1",
+          "rationale": "Replace the benzofuran core with the closely related benzothiophene to preserve the fused bicyclic shape and attachment geometry while removing the oxygen-containing heteroaryl motif, which can be a metabolic soft spot for oxidative bioactivation in some series."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCCCC1C(=O)N(N(C1=O)C2=CC=CC=C2)C3=CC=CC=C3",
+      "smiles_after": "CC(C)CC1C(=O)N(c2ccncc2)N(c2ccncc2)C1=O",
+      "dili_before": 0.768356442451477,
+      "dili_after": 0.8412659168243408,
+      "dili_improvement": -0.07290947437286377,
+      "dili_improvement_pct": -9.489017120783512,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCCCC1C(=O)N(N(C1=O)C2=CC=CC=C2)C3=CC=CC=C3",
+          "smiles_after": "CCCCC1C(=O)N(c2ccccc2)N(c2ccncc2)C1=O",
+          "rationale": "Replace one phenyl ring with a pyridyl ring to reduce overall lipophilicity and aromatic hydrocarbon character while preserving a similar flat heteroaryl size and likely maintaining related binding interactions."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCCCC1C(=O)N(c2ccccc2)N(c2ccncc2)C1=O",
+          "smiles_after": "CC(C)CC1C(=O)N(c2ccccc2)N(c2ccncc2)C1=O",
+          "rationale": "Replace n-butyl with isobutyl to keep a similar hydrophobic volume while reducing the linear alkyl motif that can be a metabolic soft spot for omega/omega-1 oxidation; this is a conservative shape-preserving edit."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CC(C)CC1C(=O)N(c2ccccc2)N(c2ccncc2)C1=O",
+          "smiles_after": "CC(C)CC1C(=O)N(c2ccncc2)N(c2ccncc2)C1=O",
+          "rationale": "Replace the remaining N-phenyl on the pyrazolidinedione core with a pyridyl ring to reduce total carbocyclic aromatic content and lipophilicity while preserving a closely related flat heteroaryl motif and likely similar binding geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCCN(CCC)C(=O)CC1=C(N=C2N1C=C(C=C2)Cl)C3=CC=C(C=C3)Cl",
+      "smiles_after": "CCCN(CCC)C(=O)Cc1c(-c2ccccc2)nc2ccccn12",
+      "dili_before": 0.6620304584503174,
+      "dili_after": 0.31120792031288147,
+      "dili_improvement": 0.3508225381374359,
+      "dili_improvement_pct": 52.99190296450139,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCCN(CCC)C(=O)CC1=C(N=C2N1C=C(C=C2)Cl)C3=CC=C(C=C3)Cl",
+          "smiles_after": "CCCN(CCC)C(=O)Cc1c(-c2ccc(F)cc2)nc2ccc(Cl)cn12",
+          "rationale": "Replace the aryl chloride with aryl fluoride to preserve size and topology while reducing lipophilicity and the likelihood of oxidative bioactivation often associated with chlorophenyl groups."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCCN(CCC)C(=O)Cc1c(-c2ccc(F)cc2)nc2ccc(Cl)cn12",
+          "smiles_after": "CCCN(CCC)C(=O)Cc1c(-c2ccccc2)nc2ccc(Cl)cn12",
+          "rationale": "Remove the para-fluoro substituent from the pendant phenyl while preserving the same biaryl aza-heteroaromatic scaffold and attachment pattern. This is a very conservative dehalogenation that can modestly reduce lipophilicity and avoid aromatic halogen-associated metabolic persistence without changing the core topology."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCCN(CCC)C(=O)Cc1c(-c2ccccc2)nc2ccc(Cl)cn12",
+          "smiles_after": "CCCN(CCC)C(=O)Cc1c(-c2ccccc2)nc2ccccn12",
+          "rationale": "Remove the fused-ring chlorine while preserving the same imidazo[1,2-a]pyridine core, pendant phenyl, and attachment vector. This is a highly conservative dehalogenation expected to modestly reduce lipophilicity and avoid a chlorinated heteroaryl liability without changing the overall scaffold class."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCOC(=O)NC1=C(N=C(C=C1)NCC2=CC=C(C=C2)F)N",
+      "smiles_after": "COC(=O)Nc1ccc(NCc2ccncc2)nc1N",
+      "dili_before": 0.812484622001648,
+      "dili_after": 0.822812557220459,
+      "dili_improvement": -0.010327935218811035,
+      "dili_improvement_pct": -1.271154547315246,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCOC(=O)NC1=C(N=C(C=C1)NCC2=CC=C(C=C2)F)N",
+          "smiles_after": "CCOC(=O)Nc1ccc(NCc2ccc(C#N)cc2)nc1N",
+          "rationale": "Replace the para-fluorophenyl with a para-cyanophenyl while preserving the benzylamino motif. This removes the aryl fluoride, which can sometimes contribute to high lipophilicity and persistent aromatic metabolism, while introducing a compact, strongly electron-withdrawing nitrile that often lowers ring oxidation liability without a large steric change."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCOC(=O)Nc1ccc(NCc2ccc(C#N)cc2)nc1N",
+          "smiles_after": "CCOC(=O)Nc1ccc(NCc2ccncc2)nc1N",
+          "rationale": "Replace the benzonitrile with a pyridylmethylamine isostere. Adding a ring nitrogen is a classic, conservative way to lower lipophilicity and reduce susceptibility to aromatic oxidation while preserving the benzylic amine linkage and similar geometry likely important for binding."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCOC(=O)Nc1ccc(NCc2ccncc2)nc1N",
+          "smiles_after": "COC(=O)Nc1ccc(NCc2ccncc2)nc1N",
+          "rationale": "Shorten the carbamate alkoxy group from ethyl to methyl. This is a very conservative change that can lower lipophilicity and reduce O-dealkylation burden while preserving the carbamate and overall binding topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CCOC(C(=O)C1=CC=C(C=C1)C2=CC=CC=C2)NC3=CC=C(C=C3)C(=O)O",
+      "smiles_after": "CCOC(Nc1cc(C(N)=O)ccn1)C(=O)c1ccc(-c2ccccn2)cc1",
+      "dili_before": 0.8642358779907227,
+      "dili_after": 0.8558635711669922,
+      "dili_improvement": 0.008372306823730469,
+      "dili_improvement_pct": 0.9687525173330449,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CCOC(C(=O)C1=CC=C(C=C1)C2=CC=CC=C2)NC3=CC=C(C=C3)C(=O)O",
+          "smiles_after": "CCOC(Nc1ccc(C(N)=O)cc1)C(=O)c1ccc(-c2ccccc2)cc1",
+          "rationale": "Replace the benzoic acid with a primary carboxamide to reduce acidity and potential acyl glucuronidation liability while preserving a similar hydrogen-bonding motif and overall topology."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CCOC(Nc1ccc(C(N)=O)cc1)C(=O)c1ccc(-c2ccccc2)cc1",
+          "smiles_after": "CCOC(Nc1ccc(C(N)=O)cc1)C(=O)c1ccc(-c2ccccn2)cc1",
+          "rationale": "Replace the distal phenyl ring with a pyridyl ring to modestly lower lipophilicity and reduce the number of purely carbocyclic aromatic oxidation sites while preserving a closely related flat aryl vector and overall scaffold shape."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CCOC(Nc1ccc(C(N)=O)cc1)C(=O)c1ccc(-c2ccccn2)cc1",
+          "smiles_after": "CCOC(Nc1cc(C(N)=O)ccn1)C(=O)c1ccc(-c2ccccn2)cc1",
+          "rationale": "Replace the aniline phenyl ring with a pyridyl analogue while retaining the exocyclic NH and para-like substitution vector. This is a conservative aza-aryl edit that can lower lipophilicity and reduce susceptibility to aromatic oxidation on that ring, potentially lowering bioactivation risk without majorly changing topology."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN(C)C1C2C(C3C(=C)C4=C(C=CC(=C4C(=C3C(=O)C2(C(=C(C1=O)C(=O)N)O)O)O)O)Cl)O",
+      "smiles_after": "C=C1c2c(F)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NCCO)C3C(O)C12",
+      "dili_before": 0.6479474902153015,
+      "dili_after": 0.7815002202987671,
+      "dili_improvement": -0.13355273008346558,
+      "dili_improvement_pct": -20.61165944775685,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN(C)C1C2C(C3C(=C)C4=C(C=CC(=C4C(=C3C(=O)C2(C(=C(C1=O)C(=O)N)O)O)O)O)Cl)O",
+          "smiles_after": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NC)C3C(O)C12",
+          "rationale": "Convert the tertiary dimethylamino substituent to a secondary methylamino group. This conservatively lowers basicity, lipophilicity, and the likelihood of oxidative N-demethylation to reactive iminium-like intermediates while preserving a closely related cationic amine pharmacophore."
+        },
+        {
+          "round": 2,
+          "smiles_before": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NC)C3C(O)C12",
+          "smiles_after": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NCCO)C3C(O)C12",
+          "rationale": "Replace methylamine with 2-hydroxyethylamine. This is a conservative amine-side-chain polarity increase that can reduce lipophilicity and tissue accumulation while retaining a closely related secondary amino pharmacophore and similar attachment geometry."
+        },
+        {
+          "round": 3,
+          "smiles_before": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NCCO)C3C(O)C12",
+          "smiles_after": "C=C1c2c(F)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(NCCO)C3C(O)C12",
+          "rationale": "Replace the aryl chlorine with fluorine. This is the most conservative aromatic edit available, preserving substitution pattern and much of the steric/electronic character while reducing lipophilicity and avoiding the aryl chloride motif, which can be associated with higher metabolic persistence and bioactivation concerns."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN(C)CCN(CC1=CC=CS1)C2=CC=CC=N2",
+      "smiles_after": "CNCCN(Cc1ccncc1)c1ccccc1",
+      "dili_before": 0.503495454788208,
+      "dili_after": 0.4225490689277649,
+      "dili_improvement": 0.08094638586044312,
+      "dili_improvement_pct": 16.076885121930776,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN(C)CCN(CC1=CC=CS1)C2=CC=CC=N2",
+          "smiles_after": "CN(C)CCN(Cc1ccncc1)c1ccccn1",
+          "rationale": "Use a pyridylmethyl substituent in place of thienylmethyl to lower lipophilicity and remove the sulfur heteroaromatic while keeping a comparable aromatic vector and benzylic attachment."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN(C)CCN(Cc1ccncc1)c1ccccn1",
+          "smiles_after": "CNCCN(Cc1ccncc1)c1ccccn1",
+          "rationale": "Monodemethylate the terminal dimethylamino group to a methylamino substituent, reducing tertiary amine N-dealkylation burden and lowering overall lipophilicity/basicity while preserving the same attachment and flexible aminoethyl motif."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNCCN(Cc1ccncc1)c1ccccn1",
+          "smiles_after": "CNCCN(Cc1ccncc1)c1ccccc1",
+          "rationale": "Replace the N-linked pyridyl ring with phenyl to remove one aza-heteroaromatic nitrogen and simplify the tertiary aniline-like region while preserving ring size, attachment geometry, and likely hydrophobic binding character."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN(CC(=O)O)C(=S)C1=CC=CC2=C1C=CC(=C2C(F)(F)F)OC",
+      "smiles_after": "CN(CC(=O)O)C(=O)c1cccc2c(F)c(O)ccc12",
+      "dili_before": 0.8172928690910339,
+      "dili_after": 0.6094248294830322,
+      "dili_improvement": 0.2078680396080017,
+      "dili_improvement_pct": 25.43372730502172,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN(CC(=O)O)C(=S)C1=CC=CC2=C1C=CC(=C2C(F)(F)F)OC",
+          "smiles_after": "COc1ccc2c(C(=O)N(C)CC(=O)O)cccc2c1C(F)(F)F",
+          "rationale": "Convert the thiocarbamoyl group to the corresponding amide to remove the thiocarbonyl sulfur, a common structural alert for reactive metabolism, while preserving the tertiary carboxamide-like topology and likely binding shape."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COc1ccc2c(C(=O)N(C)CC(=O)O)cccc2c1C(F)(F)F",
+          "smiles_after": "COc1ccc2c(C(=O)N(C)CC(=O)O)cccc2c1F",
+          "rationale": "Replace trifluoromethyl with fluorine to substantially reduce lipophilicity, halogen load, and persistence while retaining a small halogen substituent at the same aryl vector and minimally perturbing the scaffold."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COc1ccc2c(C(=O)N(C)CC(=O)O)cccc2c1F",
+          "smiles_after": "CN(CC(=O)O)C(=O)c1cccc2c(F)c(O)ccc12",
+          "rationale": "Demethylate the anisole to a phenol to remove a classic O-demethylation soft spot while lowering lipophilicity and preserving the same attachment vector on the fused aryl scaffold."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN1C(S(=O)(=O)CCC1=O)C2=CC=C(C=C2)Cl",
+      "smiles_after": "CN1C(=O)CCS(=O)(=O)C1c1ccc(C#N)cc1",
+      "dili_before": 0.8176317811012268,
+      "dili_after": 0.7900975346565247,
+      "dili_improvement": 0.02753424644470215,
+      "dili_improvement_pct": 3.3675606894362238,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN1C(S(=O)(=O)CCC1=O)C2=CC=C(C=C2)Cl",
+          "smiles_after": "CN1C(=O)CCS(=O)(=O)C1c1ccc(F)cc1",
+          "rationale": "Replace para-chlorophenyl with para-fluorophenyl to reduce lipophilicity and the burden of a heavier halogen while preserving a closely related aryl electronics/shape profile likely to retain binding."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN1C(=O)CCS(=O)(=O)C1c1ccc(F)cc1",
+          "smiles_after": "CN1C(=O)CCS(=O)(=O)C1c1ccccc1",
+          "rationale": "Replace para-fluoro with unsubstituted phenyl as the most conservative aryl simplification. This removes the halogen entirely, modestly lowers lipophilicity and halogen-associated persistence, and preserves the same phenyl attachment geometry likely important for binding."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CN1C(=O)CCS(=O)(=O)C1c1ccccc1",
+          "smiles_after": "CN1C(=O)CCS(=O)(=O)C1c1ccc(C#N)cc1",
+          "rationale": "Para-cyano is a compact, metabolically robust aryl substituent that often lowers lipophilicity versus a plain phenyl while preserving a very similar size, planarity, and attachment geometry likely to maintain binding."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN1C2=C(C3=CC=CC=C3S1(=O)=O)OC(=O)N(C2=O)C4=CC=CC=N4",
+      "smiles_after": "CN1c2c(oc(=O)n(-c3cncc(F)c3)c2=O)-c2cc(F)ccc2S1(=O)=O",
+      "dili_before": 0.9783042669296265,
+      "dili_after": 0.9872810244560242,
+      "dili_improvement": -0.008976757526397705,
+      "dili_improvement_pct": -0.9175833970929047,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN1C2=C(C3=CC=CC=C3S1(=O)=O)OC(=O)N(C2=O)C4=CC=CC=N4",
+          "smiles_after": "CN1c2c(oc(=O)n(-c3ccncc3)c2=O)-c2ccccc2S1(=O)=O",
+          "rationale": "Move the ring nitrogen from the 2-position to the 3-position (3-pyridyl). This preserves a six-membered aza-aromatic cap while reducing the likelihood of strong metal coordination and potentially lowering formation of reactive pyridine N-oxide or iminium-like metabolites associated with certain 2-pyridyl motifs."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN1c2c(oc(=O)n(-c3ccncc3)c2=O)-c2ccccc2S1(=O)=O",
+          "smiles_after": "CN1c2c(oc(=O)n(-c3cncc(F)c3)c2=O)-c2ccccc2S1(=O)=O",
+          "rationale": "Add a single fluorine to the current 3-pyridyl ring to block one potential aromatic oxidation site while preserving the same heteroaryl size, planarity, and attachment vector. This is a classic conservative metabolism-soft-spot edit and avoids reverting to previously tried fluoropyridyl isomers."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CN1c2c(oc(=O)n(-c3cncc(F)c3)c2=O)-c2ccccc2S1(=O)=O",
+          "smiles_after": "CN1c2c(oc(=O)n(-c3cncc(F)c3)c2=O)-c2cc(F)ccc2S1(=O)=O",
+          "rationale": "Add a single fluorine on the fused benzenoid ring of the core to block one likely aromatic oxidation site while preserving the bicyclic scaffold, attachment geometry, and overall electronics as closely as possible. This is a classic conservative metabolism-soft-spot edit."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN1CC(C2=C(C1)C(=CC=C2)N)C3=CC=CC=C3",
+      "smiles_after": "CNc1cccc2c1CN(C)CC2c1cccnc1",
+      "dili_before": 0.700370728969574,
+      "dili_after": 0.40703845024108887,
+      "dili_improvement": 0.2933322787284851,
+      "dili_improvement_pct": 41.88242977544943,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN1CC(C2=C(C1)C(=CC=C2)N)C3=CC=CC=C3",
+          "smiles_after": "CN1Cc2c(N)cccc2C(c2ccccn2)C1",
+          "rationale": "Replace one phenyl carbon with pyridine nitrogen to lower aromatic lipophilicity and reduce the tendency for oxidative aromatic metabolism while largely preserving the overall size, shape, and basic pharmacophore."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN1Cc2c(N)cccc2C(c2ccccn2)C1",
+          "smiles_after": "CN1Cc2c(N)cccc2C(c2cccnc2)C1",
+          "rationale": "Move the pyridine nitrogen to a different position on the pendant aza-aryl ring. This remains a very conservative heteroaryl isomerization that can further tune electron density and aromatic oxidation propensity while closely preserving size, shape, and likely binding mode."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CN1Cc2c(N)cccc2C(c2cccnc2)C1",
+          "smiles_after": "CNc1cccc2c1CN(C)CC2c1cccnc1",
+          "rationale": "Methylate the fused-ring aniline to a secondary aniline. This is a conservative local edit that directly reduces the classic primary aniline bioactivation concern while retaining similar size, donor character, and likely binding interactions."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC",
+      "smiles_after": "C1CCC(CCC2CCOCC2)NC1",
+      "dili_before": 0.5841726064682007,
+      "dili_after": 0.09120988100767136,
+      "dili_improvement": 0.4929627254605293,
+      "dili_improvement_pct": 84.38648440584892,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC",
+          "smiles_after": "CN1CCCCC1CCN1c2ccccc2Sc2ccc(F)cc21",
+          "rationale": "Replace the thioether methyl substituent with fluorine to remove a sulfur-containing soft spot that can undergo S-oxidation or bioactivation, while keeping a small lipophilic substituent on the aryl ring and minimally perturbing the scaffold."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN1CCCCC1CCN1c2ccccc2Sc2ccc(F)cc21",
+          "smiles_after": "Fc1ccc2c(c1)N(CCC1CCCCN1)c1ccccc1S2",
+          "rationale": "Remove the N-methyl from the piperidine to lower lipophilicity and reduce tertiary-amine N-dealkylation/iminium-type metabolic liability while preserving a closely related basic six-membered ring and the same attachment label."
+        },
+        {
+          "round": 3,
+          "smiles_before": "Fc1ccc2c(c1)N(CCC1CCCCN1)c1ccccc1S2",
+          "smiles_after": "C1CCC(CCC2CCOCC2)NC1",
+          "rationale": "Morpholine is a conservative six-membered ring replacement for piperidine that lowers basicity and lipophilicity, a common strategy to reduce hepatic accumulation and phospholipidosis-related safety risk while preserving a similar side-chain shape and attachment vector."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CN1CCN(CC1)C2=NC3=C(C=CC(=C3)Cl)NC4=CC=CC=C42",
+      "smiles_after": "CN1CCN(C2=Nc3cc(F)ccc3Oc3ccc(F)cc32)CC1",
+      "dili_before": 0.7183749675750732,
+      "dili_after": 0.8263417482376099,
+      "dili_improvement": -0.10796678066253662,
+      "dili_improvement_pct": -15.029307191338573,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CN1CCN(CC1)C2=NC3=C(C=CC(=C3)Cl)NC4=CC=CC=C42",
+          "smiles_after": "CN1CCN(C2=Nc3cc(F)ccc3Nc3ccccc32)CC1",
+          "rationale": "Replace the aryl chloride with fluorine to preserve size and lipophilicity trends while reducing halogen-associated lipophilicity and the likelihood of forming reactive metabolites from the chlorinated aromatic ring."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CN1CCN(C2=Nc3cc(F)ccc3Nc3ccccc32)CC1",
+          "smiles_after": "CN1CCN(C2=Nc3cc(F)ccc3Nc3ccc(F)cc32)CC1",
+          "rationale": "Add a fluorine on the second phenyl ring as a conservative metabolic blocking change. This preserves the fused tricyclic scaffold and basic piperazine while potentially reducing aromatic oxidation on the unsubstituted ring without introducing a strongly activating group."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CN1CCN(C2=Nc3cc(F)ccc3Nc3ccc(F)cc32)CC1",
+          "smiles_after": "CN1CCN(C2=Nc3cc(F)ccc3Oc3ccc(F)cc32)CC1",
+          "rationale": "Replace the bridging NH with oxygen to remove an aniline-like hydrogen-bond donor and a potential N-centered bioactivation site while preserving the tricyclic topology, ring fusion pattern, and overall shape very closely."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CNCCC(C1=CC=CS1)OC2=CC=CC3=CC=CC=C32",
+      "smiles_after": "CNCCC(Oc1ccccc1)c1ccncc1",
+      "dili_before": 0.6847121119499207,
+      "dili_after": 0.5092578530311584,
+      "dili_improvement": 0.1754542589187622,
+      "dili_improvement_pct": 25.624529763188242,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CNCCC(C1=CC=CS1)OC2=CC=CC3=CC=CC=C32",
+          "smiles_after": "CNCCC(Oc1cccc2ccccc12)c1ccoc1",
+          "rationale": "Replace thiophene with isosteric furan to reduce sulfur-associated bioactivation risk while preserving a similar five-membered heteroaryl shape and likely aryl-binding character."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CNCCC(Oc1cccc2ccccc12)c1ccoc1",
+          "smiles_after": "CNCCC(Oc1ccccc1)c1ccoc1",
+          "rationale": "Replace the naphthyl ether with phenoxy to reduce fused polyaromatic surface area and lipophilicity while preserving an aryl ether motif likely important for binding."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CNCCC(Oc1ccccc1)c1ccoc1",
+          "smiles_after": "CNCCC(Oc1ccccc1)c1ccncc1",
+          "rationale": "Replace the furan with a pyridyl ring to remove the electron-rich heteroaromatic motif often associated with metabolic activation, while preserving a compact aromatic substituent and introducing a ring nitrogen that can lower lipophilicity."
+        }
+      ]
+    },
+    {
+      "smiles_before": "COC(=O)NC1=NC2=C(N1)C=C(C=C2)C(=O)C3=CC=C(C=C3)F",
+      "smiles_after": "CCOC(=O)N(C)c1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+      "dili_before": 0.9182313680648804,
+      "dili_after": 0.8233388662338257,
+      "dili_improvement": 0.09489250183105469,
+      "dili_improvement_pct": 10.334269240990444,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "COC(=O)NC1=NC2=C(N1)C=C(C=C2)C(=O)C3=CC=C(C=C3)F",
+          "smiles_after": "COC(=O)Nc1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+          "rationale": "Remove the para-fluoro substituent to give the unsubstituted benzoyl group, a very conservative simplification that preserves the aryl ketone pharmacophore while avoiding a halogen that can increase lipophilicity and prolong exposure."
+        },
+        {
+          "round": 2,
+          "smiles_before": "COC(=O)Nc1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+          "smiles_after": "COC(=O)N(C)c1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+          "rationale": "N-Methylate the carbamate NH to keep the same linker class and attachment geometry while removing one hydrogen-bond donor and potentially reducing liabilities associated with an NH-containing carbamate; this is a very conservative change that should preserve overall scaffold recognition."
+        },
+        {
+          "round": 3,
+          "smiles_before": "COC(=O)N(C)c1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+          "smiles_after": "CCOC(=O)N(C)c1nc2ccc(C(=O)c3ccccc3)cc2[nH]1",
+          "rationale": "Change the carbamate alkoxy from methoxy to ethoxy, a very conservative homologation that preserves the carbamate and overall topology while reducing the specific O-demethylation liability of the methyl ester."
+        }
+      ]
+    },
+    {
+      "smiles_before": "COC1=CC=C(C=C1)C2C(=O)C3=CC=CC=C3C2=O",
+      "smiles_after": "O=C1c2ccccc2C(=O)C1c1cncc(OC(F)(F)F)c1",
+      "dili_before": 0.8028446435928345,
+      "dili_after": 0.8708144426345825,
+      "dili_improvement": -0.06796979904174805,
+      "dili_improvement_pct": -8.46612100911259,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "COC1=CC=C(C=C1)C2C(=O)C3=CC=CC=C3C2=O",
+          "smiles_after": "O=C1c2ccccc2C(=O)C1c1ccc(OCF)cc1",
+          "rationale": "Replace the anisole methyl with fluoromethyl to reduce susceptibility to oxidative O-dealkylation, a common bioactivation pathway for anisoles, while preserving size, polarity, and the aryl ether motif."
+        },
+        {
+          "round": 2,
+          "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccc(OCF)cc1",
+          "smiles_after": "O=C1c2ccccc2C(=O)C1c1ccc(OC(F)(F)F)cc1",
+          "rationale": "Trifluoromethoxy is a classic conservative anisole replacement that strongly suppresses O-dealkylation and benzylic-type oxidation liabilities while keeping the same attachment and ether pharmacophore."
+        },
+        {
+          "round": 3,
+          "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccc(OC(F)(F)F)cc1",
+          "smiles_after": "O=C1c2ccccc2C(=O)C1c1cncc(OC(F)(F)F)c1",
+          "rationale": "Replace the pendant phenyl linker with a pyridyl isostere to lower aromatic electron density and lipophilicity, which can reduce arene oxidation and reactive metabolite formation while preserving a closely related six-membered aromatic linker and attachment geometry."
+        }
+      ]
+    },
+    {
+      "smiles_before": "CS(=O)(=O)NC1=C(C=C(C=C1)[N+](=O)[O-])OC2=CC=CC=C2",
+      "smiles_after": "N#Cc1ccc(NS(=O)(=O)C(F)(F)F)c(Oc2ccncc2)c1",
+      "dili_before": 0.9219911098480225,
+      "dili_after": 0.9137412309646606,
+      "dili_improvement": 0.008249878883361816,
+      "dili_improvement_pct": 0.8947894177332898,
+      "reasoning_traces": [
+        {
+          "round": 1,
+          "smiles_before": "CS(=O)(=O)NC1=C(C=C(C=C1)[N+](=O)[O-])OC2=CC=CC=C2",
+          "smiles_after": "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccncc1",
+          "rationale": "Replace the phenoxy ring with a pyridinyloxy ring to lower aromatic lipophilicity and introduce a ring nitrogen, a common tactic to reduce oxidative bioactivation while largely preserving size, planarity, and aryl ether geometry."
+        },
+        {
+          "round": 2,
+          "smiles_before": "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccncc1",
+          "smiles_after": "CS(=O)(=O)Nc1ccc(C#N)cc1Oc1ccncc1",
+          "rationale": "Replace the para nitro group with nitrile to remove a classic nitro bioactivation alert while keeping a small linear electron-withdrawing substituent and the same para-substituted aniline topology, making this one of the most conservative DILI-oriented edits."
+        },
+        {
+          "round": 3,
+          "smiles_before": "CS(=O)(=O)Nc1ccc(C#N)cc1Oc1ccncc1",
+          "smiles_after": "N#Cc1ccc(NS(=O)(=O)C(F)(F)F)c(Oc2ccncc2)c1",
+          "rationale": "Replace methanesulfonyl with trifluoromethanesulfonyl to make the sulfonamide more strongly electron-withdrawing, which should further depress aniline lone-pair donation and may reduce oxidative activation risk while preserving the same sulfonamide topology."
+        }
+      ]
+    }
+  ]
+}
