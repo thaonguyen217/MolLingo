@@ -1,0 +1,9 @@
+# secrets -- never commit
+gpt_key.json
+
+# python bytecode
+__pycache__/
+*.pyc
+
+# runtime artifacts
+temp/

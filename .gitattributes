@@ -1,0 +1,7 @@
+# The block vocabulary and the block search space are data, not source: the
+# 937k-block vocabulary is what reproduces the reference 5-block imatinib
+# decomposition at MIN_BLOCK_FREQ=2000, so it has to ship with the code.
+# Stored in Git LFS so a clone does not carry 65 MB of JSON and pickle in
+# every revision.
+toolset/vocab20_937k.json filter=lfs diff=lfs merge=lfs -text
+data/vocab_search_space.pkl filter=lfs diff=lfs merge=lfs -text
