@@ -81,10 +81,18 @@ def analyze_molecule(smiles: str,
 
 
 if __name__ == '__main__':
+    import os
     import pandas as pd
     from tqdm import tqdm
 
-    df = pd.read_csv('/shared/nas2/thaotn2/data/corpus_all.csv')
+    # Anchored to this file (../data/corpus_all.csv) so it resolves from any
+    # working directory. This module is imported both as toolset.* and flat,
+    # so the path is resolved locally rather than via toolset.config.
+    _data_dir = os.environ.get(
+        'MOLLINGO_DATA_DIR',
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data'),
+    )
+    df = pd.read_csv(os.path.join(_data_dir, 'corpus_all.csv'))
     # df = pd.read_csv('toy_corpus.csv')
     SMILES = list(df['SMILES'].values)
 

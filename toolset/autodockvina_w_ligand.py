@@ -10,8 +10,9 @@ from tqdm import tqdm
 
 
 # --- CONFIGURATION ---
-MGLTOOLS_PATH = '/shared/nas2/thaotn2/anaconda3/envs/NP'
-VINA_EXE = 'vina'
+# Resolved in toolset/config.py: defaults to the active Python environment
+# (sys.prefix), overridable via MOLLINGO_MGLTOOLS_PATH / MOLLINGO_VINA_EXE.
+from toolset.config import MGLTOOLS_PATH, VINA_EXE
 PY2_EXE = shutil.which('python2') or os.path.join(MGLTOOLS_PATH, 'bin', 'pythonsh')
 
 def docked_pdbqt_to_pdb(pdbqt_path, output_pdb_path):

@@ -13,7 +13,18 @@ import os
 
 FRAGMENTS = []
 
-corpus_path = "/shared/nas2/shared_mol_data/tokenization/drug_like.txt"
+# Anchored to this file (../../data) so it resolves from any working
+# directory. This module uses flat imports, so paths are resolved locally
+# rather than via toolset.config.
+_DATA_DIR = os.environ.get(
+    "MOLLINGO_DATA_DIR",
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+        "data",
+    ),
+)
+
+corpus_path = os.path.join(_DATA_DIR, "drug_like.txt")
 with open(corpus_path) as f:    
     SMILES = f.readlines()
 SMILES = [i.strip() for i in SMILES]
@@ -64,6 +75,7 @@ for sm in tqdm(SMILES[file*N:(file+1)*N], desc=f'file: {file}'):
         except:
             print(sm)
 
-save_path = f'/shared/nas2/shared_mol_data/tokenization/BPE{file}.pkl'
+os.makedirs(_DATA_DIR, exist_ok=True)
+save_path = os.path.join(_DATA_DIR, f'BPE{file}.pkl')
 with open(save_path, 'wb') as f:
     pickle.dump(FRAGMENTS, f)

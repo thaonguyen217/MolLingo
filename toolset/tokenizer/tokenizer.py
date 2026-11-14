@@ -1,3 +1,4 @@
+import os
 import re
 import numpy as np
 import pandas as pd
@@ -13,7 +14,13 @@ import pubchempy as pcp
 
 from drug_like_filtering import analyze_molecule, remove_star_atoms
 
-vocab_path = "/shared/nas2/shared_mol_data/tokenization/vocab20.json"
+# Anchored to this file so it resolves from any working directory. This module
+# uses flat imports, so the path is resolved locally rather than via
+# toolset.config.
+vocab_path = os.environ.get(
+    "MOLLINGO_VOCAB_PATH",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "vocab20.json"),
+)
 
 with open(vocab_path, "rb") as f:
     vocab = json.load(f)

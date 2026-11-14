@@ -4,12 +4,14 @@ from rdkit.Chem import rdFingerprintGenerator
 from rdkit.DataStructs import TanimotoSimilarity
 from rdkit.Chem import MolToSmiles as m2s
 from rdkit.Chem import MolFromSmiles as s2m
+import os
 import pickle
 from itertools import product
 from toolset.tokenizer import *
+from toolset.config import VOCAB_SEARCH_SPACE_PATH, SCAFFOLD_MOLS_PATH, GENERATOR_DATA_DIR
 
 ################################################################################################
-with open('/shared/nas2/shared_mol_data/tokenization/vocab_search_space.pkl', 'rb') as f:
+with open(VOCAB_SEARCH_SPACE_PATH, 'rb') as f:
     data = pickle.load(f)
 CAP1, CAP2, CAP3, CAP4, CAP5 = data['CAP1'], data['CAP2'], data['CAP3'], data['CAP4'], data['CAP5']
 BRIDGE1, BRIDGE2, BRIDGE3, BRIDGE4, BRIDGE5 = data['BRIDGE1'], data['BRIDGE2'], data['BRIDGE3'], data['BRIDGE4'], data['BRIDGE5']
@@ -156,7 +158,7 @@ if __name__ == '__main__':
     import json
     import pickle
 
-    with open('/shared/nas2/shared_mol_data/mols_w_different_scaffolds.json', 'r') as f:
+    with open(SCAFFOLD_MOLS_PATH, 'r') as f:
         data = json.load(f)
     print(len(data))
 
@@ -187,7 +189,8 @@ if __name__ == '__main__':
             print(f"Skipped (timeout >30s): {sm}")
             continue
 
-    with open(f'/shared/nas2/shared_mol_data/generator_data/pair{file}.pkl', 'wb') as f:
+    os.makedirs(GENERATOR_DATA_DIR, exist_ok=True)
+    with open(os.path.join(GENERATOR_DATA_DIR, f'pair{file}.pkl'), 'wb') as f:
         pickle.dump(results, f)
 
 
