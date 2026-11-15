@@ -297,12 +297,134 @@ def _report(smiles, result, num_tokens=None):
             print(f"    {i}. freq={shown:>14}  {b}")
     print("=" * width)
 
+def _canon_block(block):
+    """Canonical SMILES of a block with its attachment points unlabelled."""
+    plain = re.sub(r"\[\d+\*\]", "[*]", str(block))
+    mol = s2m(plain)
+    return m2s(mol) if mol is not None else plain
+
+
+def _build_substituent_table():
+    """
+    Correct names for the blocks that recur most in drug-like space.
+
+    A block is a SUBSTITUENT, not a molecule. Naming it by the parent compound
+    you get after deleting its attachment point is wrong in a way that misleads
+    the LLM: [*]OC is a methoxy group, not methanol; [*]C(=O)O is a carboxyl
+    group, not formic acid; [*]c1ccccc1 is phenyl, not benzene.
+    """
+    table = {
+        # one attachment point
+        '[*]C': 'methyl group',
+        '[*]CC': 'ethyl group',
+        '[*]O': 'hydroxyl group',
+        '[*]OC': 'methoxy group',
+        '[*]OCC': 'ethoxy group',
+        '[*]N': 'amino group',
+        '[*]NC': 'methylamino group',
+        '[*]NCC': 'ethylamino group',
+        '[*]C(=O)O': 'carboxyl group',
+        '[*]C(=O)N': 'carboxamide group',
+        '[*]C(=O)C': 'acetyl group',
+        '[*]C#N': 'nitrile group',
+        '[*][N+](=O)[O-]': 'nitro group',
+        '[*]C(F)(F)F': 'trifluoromethyl group',
+        '[*]S(=O)(=O)N': 'sulfonamide group',
+        '[*]F': 'fluoro substituent',
+        '[*]Cl': 'chloro substituent',
+        '[*]Br': 'bromo substituent',
+        '[*]I': 'iodo substituent',
+        '[*]c1ccccc1': 'phenyl group',
+        '[*]c1ccncc1': 'pyridin-4-yl group',
+        '[*]c1cccnc1': 'pyridin-3-yl group',
+        '[*]c1ccccn1': 'pyridin-2-yl group',
+        '[*]N1CCCC1': 'pyrrolidin-1-yl group',
+        '[*]N1CCCCC1': 'piperidin-1-yl group',
+        '[*]N1CCOCC1': 'morpholin-4-yl group',
+        '[*]N1CCN(C)CC1': '4-methylpiperazin-1-yl group',
+        '[*]CN1CCN(C)CC1': '(4-methylpiperazin-1-yl)methyl group',
+        # two attachment points (linkers)
+        '[*]c1ccc([*])cc1': '1,4-phenylene linker',
+        '[*]c1cccc([*])c1': '1,3-phenylene linker',
+        '[*]NC([*])=O': 'amide linker',
+        '[*]C(=O)N[*]': 'amide linker',
+        '[*]O[*]': 'ether linker',
+        '[*]N[*]': 'secondary amine linker',
+        '[*]C[*]': 'methylene linker',
+        '[*]CC[*]': 'ethylene linker',
+        '[*]S(=O)(=O)[*]': 'sulfonyl linker',
+    }
+    built = {}
+    for smiles, label in table.items():
+        built[_canon_block(smiles)] = label
+    return built
+
+
+_SUBSTITUENT_NAMES = _build_substituent_table()
+
+# PubChem's first synonym is often a registry identifier rather than a name.
+_REGISTRY_ID = re.compile(
+    r'^(SCHEMBL|CHEMBL|ZINC|AKOS|DTXSID|DTXCID|CID|MFCD|BDBM|NSC|EN300|'
+    r'STL|SureCN|UNII|CAS|HMS|SMR|MLS|Z\d|AC1|A\d{6})',
+    re.IGNORECASE,
+)
+_name_cache = {}
+
+
+def _looks_like_a_name(text):
+    """True for something a chemist would recognise, not a catalogue number."""
+    if not text or not isinstance(text, str):
+        return False
+    text = text.strip()
+    if len(text) < 3 or _REGISTRY_ID.match(text):
+        return False
+    # Pure identifiers: digits, dashes and a letter or two.
+    return bool(re.search(r'[A-Za-z]{3}', text)) and not re.fullmatch(r'[\d\-\s]+', text)
+
+
+def block_name(block):
+    """
+    A chemically correct label for one block.
+
+    Order of preference:
+      1. the curated substituent table (offline, deterministic, correct);
+      2. the parent compound's common name from PubChem, stated as
+         "<parent>-derived block" so the fragment is never presented as being
+         that compound;
+      3. the block SMILES itself.
+
+    Results are cached, since the previous code issued one network call per
+    block per iteration and a lookup miss silently degraded the molecular
+    description the whole method depends on.
+    """
+    key = _canon_block(block)
+    if key in _name_cache:
+        return _name_cache[key]
+
+    name = _SUBSTITUENT_NAMES.get(key)
+    if name is None:
+        parent = remove_star_atoms(re.sub(r"\[\d+\*\]", "[*]", str(block)))
+        try:
+            compounds = pcp.get_compounds(parent, 'smiles')
+            synonyms = compounds[0].synonyms if compounds else []
+        except Exception:
+            synonyms = []
+        readable = next((s for s in (synonyms or []) if _looks_like_a_name(s)), None)
+        if readable:
+            name = f"{readable.strip().lower()}-derived block"
+        else:
+            name = f"block {parent}"
+
+    _name_cache[key] = name
+    return name
+
+
 def smiles2blocks(smiles):
     blocks = get_blocks(smiles)[0].replace('.', '^').split('^')
     try:
-        return {i:smiles2name(remove_star_atoms(i)) for i in blocks}, blocks
-    except:
-        return {i:remove_star_atoms(i) for i in blocks}, blocks
+        return {i: block_name(i) for i in blocks}, blocks
+    except Exception:
+        return {i: remove_star_atoms(i) for i in blocks}, blocks
 
 def smiles2NLdesc(sm):
     sm2b, blocks = smiles2blocks(sm)
@@ -320,21 +442,42 @@ def get_dummy_atom_idx(mol, isotope_label):
             return atom.GetIdx()
     return None
 
+_ZIP_LABEL = 1  # shared atom-map number marking the junction for molzip
+
+
+def _mark_junction(mol, isotope):
+    """Tag the dummy atom carrying `isotope` for molzip; leave the others alone."""
+    marked = [atom for atom in mol.GetAtoms()
+              if atom.GetAtomicNum() == 0 and atom.GetIsotope() == isotope]
+    if len(marked) != 1:
+        # Zero means the block lacks the attachment point the chain expects;
+        # more than one would make the junction ambiguous. Either way this
+        # fragmentation is not reconstructible.
+        raise ValueError(
+            f"expected exactly one [{isotope}*] attachment point, found {len(marked)}"
+        )
+    atom = marked[0]
+    atom.SetIsotope(0)
+    atom.SetAtomMapNum(_ZIP_LABEL)
+    return mol
+
+
 def combine(frag1, wildcard1, frag2, wildcard2):
-    frag1, frag2 = s2m(frag1), s2m(frag2)
+    """
+    Join frag1's [wildcard1*] attachment point to frag2's [wildcard2*].
 
-    mol_dummy_idx = get_dummy_atom_idx(frag1, wildcard1)
-    frag_dummy_idx = get_dummy_atom_idx(frag2, wildcard2)
-    mol_neighbor = [nbr.GetIdx() for nbr in frag1.GetAtomWithIdx(mol_dummy_idx).GetNeighbors()][0]
-    frag_neighbor = [nbr.GetIdx() for nbr in frag2.GetAtomWithIdx(frag_dummy_idx).GetNeighbors()][0]
-    combo = Chem.CombineMols(frag1, frag2)
-    rw_combo = Chem.RWMol(combo)
-    frag_offset = frag1.GetNumAtoms()
-    rw_combo.AddBond(mol_neighbor, frag_neighbor + frag_offset, Chem.BondType.SINGLE)
+    Uses RDKit's molzip rather than CombineMols + AddBond + RemoveAtom.
+    Deleting the dummy atoms renumbered their neighbours, which permuted the
+    neighbour ordering that a chiral tag is defined against, so any stereocentre
+    at an attachment point came back inverted. molzip preserves it. It also
+    carries the original bond order instead of forcing BondType.SINGLE.
+    """
+    mol1 = _mark_junction(s2m(frag1), wildcard1)
+    mol2 = _mark_junction(s2m(frag2), wildcard2)
 
-    for idx in sorted([mol_dummy_idx, frag_dummy_idx + frag_offset], reverse=True):
-        rw_combo.RemoveAtom(idx)
-    mol = rw_combo.GetMol()
+    params = Chem.MolzipParams()
+    params.label = Chem.MolzipLabel.AtomMapNumber
+    mol = Chem.molzip(mol1, mol2, params)
     Chem.SanitizeMol(mol)
     return mol
 

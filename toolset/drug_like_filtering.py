@@ -106,3 +106,66 @@ if __name__ == '__main__':
         
     with open('drug_like.txt', 'w') as f:
         f.write('\n'.join(SMILES_))
+
+# ---------------------------------------------------------------------- #
+# Chemical plausibility                                                   #
+# ---------------------------------------------------------------------- #
+#
+# RDKit parsing is not a plausibility test. An LLM asked to rewrite a molecule
+# can produce a string that sanitizes cleanly but describes a species that does
+# not exist, and the property oracles will score it anyway -- they have no
+# applicability domain and no way to refuse. Observed in a raw-SMILES
+# optimization run:
+#
+#   parent    ...c2ccccc2S1(=O)=O        a sulfonamide
+#   proposed  ...c2ccccc2[SH]1(C)=O      sulfur at valence 6 carrying a hydrogen
+#
+# RDKit accepts it, so `smiles_after_valid` was True, and the DILI oracle
+# returned 0.09 against the parent's 0.98 -- an apparent 0.89 improvement
+# produced entirely by leaving the chemical space the oracle was trained on.
+#
+# The two rules below were calibrated against the 67 marketed drugs of the
+# DILI benchmark: both flag zero of them, so nothing real is excluded, while
+# each catches an artefact class actually seen in generated output. They are
+# deliberately narrow -- this is not a general plausibility model, and a
+# stricter filter (PAINS, or Brenk) rejects 12% and 49% of those same real
+# drugs respectively, which would corrupt a benchmark far worse than the
+# artefacts do.
+
+_PERIODIC_TABLE = Chem.GetPeriodicTable()
+
+
+def implausible_reason(molecule):
+    """
+    Why `molecule` cannot exist, or None if nothing is obviously wrong.
+
+    Accepts a SMILES string or an RDKit Mol. Catches:
+
+    * explicit hydrogens on an atom already past its normal valence, e.g.
+      [SH](C)(=O) in a ring -- a hypervalent sulfur that still bears an H.
+      Legitimate cases pass: [nH] pyrrole (valence 3 of 3), [NH2+] (4 of 3+1),
+      a C[SH] thiol (2 of 2), and any sulfonamide (valence 6, no explicit H).
+    * unpaired electrons, i.e. a radical such as [CH2]c1ccccc1.
+
+    Known limitation: an H-phosphonate, [PH](=O)(O)O, is a real compound that
+    the first rule flags. None occur in the benchmark sets, but a run over
+    phosphorus chemistry would need the rule relaxed for P.
+    """
+    mol = Chem.MolFromSmiles(molecule) if isinstance(molecule, str) else molecule
+    if mol is None:
+        return "not a parseable molecule"
+
+    for atom in mol.GetAtoms():
+        if atom.GetAtomicNum() == 0:
+            continue
+        if atom.GetNumRadicalElectrons():
+            return (f"unpaired electron on {atom.GetSymbol()} "
+                    f"(radical, not a stable molecule)")
+        if atom.GetNumExplicitHs():
+            allowed = (_PERIODIC_TABLE.GetDefaultValence(atom.GetAtomicNum())
+                       + atom.GetFormalCharge())
+            if allowed > 0 and atom.GetTotalValence() > allowed:
+                return (f"{atom.GetSymbol()} carries an explicit hydrogen at "
+                        f"valence {atom.GetTotalValence()}, above the {allowed} "
+                        f"its charge state allows (hypervalent)")
+    return None

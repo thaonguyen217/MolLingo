@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -267,33 +268,51 @@ def predict_logits(smiles_list, model, device,
 # -----------------------------
 # 5. Example usage
 # -----------------------------
+# Loading a checkpoint from disk, re-featurizing a dummy molecule and
+# rebuilding the network on every call made each prediction cost ~0.5 s and
+# scaled linearly with the number of molecules. The weights never change
+# within a process, so each (checkpoint, endpoint, device) is loaded once.
+_ORACLE_CACHE = {}
+
+
+def _load_oracle(name, device, ckpt_path):
+    """Return (model, norm_stats) for one endpoint, loading at most once."""
+    key = (os.path.abspath(ckpt_path), name, str(device))
+    if key not in _ORACLE_CACHE:
+        checkpoint = torch.load(f"{ckpt_path}/{name}_norm_stats.pt")
+        stats = tuple(checkpoint[k] for k in (
+            "x_mean", "x_std", "edge_mean", "edge_std",
+            "block_mean", "block_std", "mol_mean", "mol_std",
+        ))
+        # One sample is needed only to size the input layers.
+        dummy_data, _ = smiles_to_dataset(["CCO"])
+        model = load_model(f"{ckpt_path}/{name}.pt", dummy_data[0], device)
+        _ORACLE_CACHE[key] = (model, stats)
+    return _ORACLE_CACHE[key]
+
+
+def admet_inference_dict(smiles_list, name, device, ckpt_path='ckpts'):
+    """
+    Predicted probabilities keyed by SMILES: {smiles: prob}.
+
+    `predict_logits` silently drops molecules it cannot featurize, so the
+    returned array is shorter than the input whenever that happens. Keying on
+    the SMILES it actually scored is the only safe way to batch -- positional
+    use misattributes every prediction after the first dropped molecule.
+    """
+    model, stats = _load_oracle(name, device, ckpt_path)
+    smiles_out, probs = predict_logits(list(smiles_list), model, device, *stats)
+    return dict(zip(smiles_out, probs))
+
+
 def admet_inference(smiles_list, name, device, ckpt_path='ckpts'):
+    """
+    Probabilities for `smiles_list`, positionally.
 
-    checkpoint = torch.load(f"{ckpt_path}/{name}_norm_stats.pt")
-
-    x_mean = checkpoint["x_mean"]
-    x_std = checkpoint["x_std"]
-    edge_mean = checkpoint["edge_mean"]
-    edge_std = checkpoint["edge_std"]
-    block_mean = checkpoint["block_mean"]
-    block_std = checkpoint["block_std"]
-    mol_mean = checkpoint["mol_mean"]
-    mol_std = checkpoint["mol_std"]
-
-    # Build one sample to initialize model
-    dummy_data, _ = smiles_to_dataset(["CCO"])
-    sample = dummy_data[0]
-
-    model = load_model(f"{ckpt_path}/{name}.pt", sample, device)
-
-    smiles_out, logits = predict_logits(
-        smiles_list,
-        model,
-        device,
-        x_mean, x_std,
-        edge_mean, edge_std,
-        block_mean, block_std,
-        mol_mean, mol_std
-    )
-
+    Kept for backward compatibility. Prefer `admet_inference_dict` for more
+    than one molecule: molecules that fail featurization are dropped, and this
+    return value carries no indication of which.
+    """
+    model, stats = _load_oracle(name, device, ckpt_path)
+    smiles_out, logits = predict_logits(list(smiles_list), model, device, *stats)
     return logits

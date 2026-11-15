@@ -36,6 +36,15 @@ REPO_ROOT = _repo_root
 # (BPE training corpus, block search space, scaffold pairs).
 DATA_DIR = os.environ.get("MOLLINGO_DATA_DIR", os.path.join(REPO_ROOT, "data"))
 
+# Pretrained ADMET oracle checkpoints (DILI.pt, hERG.pt, ... and their
+# *_norm_stats.pt). These used to be a bare relative "model_weights", so
+# running from any directory other than the repo root made every ADMET
+# prediction fail -- silently, because ADMET_Profile swallows the exception
+# and only returns an empty dict.
+MODEL_WEIGHTS_DIR = os.environ.get(
+    "MOLLINGO_MODEL_WEIGHTS", os.path.join(REPO_ROOT, "model_weights")
+)
+
 # Block vocabulary for the BFE tokenizer, loaded at import time by
 # toolset/tokenizer.py. Ships with the repo, so this resolves with no setup.
 #
@@ -74,3 +83,21 @@ MGLTOOLS_PATH = os.environ.get("MOLLINGO_MGLTOOLS_PATH", sys.prefix)
 
 # AutoDock Vina executable: a bare name is resolved on PATH.
 VINA_EXE = os.environ.get("MOLLINGO_VINA_EXE", "vina")
+
+# --- DrugCLIP (§2.3.1 de novo route) ---------------------------------------
+# DrugCLIP is a third party model (ref [18]); it is not vendored here. Its
+# checkpoint is 1.2 GB and its pre-encoded molecule library 1.4 GB, so the
+# install stays where it is and MolLingo calls into it. It also needs its own
+# environment: `unicore` lives in the `unimol` env, not in the `drugclip` one.
+#
+#   export MOLLINGO_DRUGCLIP_DIR=/path/to/DrugCLIP
+#   export MOLLINGO_DRUGCLIP_PYTHON=/path/to/env/bin/python
+DRUGCLIP_DIR = os.environ.get(
+    "MOLLINGO_DRUGCLIP_DIR",
+    os.path.join(os.path.dirname(os.path.dirname(REPO_ROOT)), "DrugCLIP"),
+)
+DRUGCLIP_PYTHON = os.environ.get(
+    "MOLLINGO_DRUGCLIP_PYTHON",
+    os.path.join(os.path.dirname(os.path.dirname(REPO_ROOT)),
+                 "anaconda3", "envs", "unimol", "bin", "python"),
+)

@@ -1,6 +1,11 @@
 import requests
-from toolset.call_gpt import gpt_api
+from toolset.call_gpt import gpt_api, parse_json_response
 from ast import literal_eval
+
+# Seconds before a structure-database request is abandoned. Without a
+# timeout these calls block indefinitely: a run against a target with no
+# structure sat idle on an open socket instead of failing and moving on.
+NETWORK_TIMEOUT = 30
 
 def gpt_fallback(uniprot_id: str, protein_name: str, cutoff: float = 3.5):
     """
@@ -48,7 +53,7 @@ If no valid structure exists, return null values.
 
         result = gpt_api(system_prompt + user_prompt)
 
-        return literal_eval(result.split('```json')[1].split('```')[0])
+        return parse_json_response(result)
 
     except Exception as e:
         print("GPT fallback failed:", str(e))
@@ -109,7 +114,7 @@ def search_best_protein_structure_(uniprot_id, cutoff=3.5):
         }
     }
 
-    response = requests.post(RCSB_SEARCH_URL, json=query)
+    response = requests.post(RCSB_SEARCH_URL, json=query, timeout=NETWORK_TIMEOUT)
     response.raise_for_status()
     data = response.json()
 
@@ -119,7 +124,7 @@ def search_best_protein_structure_(uniprot_id, cutoff=3.5):
     # Return the PDB ID of the best (highest-resolution) structure
     pdb_id = data["result_set"][0]["identifier"]
 
-    entry_data = requests.get(RCSB_ENTRY_URL + pdb_id).json()
+    entry_data = requests.get(RCSB_ENTRY_URL + pdb_id).json(timeout=NETWORK_TIMEOUT)
     resolution = entry_data.get("rcsb_entry_info", {}).get(
         "resolution_combined", [None]
     )[0]

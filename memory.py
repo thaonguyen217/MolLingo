@@ -106,14 +106,31 @@ class SharedMemory:
             return min(scored, key=lambda x: x[1])[0]
         return list(self.leads.keys())[0]
 
-    def best_candidate(self) -> Optional[str]:
+    def best_candidate(self, min_similarity: Optional[float] = None) -> Optional[str]:
+        """
+        Highest-scoring candidate.
+
+        When a similarity floor is given — or `self.min_similarity` was set by
+        the optimizing agent — candidates below it are used only if none meet
+        it. This mirrors the rule the optimization loop applies when carrying a
+        molecule to the next iteration, so the candidate reported as best is
+        never one the loop itself declined to pursue.
+        """
         if not self.candidates:
             return None
-        scored = [(s, d['admet_score']) for s, d in self.candidates.items()
+        scored = [(s, d) for s, d in self.candidates.items()
                   if d['admet_score'] is not None]
-        if scored:
-            return max(scored, key=lambda x: x[1])[0]
-        return list(self.candidates.keys())[0]
+        if not scored:
+            return list(self.candidates.keys())[0]
+
+        threshold = (min_similarity if min_similarity is not None
+                     else getattr(self, 'min_similarity', None))
+        if threshold is not None:
+            conservative = [(s, d) for s, d in scored
+                            if (d.get('similarity_to_lead') or 0.0) >= threshold]
+            scored = conservative or scored
+
+        return max(scored, key=lambda row: row[1]['admet_score'])[0]
 
     def summary(self) -> dict:
         best_hit = self.best_hit()

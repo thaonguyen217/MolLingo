@@ -36,6 +36,7 @@ pipeline can be inspected, resumed or restarted at any stage.
 
 from __future__ import annotations
 
+import re
 import json
 import math
 from ast import literal_eval
@@ -46,10 +47,12 @@ from rdkit import Chem
 
 from memory import SharedMemory
 
-from toolset.ADMET import ADMET_Profile, ADMET_based_scoring
+from toolset.ADMET import (ADMET_Profile, ADMET_based_scoring,
+                          admet_score_threshold)
 from toolset.Butina_clustering import Butina_clustering
 from toolset.autodockvina_docking import autodockvina_docking
 from toolset.biological_target_identification import biological_target_identification
+from toolset.drug_like_filtering import implausible_reason
 from toolset.calculate_druggability import calculate_druggability
 from toolset.call_gpt import gpt_api
 from toolset.fragment_growing import fragment_growing
@@ -57,7 +60,7 @@ from toolset.mol_similarity import tanimoto_from_smiles
 from toolset.optimize_mol import smiles_post_processing
 from toolset.protein2binders import protein2binders
 from toolset.sascorer import calculateScore
-from toolset.tokenizer import reconstruct_mol, smiles2NLdesc
+from toolset.tokenizer import reconstruct_mol, smiles2NLdesc, vocab
 from toolset.uniprotID2name import uniprotID2name
 
 
@@ -136,6 +139,21 @@ def _bare_block(block: str) -> str:
             .replace("[*]", "").replace("*", "").replace("()", "").strip())
 
 
+# Any attachment point: [1*], [2*], [*] or a bare *.
+_ATTACHMENT_RE = re.compile(r"\[\d*\*\]|(?<!\[)\*")
+
+
+def _attachment_points(block: str) -> tuple:
+    """
+    The isotope labels of a block's attachment points, sorted.
+
+    ('1', '2') for a linker, ('1',) or ('2',) for a terminal block. Two blocks
+    are interchangeable only if these match, otherwise the chain cannot be
+    rebuilt with the same connectivity.
+    """
+    return tuple(sorted(re.findall(r"\[(\d*)\*\]", str(block))))
+
+
 class _Agent:
     """Shared read/write interface onto `SharedMemory`."""
 
@@ -179,9 +197,12 @@ class _Agent:
         """
         Scalar objective for the configured task; higher is always better.
 
-        `ADMET_based_scoring` negates the endpoints where a lower probability
-        is desirable (AMES, DILI, hERG, Pgp) and respects `bbbp_desired`, so a
-        single ">" comparison is valid for every task.
+        `ADMET_based_scoring` takes the complement of the endpoints where a
+        lower probability is desirable (AMES, DILI, hERG, Pgp), so a single
+        ">" comparison is valid for every task. The aggregate objective runs
+        0-5 and excludes BBBP, which `bbbp_desired` handles separately; a
+        single endpoint runs 0-1. `admet_score_threshold` gives the matching
+        hard-filter level.
         """
         if not profile:
             return None
@@ -210,7 +231,16 @@ class _Agent:
         if not result:
             self.log("docking_failed", f"No structure available for {smiles}")
             return None
-        return _number(result[1])
+        score = _number(result[1])
+        # Belt and braces: the parse site already refuses a non-negative
+        # affinity, but nothing downstream should ever treat one as a
+        # measurement. A positive score means no pose could be placed.
+        if score is not None and score >= 0:
+            self.log("docking_invalid",
+                     f"{smiles}: discarded a non-negative docking score "
+                     f"({score:+.1f} kcal/mol); treating it as no pose.")
+            return None
+        return score
 
 
 # ====================================================================== #
@@ -344,6 +374,41 @@ class ChemistAgent(_Agent):
     CLUSTER_CUTOFF = 0.7
     # Hit-to-lead prompt guideline (Appendix K): keep analogs conservative.
     MIN_SIMILARITY = 0.4
+    # How many blocks one enumerated variant may change at once. §2.3.3 asks
+    # for conservative, single-block edits, so each accepted proposal becomes
+    # one molecule. Raise it to explore combinations of proposals, at the cost
+    # of larger structural deviation from the lead.
+    MAX_BLOCKS_EDITED = 1
+
+    # Populated per iteration by _enumerate_variants; declared here so the
+    # record-writing path works even if enumeration never ran.
+    _edit_rationales: dict = {}
+
+    # Most binding affinity a candidate may give up against its lead, in
+    # kcal/mol. Docking scores are negative and lower is stronger, so this
+    # caps how much less negative a candidate's score may be. §2.3.3 requires
+    # the binding mode to be preserved through optimization; an ADMET gain
+    # bought by abolishing binding is not a lead.
+    MAX_DOCKING_LOSS = 1.0
+
+    # How many of the improved candidates are docked each iteration, highest
+    # ADMET score first. Docking is ~25 s per molecule, so this bounds the
+    # cost while still covering whichever candidate would be reported as best.
+    MAX_DOCKED_PER_ITERATION = 3
+
+    # How far BBB penetration may drift against the indication, as a
+    # probability difference from the lead. Appendix D excludes BBBP from the
+    # aggregate score and assesses it separately, which is what this does.
+    MAX_BBBP_DRIFT = 0.2
+
+    # Fewest ChEMBL binders that can serve as a screening library. Below it,
+    # §2.3.1's de novo route (DrugCLIP) supplies the hits instead.
+    MIN_CHEMBL_BINDERS = 5
+
+    # Fallback budget when the ChemistAgent is driven directly rather than by
+    # the orchestrator: the settings reported in the paper's appendix.
+    PAPER_VARIANTS = 15
+    PAPER_ITERATIONS = 2
 
     # ------------------------------------------------------------------ #
     # Stage 2 — Hit identification (§2.3.1)                              #
@@ -379,12 +444,29 @@ class ChemistAgent(_Agent):
                  f"(UniProt: {uniprot_id})")
 
         affinities = self._chembl_binders(uniprot_id)
-        if not affinities:
-            self.log("identify_hits_failed",
-                     f"No usable ChEMBL binding data for {uniprot_id}. "
-                     "Supply a hit directly, or screen a fragment library "
-                     "(§2.3.1 de novo route).")
-            return []
+        # "Experimental data unavailable" in practice means too sparse to
+        # screen, not strictly zero: GPR15 returns a single ChEMBL binder,
+        # which survives Butina trivially (1 -> 1) and gives the ranking
+        # nothing to work with. Below this many binders the de novo route is
+        # the better source of hits.
+        if len(affinities) < self.MIN_CHEMBL_BINDERS:
+            # §2.3.1: with no experimental binding data -- the normal case for
+            # a novel or understudied target -- fall back to ligand-based
+            # virtual screening over the curated library with DrugCLIP.
+            self.log("chembl_empty",
+                     f"Only {len(affinities)} ChEMBL binder(s) for "
+                     f"{uniprot_id}, fewer than the "
+                     f"{self.MIN_CHEMBL_BINDERS} needed to screen; falling "
+                     f"back to DrugCLIP (de novo route).")
+            screened = self._drugclip_hits(uniprot_id, num_candidates)
+            # Keep whatever ChEMBL did return: a known binder is still a
+            # legitimate hit, it just cannot carry the stage on its own.
+            affinities = {**affinities, **screened} if screened else affinities
+            if not affinities:
+                self.log("identify_hits_failed",
+                         f"Neither ChEMBL nor DrugCLIP produced hits for "
+                         f"{uniprot_id}.")
+                return []
 
         representatives = self._diverse_representatives(list(affinities))
         self.log("butina_clustering",
@@ -430,14 +512,56 @@ class ChemistAgent(_Agent):
                 entry["sa_score"] = None
             hits.append(smiles)
 
+        # Appendix D hard-filter level: 2.5 of 5 for the aggregate objective,
+        # 0.5 of 1 for a single endpoint. The previous ">" against 0 could
+        # never be satisfied for a toxicity endpoint, since those scores were
+        # negative on the old scale.
+        threshold = admet_score_threshold(self._main_task)
         passing = sum(
             1 for s in hits
-            if (self.memory.hits[s]["admet_score"] or -9e9) > 0
+            if (self.memory.hits[s]["admet_score"] or -9e9) > threshold
         )
         self.log("hits_identified",
                  f"{len(hits)} hits recorded; {passing} with a favorable "
                  f"predicted {self.memory.main_task} profile. "
                  f"Best: {hits[0]}")
+        return hits
+
+    def _drugclip_hits(self, uniprot_id: str, num_candidates: int) -> dict:
+        """
+        {SMILES: score} from a DrugCLIP screen of the target's pocket.
+
+        The de novo route of §2.3.1. Scores are DrugCLIP similarities rather
+        than normalized potencies, so they are not comparable to the ChEMBL
+        affinities -- but they are only used to rank, and ranking is all the
+        caller does with them. Returns {} on any failure, with the reason
+        logged, so a target that cannot be screened on this machine degrades
+        to "no hits" instead of raising.
+        """
+        try:
+            from toolset.drugclip_screen import drugclip_screen
+        except Exception as exc:
+            self.log("drugclip_unavailable",
+                     f"{type(exc).__name__}: {exc}")
+            return {}
+
+        try:
+            hits = drugclip_screen(
+                uniprot_id,
+                protein_name=self.memory.protein_name,
+                top_k=max(num_candidates, 1),
+            )
+        except Exception as exc:
+            self.log("drugclip_failed", f"{type(exc).__name__}: {exc}")
+            return {}
+
+        if hits:
+            best = max(hits.values())
+            worst = min(hits.values())
+            self.log("drugclip_screened",
+                     f"{len(hits)} molecule(s) retrieved for {uniprot_id} "
+                     f"(DrugCLIP score {worst:.3f}-{best:.3f}); these enter "
+                     f"the pipeline as de novo hits.")
         return hits
 
     def _chembl_binders(self, uniprot_id: str) -> dict:
@@ -495,7 +619,8 @@ class ChemistAgent(_Agent):
     # Stage 3 — Hit-to-lead: context-aware fragment growing (§2.3.2)     #
     # ------------------------------------------------------------------ #
 
-    def grow_hits(self, num_hits: int = 5, num_fragment_candidates: int = 5) -> list:
+    def grow_hits(self, num_hits: int = 5, num_fragment_candidates: int = 5,
+                  hits: Optional[list] = None) -> list:
         """
         Grow the top hits inside the target's binding site (Algorithm 3).
 
@@ -507,6 +632,9 @@ class ChemistAgent(_Agent):
         ----------
         num_hits               : How many top hits to grow.
         num_fragment_candidates: Fragment proposals per hotspot.
+        hits                   : Grow exactly these hits instead of the top
+                                 `num_hits`. Used by the orchestrator when it
+                                 backtracks to a hit it has not tried yet.
 
         Returns
         -------
@@ -517,7 +645,7 @@ class ChemistAgent(_Agent):
             self.log("grow_hits_failed", "No target set in shared memory.")
             return []
 
-        hits = self.memory.top_hits(num_hits)
+        hits = list(hits) if hits else self.memory.top_hits(num_hits)
         if not hits:
             self.log("grow_hits_failed", "No hits in shared memory.")
             return []
@@ -578,6 +706,14 @@ class ChemistAgent(_Agent):
         docking_score = _number(record[4])
         if smiles is None or docking_score is None:
             return None
+        # A grown molecule that could not be placed is not a lead: recording
+        # its positive score put failures into lead selection, where one
+        # outranked a genuine -10.0 binder.
+        if docking_score >= 0:
+            self.log("lead_rejected",
+                     f"{smiles}: grown molecule could not be docked "
+                     f"({docking_score:+.1f} kcal/mol); not recorded as a lead.")
+            return None
 
         self.memory.add_lead(
             smiles,
@@ -610,9 +746,10 @@ class ChemistAgent(_Agent):
     def optimize_leads(
         self,
         num_leads: int = 3,
-        variants: int = 20,
-        iterations: int = 2,
+        variants: Optional[int] = None,
+        iterations: Optional[int] = None,
         use_memory: bool = True,
+        leads: Optional[list] = None,
     ) -> list:
         """
         Iteratively refine the top leads over the block-based representation.
@@ -636,11 +773,37 @@ class ChemistAgent(_Agent):
         -------
         list of candidate SMILES recorded in shared memory.
         """
-        starts = self._select_leads(num_leads)
+        # Stage-4 statistics, so a run that ends with no candidate can still
+        # say what it tried. Kept on shared memory for the summary to read.
+        stats = {
+            "leads_attempted": 0, "iterations_run": 0,
+            "variants_enumerated": 0, "variants_scored": 0,
+            "improved_before_gates": 0, "rejected_implausible": 0,
+            "rejected_bbbp": 0, "rejected_binding": 0, "candidates_kept": 0,
+        }
+        self.memory.optimization_stats = stats
+
+        # `leads` lets the orchestrator optimize one hit's leads at a time
+        # while backtracking, instead of the global top-N across every hit it
+        # has ever grown.
+        starts = list(leads)[:num_leads] if leads else self._select_leads(num_leads)
         if not starts:
             self.log("optimize_leads_failed",
                      "No leads or hits in shared memory.")
             return []
+
+        # The search budget is the orchestrator's decision
+        # (OrchestratorAgent.plan_optimization_budget). Reaching here without
+        # one means the ChemistAgent was driven directly, so fall back to the
+        # values reported in the paper -- and say so, rather than letting a
+        # silent default stand in for a decision nobody made.
+        if variants is None or iterations is None:
+            variants = self.PAPER_VARIANTS if variants is None else variants
+            iterations = self.PAPER_ITERATIONS if iterations is None else iterations
+            self.log("budget_not_supplied",
+                     f"No budget from the orchestrator; falling back to the "
+                     f"paper's {variants} modifications x {iterations} "
+                     f"iterations.")
 
         self.log("optimize_leads",
                  f"Optimizing {len(starts)} lead(s) for "
@@ -648,11 +811,19 @@ class ChemistAgent(_Agent):
                  f"{variants} proposed modifications each "
                  f"(memory {'on' if use_memory else 'off'})")
 
+        # Deliberately NOT setting memory.min_similarity: §2.3.3 selects the
+        # final candidate as "the molecule with the highest ADMET score", and
+        # treats structural deviation as something monitored across iterations
+        # rather than a hard constraint on the final pick. Similarity still
+        # steers which molecule is carried between iterations, and it is
+        # reported alongside the winner so a large deviation is visible.
         candidates = []
         for lead in starts:
+            stats["leads_attempted"] += 1
             candidates.extend(
                 self._optimize_lead(lead, variants, iterations, use_memory)
             )
+        stats["candidates_kept"] = len(self.memory.candidates)
 
         if candidates:
             best = self.memory.best_candidate()
@@ -690,8 +861,19 @@ class ChemistAgent(_Agent):
                      f"Could not profile lead {lead}.")
             return []
 
+        # Keep the lead's own profile, so a before/after comparison does not
+        # have to re-run the oracles or guess the starting value.
+        lead_entry = self.memory.leads.get(lead)
+        if lead_entry is not None:
+            lead_entry["admet_profile"] = parent_profile
+            lead_entry["admet_score"] = parent_score
+
+        endpoint = self._main_task
+        baseline_note = (f", {endpoint} {parent_profile[endpoint]:.4f}"
+                         if endpoint and endpoint in parent_profile else "")
         self.log("lead_baseline",
-                 f"{lead}: {self.memory.main_task} score {parent_score:.3f}")
+                 f"{lead}: {self.memory.main_task} score {parent_score:.3f}"
+                 + baseline_note)
 
         current, current_score, current_profile = lead, parent_score, parent_profile
         history: list = []
@@ -702,7 +884,14 @@ class ChemistAgent(_Agent):
             if decomposition is None:
                 break
             structure, block_seq, blocks = decomposition
-            self.log("block_representation", f"{current} -> {block_seq}")
+            freqs = [vocab.get(re.sub(r"\[\d+\*\]", "[*]", b)) for b in blocks]
+            self.log("block_representation",
+                     f"{current} -> {len(blocks)} blocks: "
+                     + " ^ ".join(blocks)
+                     + "  (corpus frequencies: "
+                     + ", ".join("below cutoff" if f is None else f"{f:,}"
+                                 for f in freqs)
+                     + f") -> {block_seq}")
 
             proposals = self._propose_block_edits(
                 current, structure, current_profile, variants,
@@ -721,6 +910,10 @@ class ChemistAgent(_Agent):
                          f"reconstructed for {current}.")
                 break
 
+            stats = getattr(self.memory, "optimization_stats", None)
+            if stats is not None:
+                stats["iterations_run"] += 1
+                stats["variants_enumerated"] += len(enumerated)
             self.log("variants_enumerated",
                      f"Iteration {iteration}: {len(proposals)} edits -> "
                      f"{len(enumerated)} molecules")
@@ -925,24 +1118,65 @@ class ChemistAgent(_Agent):
         # first, then a match ignoring attachment-point wildcards.
         substitutions = {block: [] for block in blocks}
         bare = {_bare_block(block): block for block in blocks}
+        # (original block, substitute block) -> the LLM's stated reason, kept
+        # so it can be persisted onto each candidate in shared memory.
+        self._edit_rationales = {}
+        rejected = 0
         for proposal in proposals:
             original, substitute = proposal["Original block"], proposal["Substitute block"]
             block = original if original in substitutions \
                 else bare.get(_bare_block(original))
-            if block is not None and substitute not in substitutions[block]:
+            if block is None:
+                continue
+            # The prompt requires the substitute to keep the same attachment
+            # points, since connectivity depends on them. A mismatch either
+            # breaks reconstruction or, when the substitute has an extra
+            # wildcard, yields a molecule that still contains a dummy atom.
+            if _attachment_points(substitute) != _attachment_points(block):
+                rejected += 1
+                continue
+            if substitute not in substitutions[block]:
                 substitutions[block].append(substitute)
+            self._edit_rationales.setdefault(
+                (block, substitute), proposal.get("Rationale", "")
+            )
+        if rejected:
+            self.log("proposal_rejected",
+                     f"{rejected} proposal(s) dropped: substitute block did "
+                     f"not preserve the attachment points of the block it "
+                     f"replaces.")
 
         if not any(substitutions.values()):
             self.log("proposal_unmatched",
                      "No proposed edit matched a block of the current molecule.")
             return []
 
-        # Each position keeps its original block, so combinations range from
-        # single-block edits to multi-block ones.
-        choices = [[block] + substitutions[block] for block in blocks]
+        # §2.3.3 describes conservative modifications that keep the molecule
+        # close to the lead, with scaffold changes "permitted but discouraged",
+        # and reports "15 structural modifications proposed per lead
+        # optimization iteration" -- i.e. roughly one molecule per proposal.
+        # Taking the full cross-product instead turned each iteration's
+        # proposals into every combination of them: 19 proposals became 323
+        # molecules, 61% of which replaced all three blocks at once. That is
+        # wholesale redesign the LLM never proposed, and it dragged mean
+        # similarity to the lead below the 0.4 the prompt asks for.
+        if self.MAX_BLOCKS_EDITED <= 1:
+            combos = []
+            for position, block in enumerate(blocks):
+                for substitute in substitutions[block]:
+                    combo = list(blocks)
+                    combo[position] = substitute
+                    combos.append(tuple(combo))
+        else:
+            choices = [[block] + substitutions[block] for block in blocks]
+            combos = (
+                combo for combo in product(*choices)
+                if 0 < sum(1 for b, c in zip(blocks, combo) if c != b)
+                <= self.MAX_BLOCKS_EDITED
+            )
 
         seen, enumerated = {_canonical(smiles)}, []
-        for combo in product(*choices):
+        for combo in combos:
             edits = [(block, chosen)
                      for block, chosen in zip(blocks, combo) if chosen != block]
             if not edits:
@@ -952,6 +1186,12 @@ class ChemistAgent(_Agent):
             except Exception:
                 continue
             if variant is None or variant in seen:
+                continue
+            # A leftover attachment point means the blocks did not zip into a
+            # whole molecule. RDKit parses such a SMILES happily, so without
+            # this guard a dummy-atom-bearing pseudo-molecule reaches the
+            # ADMET oracles and is scored as if it were a real compound.
+            if _ATTACHMENT_RE.search(variant):
                 continue
             seen.add(variant)
             enumerated.append({"smiles": variant, "edits": edits})
@@ -966,7 +1206,38 @@ class ChemistAgent(_Agent):
 
         Returns a list of {'smiles', 'score', 'similarity'} for the improved
         molecules, which are also written to shared memory as candidates.
+
+        Molecules that cannot exist are dropped before the oracles see them.
+        RDKit parsing is not a plausibility test, and the oracles have no
+        applicability domain: a hypervalent sulfur or a radical sanitizes
+        cleanly and is then scored as though it were a drug, which is how a
+        raw-SMILES run produced an apparent 0.89 DILI improvement from
+        [SH](C)=O. Screening here covers every arm, since both the block-based
+        and the raw-SMILES paths funnel through this method.
         """
+        screened, rejected = [], []
+        for item in enumerated:
+            reason = implausible_reason(item["smiles"])
+            if reason:
+                rejected.append((item["smiles"], reason))
+            else:
+                screened.append(item)
+
+        stats = getattr(self.memory, "optimization_stats", None)
+        if stats is not None:
+            stats["rejected_implausible"] += len(rejected)
+        if rejected:
+            self.log("implausible_rejected",
+                     f"Iteration {iteration}: {len(rejected)} of "
+                     f"{len(enumerated)} proposed molecule(s) excluded as "
+                     f"chemically impossible, before scoring. "
+                     + "; ".join(f"{smiles} ({reason})"
+                                 for smiles, reason in rejected[:5])
+                     + (" ..." if len(rejected) > 5 else ""))
+        enumerated = screened
+        if not enumerated:
+            return []
+
         profiles = self.admet_profiles([item["smiles"] for item in enumerated])
 
         scores, improved = [], []
@@ -997,8 +1268,15 @@ class ChemistAgent(_Agent):
             entry["iteration"] = iteration
             entry["similarity_to_lead"] = similarity
             entry["score_improvement"] = score - parent_score
+            # §2.3.3: the reasoning trace stored in shared memory covers the
+            # identified liabilities, the proposed modifications AND their
+            # predicted outcomes. The rationale is the liability/hypothesis
+            # part, so it is persisted with the edit rather than left in the
+            # loop-local history that is discarded when the lead finishes.
             entry["edits"] = [
-                {"original_block": original, "substitute_block": substitute}
+                {"original_block": original,
+                 "substitute_block": substitute,
+                 "rationale": self._edit_rationales.get((original, substitute), "")}
                 for original, substitute in item["edits"]
             ]
             try:
@@ -1012,14 +1290,192 @@ class ChemistAgent(_Agent):
             improved.append({"smiles": smiles, "score": score,
                              "similarity": similarity})
 
+        improved_before_gates = len(improved)
+        stats = getattr(self.memory, "optimization_stats", None)
+        if stats is not None:
+            stats["variants_scored"] += len(scores)
+            stats["improved_before_gates"] += improved_before_gates
+
+        # BBB penetration is deliberately absent from the aggregate score
+        # (Appendix D) because its desirability depends on the indication, and
+        # is instead "assessed separately" here against bbbp_desired. This
+        # costs nothing -- the probabilities are already predicted -- so it
+        # runs before the docking gate, which is the expensive one.
+        improved = self._reject_bbbp_drift(improved, lead, iteration)
+
+        # Binding check. An ADMET gain is worthless if the molecule no longer
+        # binds the target, so a candidate that loses more than
+        # MAX_DOCKING_LOSS kcal/mol against the lead is not proposed at all.
+        # Only runs when a target is known; docking scores are negative and
+        # lower is better, so a loss is an increase.
+        improved = self._reject_weak_binders(improved, lead, iteration)
+
         if scores:
+            gated = improved_before_gates - len(improved)
             self.log("variants_scored",
                      f"Iteration {iteration}: {len(scores)} scored "
                      f"(max {max(scores):.3f}, mean "
                      f"{sum(scores) / len(scores):.3f}, parent "
                      f"{parent_score:.3f}); "
-                     f"{100.0 * len(improved) / len(scores):.1f}% improved")
+                     f"{improved_before_gates} beat the parent "
+                     f"({100.0 * improved_before_gates / len(scores):.1f}%)"
+                     + (f", of which {gated} were then rejected by the "
+                        f"BBBP/binding gates, leaving {len(improved)}"
+                        if gated else ""))
         return improved
+
+    def _reject_bbbp_drift(self, improved: list, lead: str,
+                           iteration: int) -> list:
+        """
+        Assess BBB penetration separately, per the indication.
+
+        Appendix D keeps BBBP out of the aggregate score because a higher
+        probability is desirable for a CNS target and undesirable for a
+        peripherally-acting drug, so no single direction can be baked into a
+        shared objective. The direction comes from `bbbp_desired`, and a
+        candidate drifting more than MAX_BBBP_DRIFT the wrong way against the
+        lead is not proposed.
+
+        Skipped when the indication is unstated, when BBBP is itself the
+        objective (the score already handles it), or when the lead's own BBBP
+        is unknown.
+        """
+        desired = getattr(self.memory, "bbbp_desired", None)
+        if not improved or desired is None or self._main_task == "BBBP":
+            return improved
+
+        lead_profile = (self.memory.leads.get(lead, {}) or {}).get("admet_profile") or {}
+        lead_bbbp = lead_profile.get("BBBP")
+        if lead_bbbp is None:
+            return improved
+
+        kept, rejected = [], 0
+        for item in improved:
+            entry = self.memory.candidates.get(item["smiles"], {})
+            bbbp = (entry.get("admet_profile") or {}).get("BBBP")
+            if bbbp is None:
+                kept.append(item)
+                continue
+            # Positive drift = more CNS penetration than the lead.
+            drift = bbbp - lead_bbbp
+            against = drift if not desired else -drift
+            entry["bbbp"] = bbbp
+            entry["bbbp_drift"] = drift
+            item["bbbp_drift"] = drift
+            if against > self.MAX_BBBP_DRIFT:
+                self.memory.candidates.pop(item["smiles"], None)
+                rejected += 1
+                continue
+            kept.append(item)
+
+        if rejected:
+            wanted = "higher" if desired else "lower"
+            self.log("bbbp_filter",
+                     f"Iteration {iteration}: {rejected} candidate(s) rejected "
+                     f"for BBB penetration drifting more than "
+                     f"{self.MAX_BBBP_DRIFT} away from the {wanted} "
+                     f"penetration this indication wants "
+                     f"(lead BBBP {lead_bbbp:.2f})")
+        return kept
+
+    def lead_docking_score(self, lead: str):
+        """
+        The lead's docking score against the current target, docked on demand.
+
+        A molecule supplied in the prompt is seeded with a placeholder of 0.0,
+        so it has to be docked here before it can serve as the baseline that
+        candidates are compared against.
+        """
+        if not self.memory.uniprot_id:
+            return None
+        entry = self.memory.leads.get(lead, {})
+        existing = entry.get("docking_score")
+        # Only a negative score is a real affinity. 0.0 is the seeding
+        # placeholder, and a positive value is a failed docking -- using one
+        # as the baseline made every candidate look ~16 kcal/mol better and
+        # silently disabled the binding filter.
+        if existing is not None and existing < 0:
+            return existing
+        score = self.dock(lead)
+        if score is not None and entry:
+            entry["docking_score"] = score
+            self.log("lead_docked",
+                     f"{lead}: {score} kcal/mol against "
+                     f"{self.memory.protein_name or self.memory.uniprot_id}")
+        return score
+
+    def _reject_weak_binders(self, improved: list, lead: str,
+                             iteration: int) -> list:
+        """
+        Drop candidates whose binding falls off relative to the lead.
+
+        Docking scores are in kcal/mol and more negative is stronger, so a
+        candidate is rejected when its score exceeds the lead's by more than
+        MAX_DOCKING_LOSS. Candidates that cannot be docked are kept, with no
+        docking recorded, rather than being discarded on a tooling failure.
+        """
+        if not improved or not self.memory.uniprot_id:
+            return improved
+
+        baseline = self.lead_docking_score(lead)
+        if baseline is None:
+            self.log("docking_gate_skipped",
+                     "No docking score for the lead; binding filter not applied.")
+            return improved
+
+        # Docking costs ~25 s per molecule, so it goes to the candidates most
+        # likely to be proposed: those that improved on the parent -- which is
+        # everything in `improved` -- ranked by ADMET score and capped at
+        # MAX_DOCKED_PER_ITERATION.
+        #
+        # Gating on the absolute Appendix D filter instead (0.5 of 1 for a
+        # single endpoint) meant nothing was ever docked on a DILI campaign:
+        # a molecule starting at DILI 0.92 scores 0.076, and two iterations
+        # reach ~0.45, so the threshold was unreachable and the binding rule
+        # never applied to anything. Ranking guarantees the best candidate is
+        # always among the docked set, so the reported winner always carries a
+        # docking comparison.
+        ranked = sorted(improved, key=lambda item: item["score"], reverse=True)
+        shortlist = {item["smiles"] for item in ranked[:self.MAX_DOCKED_PER_ITERATION]}
+        kept, rejected, docked = [], 0, 0
+        for item in improved:
+            smiles = item["smiles"]
+            if smiles not in shortlist:
+                kept.append(item)
+                continue
+            docked += 1
+            score = self.dock(smiles)
+            entry = self.memory.candidates.get(smiles, {})
+            if score is None:
+                entry["docking_score"] = None
+                entry["docking_delta"] = None
+                kept.append(item)
+                continue
+            delta = score - baseline          # positive = weaker binding
+            entry["docking_score"] = score
+            entry["docking_delta"] = delta
+            item["docking_score"] = score
+            item["docking_delta"] = delta
+            if delta > self.MAX_DOCKING_LOSS:
+                self.memory.candidates.pop(smiles, None)
+                rejected += 1
+                continue
+            kept.append(item)
+
+        stats = getattr(self.memory, "optimization_stats", None)
+        if stats is not None:
+            stats["rejected_binding"] += rejected
+        if docked:
+            self.log("binding_filter",
+                     f"Iteration {iteration}: docked the top {docked} of "
+                     f"{len(improved)} improved candidate(s) by ADMET score; "
+                     f"{rejected} rejected for losing more than "
+                     f"{self.MAX_DOCKING_LOSS} kcal/mol against the lead "
+                     f"(baseline {baseline} kcal/mol)")
+        else:
+            self.log("binding_filter",
+                     f"Iteration {iteration}: no improved candidate to dock.")
+        return kept
 
     def _next_seed(self, improved: list) -> tuple:
         """

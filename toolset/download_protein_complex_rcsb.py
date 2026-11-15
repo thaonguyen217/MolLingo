@@ -1,8 +1,13 @@
 import os
 import requests
 import json
-from toolset.call_gpt import gpt_api
+from toolset.call_gpt import gpt_api, parse_json_response
 from ast import literal_eval
+
+# Seconds before a structure-database request is abandoned. Without a
+# timeout these calls block indefinitely: a run against a target with no
+# structure sat idle on an open socket instead of failing and moving on.
+NETWORK_TIMEOUT = 30
 
 
 def gpt_fallback(uniprot_id: str, protein_name: str, cutoff: float = 3.5):
@@ -55,7 +60,7 @@ If no valid complex exists, return null values.
 
     try:
         result = gpt_api(system_prompt + user_prompt)
-        return literal_eval(result.split('```json')[1].split('```')[0])
+        return parse_json_response(result)
 
     except Exception as e:
         print("GPT fallback failed:", str(e))
@@ -113,7 +118,7 @@ def search_structures(uniprot_id, cutoff = 3.5):
         }
     }
 
-    r = requests.post(RCSB_SEARCH_URL, json=query)
+    r = requests.post(RCSB_SEARCH_URL, json=query, timeout=NETWORK_TIMEOUT)
     r.raise_for_status()
     data = r.json()
 
@@ -122,7 +127,7 @@ def search_structures(uniprot_id, cutoff = 3.5):
 
 def is_valid_ligand(pdb_id, entity_id):
     ligand_data = requests.get(
-        RCSB_NONPOLYMER_URL + f"{pdb_id}/{entity_id}"
+        RCSB_NONPOLYMER_URL + f"{pdb_id}/{entity_id}", timeout=NETWORK_TIMEOUT
     ).json()
 
     chem = ligand_data.get("chem_comp", {})
@@ -151,7 +156,7 @@ def get_best_complex_(uniprot_id, protein_name, cutoff=3.5):
     pdb_ids = search_structures(uniprot_id, cutoff)
 
     for pdb_id in pdb_ids:
-        entry = requests.get(RCSB_ENTRY_URL + pdb_id).json()
+        entry = requests.get(RCSB_ENTRY_URL + pdb_id).json(timeout=NETWORK_TIMEOUT)
 
         resolution = entry.get("rcsb_entry_info", {}).get(
             "resolution_combined", [None]

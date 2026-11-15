@@ -68,7 +68,16 @@ def add_wildcard_at_index(smiles, atom_idx):
     return Chem.MolToSmiles(new_mol)
 
 def fragment_growing(smiles, uniprot_id, num_candidates=5):
-    protein_name, growing_spots = autodockvina_docking(uniprot_id=uniprot_id, smiles=smiles, sbdd=True, max_hotspots=5)
+    # autodockvina_docking returns None when it cannot dock -- no structure
+    # for the target, or a Vina failure. Unpacking that raised "cannot unpack
+    # non-iterable NoneType object" and took the whole hit-to-lead stage down;
+    # a hit that cannot be docked simply cannot be grown, so say so and let
+    # the caller move to the next one.
+    docked = autodockvina_docking(uniprot_id=uniprot_id, smiles=smiles, sbdd=True, max_hotspots=5)
+    if not docked:
+        print(f"fragment_growing: no docking pose for {smiles}; cannot place growth hotspots.")
+        return []
+    protein_name, growing_spots = docked
     results = {}
     for _, spot in enumerate(growing_spots['growth_hotspots']):
         # Extract data
@@ -127,6 +136,9 @@ Local Environment (Nearby Residues): {residues}
                 pass
     # Check docking for each candidate
     for candidate in tqdm(candidates, desc=f'Running molecular docking with candidates:'):
-        candidate.append(autodockvina_docking(smiles=candidate[0], uniprot_id=uniprot_id, sbdd=False)[1])
+        # Same guard for the re-docking of each grown molecule: score it as
+        # None rather than crashing the whole batch.
+        redocked = autodockvina_docking(smiles=candidate[0], uniprot_id=uniprot_id, sbdd=False)
+        candidate.append(redocked[1] if redocked else None)
     
     return candidates

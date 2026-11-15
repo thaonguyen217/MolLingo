@@ -1,11 +1,15 @@
 import requests
 
+# Seconds before the UniProt lookup is abandoned; without it a stalled
+# connection blocks the pipeline before any work starts.
+NETWORK_TIMEOUT = 30
+
 def uniprotID2name(uniprot_id):
     """
     Fetch the protein's recommended name from UniProt given a UniProt ID.
     """
     url = f"https://rest.uniprot.org/uniprotkb/{uniprot_id}.json"
-    response = requests.get(url)
+    response = requests.get(url, timeout=NETWORK_TIMEOUT)
     
     if response.status_code != 200:
         raise ValueError(f"Unable to fetch data for UniProt ID {uniprot_id}. Status code: {response.status_code}")

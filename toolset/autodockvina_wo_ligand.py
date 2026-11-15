@@ -3,6 +3,7 @@ import os
 from Bio.PDB import MMCIFParser, PDBIO, Select, PDBParser, NeighborSearch
 import numpy as np
 import subprocess
+import tempfile
 import shutil
 from rdkit import Chem
 from rdkit.Chem import AllChem
@@ -12,6 +13,11 @@ from tqdm import tqdm
 # Resolved in toolset/config.py: defaults to the active Python environment
 # (sys.prefix), overridable via MOLLINGO_MGLTOOLS_PATH / MOLLINGO_VINA_EXE.
 from toolset.config import MGLTOOLS_PATH, VINA_EXE
+
+# Seconds before a structure-database request is abandoned. Without a
+# timeout these calls block indefinitely: a run against a target with no
+# structure sat idle on an open socket instead of failing and moving on.
+NETWORK_TIMEOUT = 30
 PY2_EXE = shutil.which('python2') or os.path.join(MGLTOOLS_PATH, 'bin', 'pythonsh')
 
 def download_cif(filename, output_dir='./temp'):
@@ -19,7 +25,7 @@ def download_cif(filename, output_dir='./temp'):
         os.makedirs(output_dir, exist_ok=True)
 
     url = f"https://files.rcsb.org/download/{filename}"
-    response = requests.get(url)
+    response = requests.get(url, timeout=NETWORK_TIMEOUT)
     response.raise_for_status() 
     save_path = os.path.join(output_dir, 'protein.cif')
     with open(save_path, "wb") as f:
@@ -38,7 +44,9 @@ class ProteinOnlySelect(Select):
 
 def prep_protein_only(cif_input, padding=10, save_dir='./temp'):
     """Prepares receptor and calculates a 'Blind Docking' box covering the whole protein."""
-    parser = MMCIFParser(QUIET=True)
+    # A predicted structure arrives as .pdb rather than .cif.
+    parser = (MMCIFParser(QUIET=True) if str(cif_input).lower().endswith('.cif')
+              else PDBParser(QUIET=True))
     structure = parser.get_structure('protein', cif_input)
     
     all_coords = []
@@ -51,19 +59,94 @@ def prep_protein_only(cif_input, padding=10, save_dir='./temp'):
         raise ValueError("No protein atoms found in the file.")
     
     all_coords = np.array(all_coords)
-    
-    # Calculate geometric center and protein span
-    center = np.mean(all_coords, axis=0)
-    # For blind docking, the box size is the protein diameter + padding
-    size = (np.max(all_coords, axis=0) - np.min(all_coords, axis=0)) + padding
 
-    receptor_pdb_name = os.path.basename(cif_input.replace('.cif', '_receptor.pdb'))
+    span = (np.max(all_coords, axis=0) - np.min(all_coords, axis=0)) + padding
+    if np.all(span <= MAX_BOX_EDGE):
+        # Small enough that the whole protein is a sane search space.
+        center, size = np.mean(all_coords, axis=0), span
+    else:
+        # Boxing the entire protein is intractable: xanthine dehydrogenase
+        # gives a 229 x 90 x 199 A box, ~4.1 million A^3 against the ~10^4 A^3
+        # of a normal site, and Vina then runs for minutes without converging
+        # on anything useful. Cap the edge and centre it on the most buried
+        # region, which is a cheap stand-in for the binding pocket: burial is
+        # counted as protein atoms within BURIAL_RADIUS of each atom, and the
+        # box is centred on the centroid of the most buried decile.
+        center = _buried_centroid(all_coords)
+        size = np.minimum(span, np.full(3, float(MAX_BOX_EDGE)))
+
+    return _finish_receptor(structure, cif_input, save_dir, center, size)
+
+
+# A blind-docking box edge, in angstroms. Large enough to contain a binding
+# site with room for the ligand to translate and rotate, small enough that
+# Vina's search converges.
+MAX_BOX_EDGE = 30.0
+# Seconds before a single Vina search is abandoned.
+VINA_TIMEOUT = 300
+BURIAL_RADIUS = 10.0
+# Angstroms of context kept around the box when trimming the receptor, so the
+# residues lining the pocket are not clipped at the boundary.
+BOX_RESIDUE_MARGIN = 8.0
+
+
+def _buried_centroid(coords, sample_limit=4000):
+    """Centroid of the most buried atoms, as a proxy for the binding pocket."""
+    # Subsample for the O(n^2) neighbour count; burial is a smooth property,
+    # so a few thousand atoms locate the protein core just as well.
+    if len(coords) > sample_limit:
+        step = len(coords) // sample_limit + 1
+        sample = coords[::step]
+    else:
+        sample = coords
+
+    # Chunked to keep the pairwise distance matrix small.
+    counts = np.empty(len(sample))
+    for start in range(0, len(sample), 512):
+        chunk = sample[start:start + 512]
+        distances = np.linalg.norm(chunk[:, None, :] - sample[None, :, :], axis=2)
+        counts[start:start + len(chunk)] = (distances < BURIAL_RADIUS).sum(axis=1)
+
+    cutoff = np.quantile(counts, 0.9)
+    return sample[counts >= cutoff].mean(axis=0)
+
+
+class BoxResidueSelect(ProteinOnlySelect):
+    """
+    Protein residues with at least one atom inside the padded docking box.
+
+    Residues far from the box cannot influence the result, but Vina still pays
+    for them when it builds its grid maps: passing the whole xanthine
+    dehydrogenase dimer produced a 6.5 MB receptor and a ~150 s search even
+    after the box itself was capped. The margin keeps the sidechains that line
+    the pocket from being clipped at the boundary.
+    """
+
+    def __init__(self, center, size, margin=BOX_RESIDUE_MARGIN):
+        half = np.asarray(size, dtype=float) / 2.0 + margin
+        self.low = np.asarray(center, dtype=float) - half
+        self.high = np.asarray(center, dtype=float) + half
+
+    def accept_residue(self, residue):
+        if not super().accept_residue(residue):
+            return 0
+        for atom in residue:
+            coord = atom.get_coord()
+            if np.all(coord >= self.low) and np.all(coord <= self.high):
+                return 1
+        return 0
+
+
+def _finish_receptor(structure, cif_input, save_dir, center, size):
+
+    stem = os.path.splitext(os.path.basename(str(cif_input)))[0]
+    receptor_pdb_name = stem + '_receptor.pdb'
     receptor_pdb_path = os.path.join(save_dir, receptor_pdb_name)
-    
+
     io = PDBIO()
     io.set_structure(structure)
-    io.save(receptor_pdb_path, select=ProteinOnlySelect())
-    
+    io.save(receptor_pdb_path, select=BoxResidueSelect(center, size))
+
     return receptor_pdb_path, center, size
 
 # ---------------- PDB → PDBQT ----------------
@@ -164,6 +247,47 @@ def identify_accurate_growth(receptor_pdb, docked_pdb, contact_threshold=7.0, ma
     return hotspots[:max_hotspots]
 
 # ---------------- Run Vina ----------------
+def _affinity_from_pose(out_pdbqt):
+    """
+    The best mode's affinity, taken from the pose file Vina wrote.
+
+    The log table used to be the only source. That ties every docking number
+    in the paper to the `--log` flag, which AutoDock Vina removed in 1.2, and
+    to a file that is not the one the rest of the pipeline reads. The
+    `REMARK VINA RESULT` line is written into the output pdbqt by every Vina
+    version, and it sits next to the coordinates downstream code uses, so the
+    score cannot come from a stale log or from a different pose than the one
+    being scored. Modes are written best-first, so the first such line is the
+    best mode.
+    """
+    if not out_pdbqt or not os.path.exists(out_pdbqt):
+        return None
+    with open(out_pdbqt, 'r') as f:
+        for line in f:
+            if line.startswith('REMARK VINA RESULT:'):
+                parts = line.split()
+                try:
+                    return float(parts[3])
+                except (IndexError, ValueError):
+                    return None
+    return None
+
+
+def _affinity_from_log(log_file):
+    """The best mode's affinity from Vina's log table ('   1   -5.6  ...')."""
+    if not log_file or not os.path.exists(log_file):
+        return None
+    with open(log_file, 'r') as f:
+        for line in f:
+            parts = line.split()
+            if len(parts) > 1 and parts[0] == "1":
+                try:
+                    return float(parts[1])
+                except ValueError:
+                    continue
+    return None
+
+
 def run_vina(receptor_pdbqt, ligand_pdbqt, center, size, ligand_name='ligand', save_dir='./temp'):
     out_pdbqt = os.path.join(save_dir, f"docked_{ligand_name}.pdbqt")
     log_file = os.path.join(save_dir, f"log_{ligand_name}.txt")
@@ -183,18 +307,32 @@ def run_vina(receptor_pdbqt, ligand_pdbqt, center, size, ligand_name='ligand', s
         '--exhaustiveness', '8' # Increase to 16 or 32 for better blind docking results
     ]
 
-    subprocess.run(cmd, check=True, capture_output=True)
+    # Without a timeout a single oversized search space stalls the whole
+    # pipeline; a capped box normally finishes in seconds.
+    subprocess.run(cmd, check=True, capture_output=True, timeout=VINA_TIMEOUT)
 
-    score = None
-    if os.path.exists(log_file):
-        with open(log_file, 'r') as f:
-            for line in f:
-                parts = line.split()
-                if len(parts) > 1 and parts[0] == "1":
-                    try:
-                        score = float(parts[1])
-                        break
-                    except ValueError: continue
+    score = _affinity_from_pose(out_pdbqt)
+    logged = _affinity_from_log(log_file)
+    if score is None:
+        score = logged
+    elif logged is not None and abs(score - logged) > 0.05:
+        # They are two reports of the same number; a disagreement means one of
+        # the files is not from this run.
+        print(f"vina: the pose file and the log disagree on the affinity for "
+              f"{ligand_name} ({score:+.2f} vs {logged:+.2f} kcal/mol); "
+              f"using the pose file.")
+    # A docking score is a binding free energy: negative is favorable, and
+    # drug-like binding runs roughly -4 to -14 kcal/mol. Vina reports a
+    # POSITIVE affinity when it could not place the ligand without clashing,
+    # which is a failure, not weak binding. Returning it as a number let a
+    # failed docking be stored as data: a lead was recorded at +7.8, selected
+    # as the best lead, and then used as the baseline for the binding gate,
+    # where every candidate looked ~16 kcal/mol better and nothing could be
+    # rejected. Refuse it here, at the only place the number is produced.
+    if score is not None and score >= 0:
+        print(f"vina: discarding a non-negative affinity ({score:+.1f} kcal/mol) "
+              f"for {ligand_name}; no pose could be placed in this box.")
+        score = None
     return score, out_pdbqt
 
 def docked_pdbqt_to_pdb(pdbqt_path, output_pdb_path):
@@ -207,12 +345,37 @@ def docked_pdbqt_to_pdb(pdbqt_path, output_pdb_path):
     return output_pdb_path
 
 # ---------------- Full Pipeline ----------------
-def autodockvina_wo_ligand(cif_id, smiles, save_dir='./temp', sbdd=True, contact_threshold=7.0, max_hotspots=5):
+def autodockvina_wo_ligand(cif_id, smiles, save_dir=None, sbdd=True,
+                           contact_threshold=7.0, max_hotspots=5,
+                           structure_path=None):
+    # Every intermediate used to land in a fixed './temp' with fixed file
+    # names (protein_receptor.pdbqt, ligand.pdbqt, log_ligand.txt). Two
+    # docking calls running at once therefore overwrote each other's receptor
+    # and ligand and then read each other's log, so a score could come from a
+    # different molecule entirely. It was also relative to the working
+    # directory. A private directory per call removes both problems.
+    own_scratch = save_dir is None
+    if own_scratch:
+        save_dir = tempfile.mkdtemp(prefix='mollingo_dock_')
     os.makedirs(save_dir, exist_ok=True)
-    cif_file = cif_id if cif_id.endswith('.cif') else f'{cif_id}.cif'
+    try:
+        return _dock_wo_ligand(cif_id, smiles, save_dir, sbdd,
+                               contact_threshold, max_hotspots,
+                               structure_path=structure_path)
+    finally:
+        if own_scratch:
+            shutil.rmtree(save_dir, ignore_errors=True)
 
-    # 1. Download & Prep Receptor (Blind box calculation)
-    cif_path = download_cif(cif_file, save_dir)
+
+def _dock_wo_ligand(cif_id, smiles, save_dir, sbdd, contact_threshold,
+                    max_hotspots, structure_path=None):
+    # 1. Receptor: a local file when one is supplied (a predicted structure),
+    #    otherwise fetched from RCSB by id.
+    if structure_path:
+        cif_path = structure_path
+    else:
+        cif_file = cif_id if cif_id.endswith('.cif') else f'{cif_id}.cif'
+        cif_path = download_cif(cif_file, save_dir)
     receptor_pdb, center, size = prep_protein_only(cif_path, save_dir=save_dir)
     receptor_pdbqt = convert_to_pdbqt(receptor_pdb, is_receptor=True)
 

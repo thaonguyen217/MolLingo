@@ -3,16 +3,31 @@ import os
 from Bio.PDB import MMCIFParser, PDBIO, Select, PDBParser, NeighborSearch
 import numpy as np
 import subprocess
+import tempfile
 import shutil
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from tqdm import tqdm
 
 
+# A docking box edge cap, in angstroms: large enough for any small-molecule
+# pocket, small enough that Vina accepts it and converges.
+MAX_BOX_EDGE = 30.0
+# Seconds before a single Vina search is abandoned.
+VINA_TIMEOUT = 300
+
 # --- CONFIGURATION ---
 # Resolved in toolset/config.py: defaults to the active Python environment
 # (sys.prefix), overridable via MOLLINGO_MGLTOOLS_PATH / MOLLINGO_VINA_EXE.
 from toolset.config import MGLTOOLS_PATH, VINA_EXE
+# One parser for both docking routes, so the two cannot drift apart on the
+# one number the whole binding gate rests on.
+from toolset.autodockvina_wo_ligand import _affinity_from_pose, _affinity_from_log
+
+# Seconds before a structure-database request is abandoned. Without a
+# timeout these calls block indefinitely: a run against a target with no
+# structure sat idle on an open socket instead of failing and moving on.
+NETWORK_TIMEOUT = 30
 PY2_EXE = shutil.which('python2') or os.path.join(MGLTOOLS_PATH, 'bin', 'pythonsh')
 
 def docked_pdbqt_to_pdb(pdbqt_path, output_pdb_path):
@@ -36,7 +51,7 @@ def download_cif(filename, output_dir='./temp'):
         os.makedirs(output_dir, exist_ok=True)
 
     url = f"https://files.rcsb.org/download/{filename}"
-    response = requests.get(url)
+    response = requests.get(url, timeout=NETWORK_TIMEOUT)
     response.raise_for_status() 
     save_path = os.path.join(output_dir, 'protein.cif')
     with open(save_path, "wb") as f:
@@ -44,14 +59,32 @@ def download_cif(filename, output_dir='./temp'):
     return save_path
 
 class ProteinSelect(Select):
+    """
+    Standard protein residues only.
+
+    This used to drop just the reference ligand and water, keeping every other
+    heteroatom -- cofactors, metals, ion sites. AutoDock Vina has no atom type
+    for most of them, so a metalloenzyme receptor failed to parse outright:
+    xanthine dehydrogenase carries a molybdopterin cofactor and Vina stopped
+    with `ATOM syntax incorrect: "Mo" is not a valid AutoDock type`, which took
+    the whole co-crystal route down for that target. The reference ligand is
+    only needed to place the box, which happens before the receptor is
+    written, so nothing is lost by excluding all non-standard residues -- the
+    same rule the ligand-free module already applied.
+
+    Catalytic metals go with them. For a target whose chemistry depends on a
+    metal in the site, dock against a structure where that is modelled as part
+    of the protein, or extend this to the types Vina does support.
+    """
+
     def __init__(self, ligand_id=None):
         self.ligand_id = ligand_id
-    
+
     def accept_residue(self, residue):
         resname = residue.get_resname().strip()
-        if resname == self.ligand_id or resname in ['HOH', 'DOD']:
+        if resname == self.ligand_id or resname in ['HOH', 'DOD', 'WAT']:
             return 0
-        return 1
+        return 1 if residue.get_id()[0] == ' ' else 0
 
 def prep_cif_for_docking(cif_input, ligand_id, padding=12, save_dir='./temp'):
     parser = MMCIFParser(QUIET=True)
@@ -70,7 +103,16 @@ def prep_cif_for_docking(cif_input, ligand_id, padding=12, save_dir='./temp'):
     
     ligand_coords = np.array(ligand_coords)
     center = np.mean(ligand_coords, axis=0)
-    size = (np.max(ligand_coords, axis=0) - np.min(ligand_coords, axis=0)) + padding
+    # The co-crystal ligand defines the site, but its bounding box is only a
+    # sane search space when the ligand is drug-sized. For P47989 the bound
+    # species is FAD, a cofactor spanning the protein, giving a
+    # 158 x 38 x 129 A box that Vina rejects outright (exit status 1). Cap the
+    # edge around the ligand centroid; a 30 A box still covers any pocket a
+    # small molecule occupies.
+    size = np.minimum(
+        (np.max(ligand_coords, axis=0) - np.min(ligand_coords, axis=0)) + padding,
+        np.full(3, float(MAX_BOX_EDGE)),
+    )
 
     receptor_pdb_name = os.path.basename(cif_input.replace('.cif', '_receptor.pdb'))
     receptor_pdb_path = os.path.join(save_dir, receptor_pdb_name)
@@ -209,22 +251,50 @@ def run_vina(receptor_pdbqt, ligand_pdbqt, center, size, ligand_name='ligand', s
         '--log', log_file
     ]
 
-    subprocess.run(cmd, check=True, capture_output=True)
+    subprocess.run(cmd, check=True, capture_output=True, timeout=VINA_TIMEOUT)
 
-    score = None
-    with open(log_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line and line[0].isdigit():
-                parts = line.split()
-                if parts[0] == "1":
-                    score = float(parts[1])
-                    break
+    # Read the affinity out of the pose file, cross-checked against the log;
+    # see _affinity_from_pose for why the log alone is not a safe source.
+    score = _affinity_from_pose(out_pdbqt)
+    logged = _affinity_from_log(log_file)
+    if score is None:
+        score = logged
+    elif logged is not None and abs(score - logged) > 0.05:
+        print(f"vina: the pose file and the log disagree on the affinity for "
+              f"{ligand_name} ({score:+.2f} vs {logged:+.2f} kcal/mol); "
+              f"using the pose file.")
+    # See the note in autodockvina_wo_ligand.run_vina: a non-negative affinity
+    # means Vina could not place the ligand, so it must not be returned as a
+    # measurement. Stored as one, it became the baseline of the binding gate
+    # and disabled it.
+    if score is not None and score >= 0:
+        print(f"vina: discarding a non-negative affinity ({score:+.1f} kcal/mol) "
+              f"for {ligand_name}; no pose could be placed in this box.")
+        score = None
     return score, out_pdbqt
 
 # ---------------- Full Pipeline ----------------
-def autodockvina_w_ligand(cif_id, ligand_id, smiles, save_dir='./temp', sbdd=True, contact_threshold=7.0, max_hotspots=5):
+def autodockvina_w_ligand(cif_id, ligand_id, smiles, save_dir=None, sbdd=True, contact_threshold=7.0, max_hotspots=5):
+    # This is the primary docking route -- it is tried before the ligand-free
+    # one whenever the target has a co-crystal structure -- and every call
+    # used to write the same './temp/protein_receptor.pdbqt',
+    # './temp/ligand.pdbqt' and './temp/log_ligand.txt'. Two docking calls at
+    # once therefore overwrote each other's inputs and read each other's log,
+    # which surfaces as a bogus "Failed to find protein on RCSB". A private
+    # directory per call removes that, and the cwd dependence with it.
+    own_scratch = save_dir is None
+    if own_scratch:
+        save_dir = tempfile.mkdtemp(prefix='mollingo_dock_')
     os.makedirs(save_dir, exist_ok=True)
+    try:
+        return _dock_w_ligand(cif_id, ligand_id, smiles, save_dir, sbdd,
+                              contact_threshold, max_hotspots)
+    finally:
+        if own_scratch:
+            shutil.rmtree(save_dir, ignore_errors=True)
+
+
+def _dock_w_ligand(cif_id, ligand_id, smiles, save_dir, sbdd, contact_threshold, max_hotspots):
     cif_file = f'{cif_id}.cif' if not cif_id.endswith('.cif') else cif_id
 
     # 1. Download and Prep

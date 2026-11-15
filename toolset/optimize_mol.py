@@ -1,4 +1,5 @@
 ######### LEAD OPTIMIZATION #########
+import re
 from ast import literal_eval
 from itertools import product
 import numpy as np
@@ -9,22 +10,57 @@ from toolset.smiles2name import smiles2name
 from toolset.name2smiles import name2smiles
 from toolset.ADMET import *
 
+# Shorthand an LLM may emit instead of valid SMILES. Order matters: the longer
+# patterns must be tried before their prefixes (CCl3 before CF3's siblings,
+# Me3/Me2 before Me, NH3 before NH2's shared 'NH').
+_SHORTHAND = (
+    ('CF3', 'C(F)(F)(F)'),
+    ('CCl3', 'C(Cl)(Cl)(Cl)'),
+    ('CBr3', 'C(Br)(Br)(Br)'),
+    ('COOH', 'C(=O)O'),
+    ('NO2', '[N+](=O)[O-]'),
+    ('SF4', 'S(F)(F)(F)(F)'),
+    ('SO4', 'OS(=O)(=O)O'),
+    ('OH', 'O'),
+    ('CH3', 'C'),
+    ('NH2', 'N'),
+    ('NH3', 'N'),
+    ('Me3', '(C)(C)(C)'),
+    ('Me2', '(C)(C)'),
+    ('Me', '(C)'),
+)
+
+# A bracket atom, e.g. [C@@H], [nH], [N+], [OH-], [1*].
+_BRACKET_ATOM = re.compile(r'\[[^\]]*\]')
+
+
 def smiles_post_processing(smi):
-    smi = smi.replace('CF3', 'C(F)(F)(F)')
-    smi = smi.replace('CCl3', 'C(Cl)(Cl)(Cl)')
-    smi = smi.replace('CBr3', 'C(Br)(Br)(Br)')
-    smi = smi.replace('COOH', 'C(=O)O')
-    smi = smi.replace('OH', 'O')
-    smi = smi.replace('CH3', 'C')
-    smi = smi.replace('NH2', 'N')
-    smi = smi.replace('NH3', 'N')
-    smi = smi.replace('NO2', '[N+](=O)[O-]')
-    smi = smi.replace('SF4', 'S(F)(F)(F)(F)')
-    smi = smi.replace('SO4', 'OS(=O)(=O)O')
-    smi = smi.replace('Me2', '(C)(C)')
-    smi = smi.replace('Me3', '(C)(C)(C)')
-    smi = smi.replace('Me', '(C)')
-    return smi
+    """
+    Rewrite shorthand an LLM may emit into valid SMILES.
+
+    The substitutions are applied only OUTSIDE bracket atoms. Inside brackets
+    the hydrogen counts and charges are already valid SMILES, and rewriting
+    them changes the molecule: [CH3] -> [C] drops three hydrogens to give a
+    carbon radical, [NH2+] -> [N+] strips the hydrogens off a protonated
+    amine, and [OH] -> [O] turns an alcohol into an oxygen radical. All three
+    still parse, so the corruption passed validity checks unnoticed.
+    """
+    if not isinstance(smi, str):
+        return smi
+
+    out, last = [], 0
+    for match in _BRACKET_ATOM.finditer(smi):
+        out.append(_rewrite_shorthand(smi[last:match.start()]))
+        out.append(match.group(0))          # bracket atom, left untouched
+        last = match.end()
+    out.append(_rewrite_shorthand(smi[last:]))
+    return ''.join(out)
+
+
+def _rewrite_shorthand(chunk):
+    for pattern, replacement in _SHORTHAND:
+        chunk = chunk.replace(pattern, replacement)
+    return chunk
 
 def optimize_mol(smiles=None, molecule_name=None,  uniprot_id=None, protein_name=None, disease=None, main_task='ADMET', BBBP=True, variants=20):
     if BBBP: bbbp_trend = 'higher'

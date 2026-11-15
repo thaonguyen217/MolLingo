@@ -22,12 +22,18 @@ Skip to lead optimization (known target, known hit):
 """
 
 import argparse
+import re
 import sys
+from typing import Optional
+
+from rdkit import Chem
 import textwrap
 from ast import literal_eval
 
 from toolset.call_gpt import gpt_api
-from planner import OrchestratorAgent
+from toolset.tokenizer import get_blocks
+from agent import ChemistAgent
+from planner import OrchestratorAgent, ReActOrchestrator
 from memory import SharedMemory
 
 
@@ -47,6 +53,8 @@ Rules:
 Use ADMET (overall) unless the prompt specifically mentions a single endpoint.
 - For bbbp_desired: set True for CNS/brain diseases (Alzheimer, Parkinson, \
 depression, epilepsy, schizophrenia, glioma, MS …), False otherwise.
+- For smiles: copy the SMILES string verbatim if the prompt supplies a specific \
+molecule to optimize, otherwise None. Do not invent or complete one.
 - Use None for any field not mentioned or inferable.
 
 Example output:
@@ -58,11 +66,32 @@ Example output:
     "gene_mutation": None,
     "pathway": None,
     "main_task": "BBBP",
-    "bbbp_desired": True
+    "bbbp_desired": True,
+    "smiles": None
 }}
 
 Research prompt: {prompt}
 """
+
+
+def extract_smiles(prompt: str) -> Optional[str]:
+    """
+    The longest token in the prompt that RDKit reads as a molecule.
+
+    The GPT parser is asked for a SMILES too, but a prompt that names a
+    molecule explicitly should not depend on an LLM round-trip, and whatever
+    either route returns has to parse before the pipeline treats it as a lead.
+    """
+    best = None
+    for token in re.split(r"[\s,;]+", prompt or ""):
+        token = token.strip(".?!\"\'()").strip()
+        if len(token) < 5 or not re.search(r"[A-Za-z]", token):
+            continue
+        if Chem.MolFromSmiles(token) is None:
+            continue
+        if best is None or len(token) > len(best):
+            best = token
+    return best
 
 
 def parse_prompt(prompt: str) -> dict:
@@ -94,6 +123,14 @@ def _divider(char="─", width=60):
     print(char * width)
 
 def print_summary(memory: SharedMemory):
+    # The orchestrator records this when the prompt supplied the molecule, in
+    # which case stages 2 and 3 never ran and reporting "0 hits" would read as
+    # a failed search rather than a step that was not needed.
+    given_molecule = any(
+        record.get("step") == "entering_at_lead_optimization"
+        for record in getattr(memory, "trace", []) or []
+    )
+
     _divider("═")
     print("  MolLingo  —  Pipeline Summary")
     _divider("═")
@@ -102,25 +139,35 @@ def print_summary(memory: SharedMemory):
     if memory.user_prompt:
         prompt_short = textwrap.shorten(memory.user_prompt, width=72, placeholder="…")
         print(f"  Prompt    : {prompt_short}")
-    print(f"  Disease   : {memory.disease}"
-          + (f"  [{memory.disease_subtype}]" if memory.disease_subtype else ""))
+    if memory.disease:
+        print(f"  Disease   : {memory.disease}"
+              + (f"  [{memory.disease_subtype}]" if memory.disease_subtype else ""))
     if memory.gene_mutation:
         print(f"  Mutation  : {memory.gene_mutation}")
     if memory.pathway:
         print(f"  Pathway   : {memory.pathway}")
 
     # Target
-    print(f"  Target    : {memory.protein_name}  (UniProt: {memory.uniprot_id})")
+    if memory.protein_name:
+        print(f"  Target    : {memory.protein_name}  (UniProt: {memory.uniprot_id})")
+    elif not given_molecule:
+        print("  Target    : not identified")
     if memory.target_reference:
         ref = textwrap.shorten(memory.target_reference, width=70, placeholder="…")
         print(f"  Reference : {ref}")
 
     # Optimization goal
-    print(f"  Task      : {memory.main_task}  |  BBBP desired: {memory.bbbp_desired}")
+    print(f"  Task      : {memory.main_task}"
+          + (f"  |  BBBP desired: {memory.bbbp_desired}"
+             if memory.bbbp_desired is not None else ""))
     _divider()
 
     # Stage 2 — Hits
-    print(f"\n  [Stage 2] Hit Identification  —  {len(memory.hits)} hits")
+    if given_molecule and not memory.hits:
+        print("\n  [Stage 2] Hit Identification  —  not needed "
+              "(molecule supplied in the prompt)")
+    else:
+        print(f"\n  [Stage 2] Hit Identification  —  {len(memory.hits)} hits")
     best_hit = memory.best_hit()
     if best_hit:
         h = memory.hits[best_hit]
@@ -129,19 +176,27 @@ def print_summary(memory: SharedMemory):
         if h['admet_profile']:
             admet_str = "  ".join(f"{k}: {v:.2f}" for k, v in h['admet_profile'].items())
             print(f"    ADMET    : {admet_str}")
-    else:
+    elif not given_molecule:
         print("    No hits found.")
 
     # Stage 3 — Leads
-    print(f"\n  [Stage 3] Hit-to-Lead  —  {len(memory.leads)} leads")
+    if given_molecule:
+        print("\n  [Stage 3] Hit-to-Lead  —  not needed "
+              "(the supplied molecule is the lead)")
+    else:
+        print(f"\n  [Stage 3] Hit-to-Lead  —  {len(memory.leads)} leads")
     best_lead = memory.best_lead()
     if best_lead:
         ld = memory.leads[best_lead]
         print(f"    Best lead : {best_lead}")
-        print(f"    Docking   : {ld['docking_score']}")
-        print(f"    Fragment  : {ld['fragment']}")
-        rationale = textwrap.shorten(ld['rationale'] or "", width=80, placeholder="…")
-        print(f"    Rationale : {rationale}")
+        if ld.get("docking_score"):      # 0.0 is the seeding placeholder
+            print(f"    Docking   : {ld['docking_score']}")
+        # Both only exist when fragment growing actually produced the lead.
+        if ld.get('fragment'):
+            print(f"    Fragment  : {ld['fragment']}")
+        if ld.get('rationale'):
+            rationale = textwrap.shorten(ld['rationale'], width=80, placeholder="…")
+            print(f"    Rationale : {rationale}")
     else:
         print("    No leads generated.")
 
@@ -150,13 +205,87 @@ def print_summary(memory: SharedMemory):
     best_cand = memory.best_candidate()
     if best_cand:
         cd = memory.candidates[best_cand]
+        lead = cd.get("lead_origin")
+        print(f"    Lead           : {lead}")
         print(f"    Best candidate : {best_cand}")
         print(f"    ADMET score    : {cd['admet_score']:.3f}")
+
+        # The endpoint actually being optimized, before and after. The lead's
+        # profile is recorded when optimization starts.
+        endpoint = memory.main_task if memory.main_task != "ADMET" else None
+        lead_profile = (memory.leads.get(lead, {}) or {}).get("admet_profile") or {}
+        if endpoint and endpoint in lead_profile and endpoint in (cd['admet_profile'] or {}):
+            before, after = lead_profile[endpoint], cd['admet_profile'][endpoint]
+            direction = "lower is better" if endpoint != "HIA" else "higher is better"
+            print(f"    {endpoint} before/after : {before:.4f} -> {after:.4f}  "
+                  f"({after - before:+.4f}, {direction})")
         if cd['admet_profile']:
             admet_str = "  ".join(f"{k}: {v:.2f}" for k, v in cd['admet_profile'].items())
             print(f"    ADMET profile  : {admet_str}")
+
+        # Binding is only meaningful against a target, so the whole block is
+        # omitted when none was identified.
+        lead_dock = (memory.leads.get(lead, {}) or {}).get("docking_score")
+        cand_dock = cd.get("docking_score")
+        if memory.uniprot_id and lead_dock:
+            target = memory.protein_name or memory.uniprot_id
+            print(f"    Docking vs {target} (kcal/mol, lower binds stronger):")
+            print(f"      lead         : {lead_dock}")
+            if cand_dock is None:
+                print("      candidate    : not docked")
+            else:
+                delta = cand_dock - lead_dock
+                verdict = ("stronger" if delta < 0 else
+                           "weaker" if delta > 0 else "unchanged")
+                print(f"      candidate    : {cand_dock}")
+                print(f"      difference   : {delta:+.2f}  ({verdict} binding; "
+                      f"candidates losing more than "
+                      f"{ChemistAgent.MAX_DOCKING_LOSS} were not proposed)")
+
+        similarity = cd.get("similarity_to_lead")
+        if similarity is not None:
+            print(f"    Tanimoto to lead : {similarity:.3f}  "
+                  f"(difference {1.0 - similarity:.3f})")
+
+        # BBB penetration is reported separately from the ADMET score, which
+        # excludes it by design.
+        lead_bbbp = lead_profile.get("BBBP")
+        cand_bbbp = (cd['admet_profile'] or {}).get("BBBP")
+        if memory.bbbp_desired is not None and lead_bbbp is not None and cand_bbbp is not None:
+            wanted = "higher" if memory.bbbp_desired else "lower"
+            print(f"    BBBP before/after : {lead_bbbp:.4f} -> {cand_bbbp:.4f}  "
+                  f"({cand_bbbp - lead_bbbp:+.4f}; {wanted} is wanted for this "
+                  f"indication, excluded from the ADMET score)")
+
+        qed, sa = cd.get("qed"), cd.get("sa_score")
+        if qed is not None or sa is not None:
+            parts = []
+            if qed is not None:
+                parts.append(f"QED {qed:.3f} (drug-likeness, higher is better)")
+            if sa is not None:
+                parts.append(f"SA {sa:.2f} (synthetic accessibility, 1 easy - 10 hard)")
+            print("    " + "   ".join(parts))
     else:
-        print("    No optimized candidates.")
+        print("    No candidate survived. The counts below show what was tried.")
+
+    # Always report what stage 4 did, especially when it produced nothing: a
+    # bare "0 candidates" cannot distinguish "the LLM proposed nothing usable"
+    # from "everything improved but the gates rejected it".
+    stats = getattr(memory, "optimization_stats", None)
+    if stats:
+        print(f"    Leads attempted   : {stats['leads_attempted']}")
+        print(f"    Iterations run    : {stats['iterations_run']}")
+        print(f"    Variants built    : {stats['variants_enumerated']}")
+        print(f"    Variants scored   : {stats['variants_scored']}")
+        print(f"    Beat the parent   : {stats['improved_before_gates']}")
+        rejected = (f"{stats['rejected_implausible']} impossible, "
+                    f"{stats['rejected_bbbp']} on BBBP drift, "
+                    f"{stats['rejected_binding']} on binding loss")
+        print(f"    Rejected          : {rejected}")
+        if (stats['improved_before_gates'] and not stats['candidates_kept']):
+            print("    -> every molecule that improved the objective was "
+                  "rejected by a gate; loosen ChemistAgent.MAX_DOCKING_LOSS "
+                  "or MAX_BBBP_DRIFT to admit them.")
 
     _divider("═")
 
@@ -177,6 +306,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     # Manual overrides — all optional
+    p.add_argument("--smiles", default=None, metavar="SMILES",
+                   help="Molecule to optimize. Also picked up from the prompt, "
+                        "e.g. \"optimize DILI for CC(=O)Oc1ccccc1C(=O)O\".")
     p.add_argument("--disease", default=None, help="Disease name (overrides parsed value).")
     p.add_argument("--subtype", default=None, help="Disease subtype.")
     p.add_argument("--uniprot", default=None, metavar="ID",
@@ -201,10 +333,19 @@ def build_parser() -> argparse.ArgumentParser:
                    help="GPT fragment proposals per hotspot (default: 5).")
     p.add_argument("--leads", type=int, default=3, metavar="N",
                    help="Number of leads to pass to lead optimization (default: 3).")
-    p.add_argument("--variants", type=int, default=20, metavar="N",
-                   help="Block substitution variants per lead (default: 20).")
+    p.add_argument("--variants", type=int, default=None, metavar="N",
+                   help="Block substitution modifications proposed per lead "
+                        "optimization iteration (default: sized by the "
+                        "orchestrator; the paper used 15).")
+    p.add_argument("--iterations", type=int, default=None, metavar="N",
+                   help="Lead optimization iterations (default: sized by the "
+                        "orchestrator; the paper used 2).")
     p.add_argument("--no-fragment-growing", action="store_true",
                    help="Skip fragment growing and go directly to lead optimization.")
+    p.add_argument("--react", action="store_true",
+                   help="Run the Orchestrator as the Appendix J ReAct loop: it "
+                        "reasons about each next action and selects the agent or "
+                        "tool itself, instead of following the fixed stage order.")
 
     # Output
     p.add_argument("--save", default=None, metavar="PATH",
@@ -255,11 +396,20 @@ def main():
     if args.no_bbbp:
         params["bbbp_desired"] = False
 
-    # Validate minimum required field
-    if not params.get("disease"):
-        print("[ERROR] Could not identify a disease from the prompt.")
-        print("  Tip: be explicit, e.g. 'Design a drug for Parkinson\\'s disease'")
-        print("  Or use --disease <name> to specify it directly.")
+    # A molecule named in the prompt is resolved before validation, because it
+    # changes what the run needs: optimizing a given molecule for a stated
+    # endpoint is complete on its own, whereas discovering one from scratch
+    # requires a disease to find a target for.
+    molecule = args.smiles or params.get("smiles") or extract_smiles(prompt)
+    if molecule and Chem.MolFromSmiles(molecule) is None:
+        print(f"[WARNING] '{molecule}' is not a valid SMILES; ignoring it.\n")
+        molecule = None
+
+    if not params.get("disease") and not molecule:
+        print("[ERROR] Could not identify a disease or a molecule from the prompt.")
+        print("  Tip: name a disease, e.g. 'Design a drug for Parkinson\\'s disease',")
+        print("       or give a molecule, e.g. 'optimize DILI for CC(=O)Oc1ccccc1C(=O)O'.")
+        print("  Or use --disease <name> / --smiles <SMILES> directly.")
         sys.exit(1)
 
     # Echo parsed parameters
@@ -270,7 +420,8 @@ def main():
     print()
 
     # Build agent and write ALL parsed entities into shared memory up front
-    agent = OrchestratorAgent(
+    orchestrator_cls = ReActOrchestrator if args.react else OrchestratorAgent
+    agent = orchestrator_cls(
         main_task=params.get("main_task", "ADMET"),
         bbbp_desired=params.get("bbbp_desired", True),
     )
@@ -285,14 +436,31 @@ def main():
     if params.get("uniprot_id") and params.get("protein_name"):
         mem.set_target(params["protein_name"], params["uniprot_id"])
 
-    agent.run(
-        num_hits=args.hits,
-        num_growing_hits=args.growing_hits,
-        num_fragment_candidates=args.frags,
-        num_leads=args.leads,
-        variants=args.variants,
-        skip_fragment_growing=args.no_fragment_growing,
-        save_path=args.save,
+    # A molecule named in the prompt enters as the lead, and the orchestrator
+    # then skips hit identification and fragment growing.
+    if molecule:
+        mem.add_lead(molecule, hit_origin=molecule, docking_score=0.0)
+        print(f"[MolLingo] Optimizing the supplied molecule: {molecule}")
+        print("[MolLingo] Stages 2-3 (hit identification, fragment growing) "
+              "are not needed.\n")
+        # The block decomposition is what the LLM actually reasons over, so
+        # show it before the run rather than leaving it implicit.
+        print("[MolLingo] BFE tokenization of the input:")
+        get_blocks(molecule, verbose=True)
+        print()
+
+    if args.react:
+        agent.run_react(objective=prompt, save_path=args.save)
+    else:
+        agent.run(
+            num_hits=args.hits,
+            num_growing_hits=args.growing_hits,
+            num_fragment_candidates=args.frags,
+            num_leads=args.leads,
+            variants=args.variants,
+            iterations=args.iterations,
+            skip_fragment_growing=args.no_fragment_growing,
+            save_path=args.save,
     )
 
     print()

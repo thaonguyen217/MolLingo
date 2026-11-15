@@ -1,6 +1,11 @@
 import requests
 import os
 
+# Seconds before a structure-database request is abandoned. Without a
+# timeout these calls block indefinitely: a run against a target with no
+# structure sat idle on an open socket instead of failing and moving on.
+NETWORK_TIMEOUT = 30
+
 def download_alphafold_pdb(uniprot_id, save_dir=None):
     filename = f"AF-{uniprot_id}-F1-model_v6.pdb"
     
@@ -12,7 +17,7 @@ def download_alphafold_pdb(uniprot_id, save_dir=None):
         filepath = filename
     
     url = f"https://alphafold.ebi.ac.uk/files/{filename}"
-    response = requests.get(url)
+    response = requests.get(url, timeout=NETWORK_TIMEOUT)
     
     if response.status_code == 200:
         with open(filepath, "wb") as f:
