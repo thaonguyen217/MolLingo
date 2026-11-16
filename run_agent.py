@@ -172,7 +172,9 @@ def print_summary(memory: SharedMemory):
     if best_hit:
         h = memory.hits[best_hit]
         print(f"    Best hit : {best_hit}")
-        print(f"    Docking  : {h['docking_score']}")
+        # A hit is no longer excluded for lacking a docking score, so the best
+        # hit on the objective may legitimately have none.
+        print(f"    Docking  : {h['docking_score'] if h['docking_score'] is not None else 'not available'}")
         if h['admet_profile']:
             admet_str = "  ".join(f"{k}: {v:.2f}" for k, v in h['admet_profile'].items())
             print(f"    ADMET    : {admet_str}")

@@ -84,16 +84,56 @@ class SharedMemory:
     # Query helpers                                                        #
     # ------------------------------------------------------------------ #
 
-    def top_hits(self, n: int = 5) -> list:
-        """Top-n hits by docking score (lower is better). Falls back to insertion order."""
-        scored = [(s, d['docking_score']) for s, d in self.hits.items()
-                  if d['docking_score'] is not None]
-        if scored:
-            scored.sort(key=lambda x: x[1])
-            return [s for s, _ in scored[:n]]
-        return list(self.hits.keys())[:n]
+    def top_hits(self, n: int = 5, by: str = 'objective') -> list:
+        """
+        Top-n hits in the order they should be elaborated.
+
+        Two things were wrong with ordering these by docking score alone.
+
+        A hit with no docking score was dropped from the list entirely rather
+        than ranked last, so a target where docking mostly failed offered the
+        pipeline a single hit and the hit-level backtracking had nothing to
+        fall back to. On the gout run, 4 of the 5 hits had no score and this
+        returned exactly one hit.
+
+        And binding alone is the wrong key for choosing what to optimize. That
+        run grew a hit at DILI 0.717 over one at 0.446, because only the first
+        had docked, and two iterations of block edits never recovered the
+        difference. `by='objective'` therefore ranks on the ADMET score of the
+        task being optimized, breaking ties on binding.
+
+        This is the order in which hits are *elaborated*, not the ranking of
+        the retrieved set: §2.3.1 ranks that by affinity and QED, which
+        identify_hits still does.
+
+        `by='docking'` keeps the binding-only order for callers that want the
+        strongest binder.
+        """
+        def docking_key(record):
+            score = record['docking_score']
+            # A missing score must not beat a real one, hence +inf.
+            return score if score is not None else float('inf')
+
+        def objective_key(record):
+            score = record['admet_score']
+            return -score if score is not None else float('inf')
+
+        if by == 'docking':
+            key = lambda item: (docking_key(item[1]), objective_key(item[1]))
+        elif by == 'objective':
+            key = lambda item: (objective_key(item[1]), docking_key(item[1]))
+        else:
+            raise ValueError(f"top_hits: by must be 'objective' or 'docking', got {by!r}")
+
+        ordered = sorted(self.hits.items(), key=key)
+        return [s for s, _ in ordered[:n]]
 
     def best_hit(self) -> Optional[str]:
+        """
+        The hit the pipeline would elaborate: best on the objective, ties
+        broken on binding. Its docking score may be None, since a hit is no
+        longer excluded for lacking one.
+        """
         tops = self.top_hits(1)
         return tops[0] if tops else None
 
