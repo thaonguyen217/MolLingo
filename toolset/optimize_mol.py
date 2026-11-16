@@ -1,7 +1,38 @@
 ######### LEAD OPTIMIZATION #########
 import re
 from ast import literal_eval
-from itertools import product
+def _single_edit_molecules(blocks, modification_dict):
+    """
+    One molecule per proposed block substitution.
+
+    This used to take the Cartesian product of the per-block variant lists,
+    with the original block included in each list, so k proposals spread over
+    b blocks produced prod(1 + k_i) - 1 molecules instead of k: 20 proposals
+    on a three-block molecule became 9,260, and 19 proposals on one real case
+    became 323, of which 61% replaced all three blocks at once. Those
+    multi-block molecules were never proposed by the model, and they made the
+    number of molecules evaluated unrelated to the number of modifications
+    requested.
+
+    A proposal is a substitution of one block, so each proposal yields exactly
+    one molecule: the parent with that block replaced. The count is now
+    sum(k_i), and duplicates and failed reconstructions are dropped.
+    """
+    molecules, seen = [], set()
+    for position, block in enumerate(blocks):
+        for alternative in modification_dict.get(block, []):
+            if s2m(alternative) is None:        # invalid fragment
+                continue
+            combo = list(blocks)
+            combo[position] = alternative
+            try:
+                molecule = reconstruct_mol("^".join(combo))
+            except Exception:
+                continue
+            if molecule and molecule not in seen:
+                seen.add(molecule)
+                molecules.append(molecule)
+    return molecules
 import numpy as np
 
 from toolset.tokenizer import smiles2NLdesc, s2m, reconstruct_mol
@@ -145,24 +176,12 @@ def optimize_mol(smiles=None, molecule_name=None,  uniprot_id=None, protein_name
                 if rr == kk:
                     modification_dict[k].append(r['Substitute block'])
     
-    all_block_variants = []
+    # One molecule per proposed substitution, not every combination of them.
+    optimized_molecules = _single_edit_molecules(blocks, modification_dict)
 
-    for block in blocks:
-        variants = [block]  # always include original block
-        for alt_sm in modification_dict.get(block, []):
-            if s2m(alt_sm) is not None: # Only include valid fragments
-                variants.append(alt_sm)
-        all_block_variants.append(variants)
-
-    all_combinations = product(*all_block_variants)
-    optimized_molecules = []
-    for combo in all_combinations:
-        try:
-            optimized_molecules.append(reconstruct_mol("^".join(combo)))
-        except:
-            pass
-
-    print(f"Number of proposed changes: {len(optimized_molecules)}")
+    proposed = sum(len(v) for v in modification_dict.values())
+    print(f"Number of proposed changes: {len(optimized_molecules)} "
+          f"molecules from {proposed} proposed substitution(s)")
 
     admet_profile = ADMET_Profile(smiles)[smiles]
     task_to_improve = []
@@ -265,24 +284,12 @@ def optimize_mol_momu(smiles=None, variants=5):
                 if rr == kk:
                     modification_dict[k].append(r['Substitute block'])
     
-    all_block_variants = []
+    # One molecule per proposed substitution, not every combination of them.
+    optimized_molecules = _single_edit_molecules(blocks, modification_dict)
 
-    for block in blocks:
-        variants = [block]  # always include original block
-        for alt_sm in modification_dict.get(block, []):
-            if s2m(alt_sm) is not None: # Only include valid fragments
-                variants.append(alt_sm)
-        all_block_variants.append(variants)
-
-    all_combinations = product(*all_block_variants)
-    optimized_molecules = []
-    for combo in all_combinations:
-        try:
-            optimized_molecules.append(reconstruct_mol("^".join(combo)))
-        except:
-            pass
-
-    print(f"Number of proposed changes: {len(optimized_molecules)}")
+    proposed = sum(len(v) for v in modification_dict.values())
+    print(f"Number of proposed changes: {len(optimized_molecules)} "
+          f"molecules from {proposed} proposed substitution(s)")
 
     return optimized_molecules
 
