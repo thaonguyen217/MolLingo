@@ -207,12 +207,20 @@ Return ONLY a Python dictionary literal, no markdown and no explanation:
         """
         Let the Orchestrator reason about the search budget.
 
-        Follows Appendix J: the decision is made by the prompted model from the
-        objective, the completed subgoals and the memory context, trading
-        exploration against exploitation. The numbers are clamped to the
-        configured bounds, and any failure (an unparseable reply, a value out
-        of range, an API error) falls back to `_heuristic_budget`, so a run is
-        never blocked on the LLM.
+        NOT a reproduction of anything in the paper. The appendix fixes 15
+        modifications x 2 iterations for every reported experiment and
+        describes both as user-configurable settings, and the Appendix J
+        action set (literature agent, chemist agent, tool call, memory
+        read/write, human feedback, terminate) contains no budget action. This
+        extends the Orchestrator's remit by analogy with the workflow-level
+        adaptation the paper does claim, and is reached only via
+        --plan-budget.
+
+        The decision is made by the prompted model from the objective, the
+        completed subgoals and the memory context. The numbers are clamped to
+        the configured bounds, and any failure (an unparseable reply, a value
+        out of range, an API error) falls back to `_heuristic_budget`, so a run
+        is never blocked on the LLM.
         """
         reference = self._heuristic_budget(leads)
         leads = leads or list(self.memory.leads) or list(self.memory.hits)
@@ -286,9 +294,14 @@ Return ONLY a Python dictionary literal, no markdown and no explanation:
                               iterations: Optional[int] = None,
                               leads: Optional[list] = None) -> list:
         """
-        Stage 4. With `variants`/`iterations` left as None the orchestrator
-        sizes the budget itself; passing them pins the configuration, which is
-        how the paper's exact 15 x 2 setting is reproduced.
+        Stage 4. Passing `variants`/`iterations` pins the configuration, which
+        is what run_agent.py does by default with the paper's 15 x 2.
+
+        Leaving either as None hands the decision to
+        `plan_optimization_budget`. That is an extension beyond the paper: the
+        appendix fixes both values for every reported experiment and gives the
+        Orchestrator no budget-setting action, so it is reached only via
+        --plan-budget.
         """
         assert self.memory.hits or self.memory.leads, \
             "Hits or leads must exist before lead optimization."

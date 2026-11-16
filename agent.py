@@ -444,6 +444,11 @@ class ChemistAgent(_Agent):
                  f"(UniProt: {uniprot_id})")
 
         affinities = self._chembl_binders(uniprot_id)
+        # Where each hit came from, so the saved run says which stage-1 route
+        # produced it. Without this the de novo hits were all written out as
+        # source "chembl", which is exactly the claim the de novo route is
+        # meant to support.
+        sources = {smiles: "chembl" for smiles in affinities}
         # "Experimental data unavailable" in practice means too sparse to
         # screen, not strictly zero: GPR15 returns a single ChEMBL binder,
         # which survives Butina trivially (1 -> 1) and gives the ranking
@@ -461,7 +466,12 @@ class ChemistAgent(_Agent):
             screened = self._drugclip_hits(uniprot_id, num_candidates)
             # Keep whatever ChEMBL did return: a known binder is still a
             # legitimate hit, it just cannot carry the stage on its own.
-            affinities = {**affinities, **screened} if screened else affinities
+            if screened:
+                # A ChEMBL binder that is also retrieved by the screen stays
+                # attributed to ChEMBL: it is a known binder either way.
+                for smiles in screened:
+                    sources.setdefault(smiles, "drugclip")
+                affinities = {**affinities, **screened}
             if not affinities:
                 self.log("identify_hits_failed",
                          f"Neither ChEMBL nor DrugCLIP produced hits for "
@@ -501,7 +511,7 @@ class ChemistAgent(_Agent):
                 docking_score=self.dock(smiles) if dock else None,
                 admet_profile=profile,
                 admet_score=score,
-                source="chembl",
+                source=sources.get(smiles, "chembl"),
             )
             entry = self.memory.hits[smiles]
             entry["qed"] = qed
@@ -786,7 +796,12 @@ class ChemistAgent(_Agent):
         # `leads` lets the orchestrator optimize one hit's leads at a time
         # while backtracking, instead of the global top-N across every hit it
         # has ever grown.
-        starts = list(leads)[:num_leads] if leads else self._select_leads(num_leads)
+        # Rank whatever was handed over the same way _select_leads does.
+        # Taking the list as given meant insertion order: on the GPR15 run the
+        # -7.1 kcal/mol lead was optimized and the -8.6 one, reported in the
+        # same breath as the best lead of the stage, was never touched.
+        starts = (self._rank_leads(leads)[:num_leads] if leads
+                  else self._select_leads(num_leads))
         if not starts:
             self.log("optimize_leads_failed",
                      "No leads or hits in shared memory.")
@@ -838,16 +853,26 @@ class ChemistAgent(_Agent):
                      "No candidate improved on its lead.")
         return candidates
 
+    def _rank_leads(self, candidates) -> list:
+        """
+        Order leads by docking score, strongest binder first.
+
+        Leads with no score keep their original order behind the scored ones:
+        an unscored lead is not evidence of weak binding, but it cannot be
+        ranked against one that was measured.
+        """
+        scored, unscored = [], []
+        for smiles in candidates:
+            entry = self.memory.leads.get(smiles) or {}
+            value = _number(entry.get("docking_score"))
+            (scored if value is not None else unscored).append((smiles, value))
+        scored.sort(key=lambda row: row[1])
+        return [s for s, _ in scored] + [s for s, _ in unscored]
+
     def _select_leads(self, num_leads: int) -> list:
         """Top leads by docking score, falling back to the ranked hits."""
         if self.memory.leads:
-            scored = [(s, _number(d.get("docking_score")))
-                      for s, d in self.memory.leads.items()]
-            with_score = [(s, v) for s, v in scored if v is not None]
-            if with_score:
-                with_score.sort(key=lambda row: row[1])
-                return [s for s, _ in with_score[:num_leads]]
-            return list(self.memory.leads)[:num_leads]
+            return self._rank_leads(self.memory.leads)[:num_leads]
         return self.memory.top_hits(num_leads)
 
     def _optimize_lead(self, lead: str, variants: int,
