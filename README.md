@@ -76,7 +76,6 @@ MolLingo/
 ### 1. Clone and set up environment
 
 ```bash
-git clone https://github.com/thaonguyen217/MolLingo
 cd MolLingo
 conda create -n MolLingo python=3.12
 conda activate MolLingo
