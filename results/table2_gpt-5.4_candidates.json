@@ -16,9 +16,9 @@
       "docking_after": -6.963,
       "docking_improvement": 0.881165,
       "improvement_pct": 14.4885,
-      "tanimoto_similarity": 0.682376,
-      "SA_after": 3.50997,
-      "QED_after": 0.698434,
+      "tanimoto_similarity": 0.73913,
+      "SA_after": 3.938064,
+      "QED_after": 0.801083,
       "rank": 1
     },
     "candidate_2": {
@@ -37,9 +37,9 @@
       "docking_after": -6.909,
       "docking_improvement": 0.827165,
       "improvement_pct": 13.6006,
-      "tanimoto_similarity": 0.655924,
-      "SA_after": 3.441813,
-      "QED_after": 0.594366,
+      "tanimoto_similarity": 0.690141,
+      "SA_after": 3.632121,
+      "QED_after": 0.647076,
       "rank": 2
     },
     "candidate_3": {
@@ -58,9 +58,9 @@
       "docking_after": -6.822,
       "docking_improvement": 0.740165,
       "improvement_pct": 12.1701,
-      "tanimoto_similarity": 0.720379,
-      "SA_after": 3.31971,
-      "QED_after": 0.622478,
+      "tanimoto_similarity": 0.809524,
+      "SA_after": 3.083888,
+      "QED_after": 0.688736,
       "rank": 3
     }
   },
@@ -81,9 +81,9 @@
       "docking_after": -8.284,
       "docking_improvement": 0.648082,
       "improvement_pct": 8.4873,
-      "tanimoto_similarity": 0.673738,
-      "SA_after": 3.433772,
-      "QED_after": 0.607273,
+      "tanimoto_similarity": 0.723077,
+      "SA_after": 3.596035,
+      "QED_after": 0.666216,
       "rank": 1
     },
     "candidate_2": {
@@ -102,9 +102,9 @@
       "docking_after": -8.284,
       "docking_improvement": 0.648082,
       "improvement_pct": 8.4873,
-      "tanimoto_similarity": 0.673738,
-      "SA_after": 3.433772,
-      "QED_after": 0.607273,
+      "tanimoto_similarity": 0.723077,
+      "SA_after": 3.596035,
+      "QED_after": 0.666216,
       "rank": 2
     },
     "candidate_3": {
@@ -114,7 +114,7 @@
       "uniprot_id": "P28482",
       "gene": "MAPK1",
       "modification": "Grew fragment c1ccc(F)cc1 from the parent's aliphatic C at atom index 14, into hotspot 2.",
-      "rationale": "A para-fluorophenyl group offers a slightly larger aromatic growth option that should still fit an ~83.5 Å^3 pocket if oriented along the lipophilic wall. It can enhance shape complementarity and dispersion interactions with TYR30, ILE31, LEU107, and MET108, while fluorine can subtly tune electronics and sometimes support favorable dipolar contacts near SER41 or backbone carbonyls without adding hydrogen-bond liabilities. This preserves high scaffold similarity and reflects common kinase-medicinal-chemistry aromatic growth logic.",
+      "rationale": "A para-fluorophenyl group offers a slightly larger aromatic growth option that should still fit an ~83.5 \u00c5^3 pocket if oriented along the lipophilic wall. It can enhance shape complementarity and dispersion interactions with TYR30, ILE31, LEU107, and MET108, while fluorine can subtly tune electronics and sometimes support favorable dipolar contacts near SER41 or backbone carbonyls without adding hydrogen-bond liabilities. This preserves high scaffold similarity and reflects common kinase-medicinal-chemistry aromatic growth logic.",
       "attachment_atom_index": 14,
       "suggested_block": "*c1ccc(F)cc1",
       "hotspot": 2,
@@ -123,9 +123,9 @@
       "docking_after": -8.273,
       "docking_improvement": 0.637082,
       "improvement_pct": 8.3432,
-      "tanimoto_similarity": 0.662078,
-      "SA_after": 3.408626,
-      "QED_after": 0.58031,
+      "tanimoto_similarity": 0.701493,
+      "SA_after": 3.483052,
+      "QED_after": 0.62634,
       "rank": 3
     }
   },
@@ -146,9 +146,9 @@
       "docking_after": -10.303,
       "docking_improvement": 1.582908,
       "improvement_pct": 18.1524,
-      "tanimoto_similarity": 0.721621,
-      "SA_after": 3.968291,
-      "QED_after": 0.471648,
+      "tanimoto_similarity": 0.811765,
+      "SA_after": 5.995794,
+      "QED_after": 0.465461,
       "rank": 1
     },
     "candidate_2": {
@@ -167,9 +167,9 @@
       "docking_after": -10.008,
       "docking_improvement": 1.287908,
       "improvement_pct": 14.7694,
-      "tanimoto_similarity": 0.691283,
-      "SA_after": 3.876056,
-      "QED_after": 0.430764,
+      "tanimoto_similarity": 0.755556,
+      "SA_after": 5.581681,
+      "QED_after": 0.404964,
       "rank": 2
     },
     "candidate_3": {
@@ -188,9 +188,9 @@
       "docking_after": -9.862,
       "docking_improvement": 1.141908,
       "improvement_pct": 13.0951,
-      "tanimoto_similarity": 0.742242,
-      "SA_after": 3.860153,
-      "QED_after": 0.580108,
+      "tanimoto_similarity": 0.85,
+      "SA_after": 5.51026,
+      "QED_after": 0.626028,
       "rank": 3
     }
   },
@@ -211,9 +211,9 @@
       "docking_after": -7.243,
       "docking_improvement": 0.969818,
       "improvement_pct": 15.4598,
-      "tanimoto_similarity": 0.595464,
-      "SA_after": 3.388557,
-      "QED_after": 0.627614,
+      "tanimoto_similarity": 0.578125,
+      "SA_after": 3.392978,
+      "QED_after": 0.696297,
       "rank": 1
     },
     "candidate_2": {
@@ -232,9 +232,9 @@
       "docking_after": -6.697,
       "docking_improvement": 0.423818,
       "improvement_pct": 6.756,
-      "tanimoto_similarity": 0.616301,
-      "SA_after": 3.402634,
-      "QED_after": 0.757225,
+      "tanimoto_similarity": 0.616667,
+      "SA_after": 3.456241,
+      "QED_after": 0.888145,
       "rank": 2
     },
     "candidate_3": {
@@ -244,7 +244,7 @@
       "uniprot_id": "P06493",
       "gene": "CDK1",
       "modification": "Grew fragment C from the parent's aromatic C at atom index 13, into hotspot 2.",
-      "rationale": "Methyl is the most conservative growth vector from atom 13, preserving high similarity while filling a very small portion of the ~81 Å^3 subpocket. It should strengthen van der Waals contact with the hydrophobic wall formed by ILE10, VAL18, ALA31, PHE80, LEU83, and ALA145 without creating steric clash near the hinge-facing core.",
+      "rationale": "Methyl is the most conservative growth vector from atom 13, preserving high similarity while filling a very small portion of the ~81 \u00c5^3 subpocket. It should strengthen van der Waals contact with the hydrophobic wall formed by ILE10, VAL18, ALA31, PHE80, LEU83, and ALA145 without creating steric clash near the hinge-facing core.",
       "attachment_atom_index": 13,
       "suggested_block": "*C",
       "hotspot": 2,
@@ -253,9 +253,9 @@
       "docking_after": -6.654,
       "docking_improvement": 0.380818,
       "improvement_pct": 6.0706,
-      "tanimoto_similarity": 0.627745,
-      "SA_after": 3.395306,
-      "QED_after": 0.768713,
+      "tanimoto_similarity": 0.637931,
+      "SA_after": 3.423283,
+      "QED_after": 0.905083,
       "rank": 3
     }
   },
@@ -276,9 +276,9 @@
       "docking_after": -8.702,
       "docking_improvement": 1.379577,
       "improvement_pct": 18.8404,
-      "tanimoto_similarity": 0.632712,
-      "SA_after": 3.160031,
-      "QED_after": 0.632277,
+      "tanimoto_similarity": 0.647059,
+      "SA_after": 2.366983,
+      "QED_after": 0.703246,
       "rank": 1
     },
     "candidate_2": {
@@ -297,9 +297,9 @@
       "docking_after": -8.597,
       "docking_improvement": 1.274577,
       "improvement_pct": 17.4065,
-      "tanimoto_similarity": 0.553303,
-      "SA_after": 3.152837,
-      "QED_after": 0.632277,
+      "tanimoto_similarity": 0.5,
+      "SA_after": 2.334701,
+      "QED_after": 0.703246,
       "rank": 2
     },
     "candidate_3": {
@@ -318,9 +318,9 @@
       "docking_after": -8.047,
       "docking_improvement": 0.724577,
       "improvement_pct": 9.8953,
-      "tanimoto_similarity": 0.615599,
-      "SA_after": 3.158873,
-      "QED_after": 0.632277,
+      "tanimoto_similarity": 0.615385,
+      "SA_after": 2.361835,
+      "QED_after": 0.703246,
       "rank": 3
     }
   },
@@ -332,7 +332,7 @@
       "uniprot_id": "P11802",
       "gene": "CDK4",
       "modification": "Grew fragment c1ncc[nH]1 from the parent's aromatic C at atom index 6, into hotspot 3.",
-      "rationale": "An imidazole-like aza-heteroaryl appendage is still a single-bond growth from the aromatic carbon but more effectively exploits the polar environment near ASP158 and LYS35 through donor/acceptor functionality, while its aromatic face can maintain favorable packing against VAL14/VAL20 and the glycine-rich region. This fragment is synthetically accessible, compact enough for the ~83 Å^3 pocket, and aligns with CDK4 SAR indicating heteroatom-containing groups can beneficially probe the lower ATP-site region.",
+      "rationale": "An imidazole-like aza-heteroaryl appendage is still a single-bond growth from the aromatic carbon but more effectively exploits the polar environment near ASP158 and LYS35 through donor/acceptor functionality, while its aromatic face can maintain favorable packing against VAL14/VAL20 and the glycine-rich region. This fragment is synthetically accessible, compact enough for the ~83 \u00c5^3 pocket, and aligns with CDK4 SAR indicating heteroatom-containing groups can beneficially probe the lower ATP-site region.",
       "attachment_atom_index": 6,
       "suggested_block": "*c1ncc[nH]1",
       "hotspot": 3,
@@ -341,9 +341,9 @@
       "docking_after": -10.432,
       "docking_improvement": 1.332997,
       "improvement_pct": 14.6499,
-      "tanimoto_similarity": 0.643292,
-      "SA_after": 3.32265,
-      "QED_after": 0.598691,
+      "tanimoto_similarity": 0.666667,
+      "SA_after": 3.097109,
+      "QED_after": 0.653536,
       "rank": 1
     },
     "candidate_2": {
@@ -362,9 +362,9 @@
       "docking_after": -9.632,
       "docking_improvement": 0.532997,
       "improvement_pct": 5.8578,
-      "tanimoto_similarity": 0.658515,
-      "SA_after": 3.276811,
-      "QED_after": 0.687351,
+      "tanimoto_similarity": 0.694915,
+      "SA_after": 2.891331,
+      "QED_after": 0.784747,
       "rank": 2
     },
     "candidate_3": {
@@ -374,7 +374,7 @@
       "uniprot_id": "P11802",
       "gene": "CDK4",
       "modification": "Grew fragment c1ccncc1 from the parent's aromatic C at atom index 4, into hotspot 1.",
-      "rationale": "A pyridyl group provides a flat aromatic extension for edge-to-face or hydrophobic contact with VAL14/VAL20 while adding a ring nitrogen that can accept a hydrogen bond from the nearby polar environment or structured water near LYS35/ASN145. Its size is still compatible with the ~88.5 Å^3 pocket, and heteroaryl growth is well precedented in CDK4/6 SAR for tuning potency and selectivity without introducing problematic toxicophores.",
+      "rationale": "A pyridyl group provides a flat aromatic extension for edge-to-face or hydrophobic contact with VAL14/VAL20 while adding a ring nitrogen that can accept a hydrogen bond from the nearby polar environment or structured water near LYS35/ASN145. Its size is still compatible with the ~88.5 \u00c5^3 pocket, and heteroaryl growth is well precedented in CDK4/6 SAR for tuning potency and selectivity without introducing problematic toxicophores.",
       "attachment_atom_index": 4,
       "suggested_block": "*c1ccncc1",
       "hotspot": 1,
@@ -383,9 +383,9 @@
       "docking_after": -9.516,
       "docking_improvement": 0.416997,
       "improvement_pct": 4.5829,
-      "tanimoto_similarity": 0.658515,
-      "SA_after": 3.295298,
-      "QED_after": 0.637683,
+      "tanimoto_similarity": 0.694915,
+      "SA_after": 2.974295,
+      "QED_after": 0.711202,
       "rank": 3
     }
   },
@@ -406,9 +406,9 @@
       "docking_after": -10.854,
       "docking_improvement": 1.308923,
       "improvement_pct": 13.7131,
-      "tanimoto_similarity": 0.620781,
-      "SA_after": 3.219279,
-      "QED_after": 0.639845,
+      "tanimoto_similarity": 0.625,
+      "SA_after": 2.632963,
+      "QED_after": 0.71435,
       "rank": 1
     },
     "candidate_2": {
@@ -418,7 +418,7 @@
       "uniprot_id": "P00519",
       "gene": "ABL1",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic C at atom index 17, into hotspot 0.",
-      "rationale": "A 3-pyridyl fragment adds a flat aromatic surface for edge-to-face or offset π contacts with A:TRP99 and B:PHE72 while introducing a ring nitrogen that can accept a hydrogen bond from nearby polar residues such as A:ASN96 or A:ASN114 if the vector is favorable. Its size is appropriate for the available pocket volume, and heteroaryl substitution is well precedented in ABL1 inhibitor optimization to improve local polar complementarity without excessive molecular weight.",
+      "rationale": "A 3-pyridyl fragment adds a flat aromatic surface for edge-to-face or offset \u03c0 contacts with A:TRP99 and B:PHE72 while introducing a ring nitrogen that can accept a hydrogen bond from nearby polar residues such as A:ASN96 or A:ASN114 if the vector is favorable. Its size is appropriate for the available pocket volume, and heteroaryl substitution is well precedented in ABL1 inhibitor optimization to improve local polar complementarity without excessive molecular weight.",
       "attachment_atom_index": 17,
       "suggested_block": "*c1ccncc1",
       "hotspot": 0,
@@ -427,9 +427,9 @@
       "docking_after": -10.851,
       "docking_improvement": 1.305923,
       "improvement_pct": 13.6816,
-      "tanimoto_similarity": 0.649716,
-      "SA_after": 3.354724,
-      "QED_after": 0.639237,
+      "tanimoto_similarity": 0.678571,
+      "SA_after": 3.241099,
+      "QED_after": 0.713526,
       "rank": 2
     },
     "candidate_3": {
@@ -448,9 +448,9 @@
       "docking_after": -10.651,
       "docking_improvement": 1.105923,
       "improvement_pct": 11.5863,
-      "tanimoto_similarity": 0.609013,
-      "SA_after": 3.492441,
-      "QED_after": 0.692487,
+      "tanimoto_similarity": 0.603175,
+      "SA_after": 3.859355,
+      "QED_after": 0.792342,
       "rank": 3
     }
   },
@@ -462,7 +462,7 @@
       "uniprot_id": "O60674",
       "gene": "JAK2",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 2.",
-      "rationale": "Phenyl offers an aromatic, shape-diverse hydrophobic probe to test whether the attachment vector opens into a lipophilic cleft bordered by LEU855, VAL863, ALA880, VAL881, and MET929. A phenyl substituent is commercially accessible and often tolerated in kinase inhibitor optimization when directed into shallow hydrophobic space. Although larger than the parent methyl, it still remains plausible for a 69 Å^3 pocket if oriented edge-on, and could increase dispersion contacts while preserving overall scaffold similarity.",
+      "rationale": "Phenyl offers an aromatic, shape-diverse hydrophobic probe to test whether the attachment vector opens into a lipophilic cleft bordered by LEU855, VAL863, ALA880, VAL881, and MET929. A phenyl substituent is commercially accessible and often tolerated in kinase inhibitor optimization when directed into shallow hydrophobic space. Although larger than the parent methyl, it still remains plausible for a 69 \u00c5^3 pocket if oriented edge-on, and could increase dispersion contacts while preserving overall scaffold similarity.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccccc1",
       "hotspot": 2,
@@ -471,9 +471,9 @@
       "docking_after": -9.354,
       "docking_improvement": 1.532555,
       "improvement_pct": 19.5943,
-      "tanimoto_similarity": 0.640053,
-      "SA_after": 3.295053,
-      "QED_after": 0.661605,
+      "tanimoto_similarity": 0.660714,
+      "SA_after": 2.973234,
+      "QED_after": 0.746639,
       "rank": 1
     },
     "candidate_2": {
@@ -483,7 +483,7 @@
       "uniprot_id": "O60674",
       "gene": "JAK2",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 3, into hotspot 0.",
-      "rationale": "Phenyl introduces a flat hydrophobic/aromatic surface that could strengthen van der Waals and edge-to-face/pi contacts with TYR931 and TYR934 while also contacting LEU855, MET929, and LEU983. JAK2 inhibitors often exploit aromatic packing near the hinge/gatekeeper region; a single phenyl is still a conservative one-bond growth from the cyclopentyl substituent and should be near the upper end but still compatible with the ~74 Å^3 pocket if oriented along the lipophilic channel.",
+      "rationale": "Phenyl introduces a flat hydrophobic/aromatic surface that could strengthen van der Waals and edge-to-face/pi contacts with TYR931 and TYR934 while also contacting LEU855, MET929, and LEU983. JAK2 inhibitors often exploit aromatic packing near the hinge/gatekeeper region; a single phenyl is still a conservative one-bond growth from the cyclopentyl substituent and should be near the upper end but still compatible with the ~74 \u00c5^3 pocket if oriented along the lipophilic channel.",
       "attachment_atom_index": 3,
       "suggested_block": "*c1ccccc1",
       "hotspot": 0,
@@ -492,9 +492,9 @@
       "docking_after": -8.793,
       "docking_improvement": 0.971555,
       "improvement_pct": 12.4217,
-      "tanimoto_similarity": 0.668988,
-      "SA_after": 3.430765,
-      "QED_after": 0.675863,
+      "tanimoto_similarity": 0.714286,
+      "SA_after": 3.582469,
+      "QED_after": 0.767714,
       "rank": 2
     },
     "candidate_3": {
@@ -504,7 +504,7 @@
       "uniprot_id": "O60674",
       "gene": "JAK2",
       "modification": "Grew fragment C from the parent's aliphatic C at atom index 3, into hotspot 0.",
-      "rationale": "Methyl is the most conservative growth vector from the cyclopentyl carbon, preserving high similarity while efficiently sampling a small hydrophobic subpocket lined by ALA880, VAL863, LEU855, MET929, LEU932, and LEU983. JAK2 hinge-region ligands commonly benefit from added lipophilic contact near Tyr931/Leu932, and a methyl should fit easily within the ~74 Å^3 local volume without introducing steric strain or polarity mismatch.",
+      "rationale": "Methyl is the most conservative growth vector from the cyclopentyl carbon, preserving high similarity while efficiently sampling a small hydrophobic subpocket lined by ALA880, VAL863, LEU855, MET929, LEU932, and LEU983. JAK2 hinge-region ligands commonly benefit from added lipophilic contact near Tyr931/Leu932, and a methyl should fit easily within the ~74 \u00c5^3 local volume without introducing steric strain or polarity mismatch.",
       "attachment_atom_index": 3,
       "suggested_block": "*C",
       "hotspot": 0,
@@ -513,9 +513,9 @@
       "docking_after": -8.273,
       "docking_improvement": 0.451555,
       "improvement_pct": 5.7733,
-      "tanimoto_similarity": 0.715251,
-      "SA_after": 3.452081,
-      "QED_after": 0.796555,
+      "tanimoto_similarity": 0.8,
+      "SA_after": 3.678182,
+      "QED_after": 0.94635,
       "rank": 3
     }
   },
@@ -527,7 +527,7 @@
       "uniprot_id": "P49841",
       "gene": "GSK3B",
       "modification": "Grew fragment c1ccncc1 from the parent's aromatic C at atom index 10, into hotspot 2.",
-      "rationale": "A 3-pyridyl fragment offers a flat aromatic extension that can make edge-to-face or π contacts with TYR127/PHE116 while presenting a ring nitrogen as an H-bond acceptor toward the polar residues ASN129 or SER119 if the vector projects toward the pocket rim. Its size is still compatible with the stated 87 Å^3 volume, and heteroaryl growth from kinase ligands is well precedented for improving affinity through combined hydrophobic packing and polar recognition.",
+      "rationale": "A 3-pyridyl fragment offers a flat aromatic extension that can make edge-to-face or \u03c0 contacts with TYR127/PHE116 while presenting a ring nitrogen as an H-bond acceptor toward the polar residues ASN129 or SER119 if the vector projects toward the pocket rim. Its size is still compatible with the stated 87 \u00c5^3 volume, and heteroaryl growth from kinase ligands is well precedented for improving affinity through combined hydrophobic packing and polar recognition.",
       "attachment_atom_index": 10,
       "suggested_block": "*c1ccncc1",
       "hotspot": 2,
@@ -536,9 +536,9 @@
       "docking_after": -7.957,
       "docking_improvement": 0.764535,
       "improvement_pct": 10.6297,
-      "tanimoto_similarity": 0.680594,
-      "SA_after": 3.187651,
-      "QED_after": 0.644778,
+      "tanimoto_similarity": 0.735849,
+      "SA_after": 2.490994,
+      "QED_after": 0.721672,
       "rank": 1
     },
     "candidate_2": {
@@ -548,7 +548,7 @@
       "uniprot_id": "P49841",
       "gene": "GSK3B",
       "modification": "Grew fragment C(=O)N from the parent's aliphatic C at atom index 3, into hotspot 1.",
-      "rationale": "A carboxamide directly attached through carbonyl carbon gives a compact polar handle with both donor and acceptor capability. In this local environment it could form productive hydrogen bonding with SER118 and/or THR39 while keeping size controlled for the ~90 Å^3 cavity; the amide is also synthetically accessible and avoids excessive lipophilicity.",
+      "rationale": "A carboxamide directly attached through carbonyl carbon gives a compact polar handle with both donor and acceptor capability. In this local environment it could form productive hydrogen bonding with SER118 and/or THR39 while keeping size controlled for the ~90 \u00c5^3 cavity; the amide is also synthetically accessible and avoids excessive lipophilicity.",
       "attachment_atom_index": 3,
       "suggested_block": "[*]C(=O)N",
       "hotspot": 1,
@@ -557,9 +557,9 @@
       "docking_after": -7.669,
       "docking_improvement": 0.476535,
       "improvement_pct": 6.6255,
-      "tanimoto_similarity": 0.636706,
-      "SA_after": 3.287569,
-      "QED_after": 0.677012,
+      "tanimoto_similarity": 0.654545,
+      "SA_after": 2.939591,
+      "QED_after": 0.769366,
       "rank": 2
     },
     "candidate_3": {
@@ -578,9 +578,9 @@
       "docking_after": -7.558,
       "docking_improvement": 0.365535,
       "improvement_pct": 5.0822,
-      "tanimoto_similarity": 0.666181,
-      "SA_after": 3.215225,
-      "QED_after": 0.76601,
+      "tanimoto_similarity": 0.709091,
+      "SA_after": 2.61484,
+      "QED_after": 0.90105,
       "rank": 3
     }
   },
@@ -592,7 +592,7 @@
       "uniprot_id": "O14757",
       "gene": "CHEK1",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 16, into hotspot 4.",
-      "rationale": "Phenyl explores whether the attachment vector opens into a broader lipophilic shelf, enabling edge-to-face or hydrophobic contacts with TYR149, MET84, LEU137, and VAL23. Although larger than the alkyl options, a single phenyl ring remains within a plausible size range for ~67 Å^3 if oriented along the pocket wall, and it is a standard medicinal-chemistry growth element with straightforward synthetic accessibility.",
+      "rationale": "Phenyl explores whether the attachment vector opens into a broader lipophilic shelf, enabling edge-to-face or hydrophobic contacts with TYR149, MET84, LEU137, and VAL23. Although larger than the alkyl options, a single phenyl ring remains within a plausible size range for ~67 \u00c5^3 if oriented along the pocket wall, and it is a standard medicinal-chemistry growth element with straightforward synthetic accessibility.",
       "attachment_atom_index": 16,
       "suggested_block": "*c1ccccc1",
       "hotspot": 4,
@@ -601,9 +601,9 @@
       "docking_after": -8.882,
       "docking_improvement": 1.393774,
       "improvement_pct": 18.6129,
-      "tanimoto_similarity": 0.678165,
-      "SA_after": 3.630781,
-      "QED_after": 0.610247,
+      "tanimoto_similarity": 0.731343,
+      "SA_after": 4.480472,
+      "QED_after": 0.670623,
       "rank": 1
     },
     "candidate_2": {
@@ -613,7 +613,7 @@
       "uniprot_id": "O14757",
       "gene": "CHEK1",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic C at atom index 0, into hotspot 1.",
-      "rationale": "A pyridyl fragment offers a flat aromatic extension for additional hydrophobic surface against VAL23/HIS134 while contributing a ring nitrogen that can accept a hydrogen bond or support water-mediated interaction with ASN135 or GLU17. Compared with phenyl, pyridyl is more polarity-balanced and still compact enough to fit a ~77 Å^3 pocket if oriented along the pocket wall rather than deeply buried.",
+      "rationale": "A pyridyl fragment offers a flat aromatic extension for additional hydrophobic surface against VAL23/HIS134 while contributing a ring nitrogen that can accept a hydrogen bond or support water-mediated interaction with ASN135 or GLU17. Compared with phenyl, pyridyl is more polarity-balanced and still compact enough to fit a ~77 \u00c5^3 pocket if oriented along the pocket wall rather than deeply buried.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccncc1",
       "hotspot": 1,
@@ -622,9 +622,9 @@
       "docking_after": -8.175,
       "docking_improvement": 0.686774,
       "improvement_pct": 9.1714,
-      "tanimoto_similarity": 0.670121,
-      "SA_after": 3.458785,
-      "QED_after": 0.590379,
+      "tanimoto_similarity": 0.716418,
+      "SA_after": 3.708278,
+      "QED_after": 0.641162,
       "rank": 2
     },
     "candidate_3": {
@@ -643,9 +643,9 @@
       "docking_after": -8.157,
       "docking_improvement": 0.668774,
       "improvement_pct": 8.931,
-      "tanimoto_similarity": 0.63811,
-      "SA_after": 3.665951,
-      "QED_after": 0.605516,
+      "tanimoto_similarity": 0.657143,
+      "SA_after": 4.638397,
+      "QED_after": 0.66364,
       "rank": 3
     }
   },
@@ -657,7 +657,7 @@
       "uniprot_id": "Q13547",
       "gene": "HDAC1",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic N at atom index 0, into hotspot 1.",
-      "rationale": "A pyridyl substituent provides a flat aromatic extension that can engage in edge-to-face or offset π interactions with PHE337/TYR336 while the ring nitrogen offers an additional H-bond acceptor oriented toward GLN339 or the local polar environment. This is a conservative heteroaryl growth option likely to remain synthetically accessible and within the stated pocket size if the ring projects along the pocket mouth.",
+      "rationale": "A pyridyl substituent provides a flat aromatic extension that can engage in edge-to-face or offset \u03c0 interactions with PHE337/TYR336 while the ring nitrogen offers an additional H-bond acceptor oriented toward GLN339 or the local polar environment. This is a conservative heteroaryl growth option likely to remain synthetically accessible and within the stated pocket size if the ring projects along the pocket mouth.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccncc1",
       "hotspot": 1,
@@ -666,9 +666,9 @@
       "docking_after": -7.758,
       "docking_improvement": 0.634124,
       "improvement_pct": 8.9014,
-      "tanimoto_similarity": 0.643292,
-      "SA_after": 3.141544,
-      "QED_after": 0.626127,
+      "tanimoto_similarity": 0.666667,
+      "SA_after": 2.284046,
+      "QED_after": 0.694085,
       "rank": 1
     },
     "candidate_2": {
@@ -687,9 +687,9 @@
       "docking_after": -7.645,
       "docking_improvement": 0.521124,
       "improvement_pct": 7.3152,
-      "tanimoto_similarity": 0.691013,
-      "SA_after": 3.125196,
-      "QED_after": 0.696609,
+      "tanimoto_similarity": 0.755102,
+      "SA_after": 2.210603,
+      "QED_after": 0.798368,
       "rank": 2
     },
     "candidate_3": {
@@ -699,7 +699,7 @@
       "uniprot_id": "Q13547",
       "gene": "HDAC1",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic C at atom index 21, into hotspot 4.",
-      "rationale": "A pyridyl group provides an aromatic extension suited to the phenyl-rich local environment, enabling edge-to-face or parallel displaced π contacts with TYR336, PHE337, and PHE341. The ring nitrogen introduces a directional H-bond acceptor that could interact with THR332/THR333 or structured solvent, and the size remains consistent with conservative HDAC1 foot-pocket growth.",
+      "rationale": "A pyridyl group provides an aromatic extension suited to the phenyl-rich local environment, enabling edge-to-face or parallel displaced \u03c0 contacts with TYR336, PHE337, and PHE341. The ring nitrogen introduces a directional H-bond acceptor that could interact with THR332/THR333 or structured solvent, and the size remains consistent with conservative HDAC1 foot-pocket growth.",
       "attachment_atom_index": 21,
       "suggested_block": "*c1ccncc1",
       "hotspot": 4,
@@ -708,9 +708,9 @@
       "docking_after": -7.602,
       "docking_improvement": 0.478124,
       "improvement_pct": 6.7116,
-      "tanimoto_similarity": 0.621915,
-      "SA_after": 3.255295,
-      "QED_after": 0.640386,
+      "tanimoto_similarity": 0.627119,
+      "SA_after": 2.794719,
+      "QED_after": 0.715208,
       "rank": 3
     }
   },
@@ -722,7 +722,7 @@
       "uniprot_id": "Q92769",
       "gene": "HDAC2",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 1.",
-      "rationale": "Phenyl offers a flat aromatic extension that can exploit π-hydrophobic surface complementarity with PHE206 and the hydrophobic wall near LEU272/CYS274. Literature on HDAC inhibitors supports cap-group aromatic growth at the channel rim to improve surface binding, and a single phenyl ring is still modest enough to fit an ~89 Å^3 subpocket if oriented tangentially rather than deeply inserted.",
+      "rationale": "Phenyl offers a flat aromatic extension that can exploit \u03c0-hydrophobic surface complementarity with PHE206 and the hydrophobic wall near LEU272/CYS274. Literature on HDAC inhibitors supports cap-group aromatic growth at the channel rim to improve surface binding, and a single phenyl ring is still modest enough to fit an ~89 \u00c5^3 subpocket if oriented tangentially rather than deeply inserted.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccccc1",
       "hotspot": 1,
@@ -731,9 +731,9 @@
       "docking_after": -7.2,
       "docking_improvement": 1.169388,
       "improvement_pct": 19.3909,
-      "tanimoto_similarity": 0.665209,
-      "SA_after": 3.109382,
-      "QED_after": 0.640724,
+      "tanimoto_similarity": 0.707317,
+      "SA_after": 2.139596,
+      "QED_after": 0.715742,
       "rank": 1
     },
     "candidate_2": {
@@ -752,9 +752,9 @@
       "docking_after": -6.417,
       "docking_improvement": 0.386388,
       "improvement_pct": 6.4071,
-      "tanimoto_similarity": 0.678381,
-      "SA_after": 3.105372,
-      "QED_after": 0.640724,
+      "tanimoto_similarity": 0.731707,
+      "SA_after": 2.121554,
+      "QED_after": 0.715742,
       "rank": 2
     },
     "candidate_3": {
@@ -773,9 +773,9 @@
       "docking_after": -6.274,
       "docking_improvement": 0.243388,
       "improvement_pct": 4.0359,
-      "tanimoto_similarity": 0.651444,
-      "SA_after": 3.159898,
-      "QED_after": 0.73006,
+      "tanimoto_similarity": 0.681818,
+      "SA_after": 2.366403,
+      "QED_after": 0.847948,
       "rank": 3
     }
   },
@@ -787,7 +787,7 @@
       "uniprot_id": "P26358",
       "gene": "DNMT1",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 1, into hotspot 1.",
-      "rationale": "Phenyl is a compact aromatic growth that can exploit the local π-rich environment around TRP1510 and the nucleobases through edge-to-face or offset π contacts, while still being small enough to fit an ~84 Å^3 cavity if projected into the groove channel. Literature on DNMT1 non-nucleoside inhibitors supports the importance of aromatic surface complementarity in the DNA-intercalative binding region, so phenyl is a reasonable conservative aromatic probe from the terminal carbon.",
+      "rationale": "Phenyl is a compact aromatic growth that can exploit the local \u03c0-rich environment around TRP1510 and the nucleobases through edge-to-face or offset \u03c0 contacts, while still being small enough to fit an ~84 \u00c5^3 cavity if projected into the groove channel. Literature on DNMT1 non-nucleoside inhibitors supports the importance of aromatic surface complementarity in the DNA-intercalative binding region, so phenyl is a reasonable conservative aromatic probe from the terminal carbon.",
       "attachment_atom_index": 1,
       "suggested_block": "*c1ccccc1",
       "hotspot": 1,
@@ -796,9 +796,9 @@
       "docking_after": -10.885,
       "docking_improvement": 2.226363,
       "improvement_pct": 25.7126,
-      "tanimoto_similarity": 0.637624,
-      "SA_after": 3.379826,
-      "QED_after": 0.618896,
+      "tanimoto_similarity": 0.65625,
+      "SA_after": 3.353751,
+      "QED_after": 0.683446,
       "rank": 1
     },
     "candidate_2": {
@@ -817,9 +817,9 @@
       "docking_after": -9.961,
       "docking_improvement": 1.302363,
       "improvement_pct": 15.0412,
-      "tanimoto_similarity": 0.621807,
-      "SA_after": 3.37947,
-      "QED_after": 0.624167,
+      "tanimoto_similarity": 0.626866,
+      "SA_after": 3.352218,
+      "QED_after": 0.691192,
       "rank": 2
     },
     "candidate_3": {
@@ -829,7 +829,7 @@
       "uniprot_id": "P26358",
       "gene": "DNMT1",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 0.",
-      "rationale": "Phenyl provides a compact aromatic extension that can exploit π/hydrophobic contacts with HIS1507 and especially TRP1510, while also complementing the nucleobase-rich local environment through edge-to-face aromatic interactions. A single phenyl ring is likely to fit the stated pocket volume better than larger bicyclic groups and offers a clear test of whether this vector opens into a lipophilic shelf.",
+      "rationale": "Phenyl provides a compact aromatic extension that can exploit \u03c0/hydrophobic contacts with HIS1507 and especially TRP1510, while also complementing the nucleobase-rich local environment through edge-to-face aromatic interactions. A single phenyl ring is likely to fit the stated pocket volume better than larger bicyclic groups and offers a clear test of whether this vector opens into a lipophilic shelf.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccccc1",
       "hotspot": 0,
@@ -838,9 +838,9 @@
       "docking_after": -9.493,
       "docking_improvement": 0.834363,
       "improvement_pct": 9.6362,
-      "tanimoto_similarity": 0.690473,
-      "SA_after": 3.311781,
-      "QED_after": 0.609165,
+      "tanimoto_similarity": 0.754098,
+      "SA_after": 3.048264,
+      "QED_after": 0.668992,
       "rank": 3
     }
   },
@@ -861,9 +861,9 @@
       "docking_after": -9.076,
       "docking_improvement": 1.210085,
       "improvement_pct": 15.3839,
-      "tanimoto_similarity": 0.681134,
-      "SA_after": 3.143148,
-      "QED_after": 0.605854,
+      "tanimoto_similarity": 0.736842,
+      "SA_after": 2.291211,
+      "QED_after": 0.664074,
       "rank": 1
     },
     "candidate_2": {
@@ -882,9 +882,9 @@
       "docking_after": -8.358,
       "docking_improvement": 0.492085,
       "improvement_pct": 6.2559,
-      "tanimoto_similarity": 0.681134,
-      "SA_after": 3.213733,
-      "QED_after": 0.714247,
+      "tanimoto_similarity": 0.736842,
+      "SA_after": 2.608131,
+      "QED_after": 0.824502,
       "rank": 2
     },
     "candidate_3": {
@@ -903,9 +903,9 @@
       "docking_after": -8.213,
       "docking_improvement": 0.347085,
       "improvement_pct": 4.4125,
-      "tanimoto_similarity": 0.674278,
-      "SA_after": 3.18353,
-      "QED_after": 0.718234,
+      "tanimoto_similarity": 0.724138,
+      "SA_after": 2.472527,
+      "QED_after": 0.830378,
       "rank": 3
     }
   },
@@ -926,9 +926,9 @@
       "docking_after": -12.127,
       "docking_improvement": 1.501247,
       "improvement_pct": 14.1284,
-      "tanimoto_similarity": 0.657112,
-      "SA_after": 3.358733,
-      "QED_after": 0.632344,
+      "tanimoto_similarity": 0.692308,
+      "SA_after": 3.259105,
+      "QED_after": 0.703332,
       "rank": 1
     },
     "candidate_2": {
@@ -947,9 +947,9 @@
       "docking_after": -11.672,
       "docking_improvement": 1.046247,
       "improvement_pct": 9.8463,
-      "tanimoto_similarity": 0.603615,
-      "SA_after": 3.450076,
-      "QED_after": 0.622208,
+      "tanimoto_similarity": 0.59322,
+      "SA_after": 3.669198,
+      "QED_after": 0.688345,
       "rank": 2
     },
     "candidate_3": {
@@ -959,7 +959,7 @@
       "uniprot_id": "O60341",
       "gene": "KDM1A",
       "modification": "Grew fragment c1ccncc1 from the parent's aromatic C at atom index 9, into hotspot 4.",
-      "rationale": "A 3-pyridyl fragment provides a flat aromatic extension for edge-to-face or π contacts with TYR761 while introducing a ring nitrogen that can act as a hydrogen-bond acceptor toward SER760, SER762, THR810 or a structured water network near GLU801/ARG316. Heteroaryl motifs are well precedented in reversible LSD1 inhibitor SAR, and this fragment should occupy the lipophilic/aromatic portion of the pocket without exceeding the available volume.",
+      "rationale": "A 3-pyridyl fragment provides a flat aromatic extension for edge-to-face or \u03c0 contacts with TYR761 while introducing a ring nitrogen that can act as a hydrogen-bond acceptor toward SER760, SER762, THR810 or a structured water network near GLU801/ARG316. Heteroaryl motifs are well precedented in reversible LSD1 inhibitor SAR, and this fragment should occupy the lipophilic/aromatic portion of the pocket without exceeding the available volume.",
       "attachment_atom_index": 9,
       "suggested_block": "*c1ccncc1",
       "hotspot": 4,
@@ -968,9 +968,9 @@
       "docking_after": -11.372,
       "docking_improvement": 0.746247,
       "improvement_pct": 7.023,
-      "tanimoto_similarity": 0.668988,
-      "SA_after": 3.348264,
-      "QED_after": 0.632344,
+      "tanimoto_similarity": 0.714286,
+      "SA_after": 3.212058,
+      "QED_after": 0.703332,
       "rank": 3
     }
   },
@@ -991,9 +991,9 @@
       "docking_after": -9.706,
       "docking_improvement": 0.746954,
       "improvement_pct": 8.3374,
-      "tanimoto_similarity": 0.607286,
-      "SA_after": 3.445154,
-      "QED_after": 0.607881,
+      "tanimoto_similarity": 0.6,
+      "SA_after": 3.647144,
+      "QED_after": 0.667107,
       "rank": 1
     },
     "candidate_2": {
@@ -1012,9 +1012,9 @@
       "docking_after": -9.548,
       "docking_improvement": 0.588954,
       "improvement_pct": 6.5739,
-      "tanimoto_similarity": 0.668988,
-      "SA_after": 3.42052,
-      "QED_after": 0.73702,
+      "tanimoto_similarity": 0.714286,
+      "SA_after": 3.53647,
+      "QED_after": 0.858186,
       "rank": 2
     },
     "candidate_3": {
@@ -1033,9 +1033,9 @@
       "docking_after": -9.314,
       "docking_improvement": 0.354954,
       "improvement_pct": 3.962,
-      "tanimoto_similarity": 0.668988,
-      "SA_after": 3.439363,
-      "QED_after": 0.672147,
+      "tanimoto_similarity": 0.714286,
+      "SA_after": 3.621119,
+      "QED_after": 0.762214,
       "rank": 3
     }
   },
@@ -1047,7 +1047,7 @@
       "uniprot_id": "P04818",
       "gene": "TYMS",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 11, into hotspot 3.",
-      "rationale": "Phenyl offers a clear aromatic growth vector for occupying the hydrophobic subpocket lined by Phe91, Trp109, Leu192, Cys195, Tyr135, and Phe225. This fragment can enhance shape complementarity and enable favorable edge-to-face or π-stacking interactions, especially with Phe225 and Trp109, while still being a common, synthetically accessible medicinal chemistry appendage likely to fit within the stated pocket volume if oriented along the lipophilic channel.",
+      "rationale": "Phenyl offers a clear aromatic growth vector for occupying the hydrophobic subpocket lined by Phe91, Trp109, Leu192, Cys195, Tyr135, and Phe225. This fragment can enhance shape complementarity and enable favorable edge-to-face or \u03c0-stacking interactions, especially with Phe225 and Trp109, while still being a common, synthetically accessible medicinal chemistry appendage likely to fit within the stated pocket volume if oriented along the lipophilic channel.",
       "attachment_atom_index": 11,
       "suggested_block": "*c1ccccc1",
       "hotspot": 3,
@@ -1056,9 +1056,9 @@
       "docking_after": -10.094,
       "docking_improvement": 1.984501,
       "improvement_pct": 24.4713,
-      "tanimoto_similarity": 0.68,
-      "SA_after": 3.223489,
-      "QED_after": 0.512193,
+      "tanimoto_similarity": 0.734694,
+      "SA_after": 2.651917,
+      "QED_after": 0.525542,
       "rank": 1
     },
     "candidate_2": {
@@ -1068,7 +1068,7 @@
       "uniprot_id": "P04818",
       "gene": "TYMS",
       "modification": "Grew fragment c1ccncc1 from the parent's aromatic C at atom index 14, into hotspot 0.",
-      "rationale": "A pyridyl group offers an aromatic surface for edge-to-face or π-hydrophobic contacts with TRP109 and PHE225 while introducing a ring nitrogen that can serve as a hydrogen-bond acceptor toward ASN112 or structured water near GLU87/ASN226. This is a conservative heteroaryl enlargement consistent with known antifolate SAR favoring heteroaromatic recognition in TYMS.",
+      "rationale": "A pyridyl group offers an aromatic surface for edge-to-face or \u03c0-hydrophobic contacts with TRP109 and PHE225 while introducing a ring nitrogen that can serve as a hydrogen-bond acceptor toward ASN112 or structured water near GLU87/ASN226. This is a conservative heteroaryl enlargement consistent with known antifolate SAR favoring heteroaromatic recognition in TYMS.",
       "attachment_atom_index": 14,
       "suggested_block": "*c1ccncc1",
       "hotspot": 0,
@@ -1077,9 +1077,9 @@
       "docking_after": -9.822,
       "docking_improvement": 1.712501,
       "improvement_pct": 21.1172,
-      "tanimoto_similarity": 0.667476,
-      "SA_after": 3.285498,
-      "QED_after": 0.537534,
+      "tanimoto_similarity": 0.711538,
+      "SA_after": 2.930346,
+      "QED_after": 0.562986,
       "rank": 2
     },
     "candidate_3": {
@@ -1098,9 +1098,9 @@
       "docking_after": -9.352,
       "docking_improvement": 1.242501,
       "improvement_pct": 15.3216,
-      "tanimoto_similarity": 0.68826,
-      "SA_after": 3.272535,
-      "QED_after": 0.538278,
+      "tanimoto_similarity": 0.75,
+      "SA_after": 2.872086,
+      "QED_after": 0.564062,
       "rank": 3
     }
   },
@@ -1112,7 +1112,7 @@
       "uniprot_id": "P04035",
       "gene": "HMGCR",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 0.",
-      "rationale": "A phenyl fragment provides a flat aromatic surface to exploit the lipophilic character of the statin hydrophobic groove, consistent with literature showing that larger hydrophobic/aromatic appendages in type 2 statins improve binding by occupying the expanded nonpolar region. From this attachment vector, phenyl could make favorable edge-to-face or general van der Waals contacts with Val683 and hydrophobic faces near Lys662/Ser661 while still fitting a ~93 Å^3 pocket if oriented partially solvent-exposed. It is commercially common and avoids adding problematic polarity or ionization.",
+      "rationale": "A phenyl fragment provides a flat aromatic surface to exploit the lipophilic character of the statin hydrophobic groove, consistent with literature showing that larger hydrophobic/aromatic appendages in type 2 statins improve binding by occupying the expanded nonpolar region. From this attachment vector, phenyl could make favorable edge-to-face or general van der Waals contacts with Val683 and hydrophobic faces near Lys662/Ser661 while still fitting a ~93 \u00c5^3 pocket if oriented partially solvent-exposed. It is commercially common and avoids adding problematic polarity or ionization.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccccc1",
       "hotspot": 0,
@@ -1121,9 +1121,9 @@
       "docking_after": -7.964,
       "docking_improvement": 0.636359,
       "improvement_pct": 8.6844,
-      "tanimoto_similarity": 0.68826,
-      "SA_after": 3.407801,
-      "QED_after": 0.492258,
+      "tanimoto_similarity": 0.75,
+      "SA_after": 3.47942,
+      "QED_after": 0.495986,
       "rank": 1
     },
     "candidate_2": {
@@ -1142,9 +1142,9 @@
       "docking_after": -7.636,
       "docking_improvement": 0.308359,
       "improvement_pct": 4.2082,
-      "tanimoto_similarity": 0.645937,
-      "SA_after": 3.43767,
-      "QED_after": 0.651739,
+      "tanimoto_similarity": 0.671642,
+      "SA_after": 3.613535,
+      "QED_after": 0.732011,
       "rank": 2
     },
     "candidate_3": {
@@ -1163,9 +1163,9 @@
       "docking_after": -7.533,
       "docking_improvement": 0.205359,
       "improvement_pct": 2.8025,
-      "tanimoto_similarity": 0.675196,
-      "SA_after": 3.422903,
-      "QED_after": 0.682283,
+      "tanimoto_similarity": 0.725806,
+      "SA_after": 3.547202,
+      "QED_after": 0.777183,
       "rank": 3
     }
   },
@@ -1177,7 +1177,7 @@
       "uniprot_id": "P49327",
       "gene": "FASN",
       "modification": "Grew fragment c1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 1.",
-      "rationale": "A phenyl growth explores whether the methyl projects into an aromatic subpocket bordered by PHE2370, PHE2423, TYR2347, and TYR2351. This fragment can strengthen hydrophobic and edge-to-face π contacts with the Tyr/Phe-rich wall, while remaining a common, synthetically accessible medicinal chemistry vector. Relative to larger bicyclic groups, phenyl is more likely to fit within the ~81.5 Å^3 space and keeps the modification conservative.",
+      "rationale": "A phenyl growth explores whether the methyl projects into an aromatic subpocket bordered by PHE2370, PHE2423, TYR2347, and TYR2351. This fragment can strengthen hydrophobic and edge-to-face \u03c0 contacts with the Tyr/Phe-rich wall, while remaining a common, synthetically accessible medicinal chemistry vector. Relative to larger bicyclic groups, phenyl is more likely to fit within the ~81.5 \u00c5^3 space and keeps the modification conservative.",
       "attachment_atom_index": 0,
       "suggested_block": "*c1ccccc1",
       "hotspot": 1,
@@ -1186,9 +1186,9 @@
       "docking_after": -12.228,
       "docking_improvement": 1.741153,
       "improvement_pct": 16.6032,
-      "tanimoto_similarity": 0.661268,
-      "SA_after": 3.202975,
-      "QED_after": 0.554969,
+      "tanimoto_similarity": 0.7,
+      "SA_after": 2.559799,
+      "QED_after": 0.5888,
       "rank": 1
     },
     "candidate_2": {
@@ -1207,9 +1207,9 @@
       "docking_after": -12.151,
       "docking_improvement": 1.664153,
       "improvement_pct": 15.869,
-      "tanimoto_similarity": 0.65776,
-      "SA_after": 3.388379,
-      "QED_after": 0.54882,
+      "tanimoto_similarity": 0.693548,
+      "SA_after": 3.392198,
+      "QED_after": 0.579678,
       "rank": 2
     },
     "candidate_3": {
@@ -1219,7 +1219,7 @@
       "uniprot_id": "P49327",
       "gene": "FASN",
       "modification": "Grew fragment C from the parent's aliphatic C at atom index 27, into hotspot 2.",
-      "rationale": "Methyl is the most conservative growth from the benzylic CH2 attachment atom, converting it to a small isobutyl-like branch while preserving high parent similarity. In the largely lipophilic local pocket defined by ILE2250, VAL2344, PHE2370, PHE2423, and LEU2427, this should improve van der Waals filling with minimal steric risk and comfortably fit the ~81.5 Å^3 space.",
+      "rationale": "Methyl is the most conservative growth from the benzylic CH2 attachment atom, converting it to a small isobutyl-like branch while preserving high parent similarity. In the largely lipophilic local pocket defined by ILE2250, VAL2344, PHE2370, PHE2423, and LEU2427, this should improve van der Waals filling with minimal steric risk and comfortably fit the ~81.5 \u00c5^3 space.",
       "attachment_atom_index": 27,
       "suggested_block": "*C",
       "hotspot": 2,
@@ -1228,9 +1228,9 @@
       "docking_after": -11.65,
       "docking_improvement": 1.163153,
       "improvement_pct": 11.0915,
-      "tanimoto_similarity": 0.683617,
-      "SA_after": 3.395818,
-      "QED_after": 0.740939,
+      "tanimoto_similarity": 0.741379,
+      "SA_after": 3.425591,
+      "QED_after": 0.863974,
       "rank": 3
     }
   },
@@ -1242,7 +1242,7 @@
       "uniprot_id": "O75874",
       "gene": "IDH1",
       "modification": "Grew fragment c1nccs1 from the parent's aliphatic C at atom index 9, into hotspot 1.",
-      "rationale": "A thiazolyl extension provides a compact aromatic heterocycle frequently used in medicinal chemistry and is synthetically accessible. It should fit the narrow pocket near GLY310–THR313, preserve aromatic character for hydrophobic contact with VAL312, and offer a ring nitrogen as an H-bond acceptor toward THR311/THR313 while avoiding excessive steric bulk.",
+      "rationale": "A thiazolyl extension provides a compact aromatic heterocycle frequently used in medicinal chemistry and is synthetically accessible. It should fit the narrow pocket near GLY310\u2013THR313, preserve aromatic character for hydrophobic contact with VAL312, and offer a ring nitrogen as an H-bond acceptor toward THR311/THR313 while avoiding excessive steric bulk.",
       "attachment_atom_index": 9,
       "suggested_block": "*c1nccs1",
       "hotspot": 1,
@@ -1251,9 +1251,9 @@
       "docking_after": -8.038,
       "docking_improvement": 0.973714,
       "improvement_pct": 13.7836,
-      "tanimoto_similarity": 0.593304,
-      "SA_after": 3.680963,
-      "QED_after": 0.569971,
+      "tanimoto_similarity": 0.574074,
+      "SA_after": 4.705797,
+      "QED_after": 0.61104,
       "rank": 1
     },
     "candidate_2": {
@@ -1272,9 +1272,9 @@
       "docking_after": -7.93,
       "docking_improvement": 0.865714,
       "improvement_pct": 12.2548,
-      "tanimoto_similarity": 0.618082,
-      "SA_after": 3.653968,
-      "QED_after": 0.574769,
+      "tanimoto_similarity": 0.62,
+      "SA_after": 4.584627,
+      "QED_after": 0.61813,
       "rank": 2
     },
     "candidate_3": {
@@ -1284,7 +1284,7 @@
       "uniprot_id": "O75874",
       "gene": "IDH1",
       "modification": "Grew fragment C(F)(F)F from the parent's aliphatic C at atom index 9, into hotspot 1.",
-      "rationale": "A trifluoromethyl cap is a compact hydrophobe that should fit comfortably within the ~85.6 Å^3 subpocket while preserving a conservative growth vector from the aryl C–H attachment site. It can strengthen van der Waals contact with VAL312 and the aliphatic portion of ARG314, and its strong inductive effect may improve complementarity without adding H-bond liabilities in this tight local environment.",
+      "rationale": "A trifluoromethyl cap is a compact hydrophobe that should fit comfortably within the ~85.6 \u00c5^3 subpocket while preserving a conservative growth vector from the aryl C\u2013H attachment site. It can strengthen van der Waals contact with VAL312 and the aliphatic portion of ARG314, and its strong inductive effect may improve complementarity without adding H-bond liabilities in this tight local environment.",
       "attachment_atom_index": 9,
       "suggested_block": "*C(F)(F)F",
       "hotspot": 1,
@@ -1293,9 +1293,9 @@
       "docking_after": -7.753,
       "docking_improvement": 0.688714,
       "improvement_pct": 9.7492,
-      "tanimoto_similarity": 0.639459,
-      "SA_after": 3.6727,
-      "QED_after": 0.678161,
+      "tanimoto_similarity": 0.659574,
+      "SA_after": 4.668691,
+      "QED_after": 0.77111,
       "rank": 3
     }
   },
@@ -1316,9 +1316,9 @@
       "docking_after": -9.93,
       "docking_improvement": 1.250151,
       "improvement_pct": 14.4029,
-      "tanimoto_similarity": 0.677031,
-      "SA_after": 3.469388,
-      "QED_after": 0.594569,
+      "tanimoto_similarity": 0.729167,
+      "SA_after": 3.755907,
+      "QED_after": 0.64739,
       "rank": 1
     },
     "candidate_2": {
@@ -1328,7 +1328,7 @@
       "uniprot_id": "P48735",
       "gene": "IDH2",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic C at atom index 9, into hotspot 1.",
-      "rationale": "A 3-pyridyl fragment adds a flat aromatic surface for lipophilic packing with B:TRP164, B:TRP306, B:LEU298, and B:LEU320 while introducing a ring nitrogen that can serve as a weak H-bond acceptor toward the polar rim near B:GLN316. Literature on mutant IDH2 allosteric inhibitors supports the importance of hydrophobic dimer-interface contacts involving Trp/Val/Leu/Ile residues, and this heteroaryl option probes added π-surface and directional polarity while remaining synthetically accessible and within a moderate fragment size.",
+      "rationale": "A 3-pyridyl fragment adds a flat aromatic surface for lipophilic packing with B:TRP164, B:TRP306, B:LEU298, and B:LEU320 while introducing a ring nitrogen that can serve as a weak H-bond acceptor toward the polar rim near B:GLN316. Literature on mutant IDH2 allosteric inhibitors supports the importance of hydrophobic dimer-interface contacts involving Trp/Val/Leu/Ile residues, and this heteroaryl option probes added \u03c0-surface and directional polarity while remaining synthetically accessible and within a moderate fragment size.",
       "attachment_atom_index": 9,
       "suggested_block": "*c1ccncc1",
       "hotspot": 1,
@@ -1337,9 +1337,9 @@
       "docking_after": -9.9,
       "docking_improvement": 1.220151,
       "improvement_pct": 14.0573,
-      "tanimoto_similarity": 0.625964,
-      "SA_after": 3.407066,
-      "QED_after": 0.628965,
+      "tanimoto_similarity": 0.634615,
+      "SA_after": 3.476117,
+      "QED_after": 0.698311,
       "rank": 2
     },
     "candidate_3": {
@@ -1358,9 +1358,9 @@
       "docking_after": -9.561,
       "docking_improvement": 0.881151,
       "improvement_pct": 10.1517,
-      "tanimoto_similarity": 0.661268,
-      "SA_after": 3.465334,
-      "QED_after": 0.584973,
+      "tanimoto_similarity": 0.7,
+      "SA_after": 3.737716,
+      "QED_after": 0.633245,
       "rank": 3
     }
   },
@@ -1372,7 +1372,7 @@
       "uniprot_id": "P00338",
       "gene": "LDHA",
       "modification": "Grew fragment C from the parent's aliphatic C at atom index 8, into hotspot 2.",
-      "rationale": "Methyl is the most conservative growth vector from the benzylic CH at atom 8, adding minimal steric demand and fitting easily within the 71.5 Å^3 subpocket. It can strengthen van der Waals contact with the hydrophobic face defined by TYR238 and ILE241 while preserving the parent pose near the catalytic region. This is a low-risk probe for whether the vector tolerates small lipophilic filling without disrupting known LDHA hinge/catalytic-site interactions.",
+      "rationale": "Methyl is the most conservative growth vector from the benzylic CH at atom 8, adding minimal steric demand and fitting easily within the 71.5 \u00c5^3 subpocket. It can strengthen van der Waals contact with the hydrophobic face defined by TYR238 and ILE241 while preserving the parent pose near the catalytic region. This is a low-risk probe for whether the vector tolerates small lipophilic filling without disrupting known LDHA hinge/catalytic-site interactions.",
       "attachment_atom_index": 8,
       "suggested_block": "*C",
       "hotspot": 2,
@@ -1381,9 +1381,9 @@
       "docking_after": -10.103,
       "docking_improvement": 0.754431,
       "improvement_pct": 8.07,
-      "tanimoto_similarity": 0.649068,
-      "SA_after": 3.316436,
-      "QED_after": 0.665997,
+      "tanimoto_similarity": 0.677419,
+      "SA_after": 3.069176,
+      "QED_after": 0.753096,
       "rank": 1
     },
     "candidate_2": {
@@ -1402,9 +1402,9 @@
       "docking_after": -9.843,
       "docking_improvement": 0.494431,
       "improvement_pct": 5.2888,
-      "tanimoto_similarity": 0.654035,
-      "SA_after": 3.471348,
-      "QED_after": 0.546995,
+      "tanimoto_similarity": 0.686567,
+      "SA_after": 3.764735,
+      "QED_after": 0.577032,
       "rank": 2
     },
     "candidate_3": {
@@ -1423,9 +1423,9 @@
       "docking_after": -9.578,
       "docking_improvement": 0.229431,
       "improvement_pct": 2.4542,
-      "tanimoto_similarity": 0.648582,
-      "SA_after": 3.480636,
-      "QED_after": 0.648765,
+      "tanimoto_similarity": 0.676471,
+      "SA_after": 3.806422,
+      "QED_after": 0.727585,
       "rank": 3
     }
   },
@@ -1446,9 +1446,9 @@
       "docking_after": -6.628,
       "docking_improvement": 0.941846,
       "improvement_pct": 16.5639,
-      "tanimoto_similarity": 0.576786,
-      "SA_after": 3.239748,
-      "QED_after": 0.666065,
+      "tanimoto_similarity": 0.543478,
+      "SA_after": 2.724942,
+      "QED_after": 0.753241,
       "rank": 1
     },
     "candidate_2": {
@@ -1467,9 +1467,9 @@
       "docking_after": -6.115,
       "docking_improvement": 0.428846,
       "improvement_pct": 7.5419,
-      "tanimoto_similarity": 0.597245,
-      "SA_after": 3.249014,
-      "QED_after": 0.671336,
+      "tanimoto_similarity": 0.581395,
+      "SA_after": 2.766542,
+      "QED_after": 0.760996,
       "rank": 2
     },
     "candidate_3": {
@@ -1479,7 +1479,7 @@
       "uniprot_id": "P00558",
       "gene": "PGK1",
       "modification": "Grew fragment C from the parent's aromatic C at atom index 6, into hotspot 1.",
-      "rationale": "Methyl is the most conservative growth vector from the aromatic C attachment site and should fit easily within the ~84.9 Å^3 subpocket. It can strengthen van der Waals contact with the local hydrophobic surface formed mainly by LEU63, GLY64/ARG65 backbone region, PRO66, and the aromatic face of TYR75, while preserving the parent hinge-like azaaryl recognition pattern and avoiding steric clash near ATP501.",
+      "rationale": "Methyl is the most conservative growth vector from the aromatic C attachment site and should fit easily within the ~84.9 \u00c5^3 subpocket. It can strengthen van der Waals contact with the local hydrophobic surface formed mainly by LEU63, GLY64/ARG65 backbone region, PRO66, and the aromatic face of TYR75, while preserving the parent hinge-like azaaryl recognition pattern and avoiding steric clash near ATP501.",
       "attachment_atom_index": 6,
       "suggested_block": "*C",
       "hotspot": 1,
@@ -1488,9 +1488,9 @@
       "docking_after": -6.053,
       "docking_improvement": 0.366846,
       "improvement_pct": 6.4516,
-      "tanimoto_similarity": 0.620781,
-      "SA_after": 3.225627,
-      "QED_after": 0.754522,
+      "tanimoto_similarity": 0.625,
+      "SA_after": 2.661548,
+      "QED_after": 0.884138,
       "rank": 3
     }
   },
@@ -1511,9 +1511,9 @@
       "docking_after": -8.097,
       "docking_improvement": 0.603827,
       "improvement_pct": 8.0584,
-      "tanimoto_similarity": 0.626935,
-      "SA_after": 3.38045,
-      "QED_after": 0.538075,
+      "tanimoto_similarity": 0.636364,
+      "SA_after": 3.356583,
+      "QED_after": 0.563804,
       "rank": 1
     },
     "candidate_2": {
@@ -1523,7 +1523,7 @@
       "uniprot_id": "P42574",
       "gene": "CASP3",
       "modification": "Grew fragment C from the parent's aromatic C at atom index 20, into hotspot 2.",
-      "rationale": "Methyl is the most conservative growth vector from the benzylic attachment carbon and should fit easily within the ~83 Å^3 local volume. It can strengthen van der Waals contact in the lipophilic patch defined by A:MET61 and A:PHE128 while minimally perturbing the parent pose; this is consistent with literature showing prime-site aryl/hydrophobic substituents are tolerated around Met61/Phe128 in 2XYG-like caspase-3 complexes.",
+      "rationale": "Methyl is the most conservative growth vector from the benzylic attachment carbon and should fit easily within the ~83 \u00c5^3 local volume. It can strengthen van der Waals contact in the lipophilic patch defined by A:MET61 and A:PHE128 while minimally perturbing the parent pose; this is consistent with literature showing prime-site aryl/hydrophobic substituents are tolerated around Met61/Phe128 in 2XYG-like caspase-3 complexes.",
       "attachment_atom_index": 20,
       "suggested_block": "*C",
       "hotspot": 2,
@@ -1532,9 +1532,9 @@
       "docking_after": -7.933,
       "docking_improvement": 0.439827,
       "improvement_pct": 5.8697,
-      "tanimoto_similarity": 0.734901,
-      "SA_after": 3.253357,
-      "QED_after": 0.682891,
+      "tanimoto_similarity": 0.836364,
+      "SA_after": 2.786037,
+      "QED_after": 0.778083,
       "rank": 2
     },
     "candidate_3": {
@@ -1553,9 +1553,9 @@
       "docking_after": -7.835,
       "docking_improvement": 0.341827,
       "improvement_pct": 4.5618,
-      "tanimoto_similarity": 0.626935,
-      "SA_after": 3.390718,
-      "QED_after": 0.538075,
+      "tanimoto_similarity": 0.636364,
+      "SA_after": 3.402697,
+      "QED_after": 0.563804,
       "rank": 3
     }
   },
@@ -1576,9 +1576,9 @@
       "docking_after": -5.151,
       "docking_improvement": 0.593772,
       "improvement_pct": 13.0292,
-      "tanimoto_similarity": 0.66224,
-      "SA_after": 3.386909,
-      "QED_after": 0.497124,
+      "tanimoto_similarity": 0.701754,
+      "SA_after": 3.385591,
+      "QED_after": 0.503183,
       "rank": 1
     },
     "candidate_2": {
@@ -1597,9 +1597,9 @@
       "docking_after": -5.141,
       "docking_improvement": 0.583772,
       "improvement_pct": 12.8098,
-      "tanimoto_similarity": 0.636706,
-      "SA_after": 3.40798,
-      "QED_after": 0.506855,
+      "tanimoto_similarity": 0.654545,
+      "SA_after": 3.480151,
+      "QED_after": 0.517567,
       "rank": 2
     },
     "candidate_3": {
@@ -1618,9 +1618,9 @@
       "docking_after": -5.033,
       "docking_improvement": 0.475772,
       "improvement_pct": 10.44,
-      "tanimoto_similarity": 0.66224,
-      "SA_after": 3.373344,
-      "QED_after": 0.446509,
+      "tanimoto_similarity": 0.701754,
+      "SA_after": 3.32473,
+      "QED_after": 0.428313,
       "rank": 3
     }
   },
@@ -1641,9 +1641,9 @@
       "docking_after": -5.435,
       "docking_improvement": 0.719029,
       "improvement_pct": 15.2467,
-      "tanimoto_similarity": 0.647449,
-      "SA_after": 3.194533,
-      "QED_after": 0.488406,
+      "tanimoto_similarity": 0.674419,
+      "SA_after": 2.521914,
+      "QED_after": 0.490282,
       "rank": 1
     },
     "candidate_2": {
@@ -1653,7 +1653,7 @@
       "uniprot_id": "P08253",
       "gene": "MMP2",
       "modification": "Grew fragment c1ccncc1 from the parent's aliphatic C at atom index 4, into hotspot 4.",
-      "rationale": "A pyridyl fragment offers an aromatic growth option that is slightly more polar than phenyl and can accept a hydrogen bond from nearby donor-capable environments while also making hydrophobic/π contact with B:TRP68. The single ring is volume-appropriate for the ~85.9 Å^3 cavity and should be less lipophilic than a phenyl analogue, helping stay within drug-like space. This is a conservative aryl extension from the attachment carbon that retains strong scaffold similarity while probing a directional heteroatom toward the Asp/Glu/Lys-rich local pocket. ([sciencedirect.com](https://www.sciencedirect.com/science/article/pii/S0167488909002080?utm_source=openai))",
+      "rationale": "A pyridyl fragment offers an aromatic growth option that is slightly more polar than phenyl and can accept a hydrogen bond from nearby donor-capable environments while also making hydrophobic/\u03c0 contact with B:TRP68. The single ring is volume-appropriate for the ~85.9 \u00c5^3 cavity and should be less lipophilic than a phenyl analogue, helping stay within drug-like space. This is a conservative aryl extension from the attachment carbon that retains strong scaffold similarity while probing a directional heteroatom toward the Asp/Glu/Lys-rich local pocket. ([sciencedirect.com](https://www.sciencedirect.com/science/article/pii/S0167488909002080?utm_source=openai))",
       "attachment_atom_index": 4,
       "suggested_block": "*c1ccncc1",
       "hotspot": 4,
@@ -1662,9 +1662,9 @@
       "docking_after": -5.263,
       "docking_improvement": 0.547029,
       "improvement_pct": 11.5995,
-      "tanimoto_similarity": 0.542507,
-      "SA_after": 3.313763,
-      "QED_after": 0.583959,
+      "tanimoto_similarity": 0.48,
+      "SA_after": 3.057184,
+      "QED_after": 0.631678,
       "rank": 2
     },
     "candidate_3": {
@@ -1683,9 +1683,9 @@
       "docking_after": -5.259,
       "docking_improvement": 0.543029,
       "improvement_pct": 11.5147,
-      "tanimoto_similarity": 0.575814,
-      "SA_after": 3.356595,
-      "QED_after": 0.58004,
+      "tanimoto_similarity": 0.541667,
+      "SA_after": 3.24951,
+      "QED_after": 0.625919,
       "rank": 3
     }
   },
@@ -1697,7 +1697,7 @@
       "uniprot_id": "P14780",
       "gene": "MMP9",
       "modification": "Grew fragment Cc1ccccc1 from the parent's aliphatic C at atom index 0, into hotspot 0.",
-      "rationale": "Benzyl introduces an aromatic extension that can exploit hydrophobic and edge-to-face π contacts with PHE181 and pack against LEU187, LEU188, and PRO246. The benzylic spacer gives rotational freedom to place the phenyl ring into the local cavity without forcing direct approach to ZN301, and the overall change remains a recognizable, conservative aryl-growth motif from anisole-like scaffolds.",
+      "rationale": "Benzyl introduces an aromatic extension that can exploit hydrophobic and edge-to-face \u03c0 contacts with PHE181 and pack against LEU187, LEU188, and PRO246. The benzylic spacer gives rotational freedom to place the phenyl ring into the local cavity without forcing direct approach to ZN301, and the overall change remains a recognizable, conservative aryl-growth motif from anisole-like scaffolds.",
       "attachment_atom_index": 0,
       "suggested_block": "*Cc1ccccc1",
       "hotspot": 0,
@@ -1706,9 +1706,9 @@
       "docking_after": -10.027,
       "docking_improvement": 0.748289,
       "improvement_pct": 8.0646,
-      "tanimoto_similarity": 0.626935,
-      "SA_after": 3.013628,
-      "QED_after": 0.573215,
+      "tanimoto_similarity": 0.636364,
+      "SA_after": 1.709688,
+      "QED_after": 0.615825,
       "rank": 1
     },
     "candidate_2": {
@@ -1727,9 +1727,9 @@
       "docking_after": -9.605,
       "docking_improvement": 0.326289,
       "improvement_pct": 3.5165,
-      "tanimoto_similarity": 0.626935,
-      "SA_after": 3.010331,
-      "QED_after": 0.74121,
+      "tanimoto_similarity": 0.636364,
+      "SA_after": 1.694887,
+      "QED_after": 0.864416,
       "rank": 2
     },
     "candidate_3": {
@@ -1748,9 +1748,9 @@
       "docking_after": -9.571,
       "docking_improvement": 0.292289,
       "improvement_pct": 3.1501,
-      "tanimoto_similarity": 0.626935,
-      "SA_after": 3.014653,
-      "QED_after": 0.74121,
+      "tanimoto_similarity": 0.636364,
+      "SA_after": 1.714276,
+      "QED_after": 0.864416,
       "rank": 3
     }
   },
@@ -1771,9 +1771,9 @@
       "docking_after": -8.575,
       "docking_improvement": 0.523991,
       "improvement_pct": 6.5084,
-      "tanimoto_similarity": 0.650472,
-      "SA_after": 3.147024,
-      "QED_after": 0.619843,
+      "tanimoto_similarity": 0.68,
+      "SA_after": 2.30857,
+      "QED_after": 0.684779,
       "rank": 1
     },
     "candidate_2": {
@@ -1792,9 +1792,9 @@
       "docking_after": -8.513,
       "docking_improvement": 0.461991,
       "improvement_pct": 5.7383,
-      "tanimoto_similarity": 0.662402,
-      "SA_after": 3.136756,
-      "QED_after": 0.619843,
+      "tanimoto_similarity": 0.702128,
+      "SA_after": 2.262454,
+      "QED_after": 0.684779,
       "rank": 2
     },
     "candidate_3": {
@@ -1813,9 +1813,9 @@
       "docking_after": -8.499,
       "docking_improvement": 0.447991,
       "improvement_pct": 5.5644,
-      "tanimoto_similarity": 0.68826,
-      "SA_after": 3.124015,
-      "QED_after": 0.681878,
+      "tanimoto_similarity": 0.75,
+      "SA_after": 2.205278,
+      "QED_after": 0.776624,
       "rank": 3
     }
   },
@@ -1827,7 +1827,7 @@
       "uniprot_id": "P08238",
       "gene": "HSP90AB1",
       "modification": "Grew fragment C from the parent's aliphatic O at atom index 21, into hotspot 4.",
-      "rationale": "Methyl ether growth from the phenolic oxygen is the most conservative extension and should fit easily within the ~64.5 Å^3 local volume. In Hsp90 resorcinol-series SAR, the dihydroxy/isosteric donor-acceptor pattern around Asp93/Asn46 is critical, so a very small substituent is preferred at this position to avoid disrupting the core anchoring network while adding a modest hydrophobic contact toward Ala47, Ile44, Leu43, and Met93.",
+      "rationale": "Methyl ether growth from the phenolic oxygen is the most conservative extension and should fit easily within the ~64.5 \u00c5^3 local volume. In Hsp90 resorcinol-series SAR, the dihydroxy/isosteric donor-acceptor pattern around Asp93/Asn46 is critical, so a very small substituent is preferred at this position to avoid disrupting the core anchoring network while adding a modest hydrophobic contact toward Ala47, Ile44, Leu43, and Met93.",
       "attachment_atom_index": 21,
       "suggested_block": "*C",
       "hotspot": 4,
@@ -1836,9 +1836,9 @@
       "docking_after": -9.539,
       "docking_improvement": 0.798585,
       "improvement_pct": 9.1367,
-      "tanimoto_similarity": 0.685129,
-      "SA_after": 3.11515,
-      "QED_after": 0.792568,
+      "tanimoto_similarity": 0.744186,
+      "SA_after": 2.165461,
+      "QED_after": 0.940439,
       "rank": 1
     },
     "candidate_2": {
@@ -1857,9 +1857,9 @@
       "docking_after": -9.426,
       "docking_improvement": 0.685585,
       "improvement_pct": 7.8439,
-      "tanimoto_similarity": 0.619486,
-      "SA_after": 3.227787,
-      "QED_after": 0.719923,
+      "tanimoto_similarity": 0.622642,
+      "SA_after": 2.671174,
+      "QED_after": 0.832933,
       "rank": 2
     },
     "candidate_3": {
@@ -1878,9 +1878,9 @@
       "docking_after": -9.418,
       "docking_improvement": 0.677585,
       "improvement_pct": 7.7523,
-      "tanimoto_similarity": 0.635951,
-      "SA_after": 3.277212,
-      "QED_after": 0.646332,
+      "tanimoto_similarity": 0.653061,
+      "SA_after": 2.893053,
+      "QED_after": 0.724027,
       "rank": 3
     }
   },
@@ -1901,9 +1901,9 @@
       "docking_after": -11.025,
       "docking_improvement": 0.827221,
       "improvement_pct": 8.1118,
-      "tanimoto_similarity": 0.667692,
-      "SA_after": 3.292002,
-      "QED_after": 0.652009,
+      "tanimoto_similarity": 0.711864,
+      "SA_after": 2.959492,
+      "QED_after": 0.732372,
       "rank": 1
     },
     "candidate_2": {
@@ -1922,9 +1922,9 @@
       "docking_after": -10.991,
       "docking_improvement": 0.793221,
       "improvement_pct": 7.7784,
-      "tanimoto_similarity": 0.685992,
-      "SA_after": 3.285364,
-      "QED_after": 0.652009,
+      "tanimoto_similarity": 0.745763,
+      "SA_after": 2.929718,
+      "QED_after": 0.732372,
       "rank": 2
     },
     "candidate_3": {
@@ -1943,9 +1943,9 @@
       "docking_after": -10.855,
       "docking_improvement": 0.657221,
       "improvement_pct": 6.4447,
-      "tanimoto_similarity": 0.658515,
-      "SA_after": 3.333386,
-      "QED_after": 0.618491,
+      "tanimoto_similarity": 0.694915,
+      "SA_after": 3.14526,
+      "QED_after": 0.682843,
       "rank": 3
     }
   }

@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en" data-palette="nordic">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPR15 de novo run</title>
+<style>
+/* =====================================================================
+   House style: elegant & timeless
+   Paste this whole file into the page's <style> so the page is self-contained.
+   ===================================================================== */
+:root{
+  /* base */
+  --bg:#F0F4F8;          /* light cold grey page background */
+  --surface:#FFFFFF;     /* tables, figures, the few boxes we allow */
+  --text:#2E3338;        /* all text: dark cool grey, never pure black */
+  --muted:#5E6A75;       /* captions, metadata */
+  --rule:#D5DEE7;        /* hairlines and borders */
+
+  /* accent colours live only in the palettes below; components use --c1…--c4 */
+
+  /* ===== THE PAGE'S 4 COLOURS: default palette = glacier. Pick another with <html data-palette="lagoon|nordic|ink_sage|dusk">. ===== */
+  --c1:#2D6A9F; --c1-soft:#E2EAF2; --c1-deep:#225077; --c2:#6FB1C8; --c2-soft:#E5F1F5; --c2-deep:#456E7C; --c3:#B9DCDD; --c3-soft:#EAF4F5; --c3-deep:#596A6A; --c4:#E8836B; --c4-soft:#FBE9E4; --c4-deep:#995647;
+
+  --body-font:Calibri,Carlito,"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --title-font:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --radius:8px;
+  --maxw:1120px;
+}
+/* ===== PALETTES: one per page, chosen with <html data-palette="..."> (default glacier; "cool" is an alias of glacier) =====
+   glacier = steel blue, sky, ice, coral · lagoon = petrol, blue, teal, apricot · nordic = slate blue, sage, pale sage, amber
+   ink_sage = indigo, sage, teal, ochre · dusk = slate indigo, lavender, teal, peach */
+:root[data-palette="glacier"],:root[data-palette="cool"]{--c1:#2D6A9F; --c1-soft:#E2EAF2; --c1-deep:#225077; --c2:#6FB1C8; --c2-soft:#E5F1F5; --c2-deep:#456E7C; --c3:#B9DCDD; --c3-soft:#EAF4F5; --c3-deep:#596A6A; --c4:#E8836B; --c4-soft:#FBE9E4; --c4-deep:#995647;}
+:root[data-palette="lagoon"]{--c1:#1F6F8B; --c1-soft:#E0EBEF; --c1-deep:#175368; --c2:#67A2C5; --c2-soft:#E4EEF5; --c2-deep:#456D84; --c3:#9BCEC1; --c3-soft:#E1F0EC; --c3-deep:#526D66; --c4:#F2A65A; --c4-soft:#FDEFE1; --c4-deep:#8A5F33;}
+:root[data-palette="nordic"]{--c1:#3E6A8A; --c1-soft:#E4EAEF; --c1-deep:#2E5068; --c2:#5E9C95; --c2-soft:#E2EDEC; --c2-deep:#44706B; --c3:#A9C9B8; --c3-soft:#E5EFEA; --c3-deep:#5A6B62; --c4:#E3A857; --c4-soft:#FAEFE1; --c4-deep:#846132;}
+:root[data-palette="ink_sage"]{--c1:#2E4A7D; --c1-soft:#E2E6ED; --c1-deep:#22385E; --c2:#5F8B7E; --c2-soft:#E2EAE8; --c2-deep:#47685E; --c3:#9BCEC1; --c3-soft:#E1F0EC; --c3-deep:#526D66; --c4:#D9A441; --c4-soft:#F8EFDD; --c4-deep:#826227;}
+:root[data-palette="dusk"]{--c1:#4A5D8C; --c1-soft:#E6E8EF; --c1-deep:#384669; --c2:#8F82C4; --c2-soft:#EBE9F4; --c2-deep:#6B6293; --c3:#9BCEC1; --c3-soft:#E1F0EC; --c3-deep:#526D66; --c4:#F4A98A; --c4-soft:#FDF0EA; --c4-deep:#865D4C;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body-font);font-weight:400;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--title-font);font-weight:700;color:var(--text);line-height:1.25}
+h1{font-size:1.9rem;margin:0 0 .4rem}
+h2{font-size:1.4rem;margin:2.4rem 0 .8rem;padding-bottom:.35rem;border-bottom:1px solid var(--rule)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}
+h4{font-size:1rem;margin:1.3rem 0 .3rem}
+p{margin:.6rem 0}
+a{color:var(--c1-deep);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--c1-deep)}
+code{font-size:.92em;background:#E6EBF0;padding:.05rem .3rem;border-radius:4px}
+.lede{font-size:1.08rem;font-style:italic}
+.subtitle{font-style:italic;font-size:1.05rem;color:var(--muted);margin:-.1rem 0 .8rem}
+.meta{color:var(--muted);font-size:.93rem}
+
+/* ---------- header with top-right tabs ---------- */
+header.site{position:sticky;top:0;z-index:20;background:rgba(240,244,248,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.bar{max-width:var(--maxw);margin:0 auto;padding:.7rem 24px;display:flex;align-items:center;gap:1.5rem;justify-content:space-between;flex-wrap:wrap}
+.brand{font-family:var(--title-font);font-weight:700;font-size:1.05rem}
+.brand small{display:block;font-style:italic;font-family:var(--body-font);font-weight:400;font-size:.8rem;color:var(--muted)}
+nav.tabs{display:flex;gap:.25rem;flex-wrap:wrap;justify-content:flex-end;margin-left:auto}
+nav.tabs a{font-family:var(--title-font);font-weight:600;font-size:.88rem;color:var(--text);border:0;border-bottom:2px solid transparent;padding:.45rem .7rem;border-radius:6px 6px 0 0}
+nav.tabs a:hover{background:var(--surface)}
+nav.tabs a.active{border-bottom-color:var(--c1);color:var(--c1-deep)}
+
+main{max-width:var(--maxw);margin:0 auto;padding:1.6rem 24px 4rem}
+section.panel{display:none}
+section.panel.shown{display:block}
+footer{max-width:var(--maxw);margin:0 auto;padding:1.5rem 24px 3rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule)}
+
+/* ---------- the few boxes we allow ---------- */
+/* key-message callout: at most one per section */
+.callout{background:var(--c4-soft);border-left:4px solid var(--c4);border-radius:var(--radius);padding:.9rem 1.2rem;margin:1rem 0 1.4rem}
+.callout .label{font-family:var(--title-font);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c4-deep)}
+/* warning that changes how something should be read */
+.caveat{background:var(--c3-soft);border-left:4px solid var(--c3);border-radius:var(--radius);padding:.7rem 1.1rem;margin:1rem 0;font-size:.95rem}
+
+/* ---------- tables ---------- */
+.table-wrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--rule);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{padding:.55rem .8rem;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--title-font);font-weight:700;font-size:.82rem;background:#F7F9FB}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.highlight td{background:var(--c3-soft)}
+
+/* ---------- plain lists that replace cards ---------- */
+ul.plain{list-style:none;padding:0;margin:.4rem 0 1rem}
+ul.plain li{padding:.4rem 0;border-bottom:1px solid var(--rule)}
+ul.plain li:last-child{border-bottom:0}
+/* grouped list: one full-width box per group, thin left edge in the group's category colour (.c1–.c6, all from the page's 4 colours) */
+.group-box{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c,var(--c1));border-radius:10px;padding:.9rem 1.3rem .5rem;margin:1rem 0}
+.group-box>h3{margin:0 0 .3rem}
+.group-box ul.plain{margin:0}
+dl.defs{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem;margin:.6rem 0}
+dl.defs dt{font-family:var(--title-font);font-weight:700}
+dl.defs dd{margin:0}
+
+/* ---------- tags & chips (categorical colours) ---------- */
+/* categories use the same 4 colours; more than 4 categories reuse them as deep shades */
+.c1{--c:var(--c1);--c-soft:var(--c1-soft)}
+.c2{--c:var(--c2);--c-soft:var(--c2-soft)}
+.c3{--c:var(--c3-deep);--c-soft:var(--c3-soft)}
+.c4{--c:var(--c4);--c-soft:var(--c4-soft)}
+.c5{--c:var(--c1-deep);--c-soft:var(--c1-soft)}
+.c6{--c:var(--c4-deep);--c-soft:var(--c4-soft)}
+.tag{display:inline-block;white-space:nowrap;font-family:var(--title-font);font-size:.75rem;font-weight:600;padding:.1rem .55rem;border-radius:999px;background:var(--c-soft,#ECEFF2);border:1px solid var(--c,#8A96A3);color:var(--text)}
+
+/* ---------- step flow (diagram boxes) ---------- */
+/* one full-width box; steps inside are plain text separated by arrows (no small boxes) */
+.flow{display:flex;align-items:center;gap:.5rem 1rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:.8rem 1.2rem;margin:.8rem 0}
+.flow .step{flex:1 1 150px;background:none;border:0;padding:0}
+.flow .step b{font-family:var(--title-font);display:block;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c1-deep)}
+.flow .arrow{align-self:center;color:var(--c1);font-size:1.3rem}
+
+/* numbers inside KaTeX math use the sans body font (digits, upright text like softmax, upright Greek);
+   italic variables, blackboard/calligraphic letters and operators keep KaTeX's math fonts */
+.katex .mord:not(.mathnormal):not(.mathit):not(.mathbf):not(.boldsymbol):not(.mathbb):not(.mathcal):not(.mathscr):not(.mathfrak):not(.accent),
+.katex .mord.mathrm,.katex .mop:not(.op-symbol),.katex .text{font-family:var(--body-font)}
+
+/* ---------- figures ---------- */
+figure.fig{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1rem;margin:1.2rem 0;text-align:center}
+figure.fig svg{max-width:100%;height:auto}
+figure.fig svg text:not([fill]){fill:var(--text)}
+/* SVG figure classes: use these instead of hex colours so figures follow the page palette */
+figure.fig svg .f1{fill:color-mix(in srgb,var(--c1) 16%,#FFFFFF)} figure.fig svg .f2{fill:color-mix(in srgb,var(--c2) 22%,#FFFFFF)}
+figure.fig svg .f3{fill:color-mix(in srgb,var(--c3) 30%,#FFFFFF)} figure.fig svg .fhl{fill:color-mix(in srgb,var(--c4) 45%,#FFFFFF)}
+figure.fig svg .ln{stroke:var(--c1-deep)} figure.fig svg .ah{fill:var(--c1-deep)} figure.fig svg .lnhl{stroke:var(--c4-deep)}
+figure.fig figcaption{font-size:.9rem;color:var(--muted);margin-top:.5rem;text-align:left}
+
+/* ---------- buttons & form controls ---------- */
+button,.btn{font-family:var(--title-font);font-weight:600;font-size:.9rem;color:var(--text);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:.4rem 1rem;cursor:pointer}
+button:hover,.btn:hover{border-color:var(--c1)}
+.btn.primary{background:var(--c1);border-color:var(--c1);color:#fff}
+input,select,textarea{font-family:var(--body-font);font-size:1rem;color:var(--text);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:.45rem .6rem}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--c1);outline-offset:1px}
+
+@media (max-width:720px){
+  body{font-size:16px}
+  .bar,main,footer{padding-left:16px;padding-right:16px}
+  nav.tabs{justify-content:flex-start;margin-left:0}
+}
+section.panel{scroll-margin-top:90px}
+.smi{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;word-break:break-all;line-height:1.45}
+td .smi{display:block;max-width:34ch}
+.k{font-family:var(--title-font);font-weight:700;font-size:1.5rem;font-variant-numeric:tabular-nums}
+figure.fig svg .s1{stroke:var(--c1);fill:none;stroke-width:2.5}
+figure.fig svg .s2{stroke:var(--c2);fill:none;stroke-width:2.5}
+figure.fig svg .s3{stroke:var(--c4);fill:none;stroke-width:2.5}
+figure.fig svg .d1{fill:var(--c1)} figure.fig svg .d2{fill:var(--c2)} figure.fig svg .d3{fill:var(--c4)}
+figure.fig svg .b1{fill:var(--c1)} figure.fig svg .b2{fill:var(--c2)} figure.fig svg .b4{fill:var(--c4)}
+figure.fig svg .grid{stroke:var(--rule);stroke-width:1}
+figure.fig svg .axis{stroke:var(--rule);stroke-width:1.5}
+figure.fig svg text{font-family:var(--body-font);font-size:12px}
+figure.fig svg text.lab{font-size:12.5px;font-weight:600;font-family:var(--title-font)}
+figure.fig svg .dash{stroke-dasharray:4 4}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <div class="brand">GPR15 de novo run<small>MolLingo, inflammatory bowel disease</small></div>
+    <nav class="tabs">
+      <a href="#overview">Overview</a>
+      <a href="#hits">Hits</a>
+      <a href="#leads">Leads</a>
+      <a href="#optimization">Optimization</a>
+      <a href="#traces">Traces</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="panel" id="overview">
+  <h1>GPR15 de novo design run</h1>
+  <p class="lede">GPR15 is an orphan receptor with a single binder in ChEMBL, too few to seed a similarity screen. This run therefore took the de novo route: DrugCLIP retrieved hits against the pocket, fragment growing turned the best hit into leads, and block level editing optimized the three strongest binders against predicted liver injury.</p>
+
+  <div class="callout">
+    <div class="label">Largest DILI reduction</div>
+    <p>Predicted DILI falls from <b>0.541</b> to <b>0.412</b>, the largest reduction in the run that does not wreck another endpoint, and mutagenicity falls tenfold to <b>0.028</b>. Binding improves from −10.0 to <b>−10.3 kcal/mol</b>, the only candidate to gain on its lead.</p>
+    <p class="smi">CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2</p>
+  </div>
+
+  <div class="flow">
+    <div class="step"><b>ChEMBL</b>1 known binder, below the 5 needed to screen</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>DrugCLIP</b>5 hits, score 0.769–0.791</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Fragment growing</b>15 leads from the best hit</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Block editing</b>7 candidates over 2 iterations</div>
+  </div>
+
+  <h2>The run</h2>
+  <dl class="defs">
+    <dt>Request</dt><dd>Design a drug targeting the orphan receptor GPR15 for inflammatory bowel disease, avoiding liver injury</dd>
+    <dt>Target</dt><dd>GPR15, UniProt P49685</dd>
+    <dt>Objective</dt><dd>DILI, reported as a score of 1 − p(DILI), so higher is better</dd>
+    <dt>Brain penetration</dt><dd>Not wanted, as the target tissue is the gut</dd>
+    <dt>Search budget</dt><dd>18 modifications × 2 iterations, set by the orchestrator</dd>
+    <dt>Leads optimized</dt><dd>3 of 15, the strongest binders</dd>
+  </dl>
+
+  <h2>How the three leads moved</h2>
+  <p>Each lead was edited one block at a time, and the best improvement carried into the next iteration. Lead A gained the most in a single step but had nothing left to give in iteration 2, so it stopped early. Lead C started lowest and finished highest.</p>
+
+  <figure class="fig">
+  <svg viewBox="0 0 680 300" role="img" aria-label="DILI score across iterations for the three optimized leads">
+    <line class="grid" x1="70" y1="40" x2="640" y2="40"/>
+    <line class="grid" x1="70" y1="80.4" x2="640" y2="80.4"/>
+    <line class="grid" x1="70" y1="120.8" x2="640" y2="120.8"/>
+    <line class="grid" x1="70" y1="161.2" x2="640" y2="161.2"/>
+    <line class="grid" x1="70" y1="201.5" x2="640" y2="201.5"/>
+    <line class="grid" x1="70" y1="241.9" x2="640" y2="241.9"/>
+    <text x="60" y="44" text-anchor="end">0.70</text>
+    <text x="60" y="84.4" text-anchor="end">0.65</text>
+    <text x="60" y="124.8" text-anchor="end">0.60</text>
+    <text x="60" y="165.2" text-anchor="end">0.55</text>
+    <text x="60" y="205.5" text-anchor="end">0.50</text>
+    <text x="60" y="245.9" text-anchor="end">0.45</text>
+    <line class="axis" x1="70" y1="258" x2="640" y2="258"/>
+    <text x="90" y="278" text-anchor="middle">lead</text>
+    <text x="330" y="278" text-anchor="middle">iteration 1</text>
+    <text x="570" y="278" text-anchor="middle">iteration 2</text>
+
+    <polyline class="s1" points="90,234.7 330,130.5"/>
+    <polyline class="s1 dash" points="330,130.5 570,130.5"/>
+    <circle class="d1" cx="90" cy="234.7" r="4.5"/>
+    <circle class="d1" cx="330" cy="130.5" r="4.5"/>
+    <text class="lab" x="344" y="126">A  0.588, stopped</text>
+
+    <polyline class="s2" points="90,222.5 330,207.2 570,145"/>
+    <circle class="d2" cx="90" cy="222.5" r="4.5"/>
+    <circle class="d2" cx="330" cy="207.2" r="4.5"/>
+    <circle class="d2" cx="570" cy="145" r="4.5"/>
+    <text class="lab" x="570" y="136" text-anchor="end">B  0.570</text>
+
+    <polyline class="s3" points="90,216.9 330,203.2 570,48.9"/>
+    <circle class="d3" cx="90" cy="216.9" r="4.5"/>
+    <circle class="d3" cx="330" cy="203.2" r="4.5"/>
+    <circle class="d3" cx="570" cy="48.9" r="6"/>
+    <text class="lab" x="570" y="36" text-anchor="end">C  0.689</text>
+  </svg>
+  <figcaption>DILI score (1 − p(DILI)) for the three optimized leads. Lead A reached 0.588 in one step and found no improvement in iteration 2 (dashed). Lead C, the weakest starting point, produced the winning candidate at 0.689.</figcaption>
+  </figure>
+
+  <h2>What each stage returned</h2>
+  <ul class="plain">
+    <li><b>Hits</b> <span class="meta">(stage 1)</span>: 5 molecules from the DrugCLIP screen, 3 of them with a favorable predicted DILI profile. Only the best scoring hit was carried forward.</li>
+    <li><b>Leads</b> <span class="meta">(stage 3)</span>: 15 valid leads from 15 fragment proposals, binding from −7.7 to −10.0 kcal/mol against the hit's −8.1.</li>
+    <li><b>Candidates</b> <span class="meta">(stage 4)</span>: 7 molecules that beat their parent, out of 81 enumerated across six iterations. One was rejected for losing more than 1.0 kcal/mol of binding.</li>
+  </ul>
+</section>
+
+<section class="panel" id="hits">
+  <h1>Hits from the pocket screen</h1>
+  <p class="subtitle">Stage 1, de novo route</p>
+  <p>With one ChEMBL binder available, the screen supplied the hits. DrugCLIP ranked its library against a pocket taken from the predicted GPR15 structure and returned five molecules scoring 0.769 to 0.791, which entered the pipeline in place of known binders.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Hit</th><th>Source</th><th class="num">Docking</th><th class="num">DILI</th>
+      <th class="num">AMES</th><th class="num">hERG</th><th class="num">BBBP</th>
+      <th class="num">Pgp</th><th class="num">HIA</th><th class="num">QED</th><th class="num">SA</th>
+    </tr></thead>
+    <tbody>
+      <tr class="highlight">
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO</span></td>
+        <td><span class="tag c1">DrugCLIP</span></td>
+        <td class="num"><b>−8.1</b></td><td class="num">0.403</td><td class="num">0.119</td>
+        <td class="num">0.657</td><td class="num">0.990</td><td class="num">0.465</td>
+        <td class="num">0.989</td><td class="num">0.840</td><td class="num">2.11</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CO[C@@]12CC[C@H](OCCO)C[C@@H]1N(Cc1ccccc1C(F)(F)F)CC2</span></td>
+        <td><span class="tag c1">DrugCLIP</span></td>
+        <td class="num">n/a</td><td class="num">0.357</td><td class="num">0.069</td>
+        <td class="num">0.673</td><td class="num">0.998</td><td class="num">0.476</td>
+        <td class="num">0.666</td><td class="num">0.831</td><td class="num">3.85</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CCOC(=O)Nc1ccc2c(c1)N(CCCN(C)C)c1ccccc1CC2</span></td>
+        <td><span class="tag c1">DrugCLIP</span></td>
+        <td class="num">n/a</td><td class="num">0.448</td><td class="num">0.191</td>
+        <td class="num">0.688</td><td class="num">0.978</td><td class="num">0.498</td>
+        <td class="num">0.960</td><td class="num">0.820</td><td class="num">2.21</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CCOC(=O)c1c(CN2CCOCC2)n(C)c2ccc(OC)c(S(=O)(=O)c3ccccc3)c12</span></td>
+        <td><span class="tag c1">DrugCLIP</span></td>
+        <td class="num">n/a</td><td class="num">0.705</td><td class="num">0.060</td>
+        <td class="num">0.661</td><td class="num">0.946</td><td class="num">0.232</td>
+        <td class="num">0.118</td><td class="num">0.489</td><td class="num">2.60</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN1CCc2c(c3cc(S(=O)(=O)c4ccccc4)ccc3n2C)C1</span></td>
+        <td><span class="tag c1">DrugCLIP</span></td>
+        <td class="num">n/a</td><td class="num">0.832</td><td class="num">0.500</td>
+        <td class="num">0.637</td><td class="num">0.983</td><td class="num">0.252</td>
+        <td class="num">0.163</td><td class="num">0.720</td><td class="num">2.31</td>
+      </tr>
+    </tbody></table></div>
+
+  <div class="caveat">Four of the five hits have no docking number: only the top row produced a pose in the box. Hit choice was therefore settled by the one hit that docked, not by a ranking across all five.</div>
+
+  <p>All five molecules are predicted to be strongly brain penetrant (BBBP 0.95 to 1.00), which is the wrong profile for a gut restricted target. The gate on brain penetration tracks drift from the starting molecule, so it cannot object to a hit that was already penetrant.</p>
+</section>
+
+<section class="panel" id="leads">
+  <h1>Leads from fragment growing</h1>
+  <p class="subtitle">Stage 3</p>
+  <p>The best hit was grown at three hotspots with up to five fragment proposals each. All 15 proposals gave valid molecules. Nine improved on the hit's −8.1 kcal/mol, and the three strongest were taken into optimization.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Lead</th><th>Fragment</th><th class="num">Docking</th>
+      <th class="num">vs hit</th><th class="num">Similarity</th><th>Taken forward</th>
+    </tr></thead>
+    <tbody>
+      <tr class="highlight">
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1</span></td>
+        <td><code>*c1ccccc1</code></td><td class="num"><b>−10.0</b></td>
+        <td class="num">−1.9</td><td class="num">0.654</td><td><span class="tag c1">Lead A</span></td>
+      </tr>
+      <tr class="highlight">
+        <td><span class="smi">CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><code>*c1ccccc1</code></td><td class="num"><b>−9.4</b></td>
+        <td class="num">−1.3</td><td class="num">0.776</td><td><span class="tag c2">Lead B</span></td>
+      </tr>
+      <tr class="highlight">
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1</span></td>
+        <td><code>*Cc1ccccc1</code></td><td class="num"><b>−9.4</b></td>
+        <td class="num">−1.3</td><td class="num">0.642</td><td><span class="tag c4">Lead C</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccncc1</span></td>
+        <td><code>*c1ccncc1</code></td><td class="num">−9.3</td>
+        <td class="num">−1.2</td><td class="num">0.717</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)CC(C)C</span></td>
+        <td><code>*CC(C)C</code></td><td class="num">−9.0</td>
+        <td class="num">−0.9</td><td class="num">0.680</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)CC2CC2O)c(CO)c1</span></td>
+        <td><code>*CC1CC1O</code></td><td class="num">−8.8</td>
+        <td class="num">−0.7</td><td class="num">0.586</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)CC1CC1</span></td>
+        <td><code>*C1CC1</code></td><td class="num">−8.5</td>
+        <td class="num">−0.4</td><td class="num">0.731</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(CCC1COC1)COc1ccccc1-c1ccc(CN(C)C)cc1CO</span></td>
+        <td><code>*CC1COC1</code></td><td class="num">−8.5</td>
+        <td class="num">−0.4</td><td class="num">0.667</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccn2)c(CO)c1</span></td>
+        <td><code>*Cc1ccccn1</code></td><td class="num">−8.5</td>
+        <td class="num">−0.4</td><td class="num">0.596</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)C(C)(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO</span></td>
+        <td><code>*C(C)C</code></td><td class="num">−8.4</td>
+        <td class="num">−0.3</td><td class="num">0.750</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)CCC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO</span></td>
+        <td><code>*CC(C)C</code></td><td class="num">−8.3</td>
+        <td class="num">−0.2</td><td class="num">0.812</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)C2CC2)c(CO)c1</span></td>
+        <td><code>*C1CC1</code></td><td class="num">−8.3</td>
+        <td class="num">−0.2</td><td class="num">0.630</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1cccnc1</span></td>
+        <td><code>*c1cccnc1</code></td><td class="num">−8.2</td>
+        <td class="num">−0.1</td><td class="num">0.576</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)CC1CC1</span></td>
+        <td><code>*CC1CC1</code></td><td class="num">−8.0</td>
+        <td class="num">+0.1</td><td class="num">0.607</td><td class="meta">no</td>
+      </tr>
+      <tr>
+        <td><span class="smi">COCCC(O)c1cc(CN(C)C)ccc1-c1ccccc1OCC(C)C</span></td>
+        <td><code>*CCOC</code></td><td class="num">−7.7</td>
+        <td class="num">+0.4</td><td class="num">0.618</td><td class="meta">no</td>
+      </tr>
+    </tbody></table></div>
+
+  <p>Growing the hit bought binding but cost liver safety: the hit's predicted DILI was 0.403, while the three leads start at 0.519, 0.526 and 0.541. Stage 4 had to win that back.</p>
+</section>
+
+<section class="panel" id="optimization">
+  <h1>Block level optimization</h1>
+  <p class="subtitle">Stage 4, three leads over two iterations each</p>
+  <p>Each lead was decomposed into two blocks, and the agent proposed one block substitution at a time with a written rationale. A candidate had to beat its parent's DILI score and keep its binding within 1.0 kcal/mol of the lead.</p>
+
+  <h2>Per lead</h2>
+  <div class="group-box c1">
+    <h3>Lead A, from −10.0 kcal/mol</h3>
+    <ul class="plain">
+      <li>Iteration 1: 16 molecules scored, 2 beat the parent, 1 rejected by the binding gate, leaving 1 at 0.588.</li>
+      <li>Iteration 2: 18 molecules scored, none beat 0.588, so the lead stopped early.</li>
+    </ul>
+  </div>
+  <div class="group-box c2">
+    <h3>Lead B, from −9.4 kcal/mol</h3>
+    <ul class="plain">
+      <li>Iteration 1: 14 molecules scored, 2 beat the parent, best 0.493.</li>
+      <li>Iteration 2: 12 molecules scored, 2 beat the parent, best 0.570.</li>
+    </ul>
+  </div>
+  <div class="group-box c4">
+    <h3>Lead C, from −9.4 kcal/mol</h3>
+    <ul class="plain">
+      <li>Iteration 1: 13 molecules scored, 1 beat the parent at 0.498.</li>
+      <li>Iteration 2: 8 molecules scored, 1 beat the parent at 0.689, the best molecule of the run.</li>
+    </ul>
+  </div>
+
+  <h2>Candidates</h2>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Candidate</th><th>Lead</th><th class="num">Iter</th><th class="num">ADMET /5</th>
+      <th class="num">DILI</th><th class="num">AMES</th><th class="num">hERG</th>
+      <th class="num">Pgp</th><th class="num">HIA</th><th class="num">BBBP</th>
+      <th class="num">Docking</th><th class="num">Similarity</th><th class="num">QED</th>
+      <th class="num">SA</th><th>Role</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OC(C)(CO)Cc2ccccc2)c(CO)c1</span></td>
+        <td><span class="tag c2">B</span></td><td class="num">1</td>
+        <td class="num">3.07</td><td class="num">0.513</td><td class="num">0.129</td>
+        <td class="num">0.657</td><td class="num">0.597</td><td class="num">0.970</td>
+        <td class="num">0.997</td><td class="num">−8.5</td>
+        <td class="num">0.586</td><td class="num">0.558</td><td class="num">2.96</td>
+        <td><span class="meta">n/a</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2SCC(C)(O)Cc2ccccc2)c(CO)c1</span></td>
+        <td><span class="tag c2">B</span></td><td class="num">2</td>
+        <td class="num">3.06</td><td class="num">0.479</td><td class="num">0.223</td>
+        <td class="num">0.659</td><td class="num">0.576</td><td class="num">0.993</td>
+        <td class="num">0.981</td><td class="num">−9.2</td>
+        <td class="num">0.484</td><td class="num">0.478</td><td class="num">2.96</td>
+        <td><span class="meta">n/a</span></td>
+      </tr>
+      <tr class="highlight">
+        <td><span class="smi">CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2</span></td>
+        <td><span class="tag c1">A</span></td><td class="num">1</td>
+        <td class="num"><b>2.95</b></td><td class="num">0.412</td><td class="num">0.028</td>
+        <td class="num">0.676</td><td class="num">0.927</td><td class="num">0.989</td>
+        <td class="num">0.512</td><td class="num">−10.3</td>
+        <td class="num">0.384</td><td class="num">0.666</td><td class="num">4.59</td>
+        <td><span class="tag c1">shown below</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c2">B</span></td><td class="num">1</td>
+        <td class="num">2.62</td><td class="num">0.507</td><td class="num">0.831</td>
+        <td class="num">0.663</td><td class="num">0.361</td><td class="num">0.984</td>
+        <td class="num">0.984</td><td class="num">−9.1</td>
+        <td class="num">0.655</td><td class="num">0.450</td><td class="num">2.79</td>
+        <td><span class="meta">n/a</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(CSc1ccccc1-c1ccc(CN(C)C(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c2">B</span></td><td class="num">2</td>
+        <td class="num">2.54</td><td class="num">0.430</td><td class="num">0.506</td>
+        <td class="num">0.661</td><td class="num">0.487</td><td class="num">0.621</td>
+        <td class="num">0.986</td><td class="num">−9.4</td>
+        <td class="num">0.550</td><td class="num">0.362</td><td class="num">2.90</td>
+        <td><span class="meta">n/a</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c4">C</span></td><td class="num">1</td>
+        <td class="num">2.44</td><td class="num">0.502</td><td class="num">0.448</td>
+        <td class="num">0.670</td><td class="num">0.740</td><td class="num">0.801</td>
+        <td class="num">0.997</td><td class="num">−9.4</td>
+        <td class="num">0.696</td><td class="num">0.398</td><td class="num">2.39</td>
+        <td><span class="meta">n/a</span></td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1</span></td>
+        <td><span class="tag c4">C</span></td><td class="num">2</td>
+        <td class="num">2.22</td><td class="num">0.311</td><td class="num">0.941</td>
+        <td class="num">0.681</td><td class="num">0.659</td><td class="num">0.817</td>
+        <td class="num">0.635</td><td class="num">−8.7</td>
+        <td class="num">0.613</td><td class="num">0.274</td><td class="num">2.70</td>
+        <td><span class="tag c4">run pick</span></td>
+      </tr>
+    </tbody></table></div>
+  <p class="meta">ADMET /5 is the five endpoint aggregate (1−DILI) + (1−AMES) + (1−hERG) + (1−Pgp) + HIA, which excludes BBBP. Similarity is Tanimoto to the lead. Sorted by the aggregate, so the molecule the run selected on DILI alone sits last.</p>
+
+  <h2>The candidate worth showing</h2>
+  <p>Only three of the seven candidates reduce DILI by more than 0.05 against their lead, and two of those break something else: the molecule the run selected sends mutagenicity from 0.153 to 0.941, and another drops intestinal absorption from 0.986 to 0.621. This one is left. It cuts DILI by 0.129, the largest reduction that does not come at that kind of cost, and improves mutagenicity, absorption, brain penetration and binding at the same time. One block substitution separates it from lead A: the dimethylamino group becomes a morpholine.</p>
+  <dl class="defs">
+    <dt>Block replaced</dt><dd><span class="smi">[1*]c1ccc(CN(C)C)cc1C(O)c1ccccc1</span></dd>
+    <dt>Replacement</dt><dd><span class="smi">[1*]c1ccc(CN1CCOCC1)cc1C(O)c1ccccc1</span></dd>
+    <dt>Rationale</dt><dd>Replacing dimethylamino with morpholine increases polarity and lowers lipophilicity and basicity, often reducing liver accumulation and off target liabilities while maintaining a basic solubilizing side chain in a conservative single site edit.</dd>
+  </dl>
+
+  <figure class="fig">
+  <svg viewBox="0 0 680 300" role="img" aria-label="Predicted endpoint values for lead A and the selected candidate">
+    <line class="grid" x1="70" y1="40" x2="650" y2="40"/>
+    <text x="60" y="44" text-anchor="end">1.00</text>
+    <line class="grid" x1="70" y1="90" x2="650" y2="90"/>
+    <text x="60" y="94" text-anchor="end">0.75</text>
+    <line class="grid" x1="70" y1="140" x2="650" y2="140"/>
+    <text x="60" y="144" text-anchor="end">0.50</text>
+    <line class="grid" x1="70" y1="190" x2="650" y2="190"/>
+    <text x="60" y="194" text-anchor="end">0.25</text>
+    <line class="axis" x1="70" y1="240" x2="650" y2="240"/>
+    <rect class="b2" x="86.5" y="187.0" width="28" height="53.0"/>
+    <rect class="b1" x="120.5" y="234.4" width="28" height="5.6"/>
+    <text x="117.5" y="258" text-anchor="middle">AMES</text>
+    <rect class="b2" x="181.5" y="131.8" width="28" height="108.2"/>
+    <rect class="b1" x="215.5" y="157.6" width="28" height="82.4"/>
+    <text x="212.5" y="258" text-anchor="middle">DILI</text>
+    <rect class="b2" x="276.5" y="106.8" width="28" height="133.2"/>
+    <rect class="b1" x="310.5" y="104.8" width="28" height="135.2"/>
+    <text x="307.5" y="258" text-anchor="middle">hERG</text>
+    <rect class="b2" x="371.5" y="113.7" width="28" height="126.3"/>
+    <rect class="b1" x="405.5" y="137.6" width="28" height="102.4"/>
+    <text x="402.5" y="258" text-anchor="middle">BBBP</text>
+    <rect class="b2" x="466.5" y="94.6" width="28" height="145.4"/>
+    <rect class="b4" x="500.5" y="54.7" width="28" height="185.3"/>
+    <text x="497.5" y="258" text-anchor="middle">Pgp</text>
+    <rect class="b2" x="561.5" y="43.9" width="28" height="196.1"/>
+    <rect class="b1" x="595.5" y="42.2" width="28" height="197.8"/>
+    <text x="592.5" y="258" text-anchor="middle">HIA</text>
+    <rect class="b2" x="70" y="278" width="14" height="10"/>
+    <text x="92" y="287">Lead A</text>
+    <rect class="b1" x="172" y="278" width="14" height="10"/>
+    <text x="194" y="287">Candidate</text>
+  </svg>
+  <figcaption>Predicted endpoint values for lead A and this candidate. DILI falls from 0.541 to 0.412, mutagenicity from 0.265 to 0.028 and brain penetration from 0.632 to 0.512, while binding improves to −10.3 kcal/mol. The amber bar marks Pgp, the one endpoint that moved the wrong way: predicted efflux rises from 0.727 to 0.927.</figcaption>
+  </figure>
+
+  <p>Against per endpoint limits (DILI below 0.5, AMES below 0.3, hERG below 0.7, Pgp below 0.6, HIA above 0.8, and BBBP below 0.5 for a gut restricted target) it clears four of six, failing Pgp and missing BBBP by 0.012. No candidate in the run clears all six.</p>
+</section>
+
+<section class="panel" id="traces">
+  <h1>Hit to candidate</h1>
+  <p class="subtitle">Every path through the pipeline</p>
+  <p>All seven candidates descend from the one hit that docked, through three of its fifteen leads. Fragment growing is where the binding was won: the hit docks at −8.1 kcal/mol and the three leads at −10.0, −9.4 and −9.4. Block editing then traded binding for predicted safety, holding each candidate inside the 1.0 kcal/mol allowance.</p>
+
+  <figure class="fig">
+  <svg viewBox="0 0 680 300" role="img" aria-label="Docking score from hit to candidate for every trace">
+    <line class="grid" x1="70" y1="45" x2="650" y2="45"/>
+    <text x="60" y="49" text-anchor="end">−10.5</text>
+    <line class="grid" x1="70" y1="83" x2="650" y2="83"/>
+    <text x="60" y="87" text-anchor="end">−10.0</text>
+    <line class="grid" x1="70" y1="121" x2="650" y2="121"/>
+    <text x="60" y="125" text-anchor="end">−9.5</text>
+    <line class="grid" x1="70" y1="159" x2="650" y2="159"/>
+    <text x="60" y="163" text-anchor="end">−9.0</text>
+    <line class="grid" x1="70" y1="197" x2="650" y2="197"/>
+    <text x="60" y="201" text-anchor="end">−8.5</text>
+    <line class="grid" x1="70" y1="235" x2="650" y2="235"/>
+    <text x="60" y="239" text-anchor="end">−8.0</text>
+    <line class="axis" x1="70" y1="252" x2="650" y2="252"/>
+    <text x="95" y="272" text-anchor="middle">hit</text>
+    <text x="265" y="272" text-anchor="middle">lead</text>
+    <text x="435" y="272" text-anchor="middle">iteration 1</text>
+    <text x="605" y="272" text-anchor="middle">iteration 2</text>
+    <polyline class="s1" points="95,227.4 265,83.0 435,60.2"/>
+    <circle class="d1" cx="95" cy="227.4" r="4.5"/>
+    <circle class="d1" cx="265" cy="83.0" r="4.5"/>
+    <circle class="d1" cx="435" cy="60.2" r="4.5"/>
+    <polyline class="s2" points="95,227.4 265,128.6 435,151.4"/>
+    <circle class="d2" cx="265" cy="128.6" r="4.5"/>
+    <circle class="d2" cx="435" cy="151.4" r="4.5"/>
+    <polyline class="s2" points="95,227.4 265,128.6 435,197.0"/>
+    <circle class="d2" cx="435" cy="197.0" r="4.5"/>
+    <polyline class="s2" points="95,227.4 265,128.6 435,151.4 605,128.6"/>
+    <circle class="d2" cx="605" cy="128.6" r="6"/>
+    <polyline class="s2" points="95,227.4 265,128.6 435,151.4 605,143.8"/>
+    <circle class="d2" cx="605" cy="143.8" r="6"/>
+    <polyline class="s3" points="95,227.4 265,128.6 435,128.6"/>
+    <circle class="d3" cx="265" cy="128.6" r="4.5"/>
+    <circle class="d3" cx="435" cy="128.6" r="4.5"/>
+    <polyline class="s3" points="95,227.4 265,128.6 435,128.6 605,181.8"/>
+    <circle class="d3" cx="605" cy="181.8" r="6"/>
+    <text class="lab" x="447" y="64.2" text-anchor="start">A −10.3</text>
+    <text class="lab" x="447" y="155.4" text-anchor="start">B −9.1</text>
+    <text class="lab" x="447" y="201.0" text-anchor="start">B −8.5</text>
+    <text class="lab" x="593" y="132.6" text-anchor="end">B −9.4</text>
+    <text class="lab" x="593" y="147.8" text-anchor="end">B −9.2</text>
+    <text class="lab" x="447" y="132.6" text-anchor="start">C −9.4</text>
+    <text class="lab" x="593" y="185.8" text-anchor="end">C −8.7</text>
+    <text class="lab" x="81" y="231.4" text-anchor="end">hit −8.1</text>
+  </svg>
+  <figcaption>Docking score along every path from the hit to a candidate, with more negative upwards. All seven candidates descend from one hit through three leads. Fragment growing gained 1.3 to 1.9 kcal/mol; block editing then mostly gave some of it back, except on trace A, which reached −10.3.</figcaption>
+  </figure>
+
+  <h2>Every molecule on the way</h2>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Molecule</th><th>Trace</th><th>Stage</th><th class="num">Docking</th>
+      <th class="num">ADMET /5</th><th class="num">DILI</th><th class="num">AMES</th>
+      <th class="num">hERG</th><th class="num">Pgp</th><th class="num">HIA</th><th class="num">BBBP</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO</span></td>
+        <td><span class="meta">all</span></td><td>Hit</td>
+        <td class="num">−8.1</td>
+        <td class="num">3.35</td><td class="num">0.403</td><td class="num">0.119</td><td class="num">0.657</td><td class="num">0.465</td><td class="num">0.989</td><td class="num">0.990</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1</span></td>
+        <td><span class="tag c1">A</span></td><td>Lead</td>
+        <td class="num">−10.0</td>
+        <td class="num">2.78</td><td class="num">0.541</td><td class="num">0.265</td><td class="num">0.666</td><td class="num">0.727</td><td class="num">0.980</td><td class="num">0.632</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2</span></td>
+        <td><span class="tag c1">A</span></td><td>Iteration 1</td>
+        <td class="num">−10.3</td>
+        <td class="num">2.95</td><td class="num">0.412</td><td class="num">0.028</td><td class="num">0.676</td><td class="num">0.927</td><td class="num">0.989</td><td class="num">0.512</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c2">B</span></td><td>Lead</td>
+        <td class="num">−9.4</td>
+        <td class="num">2.61</td><td class="num">0.526</td><td class="num">0.830</td><td class="num">0.672</td><td class="num">0.345</td><td class="num">0.986</td><td class="num">0.992</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c2">B</span></td><td>Iteration 1</td>
+        <td class="num">−9.1</td>
+        <td class="num">2.62</td><td class="num">0.507</td><td class="num">0.831</td><td class="num">0.663</td><td class="num">0.361</td><td class="num">0.984</td><td class="num">0.984</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OC(C)(CO)Cc2ccccc2)c(CO)c1</span></td>
+        <td><span class="tag c2">B</span></td><td>Iteration 1</td>
+        <td class="num">−8.5</td>
+        <td class="num">3.07</td><td class="num">0.513</td><td class="num">0.129</td><td class="num">0.657</td><td class="num">0.597</td><td class="num">0.970</td><td class="num">0.997</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(CSc1ccccc1-c1ccc(CN(C)C(C)C)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c2">B</span></td><td>Iteration 2</td>
+        <td class="num">−9.4</td>
+        <td class="num">2.54</td><td class="num">0.430</td><td class="num">0.506</td><td class="num">0.661</td><td class="num">0.487</td><td class="num">0.621</td><td class="num">0.986</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2SCC(C)(O)Cc2ccccc2)c(CO)c1</span></td>
+        <td><span class="tag c2">B</span></td><td>Iteration 2</td>
+        <td class="num">−9.2</td>
+        <td class="num">3.06</td><td class="num">0.479</td><td class="num">0.223</td><td class="num">0.659</td><td class="num">0.576</td><td class="num">0.993</td><td class="num">0.981</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1</span></td>
+        <td><span class="tag c4">C</span></td><td>Lead</td>
+        <td class="num">−9.4</td>
+        <td class="num">2.86</td><td class="num">0.519</td><td class="num">0.153</td><td class="num">0.664</td><td class="num">0.798</td><td class="num">0.994</td><td class="num">0.942</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1</span></td>
+        <td><span class="tag c4">C</span></td><td>Iteration 1</td>
+        <td class="num">−9.4</td>
+        <td class="num">2.44</td><td class="num">0.502</td><td class="num">0.448</td><td class="num">0.670</td><td class="num">0.740</td><td class="num">0.801</td><td class="num">0.997</td>
+      </tr>
+      <tr>
+        <td><span class="smi">CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1</span></td>
+        <td><span class="tag c4">C</span></td><td>Iteration 2</td>
+        <td class="num">−8.7</td>
+        <td class="num">2.22</td><td class="num">0.311</td><td class="num">0.941</td><td class="num">0.681</td><td class="num">0.659</td><td class="num">0.817</td><td class="num">0.635</td>
+      </tr>
+    </tbody></table></div>
+  <p class="meta">ADMET /5 is the five endpoint aggregate, which excludes BBBP. The 12 leads that were not carried into optimization were never profiled, so they do not appear here.</p>
+</section>
+
+</main>
+
+<footer>MolLingo, GPR15 (UniProt P49685), DILI objective. Scores are oracle predictions, and docking is against a predicted structure.</footer>
+
+<script>
+(function(){
+  const panels=[...document.querySelectorAll('section.panel')];
+  if(!panels.length) return;
+  const links=[...document.querySelectorAll('nav.tabs a')];
+  function show(id){
+    if(!panels.some(p=>p.id===id)) id=panels[0].id;
+    panels.forEach(p=>p.classList.toggle('shown',p.id===id));
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+  }
+  window.addEventListener('hashchange',()=>{show(location.hash.slice(1));requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));});
+  show(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>

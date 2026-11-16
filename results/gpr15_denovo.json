@@ -1,0 +1,710 @@
+{
+  "user_prompt": "Design a drug targeting the orphan receptor GPR15 for inflammatory bowel disease, avoiding liver injury",
+  "disease": "inflammatory bowel disease",
+  "disease_subtype": null,
+  "gene_mutation": null,
+  "pathway": null,
+  "uniprot_id": "P49685",
+  "protein_name": "GPR15",
+  "target_reference": null,
+  "main_task": "DILI",
+  "bbbp_desired": false,
+  "hits": {
+    "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO": {
+      "docking_score": -8.1,
+      "admet_profile": {
+        "AMES": 0.11862602084875107,
+        "DILI": 0.40311792492866516,
+        "hERG": 0.6568210124969482,
+        "BBBP": 0.9901831746101379,
+        "Pgp": 0.46494096517562866,
+        "HIA": 0.9894569516181946
+      },
+      "admet_score": 0.5968820750713348,
+      "source": "drugclip",
+      "qed": 0.84,
+      "affinity_rank_score": 0.8084277343749999,
+      "sa_score": 2.1082397729738336
+    },
+    "CCOC(=O)Nc1ccc2c(c1)N(CCCN(C)C)c1ccccc1CC2": {
+      "docking_score": null,
+      "admet_profile": {
+        "AMES": 0.19124820828437805,
+        "DILI": 0.4477006494998932,
+        "hERG": 0.6880119442939758,
+        "BBBP": 0.9782968759536743,
+        "Pgp": 0.4984760284423828,
+        "HIA": 0.959937334060669
+      },
+      "admet_score": 0.5522993505001068,
+      "source": "drugclip",
+      "qed": 0.82,
+      "affinity_rank_score": 0.8028222656249999,
+      "sa_score": 2.2113871006991612
+    },
+    "CO[C@@]12CC[C@H](OCCO)C[C@@H]1N(Cc1ccccc1C(F)(F)F)CC2": {
+      "docking_score": null,
+      "admet_profile": {
+        "AMES": 0.06865161657333374,
+        "DILI": 0.35666510462760925,
+        "hERG": 0.6726749539375305,
+        "BBBP": 0.9983001351356506,
+        "Pgp": 0.47609299421310425,
+        "HIA": 0.6659483909606934
+      },
+      "admet_score": 0.6433348953723907,
+      "source": "drugclip",
+      "qed": 0.831,
+      "affinity_rank_score": 0.79977734375,
+      "sa_score": 3.8452301518503234
+    },
+    "CN1CCc2c(c3cc(S(=O)(=O)c4ccccc4)ccc3n2C)C1": {
+      "docking_score": null,
+      "admet_profile": {
+        "AMES": 0.499562531709671,
+        "DILI": 0.8318371176719666,
+        "hERG": 0.636587381362915,
+        "BBBP": 0.9830764532089233,
+        "Pgp": 0.25179189443588257,
+        "HIA": 0.1625741571187973
+      },
+      "admet_score": 0.16816288232803345,
+      "source": "drugclip",
+      "qed": 0.72,
+      "affinity_rank_score": 0.754287109375,
+      "sa_score": 2.3134882338542724
+    },
+    "CCOC(=O)c1c(CN2CCOCC2)n(C)c2ccc(OC)c(S(=O)(=O)c3ccccc3)c12": {
+      "docking_score": null,
+      "admet_profile": {
+        "AMES": 0.059706155210733414,
+        "DILI": 0.7054793238639832,
+        "hERG": 0.6611467003822327,
+        "BBBP": 0.9461931586265564,
+        "Pgp": 0.2324283868074417,
+        "HIA": 0.11810243129730225
+      },
+      "admet_score": 0.29452067613601685,
+      "source": "drugclip",
+      "qed": 0.489,
+      "affinity_rank_score": 0.6397636718749999,
+      "sa_score": 2.6042544449018425
+    }
+  },
+  "leads": {
+    "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)CC(C)C": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -9.0,
+      "fragment": "*CC(C)C",
+      "rationale": "Branched isobutyl efficiently fills a small hydrophobic cavity formed by LEU290, VAL43, VAL297, and ALA293. It is compact enough for the 92.75 \u00c5\u00b3 pocket and synthetically trivial.",
+      "growth_atom_index": 21,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 11.111111111111114,
+      "similarity_to_hit": 0.68
+    },
+    "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)CC1CC1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.0,
+      "fragment": "*CC1CC1",
+      "rationale": "Cyclopropylmethyl is a compact rigid lipophile suited to the predominantly nonpolar environment. It can pack well against VAL/LEU residues and may make favorable CH-pi contact near PHE39 while staying within volume limits.",
+      "growth_atom_index": 21,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": -1.2345679012345636,
+      "similarity_to_hit": 0.6071428571428571
+    },
+    "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -10.0,
+      "fragment": "*c1ccccc1",
+      "rationale": "Phenyl probes aromatic complementarity with PHE39 and hydrophobic packing against LEU290/VAL297. It is a classic commercially accessible fragment that should fit if the growth vector opens into the lipophilic patch.",
+      "growth_atom_index": 21,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 23.456790123456795,
+      "similarity_to_hit": 0.6538461538461539,
+      "admet_profile": {
+        "AMES": 0.26486870646476746,
+        "DILI": 0.5410844683647156,
+        "hERG": 0.6660374999046326,
+        "BBBP": 0.6316094994544983,
+        "Pgp": 0.727178156375885,
+        "HIA": 0.9804348945617676
+      },
+      "admet_score": 0.4589155316352844
+    },
+    "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1cccnc1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.2,
+      "fragment": "*c1cccnc1",
+      "rationale": "A pyridyl ring preserves aromatic surface for PHE39 interaction while introducing a single acceptor to tune polarity and vectoring. Because the local site lacks strong H-bond donors, this is best viewed as a balanced aromatic probe rather than a dedicated H-bonding fragment.",
+      "growth_atom_index": 21,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 1.2345679012345636,
+      "similarity_to_hit": 0.576271186440678
+    },
+    "COCCC(O)c1cc(CN(C)C)ccc1-c1ccccc1OCC(C)C": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -7.7,
+      "fragment": "*CCOC",
+      "rationale": "2-Methoxyethyl offers a small polar extension that can test tolerance for weak acceptors near CYS296 or toward the pocket mouth without overfilling the 92.75 \u00c5\u00b3 space. It is synthetically accessible and adds diversity versus purely hydrophobic options.",
+      "growth_atom_index": 21,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": -4.938271604938265,
+      "similarity_to_hit": 0.6181818181818182
+    },
+    "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)CC1CC1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.5,
+      "fragment": "*C1CC1",
+      "rationale": "Compact hydrophobic cyclopropyl group suited to the Val/Leu/Ala-rich pocket (VAL252, LEU290, ALA293, VAL297). Very likely to fit within 87.375 \u00c5\u00b3 and efficiently probe tight lipophilic space.",
+      "growth_atom_index": 2,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 4.938271604938276,
+      "similarity_to_hit": 0.7307692307692307
+    },
+    "CC(C)CCC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.3,
+      "fragment": "*CC(C)C",
+      "rationale": "Branched isobutyl fragment can increase van der Waals contact across the hydrophobic patch formed by VAL252, LEU290, ALA293, and VAL297 while remaining small and synthetically accessible.",
+      "growth_atom_index": 2,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 2.469135802469149,
+      "similarity_to_hit": 0.8125
+    },
+    "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -9.4,
+      "fragment": "*c1ccccc1",
+      "rationale": "Phenyl provides a compact aromatic surface for hydrophobic packing in this largely nonpolar subpocket. It is near the upper end of preferred size for the stated volume but still plausible if the vector opens into the pocket center.",
+      "growth_atom_index": 2,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 16.04938271604939,
+      "similarity_to_hit": 0.7755102040816326,
+      "admet_profile": {
+        "AMES": 0.8299880027770996,
+        "DILI": 0.5255494117736816,
+        "hERG": 0.671745777130127,
+        "BBBP": 0.9915897250175476,
+        "Pgp": 0.3452697992324829,
+        "HIA": 0.9861379265785217
+      },
+      "admet_score": 0.47445058822631836
+    },
+    "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccncc1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -9.3,
+      "fragment": "*c1ccncc1",
+      "rationale": "3-Pyridyl preserves aromatic character while adding a ring nitrogen that may accept a hydrogen bond from SER253. Useful to test whether a polar anchor improves affinity over a purely hydrophobic phenyl group.",
+      "growth_atom_index": 2,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 14.814814814814829,
+      "similarity_to_hit": 0.7169811320754716
+    },
+    "CC(CCC1COC1)COc1ccccc1-c1ccc(CN(C)C)cc1CO": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.5,
+      "fragment": "*CC1COC1",
+      "rationale": "Oxetanyl-methyl adds a small 3D polar motif with an ether oxygen that could interact with SER253 while maintaining compact size. It also offers a balanced hydrophobic/polar profile appropriate for a mostly lipophilic pocket.",
+      "growth_atom_index": 2,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 4.938271604938276,
+      "similarity_to_hit": 0.6666666666666666
+    },
+    "CC(C)C(C)(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.4,
+      "fragment": "*C(C)C",
+      "rationale": "Compact isopropyl group matches the strongly hydrophobic patch formed by ALA249, VAL252, VAL297, LEU290, and ILE301. Very likely to fit within 85.625 \u00c5\u00b3 and is synthetically trivial.",
+      "growth_atom_index": 1,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 3.7037037037037126,
+      "similarity_to_hit": 0.75
+    },
+    "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)C2CC2)c(CO)c1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.3,
+      "fragment": "*C1CC1",
+      "rationale": "Cyclopropyl is a small, rigid lipophilic fragment that can pack efficiently into a tight aliphatic pocket bordered by VAL252, VAL297, LEU290, and ILE301. Excellent volume efficiency for a small cavity.",
+      "growth_atom_index": 1,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 2.469135802469149,
+      "similarity_to_hit": 0.6296296296296297
+    },
+    "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -9.4,
+      "fragment": "*Cc1ccccc1",
+      "rationale": "Benzyl provides a compact aromatic hydrophobe for van der Waals contact with the Val/Leu/Ile-rich region. It is slightly larger but still reasonable for an ~86 \u00c5\u00b3 pocket if the growth vector opens into the cavity.",
+      "growth_atom_index": 1,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 16.04938271604939,
+      "similarity_to_hit": 0.6415094339622641,
+      "admet_profile": {
+        "AMES": 0.15339720249176025,
+        "DILI": 0.519070565700531,
+        "hERG": 0.6640498042106628,
+        "BBBP": 0.9418396949768066,
+        "Pgp": 0.797652006149292,
+        "HIA": 0.9942290782928467
+      },
+      "admet_score": 0.480929434299469
+    },
+    "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccn2)c(CO)c1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.5,
+      "fragment": "*Cc1ccccn1",
+      "rationale": "2-Pyridylmethyl preserves aromatic hydrophobic contact while adding a single H-bond acceptor that may interact with SER253 or a local water network. Balanced polarity for a mostly hydrophobic site.",
+      "growth_atom_index": 1,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 4.938271604938276,
+      "similarity_to_hit": 0.5964912280701754
+    },
+    "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)CC2CC2O)c(CO)c1": {
+      "hit_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO",
+      "docking_score": -8.8,
+      "fragment": "*CC1CC1O",
+      "rationale": "This compact polar-aliphatic fragment can engage the hydrophobic residues with the cyclopropyl portion while the alcohol probes a possible H-bond with SER253. Still small enough to remain compatible with the 85.625 \u00c5\u00b3 pocket.",
+      "growth_atom_index": 1,
+      "hit_docking_score": -8.1,
+      "docking_improvement_pct": 8.64197530864199,
+      "similarity_to_hit": 0.5862068965517241
+    }
+  },
+  "candidates": {
+    "CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2": {
+      "lead_origin": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1",
+      "admet_score": 0.5879995822906494,
+      "admet_profile": {
+        "AMES": 0.02799265645444393,
+        "DILI": 0.4120004177093506,
+        "hERG": 0.6757806539535522,
+        "BBBP": 0.5119556188583374,
+        "Pgp": 0.9266099333763123,
+        "HIA": 0.9889068603515625
+      },
+      "parent": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1",
+      "iteration": 1,
+      "similarity_to_lead": 0.3835616438356164,
+      "score_improvement": 0.129084050655365,
+      "edits": [
+        {
+          "original_block": "[1*]c1ccc(CN(C)C)cc1C(O)c1ccccc1",
+          "substitute_block": "[1*]c1ccc(CN1CCOCC1)cc1C(O)c1ccccc1",
+          "rationale": "Replacing dimethylamino with morpholine increases polarity and lowers lipophilicity/basicity, often reducing liver accumulation and off-target liabilities while maintaining a basic solubilizing side chain in a conservative single-site edit."
+        }
+      ],
+      "qed": 0.666,
+      "sa_score": 4.590474236923417,
+      "bbbp": 0.5119556188583374,
+      "bbbp_drift": -0.11965388059616089,
+      "docking_score": -10.3,
+      "docking_delta": -0.3000000000000007
+    },
+    "CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1": {
+      "lead_origin": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "admet_score": 0.49301356077194214,
+      "admet_profile": {
+        "AMES": 0.8306544423103333,
+        "DILI": 0.5069864392280579,
+        "hERG": 0.6633308529853821,
+        "BBBP": 0.9838097095489502,
+        "Pgp": 0.36119019985198975,
+        "HIA": 0.9843893647193909
+      },
+      "parent": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "iteration": 1,
+      "similarity_to_lead": 0.6545454545454545,
+      "score_improvement": 0.01856297254562378,
+      "edits": [
+        {
+          "original_block": "[1*]Oc1ccccc1-c1ccc(CN(C)C)cc1CO",
+          "substitute_block": "[1*]Sc1ccccc1-c1ccc(CN(C)C)cc1CO",
+          "rationale": "Replacing the diaryl ether oxygen with sulfur slightly changes electronics and may alter metabolic pathways away from O-dearylation; this is a conservative heteroatom swap sometimes used to modulate bioactivation risk while preserving overall shape."
+        }
+      ],
+      "qed": 0.45,
+      "sa_score": 2.7941097904016594,
+      "bbbp": 0.9838097095489502,
+      "bbbp_drift": -0.007780015468597412,
+      "docking_score": -9.1,
+      "docking_delta": 0.3000000000000007
+    },
+    "CN(C)Cc1ccc(-c2ccccc2OC(C)(CO)Cc2ccccc2)c(CO)c1": {
+      "lead_origin": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "admet_score": 0.4869270324707031,
+      "admet_profile": {
+        "AMES": 0.1288221776485443,
+        "DILI": 0.5130729675292969,
+        "hERG": 0.6568166017532349,
+        "BBBP": 0.9971216320991516,
+        "Pgp": 0.5974838137626648,
+        "HIA": 0.9697525501251221
+      },
+      "parent": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "iteration": 1,
+      "similarity_to_lead": 0.5862068965517241,
+      "score_improvement": 0.012476444244384766,
+      "edits": [
+        {
+          "original_block": "[2*]CC(C)Cc1ccccc1",
+          "substitute_block": "[2*]C(CO)(C)Cc1ccccc1",
+          "rationale": "Adding a hydroxyl group to the isobutyl side chain increases polarity and can reduce hepatic partitioning and overall DILI risk while preserving the aryl-alkyl motif and much of the steric profile."
+        }
+      ],
+      "qed": 0.558,
+      "sa_score": 2.955124795965242,
+      "bbbp": 0.9971216320991516,
+      "bbbp_drift": 0.005531907081604004,
+      "docking_score": -8.5,
+      "docking_delta": 0.9000000000000004
+    },
+    "CC(CSc1ccccc1-c1ccc(CN(C)C(C)C)cc1CO)Cc1ccccc1": {
+      "lead_origin": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "admet_score": 0.5699345171451569,
+      "admet_profile": {
+        "AMES": 0.5059873461723328,
+        "DILI": 0.43006548285484314,
+        "hERG": 0.661221981048584,
+        "BBBP": 0.9856303334236145,
+        "Pgp": 0.4870355725288391,
+        "HIA": 0.6206139326095581
+      },
+      "parent": "CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "iteration": 2,
+      "similarity_to_lead": 0.55,
+      "score_improvement": 0.07692095637321472,
+      "edits": [
+        {
+          "original_block": "[1*]Sc1ccccc1-c1ccc(CN(C)C)cc1CO",
+          "substitute_block": "[1*]Sc1ccccc1-c1ccc(CN(C)C(C)C)cc1CO",
+          "rationale": "Replacing dimethylamine with a diisopropyl-like tertiary amine is too large, but a single-step increase to an N-methyl-N-isopropyl analogue can reduce N-dealkylation propensity relative to dimethylamine while retaining a basic center. This may lower formation of formaldehyde-like or iminium metabolites associated with hepatic liability."
+        }
+      ],
+      "qed": 0.362,
+      "sa_score": 2.8971749563399385,
+      "bbbp": 0.9856303334236145,
+      "bbbp_drift": -0.0059593915939331055,
+      "docking_score": -9.4,
+      "docking_delta": 0.0
+    },
+    "CN(C)Cc1ccc(-c2ccccc2SCC(C)(O)Cc2ccccc2)c(CO)c1": {
+      "lead_origin": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "admet_score": 0.5206175446510315,
+      "admet_profile": {
+        "AMES": 0.22282308340072632,
+        "DILI": 0.4793824553489685,
+        "hERG": 0.6588907241821289,
+        "BBBP": 0.9805669188499451,
+        "Pgp": 0.5760575532913208,
+        "HIA": 0.9930464625358582
+      },
+      "parent": "CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1",
+      "iteration": 2,
+      "similarity_to_lead": 0.4838709677419355,
+      "score_improvement": 0.027603983879089355,
+      "edits": [
+        {
+          "original_block": "[2*]CC(C)Cc1ccccc1",
+          "substitute_block": "[2*]CC(C)(O)Cc1ccccc1",
+          "rationale": "Tertiary alcohol introduction at the branched alkyl side chain is a close analogue of the previously favorable polarity-raising direction, but places the hydroxyl directly at the branching center rather than on a methyl arm. This should reduce lipophilicity and block oxidative metabolism at the alkyl hotspot while preserving the aryl-alkyl motif."
+        }
+      ],
+      "qed": 0.478,
+      "sa_score": 2.9583859724358312,
+      "bbbp": 0.9805669188499451,
+      "bbbp_drift": -0.011022806167602539,
+      "docking_score": -9.2,
+      "docking_delta": 0.20000000000000107
+    },
+    "CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1": {
+      "lead_origin": "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1",
+      "admet_score": 0.4981730580329895,
+      "admet_profile": {
+        "AMES": 0.44846588373184204,
+        "DILI": 0.5018269419670105,
+        "hERG": 0.6698890924453735,
+        "BBBP": 0.9966074228286743,
+        "Pgp": 0.7402503490447998,
+        "HIA": 0.8008314967155457
+      },
+      "parent": "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1",
+      "iteration": 1,
+      "similarity_to_lead": 0.6964285714285714,
+      "score_improvement": 0.017243623733520508,
+      "edits": [
+        {
+          "original_block": "[2*]c1ccc(CN(C)C)cc1CO",
+          "substitute_block": "[2*]c1ccc(CNCCO)cc1CO",
+          "rationale": "Replacing dimethylamino with a 2-hydroxyethyl(methyl)amino-like motif increases polarity and lowers basic lipophilicity, which may reduce liver accumulation and hERG liability while maintaining a tertiary amine capable of similar binding interactions."
+        }
+      ],
+      "qed": 0.398,
+      "sa_score": 2.394573020802053,
+      "bbbp": 0.9966074228286743,
+      "bbbp_drift": 0.054767727851867676,
+      "docking_score": -9.4,
+      "docking_delta": 0.0
+    },
+    "CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1": {
+      "lead_origin": "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1",
+      "admet_score": 0.6885611116886139,
+      "admet_profile": {
+        "AMES": 0.9411050081253052,
+        "DILI": 0.3114388883113861,
+        "hERG": 0.6811662316322327,
+        "BBBP": 0.6351738572120667,
+        "Pgp": 0.65913325548172,
+        "HIA": 0.8171484470367432
+      },
+      "parent": "CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1",
+      "iteration": 2,
+      "similarity_to_lead": 0.6129032258064516,
+      "score_improvement": 0.1903880536556244,
+      "edits": [
+        {
+          "original_block": "[1*]Oc1ccccc1-c1ccc(CNCCO)cc1CO",
+          "substitute_block": "[1*]Oc1ccccc1-c1ccc(CNCCO)cc1CON(C)C",
+          "rationale": "Replacing hydroxymethyl with a dimethylaminoxy-methyl motif retains a similar one-carbon linker but increases polarity and changes the oxidation pathway away from aldehyde formation. This may reduce DILI risk if the parent benzylic alcohol is a key metabolic liability."
+        }
+      ],
+      "qed": 0.274,
+      "sa_score": 2.699454208997164,
+      "bbbp": 0.6351738572120667,
+      "bbbp_drift": -0.30666583776474,
+      "docking_score": -8.7,
+      "docking_delta": 0.7000000000000011
+    }
+  },
+  "trace": [
+    {
+      "agent": "OrchestratorAgent",
+      "step": "pipeline_start",
+      "content": "MolLingo starting for 'inflammatory bowel disease'"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "identify_hits",
+      "content": "Querying ChEMBL for binders of GPR15 (UniProt: P49685)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "chembl_empty",
+      "content": "Only 1 ChEMBL binder(s) for P49685, fewer than the 5 needed to screen; falling back to DrugCLIP (de novo route)."
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "drugclip_screened",
+      "content": "5 molecule(s) retrieved for P49685 (DrugCLIP score 0.769-0.791); these enter the pipeline as de novo hits."
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "butina_clustering",
+      "content": "6 binders -> 6 diverse representatives (cutoff 0.7)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "hits_identified",
+      "content": "5 hits recorded; 3 with a favorable predicted DILI profile. Best: CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "fragment_growing",
+      "content": "Growing CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO (hit docking: -8.1) with up to 5 proposals per hotspot"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "fragment_growing_done",
+      "content": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO: 15 valid leads from 15 proposals"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "hit_to_lead_complete",
+      "content": "15 leads generated. Best: CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1 (docking: -10.0)"
+    },
+    {
+      "agent": "OrchestratorAgent",
+      "step": "optimization_budget",
+      "content": "18 modifications x 2 iteration(s), decided by the orchestrator (LLM) -- The lead has moderate headroom to improve DILI (0.668 with about one-third of the range remaining) and only 2 substitutable blocks, so a mid-sized breadth is warranted rather than maximal exploration. Two iterations balance refinement and cost well here: one round to identify the better liability-reducing block edits and a second to exploit the best direction without excessive drift."
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "optimize_leads",
+      "content": "Optimizing 3 lead(s) for DILI over 2 iteration(s), 18 proposed modifications each (memory on)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "lead_baseline",
+      "content": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1: DILI score 0.459, DILI 0.5411"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1C(O)c1ccccc1 -> 2 blocks: [1*]c1ccc(CN(C)C)cc1C(O)c1ccccc1 ^ [2*]c1ccccc1OCC(C)C  (corpus frequencies: below cutoff, below cutoff) -> block CN(C)Cc1cccc(C(O)c2ccccc2)c1 (SMILES: [1*]c1ccc(CN(C)C)cc1C(O)c1ccccc1), isobutyl phenyl ether-derived block (SMILES: [2*]c1ccccc1OCC(C)C)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 1: 17 edits -> 16 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "binding_filter",
+      "content": "Iteration 1: docked the top 2 of 2 improved candidate(s) by ADMET score; 1 rejected for losing more than 1.0 kcal/mol against the lead (baseline -10.0 kcal/mol)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 1: 16 scored (max 0.602, mean 0.420, parent 0.459); 2 beat the parent (12.5%), of which 1 were then rejected by the BBBP/binding gates, leaving 1"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "iteration_complete",
+      "content": "Iteration 1: 1 improved candidates; carrying forward CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2 (0.588)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CC(C)COc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2 -> 2 blocks: [1*]Oc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2 ^ [2*]CC(C)C  (corpus frequencies: below cutoff, 171,296) -> block Oc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2 (SMILES: [1*]Oc1ccccc1C1=CC=C2C=C(C(O)c3ccccc3)CCOCCN1C2), isobutane-derived block (SMILES: [2*]CC(C)C)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 2: 18 edits -> 18 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 2: 18 scored (max 0.582, mean 0.413, parent 0.588); 0 beat the parent (0.0%)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "optimize_lead_stopped",
+      "content": "Iteration 2: no improvement on 0.588."
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "lead_baseline",
+      "content": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1: DILI score 0.474, DILI 0.5255"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CC(COc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1 -> 2 blocks: [1*]Oc1ccccc1-c1ccc(CN(C)C)cc1CO ^ [2*]CC(C)Cc1ccccc1  (corpus frequencies: below cutoff, below cutoff) -> block CN(C)Cc1ccc(-c2ccccc2O)c(CO)c1 (SMILES: [1*]Oc1ccccc1-c1ccc(CN(C)C)cc1CO), isobutylbenzene-derived block (SMILES: [2*]CC(C)Cc1ccccc1)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 1: 17 edits -> 14 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "binding_filter",
+      "content": "Iteration 1: docked the top 2 of 2 improved candidate(s) by ADMET score; 0 rejected for losing more than 1.0 kcal/mol against the lead (baseline -9.4 kcal/mol)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 1: 14 scored (max 0.493, mean 0.415, parent 0.474); 2 beat the parent (14.3%)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "iteration_complete",
+      "content": "Iteration 1: 2 improved candidates; carrying forward CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1 (0.493)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CC(CSc1ccccc1-c1ccc(CN(C)C)cc1CO)Cc1ccccc1 -> 2 blocks: [1*]Sc1ccccc1-c1ccc(CN(C)C)cc1CO ^ [2*]CC(C)Cc1ccccc1  (corpus frequencies: below cutoff, below cutoff) -> block CN(C)Cc1ccc(-c2ccccc2S)c(CO)c1 (SMILES: [1*]Sc1ccccc1-c1ccc(CN(C)C)cc1CO), isobutylbenzene-derived block (SMILES: [2*]CC(C)Cc1ccccc1)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 2: 12 edits -> 12 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "binding_filter",
+      "content": "Iteration 2: docked the top 2 of 2 improved candidate(s) by ADMET score; 0 rejected for losing more than 1.0 kcal/mol against the lead (baseline -9.4 kcal/mol)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 2: 12 scored (max 0.570, mean 0.418, parent 0.493); 2 beat the parent (16.7%)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "iteration_complete",
+      "content": "Iteration 2: 2 improved candidates; carrying forward CC(CSc1ccccc1-c1ccc(CN(C)C(C)C)cc1CO)Cc1ccccc1 (0.570)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "lead_baseline",
+      "content": "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1: DILI score 0.481, DILI 0.5191"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CN(C)Cc1ccc(-c2ccccc2OCC(C)(C)Cc2ccccc2)c(CO)c1 -> 2 blocks: [1*]c1ccccc1OCC(C)(C)Cc1ccccc1 ^ [2*]c1ccc(CN(C)C)cc1CO  (corpus frequencies: below cutoff, below cutoff) -> block CC(C)(COc1ccccc1)Cc1ccccc1 (SMILES: [1*]c1ccccc1OCC(C)(C)Cc1ccccc1), {3-[(dimethylamino)methyl]phenyl}methanol-derived block (SMILES: [2*]c1ccc(CN(C)C)cc1CO)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 1: 13 edits -> 13 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "binding_filter",
+      "content": "Iteration 1: docked the top 1 of 1 improved candidate(s) by ADMET score; 0 rejected for losing more than 1.0 kcal/mol against the lead (baseline -9.4 kcal/mol)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 1: 13 scored (max 0.498, mean 0.416, parent 0.481); 1 beat the parent (7.7%)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "iteration_complete",
+      "content": "Iteration 1: 1 improved candidates; carrying forward CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1 (0.498)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "block_representation",
+      "content": "CC(C)(COc1ccccc1-c1ccc(CNCCO)cc1CO)Cc1ccccc1 -> 2 blocks: [1*]Oc1ccccc1-c1ccc(CNCCO)cc1CO ^ [2*]CC(C)(C)Cc1ccccc1  (corpus frequencies: below cutoff, below cutoff) -> block OCCNCc1ccc(-c2ccccc2O)c(CO)c1 (SMILES: [1*]Oc1ccccc1-c1ccc(CNCCO)cc1CO), neopentylbenzene-derived block (SMILES: [2*]CC(C)(C)Cc1ccccc1)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_enumerated",
+      "content": "Iteration 2: 8 edits -> 8 molecules"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "binding_filter",
+      "content": "Iteration 2: docked the top 1 of 1 improved candidate(s) by ADMET score; 0 rejected for losing more than 1.0 kcal/mol against the lead (baseline -9.4 kcal/mol)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "variants_scored",
+      "content": "Iteration 2: 8 scored (max 0.689, mean 0.427, parent 0.498); 1 beat the parent (12.5%)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "iteration_complete",
+      "content": "Iteration 2: 1 improved candidates; carrying forward CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1 (0.689)"
+    },
+    {
+      "agent": "ChemistAgent",
+      "step": "lead_optimization_complete",
+      "content": "7 candidates. Best: CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1 (DILI score 0.689, similarity to lead 0.6129032258064516)"
+    },
+    {
+      "agent": "OrchestratorAgent",
+      "step": "hit_succeeded",
+      "content": "Hit 1/5 (CC(C)COc1ccccc1-c1ccc(CN(C)C)cc1CO) yielded 7 candidate(s)."
+    },
+    {
+      "agent": "OrchestratorAgent",
+      "step": "pipeline_complete",
+      "content": "Best molecule: CN(C)OCc1cc(CNCCO)ccc1-c1ccccc1OCC(C)(C)Cc1ccccc1"
+    }
+  ]
+}

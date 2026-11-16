@@ -1,0 +1,940 @@
+{
+  "CCc1oc2ccccc2c1C(=O)c1cc(I)c(O)c(I)c1": {
+    "candidate_1": {
+      "DILI_after": 0.8044,
+      "DILI_before": 0.9826,
+      "QED_after": 0.7306,
+      "SA_after": 2.0449,
+      "dili_reduction": 0.1782,
+      "modification": "Removed both iodines entirely to simplify the scaffold and reduce lipophilicity, persistence, and potential halogen-related metabolic liabilities.",
+      "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(I)c(O)c(I)c1",
+      "tanimoto_similarity": 0.6905
+    }
+  },
+  "CN1c2c(oc(=O)n(-c3ccccn3)c2=O)-c2ccccc2S1(=O)=O": {
+    "candidate_1": {
+      "DILI_after": 0.9607,
+      "DILI_before": 0.9783,
+      "QED_after": 0.6792,
+      "SA_after": 2.9696,
+      "dili_reduction": 0.0176,
+      "modification": "Replaced the sulfur-containing fused ring atom with oxygen to reduce sulfur-associated bioactivation risk.",
+      "smiles_after": "CN1Oc2ccccc2-c2oc(=O)n(-c3ccccn3)c(=O)c21",
+      "smiles_after_valid": true,
+      "smiles_before": "CN1c2c(oc(=O)n(-c3ccccn3)c2=O)-c2ccccc2S1(=O)=O",
+      "tanimoto_similarity": 0.6226
+    }
+  },
+  "CCc1oc2ccccc2c1C(=O)c1cc(Br)c(O)c(Br)c1": {
+    "candidate_1": {
+      "DILI_after": 0.9216,
+      "DILI_before": 0.9713,
+      "QED_after": 0.7006,
+      "SA_after": 2.3326,
+      "dili_reduction": 0.0497,
+      "modification": "Removed one bromine to decrease molecular weight and hydrophobicity, which may reduce hepatic accumulation and off-target toxicity.",
+      "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1Br",
+      "smiles_after_valid": true,
+      "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(Br)c(O)c(Br)c1",
+      "tanimoto_similarity": 0.6809
+    }
+  },
+  "NC(N)=NN=C(C=Cc1ccc([N+](=O)[O-])o1)C=Cc1ccc([N+](=O)[O-])o1": {
+    "candidate_1": {
+      "DILI_after": 0.7956,
+      "DILI_before": 0.9508,
+      "QED_after": 0.3351,
+      "SA_after": 3.5263,
+      "dili_reduction": 0.1551,
+      "modification": "Replaced both nitro groups with trifluoromethyl groups to eliminate nitro-associated reactive metabolite pathways while maintaining strongly electron-withdrawing aryl substitution.",
+      "smiles_after": "NC(N)=NN=C(C=Cc1ccc(C(F)(F)F)o1)C=Cc1ccc(C(F)(F)F)o1",
+      "smiles_after_valid": true,
+      "smiles_before": "NC(N)=NN=C(C=Cc1ccc([N+](=O)[O-])o1)C=Cc1ccc([N+](=O)[O-])o1",
+      "tanimoto_similarity": 0.5455
+    }
+  },
+  "CC1CN(c2cc3c(cc2F)c(=O)c(C(=O)O)cn3-c2ccc(F)cc2F)CCN1": {
+    "candidate_1": {
+      "DILI_after": 0.8216,
+      "DILI_before": 0.9281,
+      "QED_after": 0.5874,
+      "SA_after": 3.1369,
+      "dili_reduction": 0.1065,
+      "modification": "Replaced the carboxylic acid with a tetrazole bioisostere to avoid acyl-glucuronide formation while retaining an acidic binding element.",
+      "smiles_after": "CN1CCN(c2cc(F)cc3c2c(C2=NNNN2)cc(=O)n3-c2cccc(F)c2)CC1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC1CN(c2cc3c(cc2F)c(=O)c(C(=O)O)cn3-c2ccc(F)cc2F)CCN1",
+      "tanimoto_similarity": 0.1957
+    }
+  },
+  "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2": {
+    "candidate_1": {
+      "DILI_after": 0.8197,
+      "DILI_before": 0.9718,
+      "QED_after": 0.7892,
+      "SA_after": 1.9267,
+      "dili_reduction": 0.1521,
+      "modification": "Replaced the thiophene-sulfonamide side chain with a phenyl ketone substituent to remove the thiophene and sulfonamide liabilities that may contribute to reactive metabolite formation and idiosyncratic liver injury.",
+      "smiles_after": "Cc1cc2c(cc1CC(=O)c1ccccc1)OCO2",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
+      "tanimoto_similarity": 0.4062
+    }
+  },
+  "NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC12": {
+    "candidate_1": {
+      "DILI_after": 0.8879,
+      "DILI_before": 0.9122,
+      "QED_after": 0.6958,
+      "SA_after": 3.5831,
+      "dili_reduction": 0.0243,
+      "modification": "Replaced the terminal difluorophenyl group with a pyridyl ring to reduce lipophilicity and lower the likelihood of oxidative bioactivation.",
+      "smiles_after": "NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccncc3)CC12",
+      "smiles_after_valid": true,
+      "smiles_before": "NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC12",
+      "tanimoto_similarity": 0.7377
+    }
+  },
+  "Cc1onc(-c2ccccc2Cl)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O": {
+    "candidate_1": {
+      "DILI_after": 0.8902,
+      "DILI_before": 0.9367,
+      "QED_after": 0.7579,
+      "SA_after": 3.7401,
+      "dili_reduction": 0.0465,
+      "modification": "Combined dechlorination with sulfur-to-oxygen replacement to lower lipophilicity and remove a likely metabolic soft spot linked to sulfur oxidation.",
+      "smiles_after": "Cc1onc(-c2ccccc2)c1C(=O)NC1C(=O)N2C1OC(C)(C)C2C(=O)O",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1onc(-c2ccccc2Cl)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+      "tanimoto_similarity": 0.5493
+    }
+  },
+  "c1ccc2[nH]c(-c3cscn3)nc2c1": {
+    "candidate_1": {
+      "DILI_after": 0.8908,
+      "DILI_before": 0.9526,
+      "QED_after": 0.7098,
+      "SA_after": 3.1129,
+      "dili_reduction": 0.0617,
+      "modification": "Replaced the sulfur-containing heteroaromatic ring with an oxazole-like oxygen-containing ring to reduce sulfur oxidation and reactive metabolite formation.",
+      "smiles_after": "C1=C(c2nc3ccccc3[nH]2)OCN1",
+      "smiles_after_valid": true,
+      "smiles_before": "c1ccc2[nH]c(-c3cscn3)nc2c1",
+      "tanimoto_similarity": 0.4524
+    }
+  },
+  "Cc1nc([N+](=O)[O-])cn1-c1ccc([N+](=O)[O-])cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8765,
+      "DILI_before": 0.9498,
+      "QED_after": 0.7092,
+      "SA_after": 2.3909,
+      "dili_reduction": 0.0733,
+      "modification": "Removed both nitro groups and replaced them with fluorine and nitrile to substantially reduce nitro-driven reactive metabolite risk.",
+      "smiles_after": "Cc1nc(C#N)cn1-c1ccc(F)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1nc([N+](=O)[O-])cn1-c1ccc([N+](=O)[O-])cc1",
+      "tanimoto_similarity": 0.3556
+    }
+  },
+  "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C": {
+    "candidate_1": {
+      "DILI_after": 0.7143,
+      "DILI_before": 0.9051,
+      "QED_after": 0.1404,
+      "SA_after": 5.8834,
+      "dili_reduction": 0.1907,
+      "modification": "Removed one benzoate ester from the taxane core to give a free hydroxyl, reducing lipophilicity and aromatic metabolic liability.",
+      "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(O)C21)C3(C)C",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C",
+      "tanimoto_similarity": 0.8587
+    }
+  },
+  "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC21": {
+    "candidate_1": {
+      "DILI_after": 0.8831,
+      "DILI_before": 0.9108,
+      "QED_after": 0.333,
+      "SA_after": 4.0798,
+      "dili_reduction": 0.0278,
+      "modification": "Replaced the terminal difluorophenyl ring with a pyridyl ring as a phenyl bioisostere to lower lipophilicity and alter oxidative metabolism.",
+      "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccncc3)CC21",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC21",
+      "tanimoto_similarity": 0.7867
+    }
+  },
+  "O=C(c1cc(O)c(O)c(O)c1)c1ccc(O)c(O)c1O": {
+    "candidate_1": {
+      "DILI_after": 0.8561,
+      "DILI_before": 0.9391,
+      "QED_after": 0.8369,
+      "SA_after": 2.1052,
+      "dili_reduction": 0.083,
+      "modification": "Introduced two methoxy groups, one on each ring, to further lower phenolic density and attenuate quinone/semiquinone liability.",
+      "smiles_after": "COc1cc(O)cc(C(=O)c2cc(O)cc(OC)c2)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(c1cc(O)c(O)c(O)c1)c1ccc(O)c(O)c1O",
+      "tanimoto_similarity": 0.2703
+    }
+  },
+  "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(Br)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.9037,
+      "DILI_before": 0.9423,
+      "QED_after": 0.8426,
+      "SA_after": 1.9263,
+      "dili_reduction": 0.0386,
+      "modification": "Replaced the aromatic amino group with hydroxyl to remove aniline-associated bioactivation risk.",
+      "smiles_after": "O=C(O)Cc1cc(C(=O)c2ccc(Br)cc2)ccc1O",
+      "smiles_after_valid": true,
+      "smiles_before": "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(Br)cc1",
+      "tanimoto_similarity": 0.5116
+    }
+  },
+  "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1Cl": {
+    "candidate_1": {
+      "DILI_after": 0.9106,
+      "DILI_before": 0.9474,
+      "QED_after": 0.7869,
+      "SA_after": 2.254,
+      "dili_reduction": 0.0369,
+      "modification": "Replaced the oxyacetic acid substituent with methoxy to remove the acidic side chain and simplify metabolic liabilities.",
+      "smiles_after": "COc1cc(Cl)c(Cl)c(C(=O)c2ccsc2)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1Cl",
+      "tanimoto_similarity": 0.2333
+    }
+  },
+  "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cnc(-c4cccnc4)c3)C(=O)OC12C": {
+    "candidate_1": {
+      "DILI_after": 0.7278,
+      "DILI_before": 0.9377,
+      "QED_after": 0.2495,
+      "SA_after": 5.9746,
+      "dili_reduction": 0.2099,
+      "modification": "Removed the heteroaryl tail and introduced a hydroxylated aminoalkyl chain to lower lipophilicity and reduce risk of reactive metabolite formation.",
+      "smiles_after": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCC(O)CN(C)C)C(=O)OC12C",
+      "smiles_after_valid": true,
+      "smiles_before": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cnc(-c4cccnc4)c3)C(=O)OC12C",
+      "tanimoto_similarity": 0.6667
+    }
+  },
+  "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(Br)cc2)cs1": {
+    "candidate_1": {
+      "DILI_after": 0.8751,
+      "DILI_before": 0.9532,
+      "QED_after": 0.3538,
+      "SA_after": 3.3275,
+      "dili_reduction": 0.0781,
+      "modification": "Combined Br-to-F substitution, removal of the linker sulfur, and replacement of ring sulfur with oxygen to reduce overall sulfur-related bioactivation risk.",
+      "smiles_after": "NC(N)=Nc1nc(CCCN=CNS(=O)(=O)c2ccccc2F)co1",
+      "smiles_after_valid": true,
+      "smiles_before": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(Br)cc2)cs1",
+      "tanimoto_similarity": 0.3544
+    }
+  },
+  "COc1ccc2c(C(=O)c3ccc(Cl)cc3)c(C)n(CC(=O)O)c2c1": {
+    "candidate_1": {
+      "DILI_after": 0.9329,
+      "DILI_before": 0.9483,
+      "QED_after": 0.7089,
+      "SA_after": 2.1776,
+      "dili_reduction": 0.0154,
+      "modification": "Converted methoxy to phenol to eliminate demethylation liability and modestly increase polarity.",
+      "smiles_after": "Cc1c(C(=O)c2ccc(Cl)cc2)c2ccc(O)cc2n1CC(=O)O",
+      "smiles_after_valid": true,
+      "smiles_before": "COc1ccc2c(C(=O)c3ccc(Cl)cc3)c(C)n(CC(=O)O)c2c1",
+      "tanimoto_similarity": 0.7292
+    }
+  },
+  "Cc1ccc(C(=O)c2cc(O)c(O)c([N+](=O)[O-])c2)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.7878,
+      "DILI_before": 0.9284,
+      "QED_after": 0.898,
+      "SA_after": 2.6801,
+      "dili_reduction": 0.1405,
+      "modification": "Reduced the aryl ketone to a secondary alcohol and replaced nitro with nitrile while masking one phenol as methoxy, aiming to lower planarity and reactive metabolite formation.",
+      "smiles_after": "COc1cc(C(O)c2ccc(C)cc2)cc(C#N)c1O",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1ccc(C(=O)c2cc(O)c(O)c([N+](=O)[O-])c2)cc1",
+      "tanimoto_similarity": 0.2105
+    }
+  },
+  "O=C(O)c1cc(-c2ccccc2)nc2ccccc12": {
+    "candidate_1": {
+      "DILI_after": 0.7713,
+      "DILI_before": 0.9243,
+      "QED_after": 0.8826,
+      "SA_after": 2.1854,
+      "dili_reduction": 0.153,
+      "modification": "Replaced the pendant phenyl ring with cyclohexyl to reduce aromaticity and lower the chance of forming reactive aromatic oxidation products.",
+      "smiles_after": "O=C(O)c1c(C2CCCCC2)ncc2ccccc12",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(O)c1cc(-c2ccccc2)nc2ccccc12",
+      "tanimoto_similarity": 0.2857
+    }
+  },
+  "O=C(O)Cc1csc(-c2ccc(Cl)cc2)n1": {
+    "candidate_1": {
+      "DILI_after": 0.8912,
+      "DILI_before": 0.9354,
+      "QED_after": 0.9071,
+      "SA_after": 1.8393,
+      "dili_reduction": 0.0442,
+      "modification": "Replaced the thiazole-like sulfur heterocycle with a pyridine ring to remove a potential sulfur metabolic alert while retaining an aromatic nitrogen-containing core.",
+      "smiles_after": "O=C(O)Cc1ccnc(-c2cccc(Cl)c2)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(O)Cc1csc(-c2ccc(Cl)cc2)n1",
+      "tanimoto_similarity": 0.34
+    }
+  },
+  "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)cc1)O2": {
+    "candidate_1": {
+      "DILI_after": 0.8563,
+      "DILI_before": 0.9111,
+      "QED_after": 0.8019,
+      "SA_after": 3.6857,
+      "dili_reduction": 0.0548,
+      "modification": "Removed the benzylic ether oxygen and replaced sulfur with oxygen to reduce both O-dealkylation/benzylic oxidation liability and sulfur bioactivation risk.",
+      "smiles_after": "Cc1c(C)c2c(c(C)c1O)CCC(C)(Cc1ccc(CC3OC(=O)NC3=O)cc1)O2",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)cc1)O2",
+      "tanimoto_similarity": 0.5507
+    }
+  },
+  "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccccc1": {
+    "candidate_1": {
+      "DILI_after": 0.533,
+      "DILI_before": 0.9248,
+      "QED_after": 0.8251,
+      "SA_after": 2.2211,
+      "dili_reduction": 0.3918,
+      "modification": "Removed the nitro group and replaced the distal phenyl ring with a polar morpholine-containing side chain to lower aromaticity, lipophilicity, and potential hepatic accumulation.",
+      "smiles_after": "CS(=O)(=O)Nc1cc(C#N)ccc1OCCN1CCOCC1",
+      "smiles_after_valid": true,
+      "smiles_before": "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccccc1",
+      "tanimoto_similarity": 0.2727
+    }
+  },
+  "COC(=O)Nc1nc2ccc(C(=O)c3ccc(F)cc3)cc2[nH]1": {
+    "candidate_1": {
+      "DILI_after": 0.9003,
+      "DILI_before": 0.935,
+      "QED_after": 0.7779,
+      "SA_after": 2.1112,
+      "dili_reduction": 0.0347,
+      "modification": "Removed the ketone entirely and replaced it with a methylene linker to reduce potential reactive metabolite formation from the aryl ketone.",
+      "smiles_after": "COC(=O)Nc1nc2ccc(Cc3ccc(F)cc3)cc2[nH]1",
+      "smiles_after_valid": true,
+      "smiles_before": "COC(=O)Nc1nc2ccc(C(=O)c3ccc(F)cc3)cc2[nH]1",
+      "tanimoto_similarity": 0.6939
+    }
+  },
+  "O=C1OCCN1N=Cc1ccc([N+](=O)[O-])o1": {
+    "candidate_1": {
+      "DILI_after": 0.7142,
+      "DILI_before": 0.9164,
+      "QED_after": 0.7527,
+      "SA_after": 3.124,
+      "dili_reduction": 0.2023,
+      "modification": "Substituted the nitro group with trifluoromethyl to preserve electron-withdrawing character while avoiding nitro reduction to toxic intermediates.",
+      "smiles_after": "O=C1OCCN1N=Cc1ccc(C(F)(F)F)o1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C1OCCN1N=Cc1ccc([N+](=O)[O-])o1",
+      "tanimoto_similarity": 0.5957
+    }
+  },
+  "Cc1cc(Br)c(O)c2ncccc12": {
+    "candidate_1": {
+      "DILI_after": 0.4872,
+      "DILI_before": 0.9055,
+      "QED_after": 0.6608,
+      "SA_after": 1.6949,
+      "dili_reduction": 0.4184,
+      "modification": "Combined phenol masking with dehalogenation to address both redox liability and excessive lipophilicity.",
+      "smiles_after": "COc1cc(C)c2cccnc2c1",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1cc(Br)c(O)c2ncccc12",
+      "tanimoto_similarity": 0.3902
+    }
+  },
+  "CC(C(=O)O)c1ccc2oc(-c3ccc(Cl)cc3)nc2c1": {
+    "candidate_1": {
+      "DILI_after": 0.768,
+      "DILI_before": 0.8757,
+      "QED_after": 0.8008,
+      "SA_after": 2.5483,
+      "dili_reduction": 0.1077,
+      "modification": "Converted the carboxylic acid to a primary amide to remove potential acyl-glucuronide reactivity associated with some acid-containing compounds.",
+      "smiles_after": "CC(C(N)=O)c1ccc2oc(-c3ccc(Cl)cc3)nc2c1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(C(=O)O)c1ccc2oc(-c3ccc(Cl)cc3)nc2c1",
+      "tanimoto_similarity": 0.8
+    }
+  },
+  "Cc1ccc(Nc2c(F)cccc2Cl)c(CC(=O)O)c1": {
+    "candidate_1": {
+      "DILI_after": 0.8224,
+      "DILI_before": 0.9032,
+      "QED_after": 0.8624,
+      "SA_after": 1.7102,
+      "dili_reduction": 0.0808,
+      "modification": "Removed both halogens from the distal phenyl ring to lower aromatic lipophilicity and reduce persistence-related hepatotoxicity risk.",
+      "smiles_after": "Cc1ccc(Nc2ccccc2)c(CC(=O)O)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1ccc(Nc2c(F)cccc2Cl)c(CC(=O)O)c1",
+      "tanimoto_similarity": 0.587
+    }
+  },
+  "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(O)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8935,
+      "DILI_before": 0.9036,
+      "QED_after": 0.7811,
+      "SA_after": 2.4295,
+      "dili_reduction": 0.01,
+      "modification": "Converted one phenol to a methoxy group to lower direct phenolic redox liability while retaining similar steric and electronic properties.",
+      "smiles_after": "COc1ccc(C(c2ccc(O)cc2)N2C(=O)c3ccccc32)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(O)cc1",
+      "tanimoto_similarity": 0.2264
+    }
+  },
+  "O=c1ccc2ccccc2o1": {
+    "candidate_1": {
+      "DILI_after": 0.757,
+      "DILI_before": 0.9006,
+      "QED_after": 0.4118,
+      "SA_after": 2.0911,
+      "dili_reduction": 0.1436,
+      "modification": "Partially saturated the fused ring system to reduce conjugation and lower the risk of oxidation to reactive intermediates.",
+      "smiles_after": "O=C1CCc2ccccc2O1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=c1ccc2ccccc2o1",
+      "tanimoto_similarity": 0.2353
+    }
+  },
+  "O=C1c2ccccc2C(=O)C1c1ccccc1": {
+    "candidate_1": {
+      "DILI_after": 0.7332,
+      "DILI_before": 0.8953,
+      "QED_after": 0.8324,
+      "SA_after": 2.5598,
+      "dili_reduction": 0.1621,
+      "modification": "Added a hydroxymethyl substituent to increase polarity and provide a metabolically softer, more readily cleared side chain.",
+      "smiles_after": "O=C1C(=O)C(c2ccc(CO)cc2)c2ccccc21",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccccc1",
+      "tanimoto_similarity": 0.3889
+    }
+  },
+  "O=C(O)Cc1ccccc1Oc1ccc(Cl)cc1Cl": {
+    "candidate_1": {
+      "DILI_after": 0.8714,
+      "DILI_before": 0.907,
+      "QED_after": 0.9125,
+      "SA_after": 1.6611,
+      "dili_reduction": 0.0356,
+      "modification": "Removed one chlorine from the distal aryl ring to reduce halogen burden and lipophilicity, which may lower hepatic accumulation and oxidative liability.",
+      "smiles_after": "O=C(O)Cc1cccc(Oc2cccc(Cl)c2)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(O)Cc1ccccc1Oc1ccc(Cl)cc1Cl",
+      "tanimoto_similarity": 0.413
+    }
+  },
+  "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC=C(C)C)c4)c(=O)oc3c2C)OC1(C)C": {
+    "candidate_1": {
+      "DILI_after": 0.6833,
+      "DILI_before": 0.9056,
+      "QED_after": 0.252,
+      "SA_after": 4.1686,
+      "dili_reduction": 0.2223,
+      "modification": "Combined prenyl saturation with removal of the sugar carbamoyl substituent to reduce oxidative and acyl-processing liabilities.",
+      "smiles_after": "COC1C(O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CCC(C)C)c4)c(=O)oc3c2C)OC1(C)C",
+      "smiles_after_valid": true,
+      "smiles_before": "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC=C(C)C)c4)c(=O)oc3c2C)OC1(C)C",
+      "tanimoto_similarity": 0.6778
+    }
+  },
+  "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8854,
+      "DILI_before": 0.8852,
+      "QED_after": 0.4407,
+      "SA_after": 2.5736,
+      "dili_reduction": -0.0002,
+      "modification": "Replaced both para-acetoxy groups with trifluoromethyl groups to block ester cleavage and reduce oxidative bioactivation at those aryl substituents.",
+      "smiles_after": "CC(=O)N1C(=O)C(c2ccc(C(F)(F)F)cc2)(c2ccc(C(F)(F)F)cc2)c2ccccc21",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1",
+      "tanimoto_similarity": 0.6522
+    }
+  },
+  "O=C(O)COc1nn(Cc2ccccc2)c2ccccc12": {
+    "candidate_1": {
+      "DILI_after": 0.7185,
+      "DILI_before": 0.7928,
+      "QED_after": 0.7767,
+      "SA_after": 1.9765,
+      "dili_reduction": 0.0743,
+      "modification": "Converted the terminal carboxylic acid to a primary amide to avoid potential acyl glucuronide formation associated with some acid-containing compounds.",
+      "smiles_after": "NC(=O)COc1nn(Cc2ccccc2)c2ccccc12",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(O)COc1nn(Cc2ccccc2)c2ccccc12",
+      "tanimoto_similarity": 0.8049
+    }
+  },
+  "CC1CCc2cc(F)cc3c(=O)c(C(=O)O)cn1c23": {
+    "candidate_1": {
+      "DILI_after": 0.7641,
+      "DILI_before": 0.8654,
+      "QED_after": 0.813,
+      "SA_after": 3.8344,
+      "dili_reduction": 0.1013,
+      "modification": "Reduced the aryl ketone to a secondary alcohol to decrease electrophilicity and reactive metabolite risk.",
+      "smiles_after": "CC1CCc2cc(F)cc3c2N1C=C(C(=O)O)C3O",
+      "smiles_after_valid": true,
+      "smiles_before": "CC1CCc2cc(F)cc3c(=O)c(C(=O)O)cn1c23",
+      "tanimoto_similarity": 0.4138
+    }
+  },
+  "NC1=NC(=O)C(c2ccccc2)O1": {
+    "candidate_1": {
+      "DILI_after": 0.9009,
+      "DILI_before": 0.8646,
+      "QED_after": 0.7332,
+      "SA_after": 2.1206,
+      "dili_reduction": -0.0364,
+      "modification": "Added a hydroxymethyl substituent to improve polarity and solubility, which may reduce liver exposure and shift metabolism away from direct aromatic oxidation.",
+      "smiles_after": "Nc1nnc(-c2ccc(CO)cc2)o1",
+      "smiles_after_valid": true,
+      "smiles_before": "NC1=NC(=O)C(c2ccccc2)O1",
+      "tanimoto_similarity": 0.1522
+    }
+  },
+  "CCOC(Nc1ccc(C(=O)O)cc1)C(=O)c1ccc(-c2ccccc2)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8319,
+      "DILI_before": 0.904,
+      "QED_after": 0.5017,
+      "SA_after": 2.927,
+      "dili_reduction": 0.0721,
+      "modification": "Reduced the aryl ketone to a secondary alcohol to increase polarity and lessen potential carbonyl-associated metabolic liability.",
+      "smiles_after": "CCOC(Nc1ccc(C(=O)O)cc1)C(O)c1ccc(-c2ccccc2)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CCOC(Nc1ccc(C(=O)O)cc1)C(=O)c1ccc(-c2ccccc2)cc1",
+      "tanimoto_similarity": 0.6458
+    }
+  },
+  "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8411,
+      "DILI_before": 0.8044,
+      "QED_after": 0.6711,
+      "SA_after": 1.9363,
+      "dili_reduction": -0.0367,
+      "modification": "Converted the phenol to a methoxy group to mask the phenolic proton and decrease direct oxidative bioactivation liability.",
+      "smiles_after": "CCc1oc2ccccc2c1C(=O)c1ccc(OC)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1",
+      "tanimoto_similarity": 0.7317
+    }
+  },
+  "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1": {
+    "candidate_1": {
+      "DILI_after": 0.7927,
+      "DILI_before": 0.9043,
+      "QED_after": 0.6831,
+      "SA_after": 3.315,
+      "dili_reduction": 0.1116,
+      "modification": "Replaced the heteroaryl methyl substituent with hydroxymethyl to reduce basicity, lower CYP-binding potential, and increase polarity.",
+      "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(CO)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
+      "tanimoto_similarity": 0.75
+    }
+  },
+  "CC1=CC(=O)c2ccccc2C1=O": {
+    "candidate_1": {
+      "DILI_after": 0.7444,
+      "DILI_before": 0.8309,
+      "QED_after": 0.6514,
+      "SA_after": 2.9782,
+      "dili_reduction": 0.0865,
+      "modification": "Reduced one ketone to a hydroxyl to decrease quinone-like electrophilicity and redox cycling potential.",
+      "smiles_after": "CC1=CC(=O)c2ccccc2C1O",
+      "smiles_after_valid": true,
+      "smiles_before": "CC1=CC(=O)c2ccccc2C1=O",
+      "tanimoto_similarity": 0.4242
+    }
+  },
+  "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)Nc3ccccc32)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.6603,
+      "DILI_before": 0.8463,
+      "QED_after": 0.4875,
+      "SA_after": 2.7907,
+      "dili_reduction": 0.186,
+      "modification": "Replaced one acetate with a hydroxyethyl ether to increase polarity, reduce ester hydrolysis liability, and potentially lower hepatic accumulation.",
+      "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(OCCO)cc3)C(=O)Nc3ccccc32)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)Nc3ccccc32)cc1",
+      "tanimoto_similarity": 0.7955
+    }
+  },
+  "CN1C(=O)CCS(=O)(=O)C1c1ccc(Cl)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.7434,
+      "DILI_before": 0.8176,
+      "QED_after": 0.7332,
+      "SA_after": 3.0882,
+      "dili_reduction": 0.0743,
+      "modification": "Removed the aryl halogen entirely to lower hydrophobicity and simplify metabolic liabilities.",
+      "smiles_after": "CN1C(=O)CCS(=O)(=O)C1c1ccccc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CN1C(=O)CCS(=O)(=O)C1c1ccc(Cl)cc1",
+      "tanimoto_similarity": 0.7222
+    }
+  },
+  "COc1ccc2c(C(=S)N(C)CC(=O)O)cccc2c1C(F)(F)F": {
+    "candidate_1": {
+      "DILI_after": 0.7318,
+      "DILI_before": 0.886,
+      "QED_after": 0.9085,
+      "SA_after": 2.3984,
+      "dili_reduction": 0.1542,
+      "modification": "Converted the thiocarbonyl to an amide and changed methoxy to hydroxyl to remove O-demethylation while increasing polarity.",
+      "smiles_after": "CN(CC(=O)O)C(=O)c1cccc2c(C(F)(F)F)c(O)ccc12",
+      "smiles_after_valid": true,
+      "smiles_before": "COc1ccc2c(C(=S)N(C)CC(=O)O)cccc2c1C(F)(F)F",
+      "tanimoto_similarity": 0.5741
+    }
+  },
+  "CCOC(=O)Nc1ccc(NCc2ccc(F)cc2)nc1N": {
+    "candidate_1": {
+      "DILI_after": 0.8297,
+      "DILI_before": 0.8469,
+      "QED_after": 0.7791,
+      "SA_after": 2.2602,
+      "dili_reduction": 0.0171,
+      "modification": "Replaced the 4-fluorobenzyl group with a pyridylmethyl group to lower lipophilicity and reduce risk of aromatic oxidative bioactivation.",
+      "smiles_after": "CCOC(=O)Nc1ccc(NCc2ccncc2)nc1N",
+      "smiles_after_valid": true,
+      "smiles_before": "CCOC(=O)Nc1ccc(NCc2ccc(F)cc2)nc1N",
+      "tanimoto_similarity": 0.7708
+    }
+  },
+  "COc1ccc(C2C(=O)c3ccccc3C2=O)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.8413,
+      "DILI_before": 0.894,
+      "QED_after": 0.7752,
+      "SA_after": 2.1803,
+      "dili_reduction": 0.0527,
+      "modification": "Introduced a morpholine-containing ether side chain to increase polarity and reduce lipophilicity-driven hepatic accumulation and nonspecific binding.",
+      "smiles_after": "O=C1c2ccccc2C(=O)C1c1ccc(OCCN2CCOCC2)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "COc1ccc(C2C(=O)c3ccccc3C2=O)cc1",
+      "tanimoto_similarity": 0.4667
+    }
+  },
+  "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O": {
+    "candidate_1": {
+      "DILI_after": 0.8291,
+      "DILI_before": 0.9062,
+      "QED_after": 0.209,
+      "SA_after": 6.7061,
+      "dili_reduction": 0.0772,
+      "modification": "Combined N-desmethyl and mono-deacetyl analog; simultaneously reduces tertiary amine oxidation and ester hydrolysis liability.",
+      "smiles_after": "CNC1CC(C)OC(OC2C(C)CC3(CO3)C(=O)C(C)C(OC(C)=O)C(C)C(C)OC(=O)C(C)C(OC3CC(OC)C(O)C(C)O3)C2C)C1OC(C)=O",
+      "smiles_after_valid": true,
+      "smiles_before": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
+      "tanimoto_similarity": 0.7407
+    }
+  },
+  "Cc1cc(O)c2ccccc2c1O": {
+    "candidate_1": {
+      "DILI_after": 0.3933,
+      "DILI_before": 0.796,
+      "QED_after": 0.7452,
+      "SA_after": 1.7931,
+      "dili_reduction": 0.4027,
+      "modification": "Masked one phenol as a methoxy group to decrease direct phenol oxidation and reactive metabolite formation.",
+      "smiles_after": "COc1cc(O)c2ccccc2c1C",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1cc(O)c2ccccc2c1O",
+      "tanimoto_similarity": 0.4839
+    }
+  },
+  "O=C(CCNNC(=O)c1ccncc1)NCc1ccccc1": {
+    "candidate_1": {
+      "DILI_after": 0.758,
+      "DILI_before": 0.7643,
+      "QED_after": 0.844,
+      "SA_after": 1.6524,
+      "dili_reduction": 0.0063,
+      "modification": "Replaced the acyl hydrazide N-N linkage with a simple amide to reduce reactive metabolite formation and lower hydrazine-associated DILI risk.",
+      "smiles_after": "O=C(CCNC(=O)c1ccncc1)NCc1ccccc1",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(CCNNC(=O)c1ccncc1)NCc1ccccc1",
+      "tanimoto_similarity": 0.7805
+    }
+  },
+  "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C": {
+    "candidate_1": {
+      "DILI_after": 0.4498,
+      "DILI_before": 0.6821,
+      "QED_after": 0.8188,
+      "SA_after": 2.5109,
+      "dili_reduction": 0.2324,
+      "modification": "Replaced the sulfur-containing side chain with hydroxymethyl to simplify metabolism and reduce sulfur-related bioactivation risk.",
+      "smiles_after": "Cc1c(N(C)CO)c(=O)n(-c2ccccc2)n1C",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C",
+      "tanimoto_similarity": 0.7561
+    }
+  },
+  "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(Cl)ccc12": {
+    "candidate_1": {
+      "DILI_after": 0.6521,
+      "DILI_before": 0.6646,
+      "QED_after": 0.5982,
+      "SA_after": 2.5351,
+      "dili_reduction": 0.0125,
+      "modification": "Removed the aromatic chlorine to reduce lipophilicity and potential metabolic persistence.",
+      "smiles_after": "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2ccccc12",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(Cl)ccc12",
+      "tanimoto_similarity": 0.7778
+    }
+  },
+  "CCCCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O": {
+    "candidate_1": {
+      "DILI_after": 0.5296,
+      "DILI_before": 0.4993,
+      "QED_after": 0.8109,
+      "SA_after": 2.2635,
+      "dili_reduction": -0.0303,
+      "modification": "Shortened the alkyl substituent from pentyl-like to butyl-like to reduce lipophilicity and hepatic accumulation.",
+      "smiles_after": "CCCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O",
+      "smiles_after_valid": true,
+      "smiles_before": "CCCCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O",
+      "tanimoto_similarity": 0.8
+    }
+  },
+  "Cc1cc(C(=O)NNCc2ccccc2)no1": {
+    "candidate_1": {
+      "DILI_after": 0.567,
+      "DILI_before": 0.8503,
+      "QED_after": 0.8035,
+      "SA_after": 2.0982,
+      "dili_reduction": 0.2833,
+      "modification": "Replaced the benzyl group with a morpholine-containing side chain and removed the hydrazide to reduce aromatic oxidation risk and improve polarity.",
+      "smiles_after": "Cc1cc(C(=O)NCCN2CCOCC2)no1",
+      "smiles_after_valid": true,
+      "smiles_before": "Cc1cc(C(=O)NNCc2ccccc2)no1",
+      "tanimoto_similarity": 0.4038
+    }
+  },
+  "CC(c1cc2ccccc2s1)N(O)C(N)=O": {
+    "candidate_1": {
+      "DILI_after": 0.4855,
+      "DILI_before": 0.7213,
+      "QED_after": 0.5349,
+      "SA_after": 2.5149,
+      "dili_reduction": 0.2359,
+      "modification": "Replaced the fused sulfur-containing bicyclic core with a simple phenyl ring to remove sulfur bioactivation risk and reduce aromatic complexity.",
+      "smiles_after": "CC(c1ccccc1)N(O)C(N)=O",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(c1cc2ccccc2s1)N(O)C(N)=O",
+      "tanimoto_similarity": 0.5128
+    }
+  },
+  "CN1CCN(C2=Nc3cc(Cl)ccc3Nc3ccccc32)CC1": {
+    "candidate_1": {
+      "DILI_after": 0.6545,
+      "DILI_before": 0.7184,
+      "QED_after": 0.7854,
+      "SA_after": 2.3553,
+      "dili_reduction": 0.0638,
+      "modification": "Converted the distal piperazine nitrogen into an acetamide to markedly reduce basicity and decrease liver accumulation associated with strongly basic amines.",
+      "smiles_after": "CC(=O)N1CCN(C2=Nc3cc(Cl)ccc3Nc3ccccc32)CC1",
+      "smiles_after_valid": true,
+      "smiles_before": "CN1CCN(C2=Nc3cc(Cl)ccc3Nc3ccccc32)CC1",
+      "tanimoto_similarity": 0.74
+    }
+  },
+  "O=C(COc1ccc(Cl)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1": {
+    "candidate_1": {
+      "DILI_after": 0.7022,
+      "DILI_before": 0.8145,
+      "QED_after": 0.7094,
+      "SA_after": 1.8391,
+      "dili_reduction": 0.1123,
+      "modification": "Replaced the methylenedioxyphenyl group with a dimethoxyphenyl motif to reduce risk of CYP-mediated bioactivation and reactive intermediate formation.",
+      "smiles_after": "COc1ccc(CN2CCN(C(=O)COc3ccc(Cl)cc3)CC2)cc1OC",
+      "smiles_after_valid": true,
+      "smiles_before": "O=C(COc1ccc(Cl)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1",
+      "tanimoto_similarity": 0.6727
+    }
+  },
+  "CN1Cc2c(N)cccc2C(c2ccccc2)C1": {
+    "candidate_1": {
+      "DILI_after": 0.5779,
+      "DILI_before": 0.7004,
+      "QED_after": 0.9158,
+      "SA_after": 2.5669,
+      "dili_reduction": 0.1225,
+      "modification": "Converted the free aniline into an acetanilide to reduce amine nucleophilicity and potential oxidative bioactivation.",
+      "smiles_after": "CC(=O)Nc1cccc2c1CN(C)CC2c1ccccc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CN1Cc2c(N)cccc2C(c2ccccc2)C1",
+      "tanimoto_similarity": 0.587
+    }
+  },
+  "C=CCOc1ccc(CC(=O)O)cc1Cl": {
+    "candidate_1": {
+      "DILI_after": 0.3936,
+      "DILI_before": 0.6963,
+      "QED_after": 0.8476,
+      "SA_after": 2.0151,
+      "dili_reduction": 0.3027,
+      "modification": "Introduced a fluoroethyl ether as a less bioactivatable substitute for the allyl ether to reduce CYP-mediated oxidation at the alkoxy side chain.",
+      "smiles_after": "O=C(O)Cc1ccc(OCCF)c(Cl)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "C=CCOc1ccc(CC(=O)O)cc1Cl",
+      "tanimoto_similarity": 0.6341
+    }
+  },
+  "CNCCC(Oc1cccc2ccccc12)c1cccs1": {
+    "candidate_1": {
+      "DILI_after": 0.4487,
+      "DILI_before": 0.7091,
+      "QED_after": 0.8824,
+      "SA_after": 3.0632,
+      "dili_reduction": 0.2604,
+      "modification": "Replaced the aromatic thiophene with a saturated tetrahydrofuran ring to remove aromatic sulfur liability and decrease planarity associated with nonspecific toxicity.",
+      "smiles_after": "CNCCC(Oc1cccc2ccccc12)C1CCCO1",
+      "smiles_after_valid": true,
+      "smiles_before": "CNCCC(Oc1cccc2ccccc12)c1cccs1",
+      "tanimoto_similarity": 0.4737
+    }
+  },
+  "CCCN(CCC)C(=O)Cc1c(-c2ccc(Cl)cc2)nc2ccc(Cl)cn12": {
+    "candidate_1": {
+      "DILI_after": 0.7747,
+      "DILI_before": 0.8579,
+      "QED_after": 0.6624,
+      "SA_after": 2.4307,
+      "dili_reduction": 0.0831,
+      "modification": "Removed one chlorine and replaced one phenyl ring with pyridyl to reduce lipophilicity and introduce a polarity-enhancing ring nitrogen.",
+      "smiles_after": "CCCN(CCC)C(=O)Cc1c(-c2ccncc2)nc2ccccn12",
+      "smiles_after_valid": true,
+      "smiles_before": "CCCN(CCC)C(=O)Cc1c(-c2ccc(Cl)cc2)nc2ccc(Cl)cn12",
+      "tanimoto_similarity": 0.6
+    }
+  },
+  "Nc1c2c(nc3ccccc13)CCCC2": {
+    "candidate_1": {
+      "DILI_after": 0.4095,
+      "DILI_before": 0.6506,
+      "QED_after": 0.8035,
+      "SA_after": 3.3925,
+      "dili_reduction": 0.2411,
+      "modification": "Replaced the free amino group with an N-methyl urea to increase polarity and reduce formation of reactive amine metabolites.",
+      "smiles_after": "CNC(=O)NC1=c2nc3c(cc2=CC=CC=C1)CCCC3",
+      "smiles_after_valid": true,
+      "smiles_before": "Nc1c2c(nc3ccccc13)CCCC2",
+      "tanimoto_similarity": 0.1639
+    }
+  },
+  "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12": {
+    "candidate_1": {
+      "DILI_after": 0.6752,
+      "DILI_before": 0.7052,
+      "QED_after": 0.3697,
+      "SA_after": 4.5651,
+      "dili_reduction": 0.03,
+      "modification": "Single phenol methyl ether; masking one phenolic OH may reduce oxidation to quinone-like reactive intermediates.",
+      "smiles_after": "C=C1c2c(Cl)ccc(O)c2C(OC)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12",
+      "smiles_after_valid": true,
+      "smiles_before": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12",
+      "tanimoto_similarity": 0.8182
+    }
+  },
+  "CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1": {
+    "candidate_1": {
+      "DILI_after": 0.3557,
+      "DILI_before": 0.6256,
+      "QED_after": 0.8631,
+      "SA_after": 2.5634,
+      "dili_reduction": 0.2699,
+      "modification": "Replaced the unsaturated cyclic amine with a smaller dimethylamino group to simplify metabolism and remove the alkene-associated bioactivation liability.",
+      "smiles_after": "CC(C(=O)O)c1ccc(N(C)C)c(Cl)c1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1",
+      "tanimoto_similarity": 0.5238
+    }
+  },
+  "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(C)=O)cc2)cc1": {
+    "candidate_1": {
+      "DILI_after": 0.5042,
+      "DILI_before": 0.612,
+      "QED_after": 0.6327,
+      "SA_after": 2.1914,
+      "dili_reduction": 0.1077,
+      "modification": "Mono-deacetylated analog; removes one aryl acetate to lower ester hydrolysis burden and modestly reduce lipophilicity.",
+      "smiles_after": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(O)cc2)cc1",
+      "smiles_after_valid": true,
+      "smiles_before": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(C)=O)cc2)cc1",
+      "tanimoto_similarity": 0.8788
+    }
+  },
+  "CSc1ccc2c(c1)N(CCC1CCCCN1C)c1ccccc1S2": {
+    "candidate_1": {
+      "DILI_after": 0.6301,
+      "DILI_before": 0.7055,
+      "QED_after": 0.7323,
+      "SA_after": 2.7567,
+      "dili_reduction": 0.0754,
+      "modification": "Replaced the pendant methylthio group with methyl to preserve hydrophobic bulk while eliminating thioether-mediated reactive metabolite pathways.",
+      "smiles_after": "Cc1ccc2c(c1)N(CCC1CCCCN1C)c1ccccc1S2",
+      "smiles_after_valid": true,
+      "smiles_before": "CSc1ccc2c(c1)N(CCC1CCCCN1C)c1ccccc1S2",
+      "tanimoto_similarity": 0.75
+    }
+  },
+  "CCC1(c2ccc(N)cc2)CCC(=O)NC1=O": {
+    "candidate_1": {
+      "DILI_after": 0.3265,
+      "DILI_before": 0.4093,
+      "QED_after": 0.7602,
+      "SA_after": 2.8649,
+      "dili_reduction": 0.0828,
+      "modification": "Replaced the para-aniline with a hydroxyl group to remove the aromatic amine bioactivation liability and modestly increase polarity.",
+      "smiles_after": "CCC1(c2ccc(O)cc2)CCC(=O)NC1=O",
+      "smiles_after_valid": true,
+      "smiles_before": "CCC1(c2ccc(N)cc2)CCC(=O)NC1=O",
+      "tanimoto_similarity": 0.7297
+    }
+  },
+  "NC(=O)OCC(COC(N)=O)c1ccccc1": {
+    "candidate_1": {
+      "DILI_after": 0.4191,
+      "DILI_before": 0.5381,
+      "QED_after": 0.7908,
+      "SA_after": 2.5281,
+      "dili_reduction": 0.1191,
+      "modification": "Replaced one O-carbamate with a methyl ether to reduce carbamate-related metabolic activation pathways.",
+      "smiles_after": "COC(COC(N)=O)c1ccccc1",
+      "smiles_after_valid": true,
+      "smiles_before": "NC(=O)OCC(COC(N)=O)c1ccccc1",
+      "tanimoto_similarity": 0.6364
+    }
+  }
+}
