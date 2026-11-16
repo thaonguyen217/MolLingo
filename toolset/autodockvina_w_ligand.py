@@ -22,7 +22,8 @@ VINA_TIMEOUT = 300
 from toolset.config import MGLTOOLS_PATH, VINA_EXE
 # One parser for both docking routes, so the two cannot drift apart on the
 # one number the whole binding gate rests on.
-from toolset.autodockvina_wo_ligand import _affinity_from_pose, _affinity_from_log
+from toolset.autodockvina_wo_ligand import (_affinity_from_pose, _affinity_from_log,
+                                            _box_for_ligand)
 
 # Seconds before a structure-database request is abandoned. Without a
 # timeout these calls block indefinitely: a run against a target with no
@@ -236,6 +237,10 @@ def prepare_ligand_pdb(smiles, ligand_name='ligand', save_dir='./temp'):
 def run_vina(receptor_pdbqt, ligand_pdbqt, center, size, ligand_name='ligand', save_dir='./temp'):
     out_pdbqt = os.path.join(save_dir, f"docked_{ligand_name}.pdbqt")
     log_file = os.path.join(save_dir, f"log_{ligand_name}.txt")
+
+    # The box is sized from the co-crystal reference ligand, not from this
+    # molecule; make sure this molecule fits before searching it.
+    size = _box_for_ligand(size, ligand_pdbqt, ligand_name)
 
     cmd = [
         VINA_EXE,

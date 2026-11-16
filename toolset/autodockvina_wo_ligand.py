@@ -90,25 +90,69 @@ BURIAL_RADIUS = 10.0
 BOX_RESIDUE_MARGIN = 8.0
 
 
-def _buried_centroid(coords, sample_limit=4000):
-    """Centroid of the most buried atoms, as a proxy for the binding pocket."""
-    # Subsample for the O(n^2) neighbour count; burial is a smooth property,
-    # so a few thousand atoms locate the protein core just as well.
-    if len(coords) > sample_limit:
-        step = len(coords) // sample_limit + 1
-        sample = coords[::step]
-    else:
-        sample = coords
+# Grid spacing, in angstroms, for the pocket search. 1.0 is coarse next to
+# the 0.5 used for growth hotspots, but this only has to locate a cavity, not
+# measure its volume.
+POCKET_GRID_SPACING = 1.0
+# Clearance from any receptor heavy atom for a grid point to count as open
+# space. Same 2.2 A the growth-hotspot analysis uses (a carbon van der Waals
+# radius plus a small probe), so "empty" means the same thing in both places.
+POCKET_CLEARANCE = 2.2
 
-    # Chunked to keep the pairwise distance matrix small.
-    counts = np.empty(len(sample))
-    for start in range(0, len(sample), 512):
-        chunk = sample[start:start + 512]
-        distances = np.linalg.norm(chunk[:, None, :] - sample[None, :, :], axis=2)
-        counts[start:start + len(chunk)] = (distances < BURIAL_RADIUS).sum(axis=1)
 
-    cutoff = np.quantile(counts, 0.9)
-    return sample[counts >= cutoff].mean(axis=0)
+def _buried_centroid(coords):
+    """
+    A point inside the most enclosed cavity of the protein, as a proxy for the
+    binding pocket.
+
+    This used to return the centroid of the most buried *atoms*, which is the
+    protein core by construction: on a 1121-atom receptor that centre landed
+    1.93 A from the nearest atom, inside its van der Waals envelope, with 55%
+    of the resulting box filled by protein. Vina cannot place a ligand there
+    without clashing, so it reported a positive affinity, which read as a
+    docking failure when the box was the problem.
+
+    A pocket is buried *empty space*, so the search is over open grid points
+    (nothing within POCKET_CLEARANCE) scored by how enclosed they are (how
+    many protein atoms lie within BURIAL_RADIUS). The best point's
+    neighbourhood is averaged, which keeps the result inside one cavity rather
+    than between several.
+    """
+    from scipy.spatial import cKDTree
+
+    coords = np.asarray(coords, dtype=float)
+    tree = cKDTree(coords)
+
+    low = coords.min(axis=0) - POCKET_CLEARANCE
+    high = coords.max(axis=0) + POCKET_CLEARANCE
+    axes = [np.arange(low[i], high[i] + POCKET_GRID_SPACING, POCKET_GRID_SPACING)
+            for i in range(3)]
+    grid = np.stack(np.meshgrid(*axes, indexing='ij'), axis=-1).reshape(-1, 3)
+
+    # Open space only: a point closer than the clearance is inside an atom.
+    clearance, _ = tree.query(grid)
+    open_points = grid[clearance > POCKET_CLEARANCE]
+    if not len(open_points):
+        # Nothing open anywhere (a tiny or pathological structure): fall back
+        # to the plain centroid rather than failing the docking outright.
+        return coords.mean(axis=0)
+
+    # Enclosure: how much protein surrounds each open point. A cavity scores
+    # high, the bulk solvent outside the protein scores low.
+    enclosure = np.array([len(hits) for hits in
+                          tree.query_ball_point(open_points, BURIAL_RADIUS)])
+    best = open_points[enclosure.argmax()]
+
+    # Average the open points of that same cavity, so the centre sits in the
+    # middle of the pocket instead of on its wall.
+    nearby = open_points[np.linalg.norm(open_points - best, axis=1) <= BURIAL_RADIUS / 2]
+    centre = nearby.mean(axis=0) if len(nearby) else best
+
+    # The average can drift into a wall if the cavity is bent; only keep it
+    # while it is still open space.
+    if tree.query(centre[None, :])[0][0] <= POCKET_CLEARANCE:
+        return best
+    return centre
 
 
 class BoxResidueSelect(ProteinOnlySelect):
@@ -247,6 +291,67 @@ def identify_accurate_growth(receptor_pdb, docked_pdb, contact_threshold=7.0, ma
     return hotspots[:max_hotspots]
 
 # ---------------- Run Vina ----------------
+# Clearance to leave around the ligand so Vina can translate and rotate it
+# inside the box. The box edge has to exceed the ligand by a real margin, not
+# merely contain it. Measured on a 9.2 A ligand, three runs per box edge:
+#
+#   margin  7.8 A -> +0.0, +16.7, -1.3   unusable
+#   margin  8.8 A -> -4.2, -3.1,  +0.9   unusable
+#   margin 10.8 A -> -5.7, -5.7,  -4.6   negative, still drifting
+#   margin 12.8 A -> -6.1, -6.1,  -5.5   converged
+#   margin 16.8 A -> -6.2, -6.2,  -6.1   converged
+#
+# Below ~10 A the result swings with Vina's random seed, which is what made
+# the same molecule and pocket score +0.1 on one call and +16.7 on the next.
+# 12 A sits past the failure threshold and at the start of convergence.
+BOX_LIGAND_MARGIN = 12.0
+
+
+def _ligand_diameter(ligand_pdbqt):
+    """Largest interatomic distance in a prepared ligand, in angstroms."""
+    coords = []
+    with open(ligand_pdbqt, 'r') as f:
+        for line in f:
+            if line.startswith(('ATOM', 'HETATM')):
+                coords.append((float(line[30:38]), float(line[38:46]),
+                               float(line[46:54])))
+    if len(coords) < 2:
+        return 0.0
+    points = np.asarray(coords)
+    return float(np.linalg.norm(points[:, None, :] - points[None, :, :],
+                                axis=2).max())
+
+
+def _box_for_ligand(size, ligand_pdbqt, ligand_name='ligand'):
+    """
+    Grow the search box until the ligand actually fits inside it.
+
+    Neither box came from the molecule being docked: the co-crystal route
+    sized it from the *reference* ligand's bounding box plus padding, and the
+    ligand-free route from the protein span, both capped at MAX_BOX_EDGE. A
+    query larger than the reference therefore could not be placed, and Vina
+    answered with a positive affinity. Measured on one receptor, the same
+    ligand and pocket gave +58.0, +45.2, +41.6 and +16.7 kcal/mol in 8, 10, 12
+    and 15 A boxes and -5.0 and -6.3 in 20 and 30 A boxes. Those positives are
+    not weak binding, they are a box that cannot hold the molecule, and the
+    non-negative guard then discarded them as "no pose could be placed" --
+    true, but the box was the cause.
+
+    The ligand's own diameter plus BOX_LIGAND_MARGIN is the floor. It can
+    exceed MAX_BOX_EDGE for an unusually long molecule: a correct score from a
+    slower search beats a fast meaningless one.
+    """
+    size = np.asarray(size, dtype=float)
+    needed = _ligand_diameter(ligand_pdbqt) + BOX_LIGAND_MARGIN
+    if needed <= size.min():
+        return size
+    grown = np.maximum(size, needed)
+    print(f"vina: box {np.round(size, 1)} is too small for {ligand_name} "
+          f"(diameter {needed - BOX_LIGAND_MARGIN:.1f} A); "
+          f"enlarged to {np.round(grown, 1)} A.")
+    return grown
+
+
 def _affinity_from_pose(out_pdbqt):
     """
     The best mode's affinity, taken from the pose file Vina wrote.
@@ -291,6 +396,10 @@ def _affinity_from_log(log_file):
 def run_vina(receptor_pdbqt, ligand_pdbqt, center, size, ligand_name='ligand', save_dir='./temp'):
     out_pdbqt = os.path.join(save_dir, f"docked_{ligand_name}.pdbqt")
     log_file = os.path.join(save_dir, f"log_{ligand_name}.txt")
+
+    # The box is sized from the structure, not from this molecule; make sure
+    # the molecule fits before searching it.
+    size = _box_for_ligand(size, ligand_pdbqt, ligand_name)
 
     cmd = [
         VINA_EXE,
