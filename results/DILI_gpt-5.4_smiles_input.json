@@ -2,939 +2,939 @@
   "CCc1oc2ccccc2c1C(=O)c1cc(I)c(O)c(I)c1": {
     "candidate_1": {
       "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(I)c(O)c(I)c1",
-      "smiles_after": "CCc1oc2cc(F)ccc2c1C(=O)c1cc(I)c(O)c(I)c1",
+      "smiles_after": "CCc1oc2cccc(C(N)=O)c2c1C(=O)c1cc(C)ccc1C",
       "smiles_after_valid": true,
-      "modification": "Analog replaces one aromatic hydrogen on the benzofuran benzene ring with fluorine, retaining the diiodohydroxybenzoyl group and the rest of the parent molecular framework.",
+      "modification": "Scaffold replacement changes C17H12I2O3 to C20H19NO3. Iodine atom count changes from 2 to 0; nitrogen atom count changes from 0 to 1. Functional-group counts: amide groups 0 to 1; phenol groups 1 to 0.",
       "DILI_before": 0.9825776219367981,
-      "DILI_after": 0.9870097637176514,
-      "dili_reduction": -0.0044321417808532715,
-      "tanimoto_similarity": 0.7111111111111111,
-      "SA_after": 2.7185837290177908,
-      "QED_after": 0.3665777597874382
+      "DILI_after": 0.8799017071723938,
+      "dili_reduction": 0.1026759147644043,
+      "tanimoto_similarity": 0.40350877192982454,
+      "SA_after": 2.433647489304704,
+      "QED_after": 0.74
     }
   },
   "CN1c2c(oc(=O)n(-c3ccccn3)c2=O)-c2ccccc2S1(=O)=O": {
     "candidate_1": {
       "smiles_before": "CN1c2c(oc(=O)n(-c3ccccn3)c2=O)-c2ccccc2S1(=O)=O",
-      "smiles_after": "O=C(O)COc1ccc(C(=O)c2sccc2[N+](=O)[O-])c(Cl)c1Cl",
+      "smiles_after": "CNc1ccc(C)nc1-n1c(=O)oc2c(c1=O)N(C)S(=O)(=O)c1cc(C(N)=O)cc(O)c1-2",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H11N3O5S to C13H7Cl2NO6S. Total ring count changes from 4 to 2; aromatic ring count changes from 3 to 2; chlorine atom count changes from 0 to 2; nitrogen atom count changes from 3 to 1; oxygen atom count changes from 5 to 6. Functional-group counts: carboxylic acid groups 0 to 1; ketone groups 0 to 1; nitro groups 0 to 1; sulfonamide groups 1 to 0; ether groups 0 to 1.",
+      "modification": "Scaffold replacement changes C16H11N3O5S to C19H17N5O7S. Nitrogen atom count changes from 3 to 5; oxygen atom count changes from 5 to 7. Functional-group counts: amide groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.9783022403717041,
-      "DILI_after": 0.9779214262962341,
-      "dili_reduction": 0.0003808140754699707,
-      "tanimoto_similarity": 0.060240963855421686,
-      "SA_after": 2.604579723346042,
-      "QED_after": 0.4684998990866243
+      "DILI_after": 0.9715286493301392,
+      "dili_reduction": 0.006773591041564941,
+      "tanimoto_similarity": 0.34615384615384615,
+      "SA_after": 3.4428950160989773,
+      "QED_after": 0.491
     }
   },
   "CCc1oc2ccccc2c1C(=O)c1cc(Br)c(O)c(Br)c1": {
     "candidate_1": {
       "smiles_before": "CCc1oc2ccccc2c1C(=O)c1cc(Br)c(O)c(Br)c1",
-      "smiles_after": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cc(-c4cccnc4)nc3F)C(=O)OC12C",
+      "smiles_after": "CCc1oc2c(F)c(C(N)=O)c(F)c(N)c2c1C(=O)c1ccc(O)cc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C17H12Br2O3 to C43H64FN5O10. Total ring count changes from 3 to 5; aromatic ring count changes from 3 to 2; bromine atom count changes from 2 to 0; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 5; oxygen atom count changes from 3 to 10. Functional-group counts: ester groups 0 to 2; amide groups 0 to 1; ketone groups 1 to 2; alcohol groups 0 to 1; phenol groups 1 to 0; ether groups 0 to 3.",
+      "modification": "Scaffold replacement changes C17H12Br2O3 to C18H14F2N2O4. Bromine atom count changes from 2 to 0; fluorine atom count changes from 0 to 2; nitrogen atom count changes from 0 to 2; oxygen atom count changes from 3 to 4. Functional-group counts: amide groups 0 to 1; primary amine groups 0 to 1.",
       "DILI_before": 0.971276581287384,
-      "DILI_after": 0.9466301798820496,
-      "dili_reduction": 0.024646401405334473,
-      "tanimoto_similarity": 0.08064516129032258,
-      "SA_after": 6.148175792736029,
-      "QED_after": 0.1811282681973976
+      "DILI_after": 0.9433813095092773,
+      "dili_reduction": 0.02789527177810669,
+      "tanimoto_similarity": 0.3064516129032258,
+      "SA_after": 2.9195565224306943,
+      "QED_after": 0.488
     }
   },
   "NC(N)=NN=C(C=Cc1ccc([N+](=O)[O-])o1)C=Cc1ccc([N+](=O)[O-])o1": {
     "candidate_1": {
       "smiles_before": "NC(N)=NN=C(C=Cc1ccc([N+](=O)[O-])o1)C=Cc1ccc([N+](=O)[O-])o1",
-      "smiles_after": "Fc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "N#Cc1cc(F)oc1C=CC(C=Cc1oc(N)c(F)c1CO)=NN=C(N)N",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C14H12N6O6 to C10H6FN3S. Total ring count changes from 2 to 3; aromatic ring count changes from 2 to 3; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 6 to 3; oxygen atom count changes from 6 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: nitro groups 2 to 0.",
+      "modification": "Scaffold replacement changes C14H12N6O6 to C16H14F2N6O3. Fluorine atom count changes from 0 to 2; oxygen atom count changes from 6 to 3. Functional-group counts: nitro groups 2 to 0; nitrile groups 0 to 1; alcohol groups 0 to 1; primary amine groups 2 to 3.",
       "DILI_before": 0.9507754445075989,
-      "DILI_after": 0.9699026942253113,
-      "dili_reduction": -0.019127249717712402,
-      "tanimoto_similarity": 0.045454545454545456,
-      "SA_after": 2.6866068950276922,
-      "QED_after": 0.6833507293527684
+      "DILI_after": 0.7819313406944275,
+      "dili_reduction": 0.1688441038131714,
+      "tanimoto_similarity": 0.2923076923076923,
+      "SA_after": 4.219501013813073,
+      "QED_after": 0.335
     }
   },
   "CC1CN(c2cc3c(cc2F)c(=O)c(C(=O)O)cn3-c2ccc(F)cc2F)CCN1": {
     "candidate_1": {
       "smiles_before": "CC1CN(c2cc3c(cc2F)c(=O)c(C(=O)O)cn3-c2ccc(F)cc2F)CCN1",
-      "smiles_after": "Nc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "CC1CN(c2ccc3c(=O)c(C(=O)O)c(C(N)=O)n(-c4c(F)cc(F)cc4CO)c3c2)CCN1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C21H18F3N3O3 to C10H8N4S. Total ring count changes from 4 to 3; fluorine atom count changes from 3 to 0; nitrogen atom count changes from 3 to 4; oxygen atom count changes from 3 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 1 to 0.",
+      "modification": "Scaffold replacement changes C21H18F3N3O3 to C23H22F2N4O5. Fluorine atom count changes from 3 to 2; nitrogen atom count changes from 3 to 4; oxygen atom count changes from 3 to 5. Functional-group counts: amide groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.9280855655670166,
-      "DILI_after": 0.9647326469421387,
-      "dili_reduction": -0.03664708137512207,
-      "tanimoto_similarity": 0.047619047619047616,
-      "SA_after": 2.7722233285941265,
-      "QED_after": 0.6130035071078117
+      "DILI_after": 0.8538557887077332,
+      "dili_reduction": 0.07422977685928345,
+      "tanimoto_similarity": 0.4,
+      "SA_after": 3.516736768801433,
+      "QED_after": 0.44
     }
   },
   "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2": {
     "candidate_1": {
       "smiles_before": "Cc1cc2c(cc1CC(=O)c1sccc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
-      "smiles_after": "CN1c2c(oc(=O)n(-c3ccccc3)c2=O)-c2ccccc2S1(=O)=O",
+      "smiles_after": "Cc1cc(NS(=O)(=O)c2c(C(N)=O)csc2C(=O)Cc2ccc3c(c2)OCO3)on1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C18H15ClN2O6S2 to C17H12N2O5S. Chlorine atom count changes from 1 to 0; oxygen atom count changes from 6 to 5; sulfur atom count changes from 2 to 1. Functional-group counts: ketone groups 1 to 0; ether groups 2 to 0.",
+      "modification": "Scaffold replacement changes C18H15ClN2O6S2 to C18H15N3O7S2. Chlorine atom count changes from 1 to 0; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 6 to 7. Functional-group counts: amide groups 0 to 1.",
       "DILI_before": 0.9718226790428162,
-      "DILI_after": 0.9698675870895386,
-      "dili_reduction": 0.001955091953277588,
-      "tanimoto_similarity": 0.06666666666666667,
-      "SA_after": 2.709809917495324,
-      "QED_after": 0.6605576439088257
+      "DILI_after": 0.9700267314910889,
+      "dili_reduction": 0.001795947551727295,
+      "tanimoto_similarity": 0.38095238095238093,
+      "SA_after": 2.9388971096612675,
+      "QED_after": 0.521
     }
   },
   "NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC12": {
     "candidate_1": {
       "smiles_before": "NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC12",
-      "smiles_after": "Clc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "Cc1c(Cl)ccc(-n2c(F)c(C(=O)O)c(=O)c3ccc(N4CC5C(N)C5C4)nc32)c1F",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C20H15F3N4O3 to C10H6ClN3S. Total ring count changes from 5 to 3; chlorine atom count changes from 0 to 1; fluorine atom count changes from 3 to 0; nitrogen atom count changes from 4 to 3; oxygen atom count changes from 3 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 1 to 0.",
+      "modification": "Scaffold replacement changes C20H15F3N4O3 to C21H17ClF2N4O3. Chlorine atom count changes from 0 to 1; fluorine atom count changes from 3 to 2.",
       "DILI_before": 0.9121536016464233,
-      "DILI_after": 0.9651036858558655,
-      "dili_reduction": -0.05295008420944214,
-      "tanimoto_similarity": 0.06097560975609756,
-      "SA_after": 2.6770561957269923,
-      "QED_after": 0.702956957758927
+      "DILI_after": 0.9073529839515686,
+      "dili_reduction": 0.004800617694854736,
+      "tanimoto_similarity": 0.3703703703703704,
+      "SA_after": 3.845138925069442,
+      "QED_after": 0.6
     }
   },
   "Cc1onc(-c2ccccc2Cl)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O": {
     "candidate_1": {
       "smiles_before": "Cc1onc(-c2ccccc2Cl)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
-      "smiles_after": "Fc1ccc2[nH]c(-c3cscn3)nc2c1",
+      "smiles_after": "CCc1onc(-c2cccc(F)c2)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C19H18ClN3O5S to C10H6FN3S. Total ring count changes from 4 to 3; aromatic ring count changes from 2 to 3; chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 1; oxygen atom count changes from 5 to 0. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 2 to 0.",
+      "modification": "Scaffold replacement changes C19H18ClN3O5S to C20H20FN3O5S. Chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 1.",
       "DILI_before": 0.9366534948348999,
-      "DILI_after": 0.9625776410102844,
-      "dili_reduction": -0.02592414617538452,
-      "tanimoto_similarity": 0.05747126436781609,
-      "SA_after": 2.4824296223004207,
-      "QED_after": 0.6833507293527683
+      "DILI_after": 0.9088432788848877,
+      "dili_reduction": 0.027810215950012207,
+      "tanimoto_similarity": 0.5512820512820513,
+      "SA_after": 3.7496116942767204,
+      "QED_after": 0.696
     }
   },
   "c1ccc2[nH]c(-c3cscn3)nc2c1": {
     "candidate_1": {
       "smiles_before": "c1ccc2[nH]c(-c3cscn3)nc2c1",
-      "smiles_after": "COc1ccc2c(C(=O)c3ccc(Cl)cc3[N+](=O)[O-])c(C)n(CC(=O)O)c2c1",
+      "smiles_after": "Cc1cc(C)c2nc(-c3nc(CO)sc3F)[nH]c2c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C10H7N3S to C19H15ClN2O6. Chlorine atom count changes from 0 to 1; nitrogen atom count changes from 3 to 2; oxygen atom count changes from 0 to 6; sulfur atom count changes from 1 to 0. Functional-group counts: carboxylic acid groups 0 to 1; ketone groups 0 to 1; nitro groups 0 to 1; ether groups 0 to 1.",
+      "modification": "Scaffold replacement changes C10H7N3S to C13H12FN3OS. Fluorine atom count changes from 0 to 1; oxygen atom count changes from 0 to 1. Functional-group counts: alcohol groups 0 to 1.",
       "DILI_before": 0.9525693655014038,
-      "DILI_after": 0.9709412455558777,
-      "dili_reduction": -0.018371880054473877,
-      "tanimoto_similarity": 0.0375,
-      "SA_after": 2.372442564905578,
-      "QED_after": 0.3806468777149215
+      "DILI_after": 0.9016977548599243,
+      "dili_reduction": 0.05087161064147949,
+      "tanimoto_similarity": 0.1864406779661017,
+      "SA_after": 2.9221020639889588,
+      "QED_after": 0.757
     }
   },
   "Cc1nc([N+](=O)[O-])cn1-c1ccc([N+](=O)[O-])cc1": {
     "candidate_1": {
       "smiles_before": "Cc1nc([N+](=O)[O-])cn1-c1ccc([N+](=O)[O-])cc1",
-      "smiles_after": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccc(C#N)cc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C",
+      "smiles_after": "N#Cc1ccc(-n2cnc(F)c2O)cc1CO",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C10H8N4O4 to C44H52N2O14. Total ring count changes from 2 to 6; nitrogen atom count changes from 4 to 2; oxygen atom count changes from 4 to 14. Functional-group counts: ester groups 0 to 4; amide groups 0 to 1; ketone groups 0 to 1; nitrile groups 0 to 1; nitro groups 2 to 0; alcohol groups 0 to 4; ether groups 0 to 1.",
+      "modification": "Scaffold replacement changes C10H8N4O4 to C11H8FN3O2. Fluorine atom count changes from 0 to 1; nitrogen atom count changes from 4 to 3; oxygen atom count changes from 4 to 2. Functional-group counts: nitro groups 2 to 0; nitrile groups 0 to 1; alcohol groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.9497749209403992,
-      "DILI_after": 0.9261094927787781,
-      "dili_reduction": 0.023665428161621094,
-      "tanimoto_similarity": 0.05785123966942149,
-      "SA_after": 6.037802610902045,
-      "QED_after": 0.14569806769155705
+      "DILI_after": 0.8794224858283997,
+      "dili_reduction": 0.07035243511199951,
+      "tanimoto_similarity": 0.15,
+      "SA_after": 2.990616827339739,
+      "QED_after": 0.813
     }
   },
   "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C": {
     "candidate_1": {
       "smiles_before": "CC(=O)OC12COC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(OC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4ccccc4)C21)C3(C)C",
-      "smiles_after": "N#Cc1ccc2[nH]c(-c3cscn3)nc2c1",
+      "smiles_after": "CC(=O)OC12CNC1CC(O)C1(C)C(=O)C(O)C3=C(C)C(NC(=O)C(O)C(NC(=O)OC(C)(C)C)c4ccccc4)CC(O)(C(OC(=O)c4cccc(C)c4)C21)C3(C)C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C43H53NO14 to C11H6N4S. Total ring count changes from 6 to 3; aromatic ring count changes from 2 to 3; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 14 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 4 to 0; amide groups 1 to 0; ketone groups 1 to 0; nitrile groups 0 to 1; alcohol groups 4 to 0; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C43H53NO14 to C44H57N3O12. Nitrogen atom count changes from 1 to 3; oxygen atom count changes from 14 to 12. Functional-group counts: ester groups 4 to 3; amide groups 1 to 2; ether groups 5 to 3.",
       "DILI_before": 0.905093252658844,
-      "DILI_after": 0.9522189497947693,
-      "dili_reduction": -0.04712569713592529,
-      "tanimoto_similarity": 0.024390243902439025,
-      "SA_after": 2.634281372238675,
-      "QED_after": 0.6930558268390308
+      "DILI_after": 0.9010353088378906,
+      "dili_reduction": 0.004057943820953369,
+      "tanimoto_similarity": 0.6228070175438597,
+      "SA_after": 6.167560391910942,
+      "QED_after": 0.116
     }
   },
   "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC21": {
     "candidate_1": {
       "smiles_before": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3ccc(F)cc3F)CC21",
-      "smiles_after": "CC(N)C(=O)NC(C)C(=O)NC1C2CN(c3nc4c(cc3F)c(=O)c(C(=O)O)cn4-c3c(F)cc(F)cc3F)CC21",
+      "smiles_after": "CC(N)C(=O)N(C)C(C)C(=O)NC1C2CN(c3ccc4c(=O)c(C(=O)O)cn(-c5c(F)cc(F)cc5CO)c4n3)CC21",
       "smiles_after_valid": true,
-      "modification": "Analog replaces one hydrogen on the difluorophenyl substituent with fluorine, forming a trifluorophenyl group while retaining the remaining molecular framework.",
+      "modification": "Scaffold replacement changes C26H25F3N6O5 to C28H30F2N6O6. Fluorine atom count changes from 3 to 2; oxygen atom count changes from 5 to 6. Functional-group counts: alcohol groups 0 to 1.",
       "DILI_before": 0.9108446836471558,
-      "DILI_after": 0.915753185749054,
-      "dili_reduction": -0.004908502101898193,
-      "tanimoto_similarity": 0.8333333333333334,
-      "SA_after": 4.199633615166793,
-      "QED_after": 0.3038680619888649
+      "DILI_after": 0.8671519756317139,
+      "dili_reduction": 0.043692708015441895,
+      "tanimoto_similarity": 0.48958333333333326,
+      "SA_after": 4.355421931683759,
+      "QED_after": 0.296
     }
   },
   "O=C(c1cc(O)c(O)c(O)c1)c1ccc(O)c(O)c1O": {
     "candidate_1": {
       "smiles_before": "O=C(c1cc(O)c(O)c(O)c1)c1ccc(O)c(O)c1O",
-      "smiles_after": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cc(-c4cccnc4)nc3[N+](=O)[O-])C(=O)OC12C",
+      "smiles_after": "N#Cc1c(O)cccc1C(=O)c1ccc(O)cc1O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H10O7 to C43H64N6O12. Total ring count changes from 2 to 5; nitrogen atom count changes from 0 to 6; oxygen atom count changes from 7 to 12. Functional-group counts: ester groups 0 to 2; amide groups 0 to 1; ketone groups 1 to 2; nitro groups 0 to 1; alcohol groups 0 to 1; phenol groups 6 to 0; ether groups 0 to 3.",
-      "DILI_before": 0.9390589594841003,
-      "DILI_after": 0.9650025367736816,
-      "dili_reduction": -0.0259435772895813,
-      "tanimoto_similarity": 0.05084745762711865,
-      "SA_after": 6.217961280045548,
-      "QED_after": 0.0994427244397485
+      "modification": "Scaffold replacement changes C13H10O7 to C14H9NO4. Nitrogen atom count changes from 0 to 1; oxygen atom count changes from 7 to 4. Functional-group counts: nitrile groups 0 to 1; phenol groups 6 to 3.",
+      "DILI_before": 0.9390588402748108,
+      "DILI_after": 0.8391455411911011,
+      "dili_reduction": 0.09991329908370972,
+      "tanimoto_similarity": 0.2727272727272727,
+      "SA_after": 2.368811665418008,
+      "QED_after": 0.711
     }
   },
   "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(Br)cc1": {
     "candidate_1": {
       "smiles_before": "Nc1c(CC(=O)O)cccc1C(=O)c1ccc(Br)cc1",
-      "smiles_after": "O=C1OCCN1N=Cc1oc([N+](=O)[O-])cc1F",
+      "smiles_after": "Cc1ccc(C)c(C(=O)c2c(N)c(CC(=O)O)c(C)c(C#N)c2O)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C15H12BrNO3 to C8H6FN3O5. Aromatic ring count changes from 2 to 1; bromine atom count changes from 1 to 0; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 3 to 5. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; ketone groups 1 to 0; nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C15H12BrNO3 to C19H18N2O4. Bromine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 2; oxygen atom count changes from 3 to 4. Functional-group counts: nitrile groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.9423115253448486,
-      "DILI_after": 0.9317115545272827,
-      "dili_reduction": 0.010599970817565918,
-      "tanimoto_similarity": 0.056338028169014086,
-      "SA_after": 3.611652179221899,
-      "QED_after": 0.4495507614118305
+      "DILI_after": 0.8191737532615662,
+      "dili_reduction": 0.12313777208328247,
+      "tanimoto_similarity": 0.25,
+      "SA_after": 2.7197393480647545,
+      "QED_after": 0.581
     }
   },
   "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1Cl": {
     "candidate_1": {
       "smiles_before": "O=C(O)COc1ccc(C(=O)c2cccs2)c(Cl)c1Cl",
-      "smiles_after": "O=C1OCCN1N=Cc1oc([N+](=O)[O-])cc1Br",
+      "smiles_after": "CNC(=O)COc1cc(CO)c(C(=O)c2sc(C)c(F)c2C#N)cc1Cl",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H8Cl2O4S to C8H6BrN3O5. Aromatic ring count changes from 2 to 1; bromine atom count changes from 0 to 1; chlorine atom count changes from 2 to 0; nitrogen atom count changes from 0 to 3; oxygen atom count changes from 4 to 5; sulfur atom count changes from 1 to 0. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; ketone groups 1 to 0; nitro groups 0 to 1; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C13H8Cl2O4S to C17H14ClFN2O4S. Chlorine atom count changes from 2 to 1; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 2. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; nitrile groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.9474446773529053,
-      "DILI_after": 0.9532651901245117,
-      "dili_reduction": -0.005820512771606445,
-      "tanimoto_similarity": 0.039473684210526314,
-      "SA_after": 3.6501739468160075,
-      "QED_after": 0.48094632514380253
+      "DILI_after": 0.9013053774833679,
+      "dili_reduction": 0.046139299869537354,
+      "tanimoto_similarity": 0.20779220779220778,
+      "SA_after": 2.9482299290241016,
+      "QED_after": 0.731
     }
   },
   "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cnc(-c4cccnc4)c3)C(=O)OC12C": {
     "candidate_1": {
       "smiles_before": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cnc(-c4cccnc4)c3)C(=O)OC12C",
-      "smiles_after": "Nc1c(CC(=O)O)ccc([N+](=O)[O-])c1C(=O)c1ccc(Br)cc1",
+      "smiles_after": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(O)C(C)C2N(CCCCn3cc(-c4ccc(C)nc4C)nc3O)C(=O)OC12C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C43H65N5O10 to C15H11BrN2O5. Total ring count changes from 5 to 2; bromine atom count changes from 0 to 1; nitrogen atom count changes from 5 to 2; oxygen atom count changes from 10 to 5. Functional-group counts: carboxylic acid groups 0 to 1; ester groups 2 to 0; amide groups 1 to 0; ketone groups 2 to 1; nitro groups 0 to 1; alcohol groups 1 to 0; ether groups 3 to 0.",
+      "modification": "Scaffold replacement changes C43H65N5O10 to C45H71N5O11. Oxygen atom count changes from 10 to 11. Functional-group counts: ketone groups 2 to 1; alcohol groups 1 to 2; phenol groups 0 to 1.",
       "DILI_before": 0.9377343654632568,
-      "DILI_after": 0.9741618633270264,
-      "dili_reduction": -0.03642749786376953,
-      "tanimoto_similarity": 0.05555555555555555,
-      "SA_after": 2.350929351137605,
-      "QED_after": 0.35638927972759366
+      "DILI_after": 0.9302017688751221,
+      "dili_reduction": 0.007532596588134766,
+      "tanimoto_similarity": 0.6083333333333333,
+      "SA_after": 6.342479783777099,
+      "QED_after": 0.154
     }
   },
   "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(Br)cc2)cs1": {
     "candidate_1": {
       "smiles_before": "NC(N)=Nc1nc(CSCCN=CNS(=O)(=O)c2ccc(Br)cc2)cs1",
-      "smiles_after": "CC1CN(c2c(F)cc3c(=O)c(C(=O)O)cn(-c4ccc(F)cc4F)c3c2C#N)CCN1",
+      "smiles_after": "Cc1ccc(S(=O)(=O)NC=NCCOCc2nc(N=C(N)N)sc2CO)c(C(F)(F)F)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C14H17BrN6O2S3 to C22H17F3N4O3. Total ring count changes from 2 to 4; aromatic ring count changes from 2 to 3; bromine atom count changes from 1 to 0; fluorine atom count changes from 0 to 3; nitrogen atom count changes from 6 to 4; oxygen atom count changes from 2 to 3; sulfur atom count changes from 3 to 0. Functional-group counts: carboxylic acid groups 0 to 1; nitrile groups 0 to 1; sulfonamide groups 1 to 0.",
+      "modification": "Scaffold replacement changes C14H17BrN6O2S3 to C17H21F3N6O4S2. Bromine atom count changes from 1 to 0; fluorine atom count changes from 0 to 3; oxygen atom count changes from 2 to 4; sulfur atom count changes from 3 to 2. Functional-group counts: alcohol groups 0 to 1; ether groups 0 to 1; thioether groups 2 to 1.",
       "DILI_before": 0.953167736530304,
-      "DILI_after": 0.9235607385635376,
-      "dili_reduction": 0.029606997966766357,
-      "tanimoto_similarity": 0.04504504504504504,
-      "SA_after": 3.34337040772089,
-      "QED_after": 0.6475021116157395
+      "DILI_after": 0.9278045296669006,
+      "dili_reduction": 0.02536320686340332,
+      "tanimoto_similarity": 0.31868131868131866,
+      "SA_after": 3.523351662820339,
+      "QED_after": 0.22
     }
   },
   "COc1ccc2c(C(=O)c3ccc(Cl)cc3)c(C)n(CC(=O)O)c2c1": {
     "candidate_1": {
       "smiles_before": "COc1ccc2c(C(=O)c3ccc(Cl)cc3)c(C)n(CC(=O)O)c2c1",
-      "smiles_after": "c1ccc2[nH]c(-c3cscn3)nc2c1",
+      "smiles_after": "COc1cc(C)c2c(C(=O)c3ccc(F)cc3F)c(C)n(CC(N)=O)c2c1C(F)(F)F",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C19H16ClNO4 to C10H7N3S. Chlorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 4 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 1 to 0; ketone groups 1 to 0; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C19H16ClNO4 to C21H17F5N2O3. Chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 5; nitrogen atom count changes from 1 to 2; oxygen atom count changes from 4 to 3. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1.",
       "DILI_before": 0.948302686214447,
-      "DILI_after": 0.9525693655014038,
-      "dili_reduction": -0.004266679286956787,
-      "tanimoto_similarity": 0.04285714285714286,
-      "SA_after": 2.3032684977800493,
-      "QED_after": 0.6572828314318542
+      "DILI_after": 0.9449067115783691,
+      "dili_reduction": 0.003395974636077881,
+      "tanimoto_similarity": 0.2564102564102564,
+      "SA_after": 2.8867706829644995,
+      "QED_after": 0.476
     }
   },
   "Cc1ccc(C(=O)c2cc(O)c(O)c([N+](=O)[O-])c2)cc1": {
     "candidate_1": {
       "smiles_before": "Cc1ccc(C(=O)c2cc(O)c(O)c([N+](=O)[O-])c2)cc1",
-      "smiles_after": "N#Cc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "Cc1ccc(C(=O)c2cc(O)c(O)c(F)c2C)c(C#N)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C14H11NO5 to C11H6N4S. Total ring count changes from 2 to 3; aromatic ring count changes from 2 to 3; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 5 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ketone groups 1 to 0; nitrile groups 0 to 1; nitro groups 1 to 0; phenol groups 2 to 0.",
+      "modification": "Scaffold replacement changes C14H11NO5 to C16H12FNO3. Fluorine atom count changes from 0 to 1; oxygen atom count changes from 5 to 3. Functional-group counts: nitro groups 1 to 0; nitrile groups 0 to 1.",
       "DILI_before": 0.9283504486083984,
-      "DILI_after": 0.9575117230415344,
-      "dili_reduction": -0.029161274433135986,
-      "tanimoto_similarity": 0.04477611940298507,
-      "SA_after": 2.8255792445791013,
-      "QED_after": 0.6930558268390308
+      "DILI_after": 0.8509749174118042,
+      "dili_reduction": 0.07737553119659424,
+      "tanimoto_similarity": 0.2909090909090909,
+      "SA_after": 2.6372010380145863,
+      "QED_after": 0.656
     }
   },
   "O=C(O)c1cc(-c2ccccc2)nc2ccccc12": {
     "candidate_1": {
       "smiles_before": "O=C(O)c1cc(-c2ccccc2)nc2ccccc12",
-      "smiles_after": "O=C1OCCN1N=Cc1oc([N+](=O)[O-])cc1[N+](=O)[O-]",
+      "smiles_after": "O=C(O)c1c(CO)c(-c2ccc(F)cc2)nc2cc(CO)ccc12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H11NO2 to C8H6N4O7. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 1; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 2 to 7. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; nitro groups 0 to 2.",
+      "modification": "Scaffold replacement changes C16H11NO2 to C18H14FNO4. Fluorine atom count changes from 0 to 1; oxygen atom count changes from 2 to 4. Functional-group counts: alcohol groups 0 to 2.",
       "DILI_before": 0.9242715239524841,
-      "DILI_after": 0.9425623416900635,
-      "dili_reduction": -0.018290817737579346,
-      "tanimoto_similarity": 0.0625,
-      "SA_after": 3.5571897719268843,
-      "QED_after": 0.4485628578294873
+      "DILI_after": 0.8098600506782532,
+      "dili_reduction": 0.11441147327423096,
+      "tanimoto_similarity": 0.25925925925925924,
+      "SA_after": 2.255264032463039,
+      "QED_after": 0.685
     }
   },
   "O=C(O)Cc1csc(-c2ccc(Cl)cc2)n1": {
     "candidate_1": {
       "smiles_before": "O=C(O)Cc1csc(-c2ccc(Cl)cc2)n1",
-      "smiles_after": "O=C1OCCN1N=Cc1cc(Br)c([N+](=O)[O-])o1",
+      "smiles_after": "CNC(=O)Cc1nc(-c2ccc(Cl)c(F)c2CO)sc1C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H8ClNO2S to C8H6BrN3O5. Aromatic ring count changes from 2 to 1; bromine atom count changes from 0 to 1; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 2 to 5; sulfur atom count changes from 1 to 0. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C11H8ClNO2S to C14H14ClFN2O2S. Fluorine atom count changes from 0 to 1; nitrogen atom count changes from 1 to 2. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.9354375004768372,
-      "DILI_after": 0.946411669254303,
-      "dili_reduction": -0.01097416877746582,
-      "tanimoto_similarity": 0.057971014492753624,
-      "SA_after": 3.4989680548356468,
-      "QED_after": 0.4809463251438025
+      "DILI_after": 0.8545224666595459,
+      "dili_reduction": 0.08091503381729126,
+      "tanimoto_similarity": 0.21875,
+      "SA_after": 2.7418347135495793,
+      "QED_after": 0.907
     }
   },
   "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)cc1)O2": {
     "candidate_1": {
       "smiles_before": "Cc1c(C)c2c(c(C)c1O)CCC(C)(COc1ccc(CC3SC(=O)NC3=O)cc1)O2",
-      "smiles_after": "c1ccc2[nH]c(-c3cnc[nH]3)nc2c1",
+      "smiles_after": "CCc1c(OCC2(C)CCc3cc(C)c(C)c(C)c3O2)ccc(CC2SC(=O)NC2=O)c1CO",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C24H27NO5S to C10H8N4. Total ring count changes from 4 to 3; aromatic ring count changes from 2 to 3; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 5 to 0; sulfur atom count changes from 1 to 0. Functional-group counts: amide groups 2 to 0; phenol groups 1 to 0; ether groups 2 to 0.",
+      "modification": "Scaffold replacement changes C24H27NO5S to C27H33NO5S. Functional-group counts: alcohol groups 0 to 1; phenol groups 1 to 0.",
       "DILI_before": 0.911084771156311,
-      "DILI_after": 0.9473998546600342,
-      "dili_reduction": -0.036315083503723145,
-      "tanimoto_similarity": 0.04938271604938271,
-      "SA_after": 2.376982783494336,
-      "QED_after": 0.6069046816987199
+      "DILI_after": 0.8091349601745605,
+      "dili_reduction": 0.10194981098175049,
+      "tanimoto_similarity": 0.475609756097561,
+      "SA_after": 3.917616577681338,
+      "QED_after": 0.593
     }
   },
   "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccccc1": {
     "candidate_1": {
       "smiles_before": "CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1Oc1ccccc1",
-      "smiles_after": "O=C(O)c1cc(-c2cccc([N+](=O)[O-])c2)nc2ccccc12",
+      "smiles_after": "CS(=O)(=O)Nc1ccc(F)cc1Nc1ccccc1O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H12N2O5S to C16H10N2O4. Total ring count changes from 2 to 3; aromatic ring count changes from 2 to 3; oxygen atom count changes from 5 to 4; sulfur atom count changes from 1 to 0. Functional-group counts: carboxylic acid groups 0 to 1; sulfonamide groups 1 to 0; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C13H12N2O5S to C13H13FN2O3S. Fluorine atom count changes from 0 to 1; oxygen atom count changes from 5 to 3. Functional-group counts: nitro groups 1 to 0; phenol groups 0 to 1; ether groups 1 to 0.",
       "DILI_before": 0.9247965812683105,
-      "DILI_after": 0.9583911299705505,
-      "dili_reduction": -0.03359454870223999,
-      "tanimoto_similarity": 0.26229508196721313,
-      "SA_after": 1.8475662852264598,
-      "QED_after": 0.5889902701966063
+      "DILI_after": 0.8730548620223999,
+      "dili_reduction": 0.051741719245910645,
+      "tanimoto_similarity": 0.32727272727272727,
+      "SA_after": 2.039520550636194,
+      "QED_after": 0.758
     }
   },
   "COC(=O)Nc1nc2ccc(C(=O)c3ccc(F)cc3)cc2[nH]1": {
     "candidate_1": {
       "smiles_before": "COC(=O)Nc1nc2ccc(C(=O)c3ccc(F)cc3)cc2[nH]1",
-      "smiles_after": "O=C1OCCN1N=Cc1cc(Cl)c([N+](=O)[O-])o1",
+      "smiles_after": "COS(=O)(=O)Nc1nc2ccc(C(=O)c3ccccc3O)c(O)c2[nH]1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H12FN3O3 to C8H6ClN3O5. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 1; chlorine atom count changes from 0 to 1; fluorine atom count changes from 1 to 0; oxygen atom count changes from 3 to 5. Functional-group counts: ketone groups 1 to 0; nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C16H12FN3O3 to C15H13N3O6S. Fluorine atom count changes from 1 to 0; oxygen atom count changes from 3 to 6; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 1 to 0; amide groups 1 to 0; sulfonamide groups 0 to 1; phenol groups 0 to 2; ether groups 1 to 0.",
       "DILI_before": 0.9349966645240784,
-      "DILI_after": 0.9188151955604553,
-      "dili_reduction": 0.016181468963623047,
-      "tanimoto_similarity": 0.05128205128205128,
-      "SA_after": 3.5161755834772173,
-      "QED_after": 0.4665859103504185
+      "DILI_after": 0.8696792721748352,
+      "dili_reduction": 0.06531739234924316,
+      "tanimoto_similarity": 0.27941176470588236,
+      "SA_after": 2.934011771293699,
+      "QED_after": 0.503
     }
   },
   "O=C1OCCN1N=Cc1ccc([N+](=O)[O-])o1": {
     "candidate_1": {
       "smiles_before": "O=C1OCCN1N=Cc1ccc([N+](=O)[O-])o1",
-      "smiles_after": "Nc1cc([N+](=O)[O-])oc1C=NN1CCOC1=O",
+      "smiles_after": "N#Cc1oc(C=NN2CCNC2=O)c(S(N)(=O)=O)c1C(F)(F)F",
       "smiles_after_valid": true,
-      "modification": "Analog replaces one furan-ring hydrogen with an amino group (-NH2), retaining the nitro group, imine linker, and oxazolidinone ring.",
+      "modification": "Scaffold replacement changes C8H7N3O5 to C10H8F3N5O4S. Fluorine atom count changes from 0 to 3; nitrogen atom count changes from 3 to 5; oxygen atom count changes from 5 to 4; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 1 to 0; amide groups 1 to 2; nitro groups 1 to 0; nitrile groups 0 to 1; sulfonamide groups 0 to 1; ether groups 1 to 0; primary amine groups 0 to 1.",
       "DILI_before": 0.9164416193962097,
-      "DILI_after": 0.9167905449867249,
-      "dili_reduction": -0.0003489255905151367,
-      "tanimoto_similarity": 0.6382978723404256,
-      "SA_after": 3.6499824574543043,
-      "QED_after": 0.46705401637907135
+      "DILI_after": 0.8032543063163757,
+      "dili_reduction": 0.11318731307983398,
+      "tanimoto_similarity": 0.2318840579710145,
+      "SA_after": 3.736121866290354,
+      "QED_after": 0.747
     }
   },
   "Cc1cc(Br)c(O)c2ncccc12": {
     "candidate_1": {
       "smiles_before": "Cc1cc(Br)c(O)c2ncccc12",
-      "smiles_after": "O=C1OCCN1N=Cc1cc(F)c([N+](=O)[O-])o1",
+      "smiles_after": "Cc1cc(Br)cc2nc(CO)c(C(N)=O)c(N)c12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C10H8BrNO to C8H6FN3O5. Aromatic ring count changes from 2 to 1; bromine atom count changes from 1 to 0; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 1 to 5. Functional-group counts: ester groups 0 to 1; amide groups 0 to 1; nitro groups 0 to 1; phenol groups 1 to 0.",
+      "modification": "Scaffold replacement changes C10H8BrNO to C12H12BrN3O2. Nitrogen atom count changes from 1 to 3; oxygen atom count changes from 1 to 2. Functional-group counts: amide groups 0 to 1; alcohol groups 0 to 1; phenol groups 1 to 0; primary amine groups 0 to 1.",
       "DILI_before": 0.9055307507514954,
-      "DILI_after": 0.9278478026390076,
-      "dili_reduction": -0.022317051887512207,
-      "tanimoto_similarity": 0.04477611940298507,
-      "SA_after": 3.523852833886383,
-      "QED_after": 0.4495507614118305
+      "DILI_after": 0.7337179780006409,
+      "dili_reduction": 0.1718127727508545,
+      "tanimoto_similarity": 0.17857142857142858,
+      "SA_after": 2.7234115798380696,
+      "QED_after": 0.781
     }
   },
   "CC(C(=O)O)c1ccc2oc(-c3ccc(Cl)cc3)nc2c1": {
     "candidate_1": {
       "smiles_before": "CC(C(=O)O)c1ccc2oc(-c3ccc(Cl)cc3)nc2c1",
-      "smiles_after": "O=C(O)Cc1ccnc(-c2cccc(Cl)c2)c1",
+      "smiles_after": "CC(C(=O)O)c1c(C#N)c(C#N)c2oc(-c3ccccc3)nc2c1O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H12ClNO3 to C13H10ClNO2. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 2; oxygen atom count changes from 3 to 2.",
+      "modification": "Scaffold replacement changes C16H12ClNO3 to C18H11N3O4. Chlorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 3 to 4. Functional-group counts: nitrile groups 0 to 2; phenol groups 0 to 1.",
       "DILI_before": 0.8757185935974121,
-      "DILI_after": 0.8912489414215088,
-      "dili_reduction": -0.01553034782409668,
-      "tanimoto_similarity": 0.20967741935483872,
-      "SA_after": 1.8393031203020946,
-      "QED_after": 0.9070570915974081
+      "DILI_after": 0.7806977033615112,
+      "dili_reduction": 0.09502089023590088,
+      "tanimoto_similarity": 0.33333333333333326,
+      "SA_after": 3.3565656783334594,
+      "QED_after": 0.752
     }
   },
   "Cc1ccc(Nc2c(F)cccc2Cl)c(CC(=O)O)c1": {
     "candidate_1": {
       "smiles_before": "Cc1ccc(Nc2c(F)cccc2Cl)c(CC(=O)O)c1",
-      "smiles_after": "N#Cc1cc(C=NN2CCOC2=O)oc1[N+](=O)[O-]",
+      "smiles_after": "Cc1ccc(Nc2cc(CO)cc(C#N)c2Cl)c(CC(N)=O)c1F",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C15H13ClFNO2 to C9H6N4O5. Aromatic ring count changes from 2 to 1; chlorine atom count changes from 1 to 0; fluorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 2 to 5. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; nitrile groups 0 to 1; nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C15H13ClFNO2 to C17H15ClFN3O2. Nitrogen atom count changes from 1 to 3. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; nitrile groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.9032222628593445,
-      "DILI_after": 0.9069724082946777,
-      "dili_reduction": -0.003750145435333252,
-      "tanimoto_similarity": 0.04938271604938271,
-      "SA_after": 3.5558760413765302,
-      "QED_after": 0.44471292880315594
+      "DILI_after": 0.8568183183670044,
+      "dili_reduction": 0.04640394449234009,
+      "tanimoto_similarity": 0.2638888888888889,
+      "SA_after": 2.885498129433806,
+      "QED_after": 0.774
     }
   },
   "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(O)cc1": {
     "candidate_1": {
       "smiles_before": "O=C1Nc2ccccc2C1(c1ccc(O)cc1)c1ccc(O)cc1",
-      "smiles_after": "Cc1cc2c(cc1CC(=O)c1sc([N+](=O)[O-])cc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
+      "smiles_after": "CN1C(=O)C(c2ccc(O)cc2)(c2ccc(O)cc2)c2c(CO)cc(CO)cc21",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C20H15NO3 to C18H14ClN3O8S2. Chlorine atom count changes from 0 to 1; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 3 to 8; sulfur atom count changes from 0 to 2. Functional-group counts: amide groups 1 to 0; ketone groups 0 to 1; nitro groups 0 to 1; sulfonamide groups 0 to 1; phenol groups 2 to 0; ether groups 0 to 2.",
+      "modification": "Scaffold replacement changes C20H15NO3 to C23H21NO5. Oxygen atom count changes from 3 to 5. Functional-group counts: alcohol groups 0 to 2.",
       "DILI_before": 0.9035922288894653,
-      "DILI_after": 0.9859550595283508,
-      "dili_reduction": -0.0823628306388855,
-      "tanimoto_similarity": 0.046511627906976744,
-      "SA_after": 3.161475378759574,
-      "QED_after": 0.28982326338659675
+      "DILI_after": 0.7399854063987732,
+      "dili_reduction": 0.16360682249069214,
+      "tanimoto_similarity": 0.28846153846153844,
+      "SA_after": 2.8136375710938744,
+      "QED_after": 0.547
     }
   },
   "O=c1ccc2ccccc2o1": {
     "candidate_1": {
       "smiles_before": "O=c1ccc2ccccc2o1",
-      "smiles_after": "Cc1cc2c(cc1CC(=O)c1sc(C#N)cc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
+      "smiles_after": "CCc1c(F)ccc2oc(=O)c(C(N)=O)cc12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C9H6O2 to C19H14ClN3O6S2. Total ring count changes from 2 to 4; aromatic ring count changes from 2 to 3; chlorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 3; oxygen atom count changes from 2 to 6; sulfur atom count changes from 0 to 2. Functional-group counts: ketone groups 0 to 1; nitrile groups 0 to 1; sulfonamide groups 0 to 1; ether groups 0 to 2.",
+      "modification": "Scaffold replacement changes C9H6O2 to C12H10FNO3. Fluorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 1; oxygen atom count changes from 2 to 3. Functional-group counts: amide groups 0 to 1.",
       "DILI_before": 0.9005703330039978,
-      "DILI_after": 0.9740778207778931,
-      "dili_reduction": -0.07350748777389526,
-      "tanimoto_similarity": 0.05194805194805195,
-      "SA_after": 3.157876333298283,
-      "QED_after": 0.5273113983666408
+      "DILI_after": 0.820645809173584,
+      "dili_reduction": 0.07992452383041382,
+      "tanimoto_similarity": 0.163265306122449,
+      "SA_after": 2.2737144079275122,
+      "QED_after": 0.803
     }
   },
   "O=C1c2ccccc2C(=O)C1c1ccccc1": {
     "candidate_1": {
       "smiles_before": "O=C1c2ccccc2C(=O)C1c1ccccc1",
-      "smiles_after": "Cc1cc2c(cc1CC(=O)c1sc(F)cc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
+      "smiles_after": "Cc1ccc2c(c1)C(O)C(c1ccc(CO)cc1)C2=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C15H10O2 to C18H14ClFN2O6S2. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 3; chlorine atom count changes from 0 to 1; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 2; oxygen atom count changes from 2 to 6; sulfur atom count changes from 0 to 2. Functional-group counts: ketone groups 2 to 1; sulfonamide groups 0 to 1; ether groups 0 to 2.",
+      "modification": "Scaffold replacement changes C15H10O2 to C17H16O3. Oxygen atom count changes from 2 to 3. Functional-group counts: ketone groups 2 to 1; alcohol groups 0 to 2.",
       "DILI_before": 0.895304262638092,
-      "DILI_after": 0.9796715378761292,
-      "dili_reduction": -0.08436727523803711,
-      "tanimoto_similarity": 0.04054054054054054,
-      "SA_after": 3.1563826518299436,
-      "QED_after": 0.5378357729990312
+      "DILI_after": 0.7807750701904297,
+      "dili_reduction": 0.11452919244766235,
+      "tanimoto_similarity": 0.1956521739130435,
+      "SA_after": 2.964299620607674,
+      "QED_after": 0.879
     }
   },
   "O=C(O)Cc1ccccc1Oc1ccc(Cl)cc1Cl": {
     "candidate_1": {
       "smiles_before": "O=C(O)Cc1ccccc1Oc1ccc(Cl)cc1Cl",
-      "smiles_after": "Nc1ccc(CC(=O)O)c(N)c1C(=O)c1ccc(Br)cc1",
+      "smiles_after": "CNC(=O)Cc1c(CO)ccc(F)c1Oc1ccccc1Cl",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C14H10Cl2O3 to C15H13BrN2O3. Bromine atom count changes from 0 to 1; chlorine atom count changes from 2 to 0; nitrogen atom count changes from 0 to 2. Functional-group counts: ketone groups 0 to 1; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C14H10Cl2O3 to C16H15ClFNO3. Chlorine atom count changes from 2 to 1; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.9069503545761108,
-      "DILI_after": 0.953873336315155,
-      "dili_reduction": -0.04692298173904419,
-      "tanimoto_similarity": 0.2641509433962264,
-      "SA_after": 2.294895442294518,
-      "QED_after": 0.5807379274512102
+      "DILI_after": 0.8493554592132568,
+      "dili_reduction": 0.057594895362854004,
+      "tanimoto_similarity": 0.3448275862068966,
+      "SA_after": 2.3116474429370726,
+      "QED_after": 0.889
     }
   },
   "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC=C(C)C)c4)c(=O)oc3c2C)OC1(C)C": {
     "candidate_1": {
       "smiles_before": "COC1C(OC(N)=O)C(O)C(Oc2ccc3c(O)c(NC(=O)c4ccc(O)c(CC=C(C)C)c4)c(=O)oc3c2C)OC1(C)C",
-      "smiles_after": "Brc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "COC1C(OC(N)=O)C(O)C(Oc2ccc3cc(NC(=O)c4ccc(O)c(CC=C(C)C)c4CO)c(=O)oc3c2)NC1(C)C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C31H36N2O11 to C10H6BrN3S. Total ring count changes from 4 to 3; bromine atom count changes from 0 to 1; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 11 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 1 to 0; amide groups 2 to 0; alcohol groups 1 to 0; phenol groups 2 to 0; ether groups 3 to 0.",
+      "modification": "Scaffold replacement changes C31H36N2O11 to C31H37N3O10. Nitrogen atom count changes from 2 to 3; oxygen atom count changes from 11 to 10. Functional-group counts: alcohol groups 1 to 2; phenol groups 2 to 1; ether groups 4 to 3.",
       "DILI_before": 0.9055562019348145,
-      "DILI_after": 0.9798716902732849,
-      "dili_reduction": -0.07431548833847046,
-      "tanimoto_similarity": 0.027777777777777776,
-      "SA_after": 2.7631792726500706,
-      "QED_after": 0.7413961927471049
+      "DILI_after": 0.9141765236854553,
+      "dili_reduction": -0.00862032175064087,
+      "tanimoto_similarity": 0.39823008849557523,
+      "SA_after": 4.645492562357085,
+      "QED_after": 0.153
     }
   },
   "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1": {
     "candidate_1": {
       "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1",
-      "smiles_after": "N#Cc1ccc2nc(-c3cscn3)[nH]c2c1",
+      "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)c3ccc(C(N)=O)cc3N(C(C)=O)S2(=O)=O)cc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C26H21NO6 to C11H6N4S. Total ring count changes from 4 to 3; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 6 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 2 to 0; amide groups 2 to 0; nitrile groups 0 to 1.",
+      "modification": "Scaffold replacement changes C26H21NO6 to C26H22N2O8S. Nitrogen atom count changes from 1 to 2; oxygen atom count changes from 6 to 8; sulfur atom count changes from 0 to 1. Functional-group counts: sulfonamide groups 0 to 1.",
       "DILI_before": 0.8852103352546692,
-      "DILI_after": 0.9565226435661316,
-      "dili_reduction": -0.0713123083114624,
-      "tanimoto_similarity": 0.041666666666666664,
-      "SA_after": 2.597424089096286,
-      "QED_after": 0.6930558268390308
+      "DILI_after": 0.9100989699363708,
+      "dili_reduction": -0.02488863468170166,
+      "tanimoto_similarity": 0.38333333333333336,
+      "SA_after": 3.1172894046349295,
+      "QED_after": 0.397
     }
   },
   "O=C(O)COc1nn(Cc2ccccc2)c2ccccc12": {
     "candidate_1": {
       "smiles_before": "O=C(O)COc1nn(Cc2ccccc2)c2ccccc12",
-      "smiles_after": "N#Cc1cc([N+](=O)[O-])oc1C=CC(C=Cc1ccc([N+](=O)[O-])o1)=NN=C(N)N",
+      "smiles_after": "Cc1cc2c(OCC(N)=O)nn(Cc3ccccc3)c2cc1F",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H14N2O3 to C15H11N7O6. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 2; nitrogen atom count changes from 2 to 7; oxygen atom count changes from 3 to 6. Functional-group counts: carboxylic acid groups 1 to 0; nitrile groups 0 to 1; nitro groups 0 to 2; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C16H14N2O3 to C17H16FN3O2. Fluorine atom count changes from 0 to 1; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 3 to 2. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1.",
       "DILI_before": 0.7927863001823425,
-      "DILI_after": 0.9603568911552429,
-      "dili_reduction": -0.1675705909729004,
-      "tanimoto_similarity": 0.0625,
-      "SA_after": 3.764871680526798,
-      "QED_after": 0.3074123698450769
+      "DILI_after": 0.7541962265968323,
+      "dili_reduction": 0.038590073585510254,
+      "tanimoto_similarity": 0.5370370370370371,
+      "SA_after": 2.247846281849574,
+      "QED_after": 0.786
     }
   },
   "CC1CCc2cc(F)cc3c(=O)c(C(=O)O)cn1c23": {
     "candidate_1": {
       "smiles_before": "CC1CCc2cc(F)cc3c(=O)c(C(=O)O)cn1c23",
-      "smiles_after": "CC1CN(c2c(F)cc3c(=O)c(C(=O)O)cn(-c4ccc(F)cc4F)c3c2F)CCN1",
+      "smiles_after": "Cc1c(F)c(C(N)=O)c2c(=O)c(C(=O)N(C)C)c(C#N)n3c2c1CCC3C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C14H12FNO3 to C21H17F4N3O3. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 3; fluorine atom count changes from 1 to 4; nitrogen atom count changes from 1 to 3.",
+      "modification": "Scaffold replacement changes C14H12FNO3 to C19H19FN4O3. Nitrogen atom count changes from 1 to 4. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 2; nitrile groups 0 to 1.",
       "DILI_before": 0.8653585910797119,
-      "DILI_after": 0.9291905760765076,
-      "dili_reduction": -0.06383198499679565,
-      "tanimoto_similarity": 0.36619718309859156,
-      "SA_after": 3.2135741953362373,
-      "QED_after": 0.6190845230327446
+      "DILI_after": 0.7237219214439392,
+      "dili_reduction": 0.1416366696357727,
+      "tanimoto_similarity": 0.23684210526315788,
+      "SA_after": 3.83417377815283,
+      "QED_after": 0.866
     }
   },
   "NC1=NC(=O)C(c2ccccc2)O1": {
     "candidate_1": {
       "smiles_before": "NC1=NC(=O)C(c2ccccc2)O1",
-      "smiles_after": "COc1cc(S(=O)(=O)Nc2onc(C)c2Cl)c(C(=O)Cc2cc3c(cc2C)OCO3)s1",
+      "smiles_after": "Cc1cc(CO)ccc1C1NC(N)=NC1=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C9H8N2O2 to C19H17ClN2O7S2. Total ring count changes from 2 to 4; aromatic ring count changes from 1 to 3; chlorine atom count changes from 0 to 1; oxygen atom count changes from 2 to 7; sulfur atom count changes from 0 to 2. Functional-group counts: ketone groups 0 to 1; sulfonamide groups 0 to 1; ether groups 1 to 3.",
+      "modification": "Scaffold replacement changes C9H8N2O2 to C11H13N3O2. Nitrogen atom count changes from 2 to 3. Functional-group counts: alcohol groups 0 to 1; ether groups 1 to 0.",
       "DILI_before": 0.8645545244216919,
-      "DILI_after": 0.9667778611183167,
-      "dili_reduction": -0.10222333669662476,
-      "tanimoto_similarity": 0.06172839506172839,
-      "SA_after": 3.180350573012058,
-      "QED_after": 0.5004351863773558
+      "DILI_after": 0.7895533442497253,
+      "dili_reduction": 0.07500118017196655,
+      "tanimoto_similarity": 0.21153846153846154,
+      "SA_after": 3.322074623190768,
+      "QED_after": 0.652
     }
   },
   "CCOC(Nc1ccc(C(=O)O)cc1)C(=O)c1ccc(-c2ccccc2)cc1": {
     "candidate_1": {
       "smiles_before": "CCOC(Nc1ccc(C(=O)O)cc1)C(=O)c1ccc(-c2ccccc2)cc1",
-      "smiles_after": "N#Cc1cc([N+](=O)[O-])oc1C=NN1CCOC1=O",
+      "smiles_after": "CCOC(Nc1ccc(C(N)=O)cc1)C(=O)c1ccc(-c2cc(C)cc(O)c2)c(C#N)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C23H21NO4 to C9H6N4O5. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 1; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 4 to 5. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; ketone groups 1 to 0; nitrile groups 0 to 1; nitro groups 0 to 1; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C23H21NO4 to C25H23N3O4. Nitrogen atom count changes from 1 to 3. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; nitrile groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.9039729833602905,
-      "DILI_after": 0.9118678569793701,
-      "dili_reduction": -0.00789487361907959,
-      "tanimoto_similarity": 0.05128205128205128,
-      "SA_after": 3.6384074259919146,
-      "QED_after": 0.44471292880315594
+      "DILI_after": 0.83693927526474,
+      "dili_reduction": 0.06703370809555054,
+      "tanimoto_similarity": 0.4242424242424242,
+      "SA_after": 3.1413716413187522,
+      "QED_after": 0.367
     }
   },
   "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1": {
     "candidate_1": {
       "smiles_before": "CCc1oc2ccccc2c1C(=O)c1ccc(O)cc1",
-      "smiles_after": "Nc1ccc2[nH]c(-c3cscn3)nc2c1",
+      "smiles_after": "CCc1oc2ccccc2c1C(O)c1ccc(O)cc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C17H14O3 to C10H8N4S. Nitrogen atom count changes from 0 to 4; oxygen atom count changes from 3 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ketone groups 1 to 0; phenol groups 1 to 0.",
-      "DILI_before": 0.8043772578239441,
-      "DILI_after": 0.9589274525642395,
-      "dili_reduction": -0.1545501947402954,
-      "tanimoto_similarity": 0.046153846153846156,
-      "SA_after": 2.592113188733986,
-      "QED_after": 0.6130035071078117
+      "modification": "Analog applies a single-point change (ketone reduced to alcohol), retaining the rest of the parent molecular framework.",
+      "DILI_before": 0.804378867149353,
+      "DILI_after": 0.7574138045310974,
+      "dili_reduction": 0.046965062618255615,
+      "tanimoto_similarity": 0.5333333333333333,
+      "SA_after": 2.7163686638816458,
+      "QED_after": 0.76
     }
   },
   "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1": {
     "candidate_1": {
       "smiles_before": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
-      "smiles_after": "Cc1onc(-c2cc(Cl)ccc2Cl)c1C(=O)NC1C(=O)N2C1SC(C)(C)C2C(=O)O",
+      "smiles_after": "CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4C(N)=O)(c4c(F)cccc4Cl)O3)cc2C)CC1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C26H28Cl2N4O4 to C19H17Cl2N3O5S. Total ring count changes from 5 to 4; aromatic ring count changes from 3 to 2; nitrogen atom count changes from 4 to 3; oxygen atom count changes from 4 to 5; sulfur atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 0 to 1; amide groups 1 to 2; ether groups 3 to 0.",
+      "modification": "Scaffold replacement changes C26H28Cl2N4O4 to C28H31ClFN5O5. Chlorine atom count changes from 2 to 1; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 4 to 5; oxygen atom count changes from 4 to 5. Functional-group counts: amide groups 1 to 2.",
       "DILI_before": 0.9043059945106506,
-      "DILI_after": 0.9446413516998291,
-      "dili_reduction": -0.04033535718917847,
-      "tanimoto_similarity": 0.20754716981132076,
-      "SA_after": 3.6498904309871634,
-      "QED_after": 0.660289548252613
+      "DILI_after": 0.9221855998039246,
+      "dili_reduction": -0.017879605293273926,
+      "tanimoto_similarity": 0.45454545454545453,
+      "SA_after": 3.8351418908119577,
+      "QED_after": 0.442
     }
   },
   "CC1=CC(=O)c2ccccc2C1=O": {
     "candidate_1": {
       "smiles_before": "CC1=CC(=O)c2ccccc2C1=O",
-      "smiles_after": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
+      "smiles_after": "CC1=CC(=O)c2c(C(N)=O)cc(N)c(CO)c2C1=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H8O2 to C41H67NO15. Total ring count changes from 2 to 4; aromatic ring count changes from 1 to 0; nitrogen atom count changes from 0 to 1; oxygen atom count changes from 2 to 15. Functional-group counts: ester groups 0 to 4; ketone groups 2 to 1; ether groups 0 to 6.",
+      "modification": "Scaffold replacement changes C11H8O2 to C13H12N2O4. Nitrogen atom count changes from 0 to 2; oxygen atom count changes from 2 to 4. Functional-group counts: amide groups 0 to 1; alcohol groups 0 to 1; primary amine groups 0 to 1.",
       "DILI_before": 0.830897331237793,
-      "DILI_after": 0.9062384366989136,
-      "dili_reduction": -0.0753411054611206,
-      "tanimoto_similarity": 0.046511627906976744,
-      "SA_after": 6.74404467904715,
-      "QED_after": 0.18669955874238045
+      "DILI_after": 0.6832963824272156,
+      "dili_reduction": 0.1476009488105774,
+      "tanimoto_similarity": 0.26666666666666666,
+      "SA_after": 2.9069298666014394,
+      "QED_after": 0.654
     }
   },
   "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)Nc3ccccc32)cc1": {
     "candidate_1": {
       "smiles_before": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)Nc3ccccc32)cc1",
-      "smiles_after": "O=C1OCCN1N=Cc1cc([N+](=O)[O-])c([N+](=O)[O-])o1",
+      "smiles_after": "CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C)c3ccccc32)cc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C24H19NO5 to C8H6N4O7. Total ring count changes from 4 to 2; aromatic ring count changes from 3 to 1; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 5 to 7. Functional-group counts: ester groups 2 to 1; nitro groups 0 to 2.",
+      "modification": "Analog applies a single-point change (amide N-methylated), retaining the rest of the parent molecular framework.",
       "DILI_before": 0.846258282661438,
-      "DILI_after": 0.9364587068557739,
-      "dili_reduction": -0.09020042419433594,
-      "tanimoto_similarity": 0.056338028169014086,
-      "SA_after": 3.4778326713351673,
-      "QED_after": 0.4485628578294873
+      "DILI_after": 0.8615941405296326,
+      "dili_reduction": -0.01533585786819458,
+      "tanimoto_similarity": 0.5652173913043478,
+      "SA_after": 2.3935387168649953,
+      "QED_after": 0.478
     }
   },
   "CN1C(=O)CCS(=O)(=O)C1c1ccc(Cl)cc1": {
     "candidate_1": {
       "smiles_before": "CN1C(=O)CCS(=O)(=O)C1c1ccc(Cl)cc1",
-      "smiles_after": "Oc1cccc2nc(-c3cscn3)[nH]c12",
+      "smiles_after": "O=C1CCS(=O)(=O)C(c2c(O)ccc(C(F)(F)F)c2F)N1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H12ClNO3S to C10H7N3OS. Total ring count changes from 2 to 3; aromatic ring count changes from 1 to 3; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 3 to 1. Functional-group counts: amide groups 1 to 0; sulfone groups 1 to 0; phenol groups 0 to 1.",
+      "modification": "Scaffold replacement changes C11H12ClNO3S to C11H9F4NO4S. Chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 4; oxygen atom count changes from 3 to 4. Functional-group counts: phenol groups 0 to 1.",
       "DILI_before": 0.817627489566803,
-      "DILI_after": 0.952362060546875,
-      "dili_reduction": -0.13473457098007202,
-      "tanimoto_similarity": 0.047619047619047616,
-      "SA_after": 2.703367034887833,
-      "QED_after": 0.657513570092089
+      "DILI_after": 0.8131728172302246,
+      "dili_reduction": 0.004454672336578369,
+      "tanimoto_similarity": 0.22033898305084743,
+      "SA_after": 3.7941360619808995,
+      "QED_after": 0.766
     }
   },
   "COc1ccc2c(C(=S)N(C)CC(=O)O)cccc2c1C(F)(F)F": {
     "candidate_1": {
       "smiles_before": "COc1ccc2c(C(=S)N(C)CC(=O)O)cccc2c1C(F)(F)F",
-      "smiles_after": "O=C1OCCN1N=Cc1oc([N+](=O)[O-])cc1Cl",
+      "smiles_after": "CCOc1c(O)cc2c(C(=S)NCC(N)=O)c(C)c(O)cc2c1C(F)(F)F",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H14F3NO3S to C8H6ClN3O5. Aromatic ring count changes from 2 to 1; chlorine atom count changes from 0 to 1; fluorine atom count changes from 3 to 0; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 3 to 5; sulfur atom count changes from 1 to 0. Functional-group counts: carboxylic acid groups 1 to 0; ester groups 0 to 1; amide groups 0 to 1; nitro groups 0 to 1; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C16H14F3NO3S to C17H17F3N2O4S. Nitrogen atom count changes from 1 to 2; oxygen atom count changes from 3 to 4. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; phenol groups 0 to 2.",
       "DILI_before": 0.8859691023826599,
-      "DILI_after": 0.9301760792732239,
-      "dili_reduction": -0.044206976890563965,
-      "tanimoto_similarity": 0.03614457831325301,
-      "SA_after": 3.6039749288127334,
-      "QED_after": 0.4665859103504185
+      "DILI_after": 0.7879028916358948,
+      "dili_reduction": 0.09806621074676514,
+      "tanimoto_similarity": 0.2207792207792208,
+      "SA_after": 3.1835931341023755,
+      "QED_after": 0.574
     }
   },
   "CCOC(=O)Nc1ccc(NCc2ccc(F)cc2)nc1N": {
     "candidate_1": {
       "smiles_before": "CCOC(=O)Nc1ccc(NCc2ccc(F)cc2)nc1N",
-      "smiles_after": "CCOC(=O)Nc1ccc(NCc2cc(F)ccn2)nc1N",
+      "smiles_after": "CCOS(=O)(=O)Nc1cc(C)c(NCc2cc(N)c(F)cc2C)nc1N",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C15H17FN4O2 to C14H16FN5O2. Nitrogen atom count changes from 4 to 5.",
+      "modification": "Scaffold replacement changes C15H17FN4O2 to C16H22FN5O3S. Nitrogen atom count changes from 4 to 5; oxygen atom count changes from 2 to 3; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 1 to 0; amide groups 1 to 0; sulfonamide groups 0 to 1; ether groups 1 to 0; primary amine groups 1 to 2.",
       "DILI_before": 0.8468692898750305,
-      "DILI_after": 0.8623875975608826,
-      "dili_reduction": -0.01551830768585205,
-      "tanimoto_similarity": 0.6851851851851852,
-      "SA_after": 2.4877722405614477,
-      "QED_after": 0.7835308706244016
+      "DILI_after": 0.7194665670394897,
+      "dili_reduction": 0.12740272283554077,
+      "tanimoto_similarity": 0.2857142857142857,
+      "SA_after": 3.0879376213317924,
+      "QED_after": 0.539
     }
   },
   "COc1ccc(C2C(=O)c3ccccc3C2=O)cc1": {
     "candidate_1": {
       "smiles_before": "COc1ccc(C2C(=O)c3ccccc3C2=O)cc1",
-      "smiles_after": "COc1ccc(C(c2ccc(O)cc2)N2C(=O)c3ccccc32)cc1",
+      "smiles_after": "CCOc1cc(Cl)c(C2C(=O)c3cc(C#N)cc(CO)c3C2=O)cc1O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H12O3 to C21H17NO3. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 3; nitrogen atom count changes from 0 to 1. Functional-group counts: amide groups 0 to 1; ketone groups 2 to 0; phenol groups 0 to 1.",
+      "modification": "Scaffold replacement changes C16H12O3 to C19H14ClNO5. Chlorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 1; oxygen atom count changes from 3 to 5. Functional-group counts: nitrile groups 0 to 1; alcohol groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.8940194845199585,
-      "DILI_after": 0.893547773361206,
-      "dili_reduction": 0.0004717111587524414,
-      "tanimoto_similarity": 0.3695652173913043,
-      "SA_after": 2.4295254609421537,
-      "QED_after": 0.7811409064560066
+      "DILI_after": 0.8668097853660583,
+      "dili_reduction": 0.027209699153900146,
+      "tanimoto_similarity": 0.1875,
+      "SA_after": 3.313279255940982,
+      "QED_after": 0.8
     }
   },
   "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O": {
     "candidate_1": {
       "smiles_before": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
-      "smiles_after": "Fc1ccc2nc(-c3cscn3)[nH]c2c1",
+      "smiles_after": "CNC1CC(C)OC(OC2C(C)CC3(CN3)C(=O)C(C)C(OC(C)=O)C(C)C(C)NC(=O)C(C)C(OC3CC(N)C(OC(C)=O)C(C)O3)C2C)C1OC(C)=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C41H67NO15 to C10H6FN3S. Total ring count changes from 4 to 3; aromatic ring count changes from 0 to 3; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 15 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 4 to 0; ketone groups 1 to 0; ether groups 6 to 0.",
+      "modification": "Scaffold replacement changes C41H67NO15 to C39H66N4O12. Nitrogen atom count changes from 1 to 4; oxygen atom count changes from 15 to 12. Functional-group counts: ester groups 4 to 3; amide groups 0 to 1; ether groups 10 to 7; primary amine groups 0 to 1.",
       "DILI_before": 0.9062384366989136,
-      "DILI_after": 0.9686573147773743,
-      "dili_reduction": -0.06241887807846069,
-      "tanimoto_similarity": 0.00980392156862745,
-      "SA_after": 2.4480943076151043,
-      "QED_after": 0.6833507293527684
+      "DILI_after": 0.8433390259742737,
+      "dili_reduction": 0.06289941072463989,
+      "tanimoto_similarity": 0.4489795918367347,
+      "SA_after": 6.939586228119788,
+      "QED_after": 0.156
     }
   },
   "Cc1cc(O)c2ccccc2c1O": {
     "candidate_1": {
       "smiles_before": "Cc1cc(O)c2ccccc2c1O",
-      "smiles_after": "CCC1OC(=O)C(C)C(=O)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(OC)CC(C)C(=O)C(C)C2N(CCCCn3cnc(-c4cnccc4[N+](=O)[O-])c3)C(=O)OC12C",
+      "smiles_after": "Oc1cc(C(F)(F)F)c(O)c2cc(Cl)ccc12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H10O2 to C43H64N6O12. Total ring count changes from 2 to 5; nitrogen atom count changes from 0 to 6; oxygen atom count changes from 2 to 12. Functional-group counts: ester groups 0 to 2; amide groups 0 to 1; ketone groups 0 to 2; nitro groups 0 to 1; alcohol groups 0 to 1; phenol groups 2 to 0; ether groups 0 to 3.",
+      "modification": "Scaffold replacement changes C11H10O2 to C11H6ClF3O2. Chlorine atom count changes from 0 to 1; fluorine atom count changes from 0 to 3.",
       "DILI_before": 0.7959973216056824,
-      "DILI_after": 0.9735759496688843,
-      "dili_reduction": -0.1775786280632019,
-      "tanimoto_similarity": 0.06086956521739131,
-      "SA_after": 6.227973308017576,
-      "QED_after": 0.0994427244397485
+      "DILI_after": 0.7043824195861816,
+      "dili_reduction": 0.09161490201950073,
+      "tanimoto_similarity": 0.2894736842105263,
+      "SA_after": 2.301469658763633,
+      "QED_after": 0.707
     }
   },
   "O=C(CCNNC(=O)c1ccncc1)NCc1ccccc1": {
     "candidate_1": {
       "smiles_before": "O=C(CCNNC(=O)c1ccncc1)NCc1ccccc1",
-      "smiles_after": "Cc1cc(NC(=O)NCc2ccccc2)no1",
+      "smiles_after": "CN(Cc1ccccc1)C(=O)CCNNC(=O)c1ccncc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H18N4O2 to C12H13N3O2. Nitrogen atom count changes from 4 to 3.",
+      "modification": "Analog applies a single-point change (amide N-methylated), retaining the rest of the parent molecular framework.",
       "DILI_before": 0.7642921209335327,
-      "DILI_after": 0.8268383145332336,
-      "dili_reduction": -0.06254619359970093,
-      "tanimoto_similarity": 0.32727272727272727,
-      "SA_after": 1.766209438983413,
-      "QED_after": 0.8512761792570653
+      "DILI_after": 0.6933996677398682,
+      "dili_reduction": 0.07089245319366455,
+      "tanimoto_similarity": 0.6122448979591837,
+      "SA_after": 2.1053111016451638,
+      "QED_after": 0.598
     }
   },
   "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C": {
     "candidate_1": {
       "smiles_before": "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C",
-      "smiles_after": "COc1ccc2nc(-c3cnc[nH]3)[nH]c2c1",
+      "smiles_after": "Cc1c(NCS(=O)(=O)O)c(=O)n(-c2ccccc2CO)n1C",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H17N3O4S to C11H10N4O. Total ring count changes from 2 to 3; aromatic ring count changes from 2 to 3; nitrogen atom count changes from 3 to 4; oxygen atom count changes from 4 to 1; sulfur atom count changes from 1 to 0. Functional-group counts: ether groups 0 to 1.",
+      "modification": "Scaffold replacement changes C13H17N3O4S to C13H17N3O5S. Oxygen atom count changes from 4 to 5. Functional-group counts: alcohol groups 0 to 1.",
       "DILI_before": 0.6821311712265015,
-      "DILI_after": 0.8949331045150757,
-      "dili_reduction": -0.21280193328857422,
-      "tanimoto_similarity": 0.07246376811594203,
-      "SA_after": 2.4244561676560235,
-      "QED_after": 0.6848545063542688
+      "DILI_after": 0.6661362051963806,
+      "dili_reduction": 0.01599496603012085,
+      "tanimoto_similarity": 0.3793103448275862,
+      "SA_after": 2.7169489112936667,
+      "QED_after": 0.678
     }
   },
   "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(Cl)ccc12": {
     "candidate_1": {
       "smiles_before": "O=C(OCC(O)CO)c1ccccc1Nc1ccnc2cc(Cl)ccc12",
-      "smiles_after": "Cc1nc(C#N)cn1-c1ccc(F)cc1",
+      "smiles_after": "O=C(NCC(O)CO)c1ccccc1Nc1cc(O)nc2ccccc12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C19H17ClN2O4 to C11H8FN3. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 2; chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 4 to 0. Functional-group counts: ester groups 1 to 0; nitrile groups 0 to 1; alcohol groups 2 to 0.",
+      "modification": "Scaffold replacement changes C19H17ClN2O4 to C19H19N3O4. Chlorine atom count changes from 1 to 0; nitrogen atom count changes from 2 to 3. Functional-group counts: ester groups 1 to 0; amide groups 0 to 1; phenol groups 0 to 1; ether groups 1 to 0.",
       "DILI_before": 0.6646183133125305,
-      "DILI_after": 0.8764515519142151,
-      "dili_reduction": -0.21183323860168457,
-      "tanimoto_similarity": 0.05194805194805195,
-      "SA_after": 2.3909254264962243,
-      "QED_after": 0.7092143492577153
+      "DILI_after": 0.6704394817352295,
+      "dili_reduction": -0.005821168422698975,
+      "tanimoto_similarity": 0.4057971014492754,
+      "SA_after": 2.7422810011314596,
+      "QED_after": 0.461
     }
   },
   "CCCCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O": {
     "candidate_1": {
       "smiles_before": "CCCCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O",
-      "smiles_after": "Cc1cc2c(cc1CC(=O)c1sc(O)cc1S(=O)(=O)Nc1onc(C)c1Cl)OCO2",
+      "smiles_after": "CCCCC1C(=O)N(c2ccccc2)N(c2cccc(C)c2)C1=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C19H20N2O2 to C18H15ClN2O7S2. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 3; chlorine atom count changes from 0 to 1; oxygen atom count changes from 2 to 7; sulfur atom count changes from 0 to 2. Functional-group counts: amide groups 2 to 0; ketone groups 0 to 1; sulfonamide groups 0 to 1; phenol groups 0 to 1; ether groups 0 to 2.",
+      "modification": "Analog replaces one aromatic hydrogen with a methyl group, retaining the rest of the parent molecular framework.",
       "DILI_before": 0.499289870262146,
-      "DILI_after": 0.9732507467269897,
-      "dili_reduction": -0.47396087646484375,
-      "tanimoto_similarity": 0.0625,
-      "SA_after": 3.1712213914036225,
-      "QED_after": 0.5220575252193557
+      "DILI_after": 0.4655470848083496,
+      "dili_reduction": 0.03374278545379639,
+      "tanimoto_similarity": 0.7777777777777779,
+      "SA_after": 2.7974039744568877,
+      "QED_after": 0.778
     }
   },
   "Cc1cc(C(=O)NNCc2ccccc2)no1": {
     "candidate_1": {
       "smiles_before": "Cc1cc(C(=O)NNCc2ccccc2)no1",
-      "smiles_after": "Cc1cc(C(=O)NCc2cccc(O)c2)no1",
+      "smiles_after": "O=S(=O)(NNCc1ccccc1)c1cc(C(F)(F)F)on1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C12H13N3O2 to C12H12N2O3. Nitrogen atom count changes from 3 to 2; oxygen atom count changes from 2 to 3. Functional-group counts: phenol groups 0 to 1.",
+      "modification": "Scaffold replacement changes C12H13N3O2 to C11H10F3N3O3S. Fluorine atom count changes from 0 to 3; oxygen atom count changes from 2 to 3; sulfur atom count changes from 0 to 1. Functional-group counts: amide groups 1 to 0; sulfonamide groups 0 to 1.",
       "DILI_before": 0.8502906560897827,
-      "DILI_after": 0.8436082005500793,
-      "dili_reduction": 0.006682455539703369,
-      "tanimoto_similarity": 0.6,
-      "SA_after": 1.9542463895328623,
-      "QED_after": 0.8426926182285641
+      "DILI_after": 0.7424745559692383,
+      "dili_reduction": 0.10781610012054443,
+      "tanimoto_similarity": 0.3703703703703704,
+      "SA_after": 2.8262521084958294,
+      "QED_after": 0.819
     }
   },
   "CC(c1cc2ccccc2s1)N(O)C(N)=O": {
     "candidate_1": {
       "smiles_before": "CC(c1cc2ccccc2s1)N(O)C(N)=O",
-      "smiles_after": "CNC1CC(C)OC(OC2C(C)CC3(CO3)C(=O)C(C)C(OC(C)=O)C(C)C(C)OC(=O)C(C)C(OC3CC(OC)C(O)C(C)O3)C2C)C1OC(C)=O",
+      "smiles_after": "CC(c1sc2ccc(O)cc2c1N)N(O)S(N)(=O)=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H12N2O2S to C38H63NO14. Total ring count changes from 2 to 4; aromatic ring count changes from 2 to 0; nitrogen atom count changes from 2 to 1; oxygen atom count changes from 2 to 14; sulfur atom count changes from 1 to 0. Functional-group counts: ester groups 0 to 3; amide groups 2 to 0; ketone groups 0 to 1; alcohol groups 0 to 1; ether groups 0 to 6.",
+      "modification": "Scaffold replacement changes C11H12N2O2S to C10H13N3O4S2. Nitrogen atom count changes from 2 to 3; oxygen atom count changes from 2 to 4; sulfur atom count changes from 1 to 2. Functional-group counts: amide groups 2 to 0; sulfonamide groups 0 to 2; phenol groups 0 to 1; primary amine groups 0 to 2.",
       "DILI_before": 0.721323549747467,
-      "DILI_after": 0.8290823698043823,
-      "dili_reduction": -0.10775882005691528,
-      "tanimoto_similarity": 0.04950495049504951,
-      "SA_after": 6.7061431846493775,
-      "QED_after": 0.20898793953914618
+      "DILI_after": 0.6597075462341309,
+      "dili_reduction": 0.06161600351333618,
+      "tanimoto_similarity": 0.2807017543859649,
+      "SA_after": 3.6657932452131057,
+      "QED_after": 0.632
     }
   },
   "CN1CCN(C2=Nc3cc(Cl)ccc3Nc3ccccc32)CC1": {
     "candidate_1": {
       "smiles_before": "CN1CCN(C2=Nc3cc(Cl)ccc3Nc3ccccc32)CC1",
-      "smiles_after": "NC(N)=NN=C(C=Cc1ccc([N+](=O)[O-])o1)C=Cc1ccc(C(F)(F)F)o1",
+      "smiles_after": "Cc1ccc(O)c2c1Nc1ccccc1N=C2N1CCN(C)CC1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C18H19ClN4 to C15H12F3N5O4. Total ring count changes from 4 to 2; chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 3; nitrogen atom count changes from 4 to 5; oxygen atom count changes from 0 to 4. Functional-group counts: nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C18H19ClN4 to C19H22N4O. Chlorine atom count changes from 1 to 0; oxygen atom count changes from 0 to 1. Functional-group counts: phenol groups 0 to 1.",
       "DILI_before": 0.7183820605278015,
-      "DILI_after": 0.8443709015846252,
-      "dili_reduction": -0.12598884105682373,
-      "tanimoto_similarity": 0.036585365853658534,
-      "SA_after": 3.428079184291244,
-      "QED_after": 0.33895147025581135
+      "DILI_after": 0.6438062191009521,
+      "dili_reduction": 0.07457584142684937,
+      "tanimoto_similarity": 0.4482758620689655,
+      "SA_after": 2.592147185260922,
+      "QED_after": 0.782
     }
   },
   "O=C(COc1ccc(Cl)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1": {
     "candidate_1": {
       "smiles_before": "O=C(COc1ccc(Cl)cc1)N1CCN(Cc2ccc3c(c2)OCO3)CC1",
-      "smiles_after": "Cc1nc(-c2nc3ccccc3[nH]2)cs1",
+      "smiles_after": "CCc1cc(Cl)c(O)cc1OCS(=O)(=O)N1CCN(Cc2cc(N)c3c(c2)OCO3)CC1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C20H21ClN2O4 to C11H9N3S. Total ring count changes from 4 to 3; aromatic ring count changes from 2 to 3; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 4 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: amide groups 1 to 0; ether groups 3 to 0.",
+      "modification": "Scaffold replacement changes C20H21ClN2O4 to C21H26ClN3O6S. Nitrogen atom count changes from 2 to 3; oxygen atom count changes from 4 to 6; sulfur atom count changes from 0 to 1. Functional-group counts: amide groups 1 to 0; sulfonamide groups 0 to 1; phenol groups 0 to 1; primary amine groups 0 to 1.",
       "DILI_before": 0.8144764304161072,
-      "DILI_after": 0.9272573590278625,
-      "dili_reduction": -0.11278092861175537,
-      "tanimoto_similarity": 0.04054054054054054,
-      "SA_after": 2.1248464055172036,
-      "QED_after": 0.6776200690310495
+      "DILI_after": 0.7527709603309631,
+      "dili_reduction": 0.06170547008514404,
+      "tanimoto_similarity": 0.3291139240506329,
+      "SA_after": 2.9763248193190144,
+      "QED_after": 0.577
     }
   },
   "CN1Cc2c(N)cccc2C(c2ccccc2)C1": {
     "candidate_1": {
       "smiles_before": "CN1Cc2c(N)cccc2C(c2ccccc2)C1",
-      "smiles_after": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1OC(C)=O",
+      "smiles_after": "Nc1ccc(CO)c2c1CNCC2c1cc(C(F)(F)F)ccc1CO",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C16H18N2 to C39H65NO14. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 0; nitrogen atom count changes from 2 to 1; oxygen atom count changes from 0 to 14. Functional-group counts: ester groups 0 to 3; ketone groups 0 to 1; alcohol groups 0 to 1; ether groups 0 to 6.",
+      "modification": "Scaffold replacement changes C16H18N2 to C18H19F3N2O2. Fluorine atom count changes from 0 to 3; oxygen atom count changes from 0 to 2. Functional-group counts: alcohol groups 0 to 2.",
       "DILI_before": 0.7003658413887024,
-      "DILI_after": 0.8774509429931641,
-      "dili_reduction": -0.17708510160446167,
-      "tanimoto_similarity": 0.039603960396039604,
-      "SA_after": 6.670765537325987,
-      "QED_after": 0.21622288874873807
+      "DILI_after": 0.5239686369895935,
+      "dili_reduction": 0.1763972043991089,
+      "tanimoto_similarity": 0.18461538461538463,
+      "SA_after": 3.407832567965567,
+      "QED_after": 0.64
     }
   },
   "C=CCOc1ccc(CC(=O)O)cc1Cl": {
     "candidate_1": {
       "smiles_before": "C=CCOc1ccc(CC(=O)O)cc1Cl",
-      "smiles_after": "CN1Cc2c(N)cccc2C(c2ccccc2)C1",
+      "smiles_after": "C=CCNc1cc(C)c(CC(=O)NO)c(C#N)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H11ClO3 to C16H18N2. Total ring count changes from 1 to 3; aromatic ring count changes from 1 to 2; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 0 to 2; oxygen atom count changes from 3 to 0. Functional-group counts: carboxylic acid groups 1 to 0; ether groups 1 to 0.",
+      "modification": "Scaffold replacement changes C11H11ClO3 to C13H15N3O2. Chlorine atom count changes from 1 to 0; nitrogen atom count changes from 0 to 3; oxygen atom count changes from 3 to 2. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1; nitrile groups 0 to 1; ether groups 1 to 0.",
       "DILI_before": 0.696318507194519,
-      "DILI_after": 0.7003658413887024,
-      "dili_reduction": -0.00404733419418335,
-      "tanimoto_similarity": 0.06349206349206349,
-      "SA_after": 2.5939818105207415,
-      "QED_after": 0.7740399810607017
+      "DILI_after": 0.5750699639320374,
+      "dili_reduction": 0.12124854326248169,
+      "tanimoto_similarity": 0.19047619047619047,
+      "SA_after": 2.819604436980926,
+      "QED_after": 0.417
     }
   },
   "CNCCC(Oc1cccc2ccccc12)c1cccs1": {
     "candidate_1": {
       "smiles_before": "CNCCC(Oc1cccc2ccccc12)c1cccs1",
-      "smiles_after": "O=C1OCCN1N=Cc1cc(O)c([N+](=O)[O-])o1",
+      "smiles_after": "CCc1ccc(C(CCN)Nc2cccc3ccccc23)s1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C18H19NOS to C8H7N3O6. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 1; nitrogen atom count changes from 1 to 3; oxygen atom count changes from 1 to 6; sulfur atom count changes from 1 to 0. Functional-group counts: ester groups 0 to 1; amide groups 0 to 1; nitro groups 0 to 1; phenol groups 0 to 1; ether groups 1 to 0.",
-      "DILI_before": 0.7091197967529297,
-      "DILI_after": 0.8854085803031921,
-      "dili_reduction": -0.17628878355026245,
-      "tanimoto_similarity": 0.02564102564102564,
-      "SA_after": 3.4737886767669064,
-      "QED_after": 0.4717649714623403
+      "modification": "Scaffold replacement changes C18H19NOS to C19H22N2S. Nitrogen atom count changes from 1 to 2; oxygen atom count changes from 1 to 0. Functional-group counts: ether groups 1 to 0; primary amine groups 0 to 1.",
+      "DILI_before": 0.7091214656829834,
+      "DILI_after": 0.6907554864883423,
+      "dili_reduction": 0.018365979194641113,
+      "tanimoto_similarity": 0.3064516129032258,
+      "SA_after": 2.7201230627215,
+      "QED_after": 0.675
     }
   },
   "CCCN(CCC)C(=O)Cc1c(-c2ccc(Cl)cc2)nc2ccc(Cl)cn12": {
     "candidate_1": {
       "smiles_before": "CCCN(CCC)C(=O)Cc1c(-c2ccc(Cl)cc2)nc2ccc(Cl)cn12",
-      "smiles_after": "Nc1cc(C=NN2CCOC2=O)oc1[N+](=O)[O-]",
+      "smiles_after": "CCCN(CCC)S(=O)(=O)Cc1c(-c2ccc(F)cc2O)nc2ccc(Cl)c(C(N)=O)n12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C21H23Cl2N3O to C8H8N4O5. Total ring count changes from 3 to 2; aromatic ring count changes from 3 to 1; chlorine atom count changes from 2 to 0; nitrogen atom count changes from 3 to 4; oxygen atom count changes from 1 to 5. Functional-group counts: ester groups 0 to 1; nitro groups 0 to 1.",
+      "modification": "Scaffold replacement changes C21H23Cl2N3O to C21H24ClFN4O4S. Chlorine atom count changes from 2 to 1; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 3 to 4; oxygen atom count changes from 1 to 4; sulfur atom count changes from 0 to 1. Functional-group counts: sulfonamide groups 0 to 1; phenol groups 0 to 1.",
       "DILI_before": 0.857877254486084,
-      "DILI_after": 0.9114875793457031,
-      "dili_reduction": -0.05361032485961914,
-      "tanimoto_similarity": 0.05,
-      "SA_after": 3.562183112118788,
-      "QED_after": 0.46705401637907135
+      "DILI_after": 0.7733992338180542,
+      "dili_reduction": 0.08447802066802979,
+      "tanimoto_similarity": 0.2911392405063291,
+      "SA_after": 3.1083951641466,
+      "QED_after": 0.483
     }
   },
   "Nc1c2c(nc3ccccc13)CCCC2": {
     "candidate_1": {
       "smiles_before": "Nc1c2c(nc3ccccc13)CCCC2",
-      "smiles_after": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1O",
+      "smiles_after": "NC(=O)c1cc(F)c(CO)c2nc3c(c(N)c12)CCCC3",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H14N2 to C37H63NO13. Total ring count changes from 3 to 4; aromatic ring count changes from 2 to 0; nitrogen atom count changes from 2 to 1; oxygen atom count changes from 0 to 13. Functional-group counts: ester groups 0 to 2; ketone groups 0 to 1; alcohol groups 0 to 2; ether groups 0 to 6.",
+      "modification": "Scaffold replacement changes C13H14N2 to C15H16FN3O2. Fluorine atom count changes from 0 to 1; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 0 to 2. Functional-group counts: amide groups 0 to 1; alcohol groups 0 to 1.",
       "DILI_before": 0.6505780220031738,
-      "DILI_after": 0.832229733467102,
-      "dili_reduction": -0.18165171146392822,
-      "tanimoto_similarity": 0.020202020202020204,
-      "SA_after": 6.605803650276433,
-      "QED_after": 0.28925960454750366
+      "DILI_after": 0.5860327482223511,
+      "dili_reduction": 0.06454527378082275,
+      "tanimoto_similarity": 0.3148148148148148,
+      "SA_after": 2.8949361933764663,
+      "QED_after": 0.778
     }
   },
   "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12": {
     "candidate_1": {
       "smiles_before": "C=C1c2c(Cl)ccc(O)c2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12",
-      "smiles_after": "Brc1ccc2nc(-c3cscn3)[nH]c2c1",
+      "smiles_after": "C=C1c2ccccc2C(O)=C2C(=O)C3(O)C(O)=C(C(N)=O)C(=O)C(N(C)C)C3C(O)C12",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C22H21ClN2O8 to C10H6BrN3S. Total ring count changes from 4 to 3; aromatic ring count changes from 1 to 3; bromine atom count changes from 0 to 1; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 8 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: amide groups 1 to 0; ketone groups 2 to 0; alcohol groups 2 to 0; phenol groups 1 to 0.",
+      "modification": "Scaffold replacement changes C22H21ClN2O8 to C22H22N2O7. Chlorine atom count changes from 1 to 0; oxygen atom count changes from 8 to 7. Functional-group counts: phenol groups 1 to 0.",
       "DILI_before": 0.7052315473556519,
-      "DILI_after": 0.9745492339134216,
-      "dili_reduction": -0.2693176865577698,
-      "tanimoto_similarity": 0.04597701149425287,
-      "SA_after": 2.5107985034193003,
-      "QED_after": 0.7413961927471049
+      "DILI_after": 0.688628613948822,
+      "dili_reduction": 0.016602933406829834,
+      "tanimoto_similarity": 0.6923076923076923,
+      "SA_after": 4.277106935840913,
+      "QED_after": 0.403
     }
   },
   "CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1": {
     "candidate_1": {
       "smiles_before": "CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1",
-      "smiles_after": "Nc1ccc2nc(-c3cscn3)[nH]c2c1",
+      "smiles_after": "CC(C(N)=O)c1cc(F)c(N2CC=CC2)c(F)c1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H14ClNO2 to C10H8N4S. Total ring count changes from 2 to 3; aromatic ring count changes from 1 to 3; chlorine atom count changes from 1 to 0; nitrogen atom count changes from 1 to 4; oxygen atom count changes from 2 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: carboxylic acid groups 1 to 0.",
+      "modification": "Scaffold replacement changes C13H14ClNO2 to C13H14F2N2O. Chlorine atom count changes from 1 to 0; fluorine atom count changes from 0 to 2; nitrogen atom count changes from 1 to 2; oxygen atom count changes from 2 to 1. Functional-group counts: carboxylic acid groups 1 to 0; amide groups 0 to 1.",
       "DILI_before": 0.6256045699119568,
-      "DILI_after": 0.9600057601928711,
-      "dili_reduction": -0.3344011902809143,
-      "tanimoto_similarity": 0.0625,
-      "SA_after": 2.561012839083636,
-      "QED_after": 0.6130035071078117
+      "DILI_after": 0.5530099272727966,
+      "dili_reduction": 0.07259464263916016,
+      "tanimoto_similarity": 0.375,
+      "SA_after": 3.293622421558055,
+      "QED_after": 0.835
     }
   },
   "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(C)=O)cc2)cc1": {
     "candidate_1": {
       "smiles_before": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(C)=O)cc2)cc1",
-      "smiles_after": "Clc1ccc2[nH]c(-c3cscn3)nc2c1",
+      "smiles_after": "CC(=O)Oc1ccc(C(=C2CCCCC2)c2ccc(OC(C)=O)c(O)c2)cc1",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C23H24O4 to C10H6ClN3S. Aromatic ring count changes from 2 to 3; chlorine atom count changes from 0 to 1; nitrogen atom count changes from 0 to 3; oxygen atom count changes from 4 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 2 to 0.",
+      "modification": "Analog replaces one aromatic hydrogen with a hydroxyl group, retaining the rest of the parent molecular framework.",
       "DILI_before": 0.6119840741157532,
-      "DILI_after": 0.957831859588623,
-      "dili_reduction": -0.3458477854728699,
-      "tanimoto_similarity": 0.05,
-      "SA_after": 2.453242559363357,
-      "QED_after": 0.702956957758927
+      "DILI_after": 0.5564690232276917,
+      "dili_reduction": 0.05551505088806152,
+      "tanimoto_similarity": 0.7435897435897436,
+      "SA_after": 2.4458059867269277,
+      "QED_after": 0.596
     }
   },
   "CSc1ccc2c(c1)N(CCC1CCCCN1C)c1ccccc1S2": {
     "candidate_1": {
       "smiles_before": "CSc1ccc2c(c1)N(CCC1CCCCN1C)c1ccccc1S2",
-      "smiles_after": "COC1CC(OC2C(C)C(=O)OC(C)C(C)C(OC(C)=O)C(C)C(=O)C3(CO3)CC(C)C(OC3OC(C)CC(N(C)C)C3OC(C)=O)C2C)OC(C)C1O",
+      "smiles_after": "CSc1ccc2c(c1N)N(CCC1CCCCN1C)c1c(ccc(CO)c1N)O2",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C21H26N2S2 to C39H65NO14. Aromatic ring count changes from 2 to 0; nitrogen atom count changes from 2 to 1; oxygen atom count changes from 0 to 14; sulfur atom count changes from 2 to 0. Functional-group counts: ester groups 0 to 3; ketone groups 0 to 1; alcohol groups 0 to 1; ether groups 0 to 6.",
+      "modification": "Scaffold replacement changes C21H26N2S2 to C22H30N4O2S. Nitrogen atom count changes from 2 to 4; oxygen atom count changes from 0 to 2; sulfur atom count changes from 2 to 1. Functional-group counts: alcohol groups 0 to 1; ether groups 0 to 1; thioether groups 2 to 1; primary amine groups 0 to 2.",
       "DILI_before": 0.7055271863937378,
-      "DILI_after": 0.8698497414588928,
-      "dili_reduction": -0.16432255506515503,
-      "tanimoto_similarity": 0.034782608695652174,
-      "SA_after": 6.673900771322759,
-      "QED_after": 0.21622288874873807
+      "DILI_after": 0.5823785662651062,
+      "dili_reduction": 0.12314862012863159,
+      "tanimoto_similarity": 0.38028169014084506,
+      "SA_after": 3.6590993245231367,
+      "QED_after": 0.499
     }
   },
   "CCC1(c2ccc(N)cc2)CCC(=O)NC1=O": {
     "candidate_1": {
       "smiles_before": "CCC1(c2ccc(N)cc2)CCC(=O)NC1=O",
-      "smiles_after": "O=C(O)c1cc(-c2cccc(F)c2)nc2ccccc12",
+      "smiles_after": "CCC1(c2c(C)c(N)c(N)c(C)c2C#N)CCC(=O)N(C)C1=O",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C13H16N2O2 to C16H10FNO2. Total ring count changes from 2 to 3; aromatic ring count changes from 1 to 3; fluorine atom count changes from 0 to 1; nitrogen atom count changes from 2 to 1. Functional-group counts: carboxylic acid groups 0 to 1; amide groups 2 to 0.",
+      "modification": "Scaffold replacement changes C13H16N2O2 to C17H22N4O2. Nitrogen atom count changes from 2 to 4. Functional-group counts: nitrile groups 0 to 1; primary amine groups 1 to 2.",
       "DILI_before": 0.4092657268047333,
-      "DILI_after": 0.9439182281494141,
-      "dili_reduction": -0.5346525013446808,
-      "tanimoto_similarity": 0.06349206349206349,
-      "SA_after": 1.7043457549056082,
-      "QED_after": 0.7690845617652461
+      "DILI_after": 0.32312828302383423,
+      "dili_reduction": 0.08613744378089905,
+      "tanimoto_similarity": 0.2807017543859649,
+      "SA_after": 3.719456690047039,
+      "QED_after": 0.638
     }
   },
   "NC(=O)OCC(COC(N)=O)c1ccccc1": {
     "candidate_1": {
       "smiles_before": "NC(=O)OCC(COC(N)=O)c1ccccc1",
-      "smiles_after": "Cc1ccc2nc(-c3cscn3)[nH]c2c1",
+      "smiles_after": "NC(=O)NCC(COS(N)(=O)=O)c1ccc(O)cc1CO",
       "smiles_after_valid": true,
-      "modification": "Scaffold replacement changes C11H14N2O4 to C11H9N3S. Total ring count changes from 1 to 3; aromatic ring count changes from 1 to 3; nitrogen atom count changes from 2 to 3; oxygen atom count changes from 4 to 0; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 2 to 0; amide groups 2 to 0.",
+      "modification": "Scaffold replacement changes C11H14N2O4 to C11H17N3O6S. Nitrogen atom count changes from 2 to 3; oxygen atom count changes from 4 to 6; sulfur atom count changes from 0 to 1. Functional-group counts: ester groups 2 to 0; sulfonamide groups 0 to 1; alcohol groups 0 to 1; phenol groups 0 to 1; ether groups 2 to 0; primary amine groups 0 to 1.",
       "DILI_before": 0.5381460189819336,
-      "DILI_after": 0.9379882216453552,
-      "dili_reduction": -0.39984220266342163,
-      "tanimoto_similarity": 0.05357142857142857,
-      "SA_after": 2.404139062859862,
-      "QED_after": 0.6776200690310495
+      "DILI_after": 0.513261079788208,
+      "dili_reduction": 0.024884939193725586,
+      "tanimoto_similarity": 0.23636363636363636,
+      "SA_after": 3.445004933109769,
+      "QED_after": 0.426
     }
   }
 }
