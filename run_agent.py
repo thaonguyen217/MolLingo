@@ -333,13 +333,20 @@ def build_parser() -> argparse.ArgumentParser:
                    help="GPT fragment proposals per hotspot (default: 5).")
     p.add_argument("--leads", type=int, default=3, metavar="N",
                    help="Number of leads to pass to lead optimization (default: 3).")
-    p.add_argument("--variants", type=int, default=None, metavar="N",
+    p.add_argument("--variants", type=int, default=15, metavar="N",
                    help="Block substitution modifications proposed per lead "
-                        "optimization iteration (default: sized by the "
-                        "orchestrator; the paper used 15).")
-    p.add_argument("--iterations", type=int, default=None, metavar="N",
-                   help="Lead optimization iterations (default: sized by the "
-                        "orchestrator; the paper used 2).")
+                        "optimization iteration (default: 15, the setting "
+                        "reported in the paper).")
+    p.add_argument("--iterations", type=int, default=2, metavar="N",
+                   help="Lead optimization iterations (default: 2, the "
+                        "setting reported in the paper).")
+    p.add_argument("--plan-budget", action="store_true",
+                   help="Let the orchestrator choose the number of "
+                        "modifications and iterations from the lead's "
+                        "headroom instead of using the fixed 15 x 2. This is "
+                        "an extension beyond the paper, which fixes both "
+                        "values for every reported experiment; it overrides "
+                        "--variants and --iterations.")
     p.add_argument("--no-fragment-growing", action="store_true",
                    help="Skip fragment growing and go directly to lead optimization.")
     p.add_argument("--react", action="store_true",
@@ -457,8 +464,11 @@ def main():
             num_growing_hits=args.growing_hits,
             num_fragment_candidates=args.frags,
             num_leads=args.leads,
-            variants=args.variants,
-            iterations=args.iterations,
+            # None hands the decision to the orchestrator; a number pins it.
+            # The paper fixes 15 x 2 for every reported experiment, so that is
+            # what a plain run uses.
+            variants=None if args.plan_budget else args.variants,
+            iterations=None if args.plan_budget else args.iterations,
             skip_fragment_growing=args.no_fragment_growing,
             save_path=args.save,
     )
