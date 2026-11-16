@@ -327,8 +327,11 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Set bbbp_desired=False (peripheral/non-CNS drug).")
 
     # Pipeline scale
-    p.add_argument("--hits", type=int, default=30, metavar="N",
-                   help="Number of ChEMBL hit candidates to retrieve (default: 30).")
+    p.add_argument("--hits", type=int, default=1, metavar="N",
+                   help="Number of ChEMBL hit candidates to retrieve (default: "
+                        "1, the setting reported in the paper). Raising it "
+                        "gives the orchestrator further hits to fall back on "
+                        "if the first yields no candidate.")
     p.add_argument("--growing-hits", type=int, default=5, metavar="N",
                    help="Number of top hits to run fragment growing on (default: 5).")
     p.add_argument("--frags", type=int, default=5, metavar="N",
