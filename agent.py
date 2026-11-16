@@ -40,7 +40,6 @@ import re
 import json
 import math
 from ast import literal_eval
-from itertools import product
 from typing import Any, Optional
 
 from rdkit import Chem
@@ -374,12 +373,6 @@ class ChemistAgent(_Agent):
     CLUSTER_CUTOFF = 0.7
     # Hit-to-lead prompt guideline (Appendix K): keep analogs conservative.
     MIN_SIMILARITY = 0.4
-    # How many blocks one enumerated variant may change at once. §2.3.3 asks
-    # for conservative, single-block edits, so each accepted proposal becomes
-    # one molecule. Raise it to explore combinations of proposals, at the cost
-    # of larger structural deviation from the lead.
-    MAX_BLOCKS_EDITED = 1
-
     # Populated per iteration by _enumerate_variants; declared here so the
     # record-writing path works even if enumeration never ran.
     _edit_rationales: dict = {}
@@ -1185,20 +1178,16 @@ class ChemistAgent(_Agent):
         # molecules, 61% of which replaced all three blocks at once. That is
         # wholesale redesign the LLM never proposed, and it dragged mean
         # similarity to the lead below the 0.4 the prompt asks for.
-        if self.MAX_BLOCKS_EDITED <= 1:
-            combos = []
-            for position, block in enumerate(blocks):
-                for substitute in substitutions[block]:
-                    combo = list(blocks)
-                    combo[position] = substitute
-                    combos.append(tuple(combo))
-        else:
-            choices = [[block] + substitutions[block] for block in blocks]
-            combos = (
-                combo for combo in product(*choices)
-                if 0 < sum(1 for b, c in zip(blocks, combo) if c != b)
-                <= self.MAX_BLOCKS_EDITED
-            )
+        # One proposal, one candidate: the parent with that single block
+        # replaced. Combining proposals would evaluate molecules the agent
+        # never proposed and make the number of candidates unrelated to the
+        # number of modifications requested.
+        combos = []
+        for position, block in enumerate(blocks):
+            for substitute in substitutions[block]:
+                combo = list(blocks)
+                combo[position] = substitute
+                combos.append(tuple(combo))
 
         seen, enumerated = {_canonical(smiles)}, []
         for combo in combos:
